@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SciMath Battle Flashcards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Kalam:wght@700&family=Lexend:wght@400;500;600&display=swap">
+<style>
+:root {
+  --paper: #edf1f7;
+  --board: #ffffff;
+  --board-edge: #c9d3e3;
+  --ink: #16233f;
+  --ink-soft: #52607d;
+  --line: #d8e0ec;
+  --marker: #1f4fd1;
+  --marker-soft: #e3eafc;
+  --easy: #13875a;
+  --easy-soft: #dcf2e7;
+  --average: #a86f00;
+  --average-soft: #fbefd2;
+  --difficult: #c23636;
+  --difficult-soft: #fbe1e1;
+  --warm: #25707f;
+  --warm-soft: #dcf0f3;
+  --memo: #6b44b8;
+  --memo-soft: #ece4fa;
+  --shadow: 0 1px 0 rgba(22,35,63,.06), 0 10px 30px -12px rgba(22,35,63,.28);
+  --display: "Baloo 2", "Trebuchet MS", system-ui, sans-serif;
+  --body: "Lexend", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --hand: "Kalam", "Comic Sans MS", "Chalkboard SE", cursive;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --paper: #0f1629; --board: #18223a; --board-edge: #2c3a5c; --ink: #e9eef9; --ink-soft: #a3afc9;
+    --line: #2a3654; --marker: #8aa8ff; --marker-soft: #22325c;
+    --easy: #4fd39b; --easy-soft: #143a2c; --average: #f2c14e; --average-soft: #3d3014;
+    --difficult: #ff8585; --difficult-soft: #45191d; --warm: #6fd0e0; --warm-soft: #123840;
+    --memo: #b99bff; --memo-soft: #2d2350;
+    --shadow: 0 1px 0 rgba(0,0,0,.3), 0 14px 34px -14px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #0f1629; --board: #18223a; --board-edge: #2c3a5c; --ink: #e9eef9; --ink-soft: #a3afc9;
+  --line: #2a3654; --marker: #8aa8ff; --marker-soft: #22325c;
+  --easy: #4fd39b; --easy-soft: #143a2c; --average: #f2c14e; --average-soft: #3d3014;
+  --difficult: #ff8585; --difficult-soft: #45191d; --warm: #6fd0e0; --warm-soft: #123840;
+  --memo: #b99bff; --memo-soft: #2d2350;
+  --shadow: 0 1px 0 rgba(0,0,0,.3), 0 14px 34px -14px rgba(0,0,0,.7);
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 15px/1.55 var(--body);
+  padding-inline: 16px;
+  padding-block: 20px 48px;
+}
+button { font: inherit; color: inherit; cursor: pointer; }
+button:focus-visible, summary:focus-visible, .card:focus-visible { outline: 3px solid var(--marker); outline-offset: 3px; }
+
+.wrap { max-width: 1120px; margin: 0 auto; display: grid; gap: 20px; }
+
+/* Header */
+.top { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px 24px; }
+.brand h1 { font: 800 clamp(28px, 5vw, 40px)/1 var(--display); margin: 0; letter-spacing: -.01em; text-wrap: balance; }
+.brand h1 span { color: var(--marker); }
+.brand p { margin: 6px 0 0; color: var(--ink-soft); font-size: 14px; }
+.overall { display: grid; gap: 6px; min-width: min(260px, 100%); }
+.overall .row { display: flex; justify-content: space-between; font-size: 13px; color: var(--ink-soft); }
+.overall strong { color: var(--ink); font-variant-numeric: tabular-nums; }
+.meter { height: 8px; border-radius: 99px; background: var(--line); overflow: hidden; }
+.meter i { display: block; height: 100%; width: 0; background: var(--easy); border-radius: inherit; transition: width .4s ease; }
+
+.layout { display: grid; grid-template-columns: 290px minmax(0, 1fr); gap: 24px; align-items: start; }
+@media (max-width: 860px) { .layout { grid-template-columns: minmax(0, 1fr); } }
+
+/* Deck list */
+.decks { background: var(--board); border: 1px solid var(--line); border-radius: 14px; }
+.decks > summary { list-style: none; display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; font-weight: 600; }
+.decks > summary::-webkit-details-marker { display: none; }
+.decks > summary .cur { color: var(--ink-soft); font-weight: 400; font-size: 13px; text-align: right; }
+@media (min-width: 861px) { .decks > summary { display: none; } .decks { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); max-height: calc(100vh - 32px); overflow: auto; } }
+.deck-body { padding: 4px 8px 12px; display: grid; gap: 6px; }
+.group-name { font: 600 11px/1 var(--body); letter-spacing: .09em; text-transform: uppercase; color: var(--ink-soft); padding: 14px 8px 4px; }
+.deck-btn {
+  display: grid; grid-template-columns: 10px 1fr auto; align-items: center; gap: 10px;
+  width: 100%; text-align: left; background: none; border: 0; border-radius: 9px; padding: 8px 10px; font-size: 14px;
+}
+.deck-btn:hover { background: var(--paper); }
+.deck-btn[aria-pressed="true"] { background: var(--marker-soft); font-weight: 600; }
+.dot { width: 10px; height: 10px; border-radius: 50%; background: var(--c, var(--warm)); }
+.deck-count { font-size: 12px; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.deck-count.done { color: var(--easy); font-weight: 600; }
+
+/* Round color mapping */
+[data-round="easy"] { --c: var(--easy); --c-soft: var(--easy-soft); }
+[data-round="average"] { --c: var(--average); --c-soft: var(--average-soft); }
+[data-round="difficult"] { --c: var(--difficult); --c-soft: var(--difficult-soft); }
+[data-round="warm"] { --c: var(--warm); --c-soft: var(--warm-soft); }
+[data-round="memo"] { --c: var(--memo); --c-soft: var(--memo-soft); }
+[data-round="mix"] { --c: var(--marker); --c-soft: var(--marker-soft); }
+
+/* Study area */
+.study { display: grid; gap: 16px; min-width: 0; }
+.deck-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 16px; align-items: end; }
+.deck-head h2 { font: 800 26px/1.1 var(--display); margin: 2px 0 0; text-wrap: balance; }
+.eyebrow { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; }
+.deck-note { margin: 4px 0 0; color: var(--ink-soft); font-size: 14px; max-width: 60ch; }
+.badge { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; padding: 5px 11px; border-radius: 99px; background: var(--c-soft); color: var(--c); white-space: nowrap; }
+
+.tools { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 8px; padding: 7px 13px; border-radius: 99px;
+  border: 1px solid var(--line); background: var(--board); font-size: 13px; font-weight: 500;
+}
+.chip:hover { border-color: var(--board-edge); }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.chip .sw { width: 26px; height: 15px; border-radius: 99px; background: var(--line); position: relative; flex: none; }
+.chip .sw::after { content: ""; position: absolute; top: 2px; left: 2px; width: 11px; height: 11px; border-radius: 50%; background: var(--board); transition: transform .2s; }
+.chip[aria-pressed="true"] .sw { background: var(--easy); }
+.chip[aria-pressed="true"] .sw::after { transform: translateX(11px); }
+
+/* Card */
+.stage { perspective: 1600px; }
+.card { position: relative; display: grid; cursor: pointer; transform-style: preserve-3d; transition: transform .5s cubic-bezier(.3,.7,.2,1); border-radius: 18px; }
+.card.flipped { transform: rotateY(180deg); }
+.face {
+  grid-area: 1 / 1; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  background: var(--board); border: 1px solid var(--board-edge); border-radius: 18px; box-shadow: var(--shadow);
+  padding: 22px clamp(18px, 4vw, 34px) 20px; display: flex; flex-direction: column; gap: 14px; min-height: 340px;
+  border-top: 6px solid var(--c);
+}
+.back { transform: rotateY(180deg); }
+.face-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+.cat { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--c); }
+.num { font-size: 13px; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.q { font: 500 clamp(18px, 2.6vw, 22px)/1.45 var(--body); margin: 0; text-wrap: pretty; }
+.choices { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.choices li { display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; font-size: 15px; padding: 8px 10px; border-radius: 10px; background: var(--paper); }
+.choices b { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--board); border: 1.5px solid var(--board-edge); font-size: 13px; }
+.hint { margin-top: auto; font-size: 13px; color: var(--ink-soft); display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.kbd { font-size: 11px; border: 1px solid var(--line); border-radius: 5px; padding: 1px 6px; }
+
+.answer-label { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; }
+.answer { font: 700 clamp(26px, 4.4vw, 38px)/1.2 var(--hand); color: var(--marker); margin: -4px 0 0; text-wrap: balance; overflow-wrap: anywhere; }
+.answer.long { font-size: clamp(20px, 3vw, 26px); }
+.explain { display: grid; gap: 10px; }
+.explain p { margin: 0; }
+.explain .how { color: var(--ink); }
+.explain .trick { background: var(--c-soft); border-radius: 10px; padding: 10px 12px; font-size: 14px; }
+.explain .trick strong { color: var(--c); }
+.backq { font-size: 13px; color: var(--ink-soft); border-top: 1px dashed var(--line); padding-top: 10px; margin-top: auto; }
+
+.timer { position: absolute; left: 18px; right: 18px; top: 0; height: 6px; border-radius: 0 0 6px 6px; overflow: hidden; z-index: 2; pointer-events: none; }
+.timer i { display: block; height: 100%; width: 100%; background: var(--ink); opacity: .55; transform-origin: left; }
+.timer-text { font: 800 20px/1 var(--display); font-variant-numeric: tabular-nums; color: var(--ink); }
+.timer-text.low { color: var(--difficult); }
+
+/* Controls */
+.controls { display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: center; }
+.nav { width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line); background: var(--board); font-size: 20px; line-height: 1; }
+.nav:disabled { opacity: .35; cursor: default; }
+.grade { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.btn { border: 0; border-radius: 12px; padding: 12px 18px; font-weight: 600; font-size: 15px; min-width: 140px; }
+.btn.flip { background: var(--ink); color: var(--paper); min-width: 200px; }
+.btn.learn { background: var(--difficult-soft); color: var(--difficult); }
+.btn.know { background: var(--easy); color: #fff; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .btn.know { color: #06231a; } }
+:root[data-theme="dark"] .btn.know { color: #06231a; }
+@media (max-width: 520px) { .btn .kbd, .hint .kbd, .hint > span:last-child { display: none; } .btn { min-width: 0; flex: 1; padding: 12px 10px; } .btn.flip { min-width: 0; } .nav { width: 40px; height: 40px; } }
+
+.strip { display: flex; gap: 4px; flex-wrap: wrap; }
+.strip button { width: 14px; height: 14px; border-radius: 4px; border: 0; padding: 0; background: var(--line); }
+.strip button.k { background: var(--easy); }
+.strip button.l { background: var(--difficult); }
+.strip button.cur { outline: 2px solid var(--ink); outline-offset: 1px; }
+
+/* End & empty */
+.panel { background: var(--board); border: 1px solid var(--line); border-radius: 18px; padding: 28px; display: grid; gap: 14px; justify-items: start; box-shadow: var(--shadow); }
+.panel h3 { font: 800 28px/1.1 var(--display); margin: 0; }
+.panel p { margin: 0; color: var(--ink-soft); max-width: 55ch; }
+.score { font: 800 56px/1 var(--display); color: var(--easy); font-variant-numeric: tabular-nums; }
+.panel .row { display: flex; gap: 10px; flex-wrap: wrap; }
+
+/* Rules */
+.rules { background: var(--board); border: 1px solid var(--line); border-radius: 14px; padding: 4px 0; }
+.rules summary { padding: 12px 18px; font-weight: 600; }
+.rules .inner { padding: 0 18px 16px; display: grid; gap: 12px; }
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; min-width: 460px; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-soft); font-weight: 500; }
+td.n { font-variant-numeric: tabular-nums; }
+.rules ul { margin: 0; padding-left: 18px; color: var(--ink-soft); font-size: 14px; display: grid; gap: 4px; }
+.reset { justify-self: start; background: none; border: 0; color: var(--difficult); font-size: 13px; text-decoration: underline; padding: 0; }
+.confirm { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; font-size: 13px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .card { transition: none; }
+  .card.flipped { transform: none; }
+  .card.flipped .front { visibility: hidden; }
+  .card:not(.flipped) .back { visibility: hidden; }
+  .back { transform: none; }
+  .meter i, .chip .sw::after { transition: none; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <h1>SciMath Battle <span>Flashcards</span></h1>
+      <p>DOST Caraga · Grade 6 reviewer · Tap a card to flip it, then say if you knew it.</p>
+    </div>
+    <div class="overall" aria-live="polite">
+      <div class="row"><span>Cards you know</span><strong id="overallText">0 / 0</strong></div>
+      <div class="meter"><i id="overallBar"></i></div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <details class="decks" id="deckPanel">
+      <summary><span>Choose a deck</span><span class="cur" id="curDeckName"></span></summary>
+      <nav class="deck-body" id="deckList" aria-label="Decks"></nav>
+    </details>
+
+    <main class="study" id="study">
+      <div class="deck-head">
+        <div>
+          <div class="eyebrow" id="deckGroup"></div>
+          <h2 id="deckTitle"></h2>
+          <p class="deck-note" id="deckNote"></p>
+        </div>
+        <span class="badge" id="deckBadge"></span>
+      </div>
+
+      <div class="tools">
+        <button class="chip" id="tShuffle" aria-pressed="false"><span class="sw"></span>Shuffle</button>
+        <button class="chip" id="tTimer" aria-pressed="false"><span class="sw"></span>Contest timer</button>
+        <button class="chip" id="tLearning" aria-pressed="false"><span class="sw"></span>Only cards I'm still learning</button>
+      </div>
+
+      <div id="cardArea"></div>
+
+      <div class="strip" id="strip" aria-label="Cards in this deck"></div>
+
+      <details class="rules">
+        <summary>How the contest works</summary>
+        <div class="inner">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Round</th><th>Questions</th><th>Points each</th><th>Time</th><th>After the round</th></tr></thead>
+              <tbody>
+                <tr data-round="easy"><td><span class="badge">Easy</span></td><td class="n">10</td><td class="n">1</td><td class="n">15 s</td><td>Everyone moves on</td></tr>
+                <tr data-round="average"><td><span class="badge">Average</span></td><td class="n">10</td><td class="n">2</td><td class="n">30 s</td><td>Top 5 teams (Easy + Average) move on</td></tr>
+                <tr data-round="difficult"><td><span class="badge">Difficult</span></td><td class="n">10</td><td class="n">3</td><td class="n">1 min</td><td>Top 3 total scores win</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <ul>
+            <li>Highest possible score: 60 points. Each question is read twice.</li>
+            <li>Wait for the “Go” signal, write on the board, and raise it when time is up.</li>
+            <li>Easy round: solve in your head. No writing on the table, palm, or in the air.</li>
+            <li>Write answers in lowest terms and always include units (cm², km/h).</li>
+            <li>Watch for “not” and “except” in the question. Spell science words carefully.</li>
+          </ul>
+          <div id="resetBox"><button class="reset" id="resetBtn">Clear my progress</button></div>
+        </div>
+      </details>
+    </main>
+  </div>
+</div>
+
+<script src="cards.js"></script>
+<script>
+(function () {
+  var GROUPS = window.GROUPS, DECKS = window.DECKS, CARDS = window.CARDS;
+  var KEY = "scimath-flashcards-v1";
+
+  // Every card gets a stable id: deckId:index
+  var ALL = [];
+  DECKS.forEach(function (d) {
+    (CARDS[d.id] || []).forEach(function (c, i) { ALL.push({ id: d.id + ":" + i, deck: d, card: c }); });
+  });
+  var BY_DECK = {};
+  ALL.forEach(function (x) { (BY_DECK[x.deck.id] = BY_DECK[x.deck.id] || []).push(x); });
+
+  var SPECIAL = [
+    { id: "practice", name: "Cards I'm still learning", round: "mix", note: "Every card you marked “Still learning”, from all decks." },
+    { id: "contest", name: "Contest mix", round: "mix", note: "All 90 contest-level cards: real 2025, twists, and 2026 practice, shuffled." }
+  ];
+
+  var saved = load();
+  var progress = saved.progress || {};
+  var state = {
+    deck: saved.deck || "e25",
+    shuffle: !!saved.shuffle,
+    timer: !!saved.timer,
+    learningOnly: false,
+    order: [],
+    pos: 0,
+    flipped: false,
+    done: false
+  };
+
+  function load() { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; } }
+  function save() {
+    try { localStorage.setItem(KEY, JSON.stringify({ progress: progress, deck: state.deck, shuffle: state.shuffle, timer: state.timer })); } catch (e) {}
+  }
+
+  var $ = function (id) { return document.getElementById(id); };
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function shuffled(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+
+  function deckInfo(id) {
+    for (var i = 0; i < SPECIAL.length; i++) if (SPECIAL[i].id === id) return SPECIAL[i];
+    for (var j = 0; j < DECKS.length; j++) if (DECKS[j].id === id) return DECKS[j];
+    return DECKS[0];
+  }
+  function cardsFor(id) {
+    if (id === "practice") return ALL.filter(function (x) { return progress[x.id] === 0; });
+    if (id === "contest") return ALL.filter(function (x) { return ["real", "twist", "p26"].indexOf(x.deck.group) >= 0; });
+    return BY_DECK[id] || [];
+  }
+
+  // ---------- Deck list ----------
+  function renderDeckList() {
+    var html = '<div class="group-name">Smart review</div>';
+    SPECIAL.forEach(function (d) {
+      var n = cardsFor(d.id).length;
+      html += deckBtn(d.id, d.name, "mix", d.id === "practice" ? n + " cards" : n + "");
+    });
+    GROUPS.forEach(function (g) {
+      html += '<div class="group-name">' + esc(g.name) + '</div>';
+      DECKS.filter(function (d) { return d.group === g.id; }).forEach(function (d) {
+        var list = BY_DECK[d.id] || [];
+        var known = list.filter(function (x) { return progress[x.id] === 1; }).length;
+        html += deckBtn(d.id, d.name, d.round, known + "/" + list.length, known === list.length && list.length > 0);
+      });
+    });
+    $("deckList").innerHTML = html;
+  }
+  function deckBtn(id, name, round, count, done) {
+    return '<button class="deck-btn" data-round="' + round + '" data-deck="' + id + '" aria-pressed="' + (state.deck === id) + '">' +
+      '<span class="dot"></span><span>' + esc(name) + '</span><span class="deck-count' + (done ? " done" : "") + '">' + count + '</span></button>';
+  }
+  $("deckList").addEventListener("click", function (e) {
+    var b = e.target.closest(".deck-btn"); if (!b) return;
+    state.deck = b.getAttribute("data-deck");
+    if (state.deck === "contest") state.shuffle = true;
+    startDeck();
+    if (window.matchMedia("(max-width: 860px)").matches) { $("deckPanel").open = false; $("study").scrollIntoView({ behavior: "smooth", block: "start" }); }
+  });
+
+  // ---------- Deck start ----------
+  function startDeck() {
+    var list = cardsFor(state.deck);
+    if (state.learningOnly && state.deck !== "practice") list = list.filter(function (x) { return progress[x.id] !== 1; });
+    state.order = state.shuffle ? shuffled(list) : list;
+    state.pos = 0; state.flipped = false; state.done = false;
+    save(); renderAll();
+  }
+
+  function renderAll() {
+    renderDeckList(); renderHead(); renderCard(); renderStrip(); renderOverall(); renderToggles();
+  }
+
+  function renderHead() {
+    var d = deckInfo(state.deck);
+    var g = GROUPS.filter(function (x) { return x.id === d.group; })[0];
+    $("deckGroup").textContent = g ? g.name : "Smart review";
+    $("deckTitle").textContent = d.name;
+    $("deckNote").textContent = d.note || (g ? g.note : "");
+    $("curDeckName").textContent = (g ? g.name + " · " : "") + d.name;
+    var badge = $("deckBadge");
+    badge.parentNode.setAttribute("data-round", d.round);
+    if (d.pts) badge.textContent = d.pts + " pt" + (d.pts > 1 ? "s" : "") + " each · " + fmtTime(d.time);
+    else if (d.time) badge.textContent = "Timer: " + fmtTime(d.time);
+    else badge.textContent = "Mixed decks";
+    document.querySelector(".deck-head").setAttribute("data-round", d.round);
+  }
+  function fmtTime(s) { return s >= 60 ? s / 60 + " min" : s + " s"; }
+
+  function renderToggles() {
+    $("tShuffle").setAttribute("aria-pressed", state.shuffle);
+    $("tTimer").setAttribute("aria-pressed", state.timer);
+    $("tLearning").setAttribute("aria-pressed", state.learningOnly);
+    $("tLearning").hidden = state.deck === "practice";
+  }
+
+  // ---------- Card ----------
+  function renderCard() {
+    stopTimer();
+    var area = $("cardArea");
+    var total = state.order.length;
+    if (!total) {
+      var msg = state.deck === "practice"
+        ? "<h3>Nothing to practice yet</h3><p>When you press “Still learning” on a card, it shows up here so you can go over it again.</p>"
+        : "<h3>You know every card here</h3><p>All cards in this deck are marked “Got it”. Turn off “Only cards I'm still learning” to go through them again.</p>";
+      area.innerHTML = '<div class="panel">' + msg + '<div class="row"><button class="btn flip" data-act="contest">Try the contest mix</button></div></div>';
+      return;
+    }
+    if (state.done) { renderEnd(); return; }
+
+    var x = state.order[state.pos], c = x.card, d = x.deck;
+    var round = d.round;
+    var ch = "";
+    if (c.c) {
+      ch = '<ol class="choices">' + c.c.map(function (t, i) { return "<li><b>" + "ABCD"[i] + "</b><span>" + esc(t) + "</span></li>"; }).join("") + "</ol>";
+    }
+    var label = (c.cat ? c.cat : groupShort(d)) + (state.deck === "practice" || state.deck === "contest" ? " · " + d.name : "");
+    var how = c.e ? '<p class="how">' + esc(c.e) + "</p>" : "";
+    var trick = c.m ? '<p class="trick"><strong>Remember:</strong> ' + esc(c.m) + "</p>" : "";
+    var long = c.a.length > 42 ? " long" : "";
+    var mark = progress[x.id] === 1 ? "✓ You knew this" : progress[x.id] === 0 ? "Still learning" : "";
+
+    area.innerHTML =
+      '<div class="stage" data-round="' + round + '">' +
+        '<div class="card' + (state.flipped ? " flipped" : "") + '" id="card" tabindex="0" role="button" aria-label="Flashcard. Press to flip.">' +
+          '<div class="timer" id="timerBar" hidden><i></i></div>' +
+          '<section class="face front" aria-hidden="' + state.flipped + '">' +
+            '<div class="face-top"><span class="cat">' + esc(label) + '</span><span class="num">' +
+              (state.timer ? '<span class="timer-text" id="timerText"></span>' : "Card " + (state.pos + 1) + " of " + total) + "</span></div>" +
+            '<p class="q">' + esc(c.q) + "</p>" + ch +
+            '<div class="hint"><span>Say your answer out loud, then tap to check.</span><span><span class="kbd">Space</span> flip</span></div>' +
+          "</section>" +
+          '<section class="face back" aria-hidden="' + !state.flipped + '">' +
+            '<div class="face-top"><span class="answer-label">Answer</span><span class="num">' + esc(mark) + "</span></div>" +
+            '<p class="answer' + long + '">' + esc(c.a) + "</p>" +
+            '<div class="explain">' + how + trick + "</div>" +
+            '<div class="backq">' + esc(c.q) + "</div>" +
+          "</section>" +
+        "</div>" +
+      "</div>" +
+      '<div class="controls" style="margin-top:14px">' +
+        '<button class="nav" data-act="prev" aria-label="Previous card"' + (state.pos === 0 ? " disabled" : "") + ">‹</button>" +
+        '<div class="grade">' + (state.flipped
+          ? '<button class="btn learn" data-act="learn">Still learning <span class="kbd">1</span></button><button class="btn know" data-act="know">Got it! <span class="kbd">2</span></button>'
+          : '<button class="btn flip" data-act="flip">Show answer</button>') +
+        "</div>" +
+        '<button class="nav" data-act="next" aria-label="Next card">›</button>' +
+      "</div>";
+
+    if (state.timer && !state.flipped) startTimer(d.time);
+  }
+  function groupShort(d) { var g = GROUPS.filter(function (x) { return x.id === d.group; })[0]; return g ? g.name : ""; }
+
+  function renderEnd() {
+    var list = state.order;
+    var k = list.filter(function (x) { return progress[x.id] === 1; }).length;
+    var l = list.length - k;
+    var pct = Math.round((k / list.length) * 100);
+    var words = pct === 100 ? "Perfect! You're ready for this deck." : pct >= 70 ? "Great work. Go over the ones you missed once more." : "Good start. Practice the tricky ones again, then try tomorrow.";
+    $("cardArea").innerHTML =
+      '<div class="panel"><span class="eyebrow">Deck finished</span><div class="score">' + k + " / " + list.length + "</div>" +
+      "<h3>" + words + "</h3><p>You marked " + l + " card" + (l === 1 ? "" : "s") + " as still learning. Mistakes fixed twice are rarely forgotten, so redo them in two days.</p>" +
+      '<div class="row">' + (l ? '<button class="btn learn" data-act="redo">Practice the ' + l + " again</button>" : "") +
+      '<button class="btn flip" data-act="restart">Start this deck over</button></div></div>';
+  }
+
+  function renderStrip() {
+    var s = $("strip");
+    if (!state.order.length || state.order.length > 120) { s.innerHTML = ""; return; }
+    s.innerHTML = state.order.map(function (x, i) {
+      var cls = progress[x.id] === 1 ? "k" : progress[x.id] === 0 ? "l" : "";
+      if (i === state.pos && !state.done) cls += " cur";
+      return '<button class="' + cls + '" data-i="' + i + '" aria-label="Go to card ' + (i + 1) + '"></button>';
+    }).join("");
+  }
+  $("strip").addEventListener("click", function (e) {
+    var b = e.target.closest("button"); if (!b) return;
+    state.pos = +b.getAttribute("data-i"); state.flipped = false; state.done = false;
+    renderCard(); renderStrip();
+  });
+
+  function renderOverall() {
+    var k = ALL.filter(function (x) { return progress[x.id] === 1; }).length;
+    $("overallText").textContent = k + " / " + ALL.length;
+    $("overallBar").style.width = (k / ALL.length * 100) + "%";
+  }
+
+  // ---------- Actions ----------
+  function flip() {
+    if (!state.order.length || state.done) return;
+    state.flipped = !state.flipped;
+    var card = $("card");
+    if (!card) return;
+    stopTimer();
+    renderCard();
+  }
+  function go(delta) {
+    if (!state.order.length) return;
+    if (state.done && delta < 0) { state.done = false; state.pos = state.order.length - 1; }
+    else {
+      var p = state.pos + delta;
+      if (p >= state.order.length) { state.done = true; }
+      else if (p >= 0) state.pos = p;
+    }
+    state.flipped = false;
+    renderCard(); renderStrip();
+  }
+  function grade(v) {
+    var x = state.order[state.pos]; if (!x) return;
+    progress[x.id] = v; save();
+    renderDeckList(); renderOverall();
+    go(1);
+  }
+
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest("[data-act]");
+    if (a) {
+      unlockAudio();
+      var act = a.getAttribute("data-act");
+      if (act === "flip") flip();
+      else if (act === "prev") go(-1);
+      else if (act === "next") go(1);
+      else if (act === "know") grade(1);
+      else if (act === "learn") grade(0);
+      else if (act === "restart") startDeck();
+      else if (act === "redo") {
+        state.order = state.order.filter(function (x) { return progress[x.id] !== 1; });
+        state.pos = 0; state.flipped = false; state.done = false; renderCard(); renderStrip();
+      }
+      else if (act === "contest") { state.deck = "contest"; state.shuffle = true; state.learningOnly = false; startDeck(); }
+      return;
+    }
+    if (e.target.closest("#card")) { unlockAudio(); flip(); }
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.target.closest && e.target.closest("summary, .deck-btn, .chip, .strip, .reset, .confirm")) return;
+    if (e.key === " " || e.key === "Enter") {
+      if (e.target.closest && e.target.closest("button:not(#card)") ) return;
+      e.preventDefault(); unlockAudio(); flip();
+    }
+    else if (e.key === "ArrowRight") go(1);
+    else if (e.key === "ArrowLeft") go(-1);
+    else if (e.key === "1" && state.flipped) grade(0);
+    else if (e.key === "2" && state.flipped) grade(1);
+  });
+
+  $("tShuffle").addEventListener("click", function () { state.shuffle = !state.shuffle; startDeck(); });
+  $("tTimer").addEventListener("click", function () { unlockAudio(); state.timer = !state.timer; save(); renderToggles(); renderCard(); });
+  $("tLearning").addEventListener("click", function () { state.learningOnly = !state.learningOnly; startDeck(); });
+
+  $("resetBox").addEventListener("click", function (e) {
+    var t = e.target;
+    if (t.id === "resetBtn") {
+      $("resetBox").innerHTML = '<div class="confirm"><span>Clear all “Got it” and “Still learning” marks?</span><button class="chip" id="resetYes">Yes, clear</button><button class="chip" id="resetNo">Keep them</button></div>';
+    } else if (t.id === "resetYes") {
+      progress = {}; save(); startDeck(); resetLink();
+    } else if (t.id === "resetNo") { resetLink(); }
+  });
+  function resetLink() { $("resetBox").innerHTML = '<button class="reset" id="resetBtn">Clear my progress</button>'; }
+
+  // ---------- Contest timer ----------
+  var tick = null, audio = null;
+  function unlockAudio() {
+    if (audio) return;
+    try { var AC = window.AudioContext || window.webkitAudioContext; if (AC) audio = new AC(); } catch (e) {}
+  }
+  function beep() {
+    if (!audio) return;
+    try {
+      [0, 0.18].forEach(function (off) {
+        var o = audio.createOscillator(), g = audio.createGain();
+        o.frequency.value = 880; o.connect(g); g.connect(audio.destination);
+        var t = audio.currentTime + off;
+        g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.25, t + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.15);
+        o.start(t); o.stop(t + 0.16);
+      });
+    } catch (e) {}
+  }
+  function startTimer(secs) {
+    var bar = $("timerBar"), txt = $("timerText");
+    if (!bar) return;
+    bar.hidden = false;
+    var end = Date.now() + secs * 1000;
+    function step() {
+      var left = Math.max(0, end - Date.now());
+      var s = Math.ceil(left / 1000);
+      if (txt) { txt.textContent = s + "s"; txt.classList.toggle("low", s <= 5); }
+      bar.firstChild.style.transform = "scaleX(" + (left / (secs * 1000)) + ")";
+      if (left <= 0) { stopTimer(); beep(); state.flipped = true; renderCard(); }
+    }
+    step();
+    tick = setInterval(step, 100);
+  }
+  function stopTimer() { if (tick) { clearInterval(tick); tick = null; } }
+
+  // ---------- Boot ----------
+  if (window.matchMedia("(min-width: 861px)").matches) $("deckPanel").open = true;
+  startDeck();
+})();
+</script>
+</body>
+</html>
