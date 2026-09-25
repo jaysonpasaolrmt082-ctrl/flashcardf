@@ -15,6 +15,7 @@ Open `index.html` in a browser. No install needed.
 - Every correct answer earns a star; 3 stars = mastered. Wrong answers lose a star and go to **Fix my mistakes**.
 - The **Hall of Fame** keeps the best contest scores on this device. Progress is saved in the browser.
 - Key words to remember are highlighted in yellow.
+- **↺ Start over** (top of the page, or the box at the bottom of the home screen): **New player** clears the name, stars and mistakes; **Clear Hall of Fame** removes saved scores; **Reset everything** goes back to the very beginning. Each asks "Are you sure?" first.
 
 ## Files
 - `cards.js`: all 280 questions, answers, explanations and memory tricks.
