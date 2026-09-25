@@ -3,601 +3,914 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>SciMath Battle Flashcards</title>
+<title>SciMath Battle Arena</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Kalam:wght@700&family=Lexend:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800;900&display=swap">
 <style>
+/* One bright "quiz bee stage" look, same in light and dark. */
 :root {
-  --paper: #edf1f7;
-  --board: #ffffff;
-  --board-edge: #c9d3e3;
-  --ink: #16233f;
-  --ink-soft: #52607d;
-  --line: #d8e0ec;
-  --marker: #1f4fd1;
-  --marker-soft: #e3eafc;
-  --easy: #13875a;
-  --easy-soft: #dcf2e7;
-  --average: #a86f00;
-  --average-soft: #fbefd2;
-  --difficult: #c23636;
-  --difficult-soft: #fbe1e1;
-  --warm: #25707f;
-  --warm-soft: #dcf0f3;
-  --memo: #6b44b8;
-  --memo-soft: #ece4fa;
-  --shadow: 0 1px 0 rgba(22,35,63,.06), 0 10px 30px -12px rgba(22,35,63,.28);
-  --display: "Baloo 2", "Trebuchet MS", system-ui, sans-serif;
-  --body: "Lexend", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --hand: "Kalam", "Comic Sans MS", "Chalkboard SE", cursive;
+  color-scheme: light;
+  --sun: #ffd23f;
+  --sun-deep: #f4bd0b;
+  --ink: #1b1d4d;
+  --ink-soft: #4b4f86;
+  --paper: #ffffff;
+  --cloud: #f3f4ff;
+  --blue: #2f5bff;
+  --blue-soft: #e4eaff;
+  --green: #12a863;
+  --green-soft: #dcf7e9;
+  --orange: #ff7a1a;
+  --orange-soft: #ffeede;
+  --red: #ef2f55;
+  --red-soft: #ffe1e7;
+  --purple: #7a4dff;
+  --purple-soft: #ece5ff;
+  --teal: #0b9aa8;
+  --teal-soft: #d9f5f7;
+  --mark: #fff06a;
+  --gold: #ffb400;
+  --edge: 3px solid var(--ink);
+  --lift: 4px 4px 0 var(--ink);
+  --display: "Fredoka", "Trebuchet MS", "Arial Rounded MT Bold", system-ui, sans-serif;
+  --body: "Nunito", "Segoe UI", system-ui, -apple-system, sans-serif;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    color-scheme: dark;
-    --paper: #0f1629; --board: #18223a; --board-edge: #2c3a5c; --ink: #e9eef9; --ink-soft: #a3afc9;
-    --line: #2a3654; --marker: #8aa8ff; --marker-soft: #22325c;
-    --easy: #4fd39b; --easy-soft: #143a2c; --average: #f2c14e; --average-soft: #3d3014;
-    --difficult: #ff8585; --difficult-soft: #45191d; --warm: #6fd0e0; --warm-soft: #123840;
-    --memo: #b99bff; --memo-soft: #2d2350;
-    --shadow: 0 1px 0 rgba(0,0,0,.3), 0 14px 34px -14px rgba(0,0,0,.7);
-  }
-}
-:root[data-theme="dark"] {
-  color-scheme: dark;
-  --paper: #0f1629; --board: #18223a; --board-edge: #2c3a5c; --ink: #e9eef9; --ink-soft: #a3afc9;
-  --line: #2a3654; --marker: #8aa8ff; --marker-soft: #22325c;
-  --easy: #4fd39b; --easy-soft: #143a2c; --average: #f2c14e; --average-soft: #3d3014;
-  --difficult: #ff8585; --difficult-soft: #45191d; --warm: #6fd0e0; --warm-soft: #123840;
-  --memo: #b99bff; --memo-soft: #2d2350;
-  --shadow: 0 1px 0 rgba(0,0,0,.3), 0 14px 34px -14px rgba(0,0,0,.7);
-}
-
 * { box-sizing: border-box; }
-html, body { margin: 0; }
+html, body { margin: 0; min-height: 100%; }
 body {
-  background: var(--paper);
+  background-color: var(--sun);
+  background-image: radial-gradient(var(--sun-deep) 1.6px, transparent 1.7px);
+  background-size: 22px 22px;
   color: var(--ink);
-  font: 400 15px/1.55 var(--body);
+  font: 700 17px/1.5 var(--body);
   padding-inline: 16px;
-  padding-block: 20px 48px;
+  padding-block: 18px 60px;
 }
-button { font: inherit; color: inherit; cursor: pointer; }
-button:focus-visible, summary:focus-visible, .card:focus-visible { outline: 3px solid var(--marker); outline-offset: 3px; }
+button, input { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 4px solid var(--blue); outline-offset: 3px; }
+.app { max-width: 880px; margin: 0 auto; display: grid; gap: 18px; }
 
-.wrap { max-width: 1120px; margin: 0 auto; display: grid; gap: 20px; }
-
-/* Header */
-.top { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px 24px; }
-.brand h1 { font: 800 clamp(28px, 5vw, 40px)/1 var(--display); margin: 0; letter-spacing: -.01em; text-wrap: balance; }
-.brand h1 span { color: var(--marker); }
-.brand p { margin: 6px 0 0; color: var(--ink-soft); font-size: 14px; }
-.overall { display: grid; gap: 6px; min-width: min(260px, 100%); }
-.overall .row { display: flex; justify-content: space-between; font-size: 13px; color: var(--ink-soft); }
-.overall strong { color: var(--ink); font-variant-numeric: tabular-nums; }
-.meter { height: 8px; border-radius: 99px; background: var(--line); overflow: hidden; }
-.meter i { display: block; height: 100%; width: 0; background: var(--easy); border-radius: inherit; transition: width .4s ease; }
-
-.layout { display: grid; grid-template-columns: 290px minmax(0, 1fr); gap: 24px; align-items: start; }
-@media (max-width: 860px) { .layout { grid-template-columns: minmax(0, 1fr); } }
-
-/* Deck list */
-.decks { background: var(--board); border: 1px solid var(--line); border-radius: 14px; }
-.decks > summary { list-style: none; display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; font-weight: 600; }
-.decks > summary::-webkit-details-marker { display: none; }
-.decks > summary .cur { color: var(--ink-soft); font-weight: 400; font-size: 13px; text-align: right; }
-@media (min-width: 861px) { .decks > summary { display: none; } .decks { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); max-height: calc(100vh - 32px); overflow: auto; } }
-.deck-body { padding: 4px 8px 12px; display: grid; gap: 6px; }
-.group-name { font: 600 11px/1 var(--body); letter-spacing: .09em; text-transform: uppercase; color: var(--ink-soft); padding: 14px 8px 4px; }
-.deck-btn {
-  display: grid; grid-template-columns: 10px 1fr auto; align-items: center; gap: 10px;
-  width: 100%; text-align: left; background: none; border: 0; border-radius: 9px; padding: 8px 10px; font-size: 14px;
+/* Shared chunky "sticker" pieces */
+.box { background: var(--paper); border: var(--edge); border-radius: 22px; box-shadow: var(--lift); }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  border: var(--edge); border-radius: 16px; box-shadow: var(--lift);
+  background: var(--paper); padding: 12px 20px; font: 600 19px/1.1 var(--display); letter-spacing: .01em;
+  transition: transform .08s, box-shadow .08s;
 }
-.deck-btn:hover { background: var(--paper); }
-.deck-btn[aria-pressed="true"] { background: var(--marker-soft); font-weight: 600; }
-.dot { width: 10px; height: 10px; border-radius: 50%; background: var(--c, var(--warm)); }
-.deck-count { font-size: 12px; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
-.deck-count.done { color: var(--easy); font-weight: 600; }
-
-/* Round color mapping */
-[data-round="easy"] { --c: var(--easy); --c-soft: var(--easy-soft); }
-[data-round="average"] { --c: var(--average); --c-soft: var(--average-soft); }
-[data-round="difficult"] { --c: var(--difficult); --c-soft: var(--difficult-soft); }
-[data-round="warm"] { --c: var(--warm); --c-soft: var(--warm-soft); }
-[data-round="memo"] { --c: var(--memo); --c-soft: var(--memo-soft); }
-[data-round="mix"] { --c: var(--marker); --c-soft: var(--marker-soft); }
-
-/* Study area */
-.study { display: grid; gap: 16px; min-width: 0; }
-.deck-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 16px; align-items: end; }
-.deck-head h2 { font: 800 26px/1.1 var(--display); margin: 2px 0 0; text-wrap: balance; }
-.eyebrow { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; }
-.deck-note { margin: 4px 0 0; color: var(--ink-soft); font-size: 14px; max-width: 60ch; }
-.badge { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; padding: 5px 11px; border-radius: 99px; background: var(--c-soft); color: var(--c); white-space: nowrap; }
-
-.tools { display: flex; flex-wrap: wrap; gap: 8px; }
-.chip {
-  display: inline-flex; align-items: center; gap: 8px; padding: 7px 13px; border-radius: 99px;
-  border: 1px solid var(--line); background: var(--board); font-size: 13px; font-weight: 500;
+.btn:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 var(--ink); }
+.btn:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--ink); }
+.btn:disabled { opacity: .45; cursor: default; transform: none; box-shadow: var(--lift); }
+.btn.blue { background: var(--blue); color: #fff; }
+.btn.green { background: var(--green); color: #fff; }
+.btn.red { background: var(--red); color: #fff; }
+.btn.orange { background: var(--orange); color: #fff; }
+.btn.purple { background: var(--purple); color: #fff; }
+.btn.ghost { background: var(--cloud); }
+.btn.small { font-size: 15px; padding: 8px 12px; border-radius: 12px; box-shadow: 3px 3px 0 var(--ink); }
+mark, .hl {
+  background: linear-gradient(transparent 12%, var(--mark) 12%, var(--mark) 88%, transparent 88%);
+  color: var(--ink); font-weight: 900; padding: 0 3px; border-radius: 4px;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
 }
-.chip:hover { border-color: var(--board-edge); }
-.chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-.chip .sw { width: 26px; height: 15px; border-radius: 99px; background: var(--line); position: relative; flex: none; }
-.chip .sw::after { content: ""; position: absolute; top: 2px; left: 2px; width: 11px; height: 11px; border-radius: 50%; background: var(--board); transition: transform .2s; }
-.chip[aria-pressed="true"] .sw { background: var(--easy); }
-.chip[aria-pressed="true"] .sw::after { transform: translateX(11px); }
 
-/* Card */
-.stage { perspective: 1600px; }
-.card { position: relative; display: grid; cursor: pointer; transform-style: preserve-3d; transition: transform .5s cubic-bezier(.3,.7,.2,1); border-radius: 18px; }
-.card.flipped { transform: rotateY(180deg); }
-.face {
-  grid-area: 1 / 1; backface-visibility: hidden; -webkit-backface-visibility: hidden;
-  background: var(--board); border: 1px solid var(--board-edge); border-radius: 18px; box-shadow: var(--shadow);
-  padding: 22px clamp(18px, 4vw, 34px) 20px; display: flex; flex-direction: column; gap: 14px; min-height: 340px;
-  border-top: 6px solid var(--c);
+/* ---------- Top bar ---------- */
+.topbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+.logo { display: flex; align-items: center; gap: 12px; background: none; border: 0; padding: 0; text-align: left; }
+.logo-badge {
+  width: 54px; height: 54px; border-radius: 16px; background: var(--blue); color: #fff;
+  border: var(--edge); box-shadow: 3px 3px 0 var(--ink); display: grid; place-items: center;
+  font: 700 22px/1 var(--display); transform: rotate(-6deg); flex: none;
 }
-.back { transform: rotateY(180deg); }
-.face-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
-.cat { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--c); }
-.num { font-size: 13px; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
-.q { font: 500 clamp(18px, 2.6vw, 22px)/1.45 var(--body); margin: 0; text-wrap: pretty; }
-.choices { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
-.choices li { display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; font-size: 15px; padding: 8px 10px; border-radius: 10px; background: var(--paper); }
-.choices b { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--board); border: 1.5px solid var(--board-edge); font-size: 13px; }
-.hint { margin-top: auto; font-size: 13px; color: var(--ink-soft); display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
-.kbd { font-size: 11px; border: 1px solid var(--line); border-radius: 5px; padding: 1px 6px; }
+.logo h1 { margin: 0; font: 700 clamp(26px, 5.4vw, 38px)/1 var(--display); letter-spacing: -.01em; }
+.logo small { display: block; font: 800 12px/1.4 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); }
+.top-tools { display: flex; gap: 8px; flex-wrap: wrap; }
 
-.answer-label { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; }
-.answer { font: 700 clamp(26px, 4.4vw, 38px)/1.2 var(--hand); color: var(--marker); margin: -4px 0 0; text-wrap: balance; overflow-wrap: anywhere; }
-.answer.long { font-size: clamp(20px, 3vw, 26px); }
-.explain { display: grid; gap: 10px; }
-.explain p { margin: 0; }
-.explain .how { color: var(--ink); }
-.explain .trick { background: var(--c-soft); border-radius: 10px; padding: 10px 12px; font-size: 14px; }
-.explain .trick strong { color: var(--c); }
-.backq { font-size: 13px; color: var(--ink-soft); border-top: 1px dashed var(--line); padding-top: 10px; margin-top: auto; }
+/* ---------- Home ---------- */
+.hello { padding: 18px 20px; display: grid; gap: 12px; }
+.hello-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; justify-content: space-between; }
+.namebox { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.namebox label { font: 600 20px/1 var(--display); }
+.namebox input {
+  border: var(--edge); border-radius: 12px; padding: 8px 12px; width: 190px; max-width: 100%;
+  font: 700 18px/1.2 var(--body); background: var(--cloud);
+}
+.stats { display: flex; gap: 10px; flex-wrap: wrap; }
+.stat { background: var(--cloud); border-radius: 14px; padding: 6px 14px; text-align: center; min-width: 92px; }
+.stat b { display: block; font: 700 24px/1.1 var(--display); font-variant-numeric: tabular-nums; }
+.stat span { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-soft); }
+.bar { height: 16px; border: var(--edge); border-radius: 99px; background: var(--cloud); overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--green); width: 0; transition: width .5s; border-right: 3px solid var(--ink); }
+.bar i[style*="width: 0"] { border-right: 0; }
 
-.timer { position: absolute; left: 18px; right: 18px; top: 0; height: 6px; border-radius: 0 0 6px 6px; overflow: hidden; z-index: 2; pointer-events: none; }
-.timer i { display: block; height: 100%; width: 100%; background: var(--ink); opacity: .55; transform-origin: left; }
-.timer-text { font: 800 20px/1 var(--display); font-variant-numeric: tabular-nums; color: var(--ink); }
-.timer-text.low { color: var(--difficult); }
+.battle {
+  background: var(--ink); color: #fff; padding: 22px; display: grid; gap: 14px;
+  grid-template-columns: minmax(0, 1fr) auto; align-items: center; position: relative; overflow: hidden;
+}
+.battle h2 { margin: 0; font: 700 clamp(26px, 5vw, 36px)/1.05 var(--display); color: var(--sun); }
+.battle p { margin: 4px 0 0; color: #d9dcff; font-weight: 700; max-width: 46ch; }
+.rounds-mini { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+.pill { display: inline-flex; align-items: center; gap: 6px; border-radius: 99px; padding: 3px 12px; font: 600 14px/1.5 var(--display); border: 2px solid var(--ink); }
+.pill.easy { background: var(--green); color: #fff; }
+.pill.average { background: var(--orange); color: #fff; }
+.pill.difficult { background: var(--red); color: #fff; }
+.pill.warm { background: var(--teal); color: #fff; }
+.pill.memo { background: var(--purple); color: #fff; }
+.pill.mix { background: var(--blue); color: #fff; }
+.battle .btn { background: var(--sun); color: var(--ink); font-size: 22px; padding: 16px 22px; border-color: #fff; box-shadow: 4px 4px 0 #fff; }
+@media (max-width: 560px) { .battle { grid-template-columns: 1fr; } .battle .btn { width: 100%; } }
 
-/* Controls */
-.controls { display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: center; }
-.nav { width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line); background: var(--board); font-size: 20px; line-height: 1; }
-.nav:disabled { opacity: .35; cursor: default; }
-.grade { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-.btn { border: 0; border-radius: 12px; padding: 12px 18px; font-weight: 600; font-size: 15px; min-width: 140px; }
-.btn.flip { background: var(--ink); color: var(--paper); min-width: 200px; }
-.btn.learn { background: var(--difficult-soft); color: var(--difficult); }
-.btn.know { background: var(--easy); color: #fff; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .btn.know { color: #06231a; } }
-:root[data-theme="dark"] .btn.know { color: #06231a; }
-@media (max-width: 520px) { .btn .kbd, .hint .kbd, .hint > span:last-child { display: none; } .btn { min-width: 0; flex: 1; padding: 12px 10px; } .btn.flip { min-width: 0; } .nav { width: 40px; height: 40px; } }
+.section-title { display: flex; justify-content: space-between; align-items: end; gap: 10px; flex-wrap: wrap; margin: 6px 2px -4px; }
+.section-title h3 { margin: 0; font: 700 24px/1.1 var(--display); }
+.section-title p { margin: 0; font-size: 14px; color: var(--ink-soft); }
+.group { padding: 16px; display: grid; gap: 12px; }
+.group-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.group-head h4 { margin: 0; font: 700 20px/1.1 var(--display); }
+.group-head span { font-size: 14px; color: var(--ink-soft); }
+.tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px; }
+.tile {
+  text-align: left; border: var(--edge); border-radius: 16px; background: var(--c-soft); padding: 12px 14px;
+  display: grid; gap: 8px; box-shadow: 3px 3px 0 var(--ink); transition: transform .08s;
+}
+.tile:hover { transform: translate(-1px, -2px) rotate(-.5deg); }
+.tile .t-name { font: 600 18px/1.15 var(--display); }
+.tile .t-meta { font-size: 13px; color: var(--ink-soft); display: flex; justify-content: space-between; gap: 6px; }
+.tile .stars { color: var(--gold); letter-spacing: 1px; font-size: 16px; -webkit-text-stroke: .6px var(--ink); }
+.minibar { height: 8px; border-radius: 99px; background: rgba(27,29,77,.12); overflow: hidden; }
+.minibar i { display: block; height: 100%; background: var(--c); }
+[data-round="easy"] { --c: var(--green); --c-soft: var(--green-soft); }
+[data-round="average"] { --c: var(--orange); --c-soft: var(--orange-soft); }
+[data-round="difficult"] { --c: var(--red); --c-soft: var(--red-soft); }
+[data-round="warm"] { --c: var(--teal); --c-soft: var(--teal-soft); }
+[data-round="memo"] { --c: var(--purple); --c-soft: var(--purple-soft); }
+[data-round="mix"] { --c: var(--blue); --c-soft: var(--blue-soft); }
 
-.strip { display: flex; gap: 4px; flex-wrap: wrap; }
-.strip button { width: 14px; height: 14px; border-radius: 4px; border: 0; padding: 0; background: var(--line); }
-.strip button.k { background: var(--easy); }
-.strip button.l { background: var(--difficult); }
-.strip button.cur { outline: 2px solid var(--ink); outline-offset: 1px; }
+.fame { padding: 16px 18px; display: grid; gap: 10px; }
+.fame ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.fame li { display: grid; grid-template-columns: 38px minmax(0, 1fr) auto; gap: 10px; align-items: center; padding: 8px 10px; border-radius: 12px; background: var(--cloud); }
+.fame li.me { background: var(--mark); }
+.fame .pos { font: 700 20px/1 var(--display); text-align: center; }
+.fame .who { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fame .who small { display: block; font-size: 13px; color: var(--ink-soft); font-weight: 700; overflow: hidden; text-overflow: ellipsis; }
+.fame .pts { font: 700 18px/1 var(--display); font-variant-numeric: tabular-nums; text-align: right; }
+.empty { color: var(--ink-soft); margin: 0; }
 
-/* End & empty */
-.panel { background: var(--board); border: 1px solid var(--line); border-radius: 18px; padding: 28px; display: grid; gap: 14px; justify-items: start; box-shadow: var(--shadow); }
-.panel h3 { font: 800 28px/1.1 var(--display); margin: 0; }
-.panel p { margin: 0; color: var(--ink-soft); max-width: 55ch; }
-.score { font: 800 56px/1 var(--display); color: var(--easy); font-variant-numeric: tabular-nums; }
-.panel .row { display: flex; gap: 10px; flex-wrap: wrap; }
+.rules { padding: 16px 18px; }
+.rules summary { font: 600 20px/1.2 var(--display); cursor: pointer; }
+.rules ul { margin: 10px 0 0; padding-left: 20px; display: grid; gap: 4px; font-size: 15px; }
 
-/* Rules */
-.rules { background: var(--board); border: 1px solid var(--line); border-radius: 14px; padding: 4px 0; }
-.rules summary { padding: 12px 18px; font-weight: 600; }
-.rules .inner { padding: 0 18px 16px; display: grid; gap: 12px; }
-.table-wrap { overflow-x: auto; }
-table { border-collapse: collapse; width: 100%; font-size: 14px; min-width: 460px; }
-th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
-th { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-soft); font-weight: 500; }
-td.n { font-variant-numeric: tabular-nums; }
-.rules ul { margin: 0; padding-left: 18px; color: var(--ink-soft); font-size: 14px; display: grid; gap: 4px; }
-.reset { justify-self: start; background: none; border: 0; color: var(--difficult); font-size: 13px; text-decoration: underline; padding: 0; }
-.confirm { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; font-size: 13px; }
+/* ---------- Mode picker ---------- */
+.picker { padding: 22px; display: grid; gap: 16px; }
+.picker h2 { margin: 0; font: 700 30px/1.1 var(--display); }
+.picker .sub { margin: 0; color: var(--ink-soft); }
+.modes { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+.mode { text-align: left; border: var(--edge); border-radius: 18px; padding: 16px; display: grid; gap: 6px; box-shadow: var(--lift); background: var(--paper); transition: transform .08s; }
+.mode:hover { transform: translate(-1px, -2px); }
+.mode .ic { font-size: 30px; line-height: 1; }
+.mode b { font: 700 22px/1.1 var(--display); }
+.mode span { font-size: 15px; color: var(--ink-soft); }
+.mode.m-contest { background: var(--blue-soft); }
+.mode.m-master { background: var(--green-soft); }
+.mode.m-learn { background: var(--purple-soft); }
+
+/* ---------- Play ---------- */
+.hud { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 10px; align-items: center; }
+.hud .quit { width: 46px; height: 46px; padding: 0; font-size: 22px; }
+.hud-mid { display: grid; gap: 6px; min-width: 0; }
+.hud-line { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; font-size: 15px; }
+.hud-line .count { font-variant-numeric: tabular-nums; }
+.scorebox { background: var(--ink); color: var(--sun); border: var(--edge); border-radius: 16px; padding: 6px 14px; text-align: center; min-width: 88px; box-shadow: 3px 3px 0 var(--paper); }
+.scorebox b { display: block; font: 700 28px/1 var(--display); font-variant-numeric: tabular-nums; }
+.scorebox span { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #fff; }
+.scorebox.bump b { animation: bump .5s; }
+@keyframes bump { 40% { transform: scale(1.35); } }
+.streak { font: 600 16px/1 var(--display); color: var(--red); white-space: nowrap; }
+.timer { height: 14px; border: var(--edge); border-radius: 99px; background: var(--paper); overflow: hidden; }
+.timer i { display: block; height: 100%; width: 100%; background: var(--green); transform-origin: left; }
+.timer.low i { background: var(--red); }
+.timer-num { font: 700 18px/1 var(--display); font-variant-numeric: tabular-nums; min-width: 38px; text-align: right; }
+.timer-num.low { color: var(--red); animation: pulse 1s infinite; }
+@keyframes pulse { 50% { transform: scale(1.2); } }
+
+.qcard { padding: clamp(18px, 4vw, 30px); display: grid; gap: 16px; border-top-width: 10px; border-top-color: var(--c); }
+.q-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+.q-cat { font: 600 15px/1 var(--display); letter-spacing: .06em; text-transform: uppercase; color: var(--c); }
+.q-pts { font: 600 15px/1 var(--display); background: var(--c); color: #fff; border-radius: 99px; padding: 5px 12px; border: 2px solid var(--ink); }
+.q-text { margin: 0; font: 800 clamp(21px, 3.6vw, 27px)/1.4 var(--body); text-wrap: pretty; }
+.choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 640px) { .choices { grid-template-columns: 1fr; } }
+.choice {
+  display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 12px; align-items: center; text-align: left;
+  border: var(--edge); border-radius: 16px; padding: 10px 14px 10px 10px; background: var(--paper); box-shadow: 3px 3px 0 var(--ink);
+  font: 800 17px/1.35 var(--body); transition: transform .08s, background .15s;
+}
+.choice:hover:not(:disabled) { transform: translate(-1px, -2px); }
+.choice .letter { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; font: 700 22px/1 var(--display); color: #fff; border: 2px solid var(--ink); }
+.choice:nth-child(1) .letter { background: var(--blue); }
+.choice:nth-child(2) .letter { background: var(--orange); }
+.choice:nth-child(3) .letter { background: var(--green); }
+.choice:nth-child(4) .letter { background: var(--purple); }
+.choice:disabled { cursor: default; opacity: .55; }
+.choice.right, .choice[data-right] { background: var(--green-soft); opacity: 1; border-color: var(--green); box-shadow: 3px 3px 0 var(--green); }
+.choice.right .letter, .choice[data-right] .letter { background: var(--green); }
+.choice.wrong { background: var(--red-soft); opacity: 1; border-color: var(--red); box-shadow: 3px 3px 0 var(--red); animation: shake .4s; }
+.choice.wrong .letter { background: var(--red); }
+@keyframes shake { 20%, 60% { transform: translateX(-6px); } 40%, 80% { transform: translateX(6px); } }
+
+.typebox { display: grid; gap: 10px; }
+.typebox label { font: 600 17px/1 var(--display); color: var(--ink-soft); }
+.typerow { display: flex; gap: 10px; flex-wrap: wrap; }
+.typerow input {
+  flex: 1 1 220px; min-width: 0; border: var(--edge); border-radius: 16px; padding: 12px 16px;
+  font: 700 24px/1.2 var(--display); background: var(--cloud); box-shadow: inset 0 3px 0 rgba(27,29,77,.08);
+}
+.typerow input:focus { background: #fff; outline: none; border-color: var(--blue); }
+.typerow input.wrong { border-color: var(--red); background: var(--red-soft); animation: shake .4s; }
+.typerow input.right { border-color: var(--green); background: var(--green-soft); }
+.helpers { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.feedback { border: var(--edge); border-radius: 20px; padding: 16px 18px; display: grid; gap: 10px; animation: pop .35s cubic-bezier(.2,1.6,.4,1); }
+@keyframes pop { from { transform: scale(.92); opacity: 0; } }
+.feedback.ok { background: var(--green-soft); border-color: var(--green); }
+.feedback.no { background: var(--red-soft); border-color: var(--red); }
+.feedback.info { background: var(--purple-soft); border-color: var(--purple); }
+.fb-head { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.fb-title { font: 700 28px/1 var(--display); }
+.feedback.ok .fb-title { color: var(--green); }
+.feedback.no .fb-title { color: var(--red); }
+.feedback.info .fb-title { color: var(--purple); }
+.fb-plus { font: 700 20px/1 var(--display); background: var(--green); color: #fff; border-radius: 99px; padding: 5px 12px; border: 2px solid var(--ink); }
+.fb-answer { font: 700 clamp(24px, 4.6vw, 34px)/1.15 var(--display); color: var(--ink); overflow-wrap: anywhere; }
+.fb-answer small { display: block; font: 800 13px/1.4 var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
+.fb-yours { font-size: 15px; color: var(--ink-soft); }
+.fb-yours s { color: var(--red); }
+.fb-how { margin: 0; font-size: 17px; font-weight: 700; }
+.fb-trick { margin: 0; background: var(--paper); border: 2px dashed var(--ink); border-radius: 14px; padding: 10px 12px; font-size: 16px; }
+.fb-trick b { color: var(--purple); font-family: var(--display); font-weight: 600; font-size: 18px; }
+.fb-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: space-between; align-items: center; }
+.linkish { background: none; border: 0; padding: 4px 0; font-size: 14px; color: var(--ink-soft); text-decoration: underline; }
+
+/* ---------- Interstitial & results ---------- */
+.splash { padding: 34px 24px; text-align: center; display: grid; gap: 12px; justify-items: center; background: var(--c-soft); }
+.splash .big { font: 700 clamp(38px, 9vw, 64px)/1 var(--display); color: var(--c); -webkit-text-stroke: 2px var(--ink); paint-order: stroke fill; text-shadow: 3px 3px 0 var(--ink); }
+.splash p { margin: 0; font-size: 18px; max-width: 40ch; }
+.results { padding: 26px 22px; display: grid; gap: 16px; justify-items: center; text-align: center; }
+.medal { font-size: 76px; line-height: 1; animation: pop .6s cubic-bezier(.2,1.6,.4,1); }
+.rank-title { font: 700 clamp(32px, 7vw, 48px)/1 var(--display); margin: 0; }
+.rank-msg { margin: 0; font-size: 18px; max-width: 44ch; }
+.score-big { font: 700 64px/1 var(--display); font-variant-numeric: tabular-nums; }
+.score-big small { font-size: 26px; color: var(--ink-soft); }
+.res-stats { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.res-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.review { width: 100%; text-align: left; display: grid; gap: 8px; }
+.review h4 { margin: 0; font: 700 22px/1.1 var(--display); }
+.review-item { background: var(--red-soft); border-radius: 14px; padding: 10px 14px; border: 2px solid var(--red); }
+.review-item .rq { font-size: 15px; }
+.review-item .ra { font: 700 19px/1.25 var(--display); color: var(--green); }
+.fame-note { font: 600 18px/1.3 var(--display); background: var(--mark); padding: 6px 14px; border-radius: 99px; border: 2px solid var(--ink); }
+
+#confetti { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 10; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 
 @media (prefers-reduced-motion: reduce) {
-  .card { transition: none; }
-  .card.flipped { transform: none; }
-  .card.flipped .front { visibility: hidden; }
-  .card:not(.flipped) .back { visibility: hidden; }
-  .back { transform: none; }
-  .meter i, .chip .sw::after { transition: none; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
 }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header class="top">
-    <div class="brand">
-      <h1>SciMath Battle <span>Flashcards</span></h1>
-      <p>DOST Caraga · Grade 6 reviewer · Tap a card to flip it, then say if you knew it.</p>
-    </div>
-    <div class="overall" aria-live="polite">
-      <div class="row"><span>Cards you know</span><strong id="overallText">0 / 0</strong></div>
-      <div class="meter"><i id="overallBar"></i></div>
+<canvas id="confetti" aria-hidden="true"></canvas>
+<div class="app">
+  <header class="topbar">
+    <button class="logo" data-go="home" aria-label="Go to home">
+      <span class="logo-badge">S+M</span>
+      <span><small>DOST Caraga · Grade 6</small><h1>SciMath Battle Arena</h1></span>
+    </button>
+    <div class="top-tools">
+      <button class="btn small ghost" id="soundBtn" aria-pressed="true">🔊 Sound on</button>
+      <button class="btn small ghost" id="timerBtn">⏱ Timer: on</button>
     </div>
   </header>
-
-  <div class="layout">
-    <details class="decks" id="deckPanel">
-      <summary><span>Choose a deck</span><span class="cur" id="curDeckName"></span></summary>
-      <nav class="deck-body" id="deckList" aria-label="Decks"></nav>
-    </details>
-
-    <main class="study" id="study">
-      <div class="deck-head">
-        <div>
-          <div class="eyebrow" id="deckGroup"></div>
-          <h2 id="deckTitle"></h2>
-          <p class="deck-note" id="deckNote"></p>
-        </div>
-        <span class="badge" id="deckBadge"></span>
-      </div>
-
-      <div class="tools">
-        <button class="chip" id="tShuffle" aria-pressed="false"><span class="sw"></span>Shuffle</button>
-        <button class="chip" id="tTimer" aria-pressed="false"><span class="sw"></span>Contest timer</button>
-        <button class="chip" id="tLearning" aria-pressed="false"><span class="sw"></span>Only cards I'm still learning</button>
-      </div>
-
-      <div id="cardArea"></div>
-
-      <div class="strip" id="strip" aria-label="Cards in this deck"></div>
-
-      <details class="rules">
-        <summary>How the contest works</summary>
-        <div class="inner">
-          <div class="table-wrap">
-            <table>
-              <thead><tr><th>Round</th><th>Questions</th><th>Points each</th><th>Time</th><th>After the round</th></tr></thead>
-              <tbody>
-                <tr data-round="easy"><td><span class="badge">Easy</span></td><td class="n">10</td><td class="n">1</td><td class="n">15 s</td><td>Everyone moves on</td></tr>
-                <tr data-round="average"><td><span class="badge">Average</span></td><td class="n">10</td><td class="n">2</td><td class="n">30 s</td><td>Top 5 teams (Easy + Average) move on</td></tr>
-                <tr data-round="difficult"><td><span class="badge">Difficult</span></td><td class="n">10</td><td class="n">3</td><td class="n">1 min</td><td>Top 3 total scores win</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <ul>
-            <li>Highest possible score: 60 points. Each question is read twice.</li>
-            <li>Wait for the “Go” signal, write on the board, and raise it when time is up.</li>
-            <li>Easy round: solve in your head. No writing on the table, palm, or in the air.</li>
-            <li>Write answers in lowest terms and always include units (cm², km/h).</li>
-            <li>Watch for “not” and “except” in the question. Spell science words carefully.</li>
-          </ul>
-          <div id="resetBox"><button class="reset" id="resetBtn">Clear my progress</button></div>
-        </div>
-      </details>
-    </main>
-  </div>
+  <main id="screen" aria-live="polite"></main>
 </div>
 
 <script src="cards.js"></script>
+<script src="keys.js"></script>
+<script src="check.js"></script>
 <script>
 (function () {
-  var GROUPS = window.GROUPS, DECKS = window.DECKS, CARDS = window.CARDS;
-  var KEY = "scimath-flashcards-v1";
+  "use strict";
+  var GROUPS = window.GROUPS, DECKS = window.DECKS, CARDS = window.CARDS, KEYS = window.KEYS || {};
+  var STORE = "scimath-arena-v2";
+  var screen = document.getElementById("screen");
 
-  // Every card gets a stable id: deckId:index
-  var ALL = [];
+  // ---------- Data ----------
+  var ALL = [], BY_ID = {}, BY_DECK = {};
   DECKS.forEach(function (d) {
-    (CARDS[d.id] || []).forEach(function (c, i) { ALL.push({ id: d.id + ":" + i, deck: d, card: c }); });
+    BY_DECK[d.id] = [];
+    (CARDS[d.id] || []).forEach(function (c, i) {
+      var id = d.id + ":" + i;
+      var card = Object.assign({}, c, KEYS[id] || {});
+      var item = { id: id, deck: d, card: card };
+      ALL.push(item); BY_ID[id] = item; BY_DECK[d.id].push(item);
+    });
   });
-  var BY_DECK = {};
-  ALL.forEach(function (x) { (BY_DECK[x.deck.id] = BY_DECK[x.deck.id] || []).push(x); });
+  function deckById(id) { return DECKS.filter(function (d) { return d.id === id; })[0]; }
+  function groupOf(d) { return GROUPS.filter(function (g) { return g.id === d.group; })[0]; }
 
-  var SPECIAL = [
-    { id: "practice", name: "Cards I'm still learning", round: "mix", note: "Every card you marked “Still learning”, from all decks." },
-    { id: "contest", name: "Contest mix", round: "mix", note: "All 90 contest-level cards: real 2025, twists, and 2026 practice, shuffled." }
-  ];
+  // ---------- Saved progress (this device only) ----------
+  var save = (function () { try { return JSON.parse(localStorage.getItem(STORE)) || {}; } catch (e) { return {}; } })();
+  save.stars = save.stars || {};      // card id -> 0..3 stars
+  save.missed = save.missed || {};    // card id -> 1 if last try was wrong
+  save.fame = save.fame || [];        // hall of fame
+  save.name = save.name || "";
+  save.timer = save.timer || "on";    // on | relaxed | off
+  if (save.sound === undefined) save.sound = true;
+  function persist() { try { localStorage.setItem(STORE, JSON.stringify(save)); } catch (e) {} }
 
-  var saved = load();
-  var progress = saved.progress || {};
-  var state = {
-    deck: saved.deck || "e25",
-    shuffle: !!saved.shuffle,
-    timer: !!saved.timer,
-    learningOnly: false,
-    order: [],
-    pos: 0,
-    flipped: false,
-    done: false
-  };
+  function stars(id) { return save.stars[id] || 0; }
+  function mastered(list) { return list.filter(function (x) { return stars(x.id) >= 3; }).length; }
+  function starSum(list) { return list.reduce(function (s, x) { return s + stars(x.id); }, 0); }
 
-  function load() { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; } }
-  function save() {
-    try { localStorage.setItem(KEY, JSON.stringify({ progress: progress, deck: state.deck, shuffle: state.shuffle, timer: state.timer })); } catch (e) {}
-  }
-
-  var $ = function (id) { return document.getElementById(id); };
+  // ---------- Helpers ----------
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
-  function shuffled(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
-
-  function deckInfo(id) {
-    for (var i = 0; i < SPECIAL.length; i++) if (SPECIAL[i].id === id) return SPECIAL[i];
-    for (var j = 0; j < DECKS.length; j++) if (DECKS[j].id === id) return DECKS[j];
-    return DECKS[0];
+  function reEsc(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }
+  function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  // Highlight key words in one pass so marks never nest.
+  function hl(text, words) {
+    var safe = esc(text);
+    if (!words || !words.length) return safe;
+    var list = words.map(esc).sort(function (a, b) { return b.length - a.length; }).map(reEsc);
+    var re = new RegExp("(^|[^A-Za-z0-9])(" + list.join("|") + ")(?![A-Za-z0-9])", "gi");
+    return safe.replace(re, "$1<mark>$2</mark>");
   }
-  function cardsFor(id) {
-    if (id === "practice") return ALL.filter(function (x) { return progress[x.id] === 0; });
-    if (id === "contest") return ALL.filter(function (x) { return ["real", "twist", "p26"].indexOf(x.deck.group) >= 0; });
-    return BY_DECK[id] || [];
+  function starStr(n) { return "★★★".slice(0, n) + "☆☆☆".slice(0, 3 - n); }
+  function plural(n, w) { return n + " " + w + (n === 1 ? "" : "s"); }
+  function roundOf(d) { return d.round; }
+  function pointsFor(d) { return d.pts || 1; }
+  function timeFor(item) {
+    var t = item.deck.time || 30;
+    if (!item.card.c && !item.card.self) t += 10; // a little extra time to type
+    return save.timer === "relaxed" ? t * 2 : t;
   }
+  function cleanAns(a) { return String(a).replace(/^[A-D] · /, ""); }
 
-  // ---------- Deck list ----------
-  function renderDeckList() {
-    var html = '<div class="group-name">Smart review</div>';
-    SPECIAL.forEach(function (d) {
-      var n = cardsFor(d.id).length;
-      html += deckBtn(d.id, d.name, "mix", d.id === "practice" ? n + " cards" : n + "");
-    });
-    GROUPS.forEach(function (g) {
-      html += '<div class="group-name">' + esc(g.name) + '</div>';
-      DECKS.filter(function (d) { return d.group === g.id; }).forEach(function (d) {
-        var list = BY_DECK[d.id] || [];
-        var known = list.filter(function (x) { return progress[x.id] === 1; }).length;
-        html += deckBtn(d.id, d.name, d.round, known + "/" + list.length, known === list.length && list.length > 0);
-      });
-    });
-    $("deckList").innerHTML = html;
-  }
-  function deckBtn(id, name, round, count, done) {
-    return '<button class="deck-btn" data-round="' + round + '" data-deck="' + id + '" aria-pressed="' + (state.deck === id) + '">' +
-      '<span class="dot"></span><span>' + esc(name) + '</span><span class="deck-count' + (done ? " done" : "") + '">' + count + '</span></button>';
-  }
-  $("deckList").addEventListener("click", function (e) {
-    var b = e.target.closest(".deck-btn"); if (!b) return;
-    state.deck = b.getAttribute("data-deck");
-    if (state.deck === "contest") state.shuffle = true;
-    startDeck();
-    if (window.matchMedia("(max-width: 860px)").matches) { $("deckPanel").open = false; $("study").scrollIntoView({ behavior: "smooth", block: "start" }); }
-  });
-
-  // ---------- Deck start ----------
-  function startDeck() {
-    var list = cardsFor(state.deck);
-    if (state.learningOnly && state.deck !== "practice") list = list.filter(function (x) { return progress[x.id] !== 1; });
-    state.order = state.shuffle ? shuffled(list) : list;
-    state.pos = 0; state.flipped = false; state.done = false;
-    save(); renderAll();
-  }
-
-  function renderAll() {
-    renderDeckList(); renderHead(); renderCard(); renderStrip(); renderOverall(); renderToggles();
-  }
-
-  function renderHead() {
-    var d = deckInfo(state.deck);
-    var g = GROUPS.filter(function (x) { return x.id === d.group; })[0];
-    $("deckGroup").textContent = g ? g.name : "Smart review";
-    $("deckTitle").textContent = d.name;
-    $("deckNote").textContent = d.note || (g ? g.note : "");
-    $("curDeckName").textContent = (g ? g.name + " · " : "") + d.name;
-    var badge = $("deckBadge");
-    badge.parentNode.setAttribute("data-round", d.round);
-    if (d.pts) badge.textContent = d.pts + " pt" + (d.pts > 1 ? "s" : "") + " each · " + fmtTime(d.time);
-    else if (d.time) badge.textContent = "Timer: " + fmtTime(d.time);
-    else badge.textContent = "Mixed decks";
-    document.querySelector(".deck-head").setAttribute("data-round", d.round);
-  }
-  function fmtTime(s) { return s >= 60 ? s / 60 + " min" : s + " s"; }
-
-  function renderToggles() {
-    $("tShuffle").setAttribute("aria-pressed", state.shuffle);
-    $("tTimer").setAttribute("aria-pressed", state.timer);
-    $("tLearning").setAttribute("aria-pressed", state.learningOnly);
-    $("tLearning").hidden = state.deck === "practice";
-  }
-
-  // ---------- Card ----------
-  function renderCard() {
-    stopTimer();
-    var area = $("cardArea");
-    var total = state.order.length;
-    if (!total) {
-      var msg = state.deck === "practice"
-        ? "<h3>Nothing to practice yet</h3><p>When you press “Still learning” on a card, it shows up here so you can go over it again.</p>"
-        : "<h3>You know every card here</h3><p>All cards in this deck are marked “Got it”. Turn off “Only cards I'm still learning” to go through them again.</p>";
-      area.innerHTML = '<div class="panel">' + msg + '<div class="row"><button class="btn flip" data-act="contest">Try the contest mix</button></div></div>';
-      return;
-    }
-    if (state.done) { renderEnd(); return; }
-
-    var x = state.order[state.pos], c = x.card, d = x.deck;
-    var round = d.round;
-    var ch = "";
-    if (c.c) {
-      ch = '<ol class="choices">' + c.c.map(function (t, i) { return "<li><b>" + "ABCD"[i] + "</b><span>" + esc(t) + "</span></li>"; }).join("") + "</ol>";
-    }
-    var label = (c.cat ? c.cat : groupShort(d)) + (state.deck === "practice" || state.deck === "contest" ? " · " + d.name : "");
-    var how = c.e ? '<p class="how">' + esc(c.e) + "</p>" : "";
-    var trick = c.m ? '<p class="trick"><strong>Remember:</strong> ' + esc(c.m) + "</p>" : "";
-    var long = c.a.length > 42 ? " long" : "";
-    var mark = progress[x.id] === 1 ? "✓ You knew this" : progress[x.id] === 0 ? "Still learning" : "";
-
-    area.innerHTML =
-      '<div class="stage" data-round="' + round + '">' +
-        '<div class="card' + (state.flipped ? " flipped" : "") + '" id="card" tabindex="0" role="button" aria-label="Flashcard. Press to flip.">' +
-          '<div class="timer" id="timerBar" hidden><i></i></div>' +
-          '<section class="face front" aria-hidden="' + state.flipped + '">' +
-            '<div class="face-top"><span class="cat">' + esc(label) + '</span><span class="num">' +
-              (state.timer ? '<span class="timer-text" id="timerText"></span>' : "Card " + (state.pos + 1) + " of " + total) + "</span></div>" +
-            '<p class="q">' + esc(c.q) + "</p>" + ch +
-            '<div class="hint"><span>Say your answer out loud, then tap to check.</span><span><span class="kbd">Space</span> flip</span></div>' +
-          "</section>" +
-          '<section class="face back" aria-hidden="' + !state.flipped + '">' +
-            '<div class="face-top"><span class="answer-label">Answer</span><span class="num">' + esc(mark) + "</span></div>" +
-            '<p class="answer' + long + '">' + esc(c.a) + "</p>" +
-            '<div class="explain">' + how + trick + "</div>" +
-            '<div class="backq">' + esc(c.q) + "</div>" +
-          "</section>" +
-        "</div>" +
-      "</div>" +
-      '<div class="controls" style="margin-top:14px">' +
-        '<button class="nav" data-act="prev" aria-label="Previous card"' + (state.pos === 0 ? " disabled" : "") + ">‹</button>" +
-        '<div class="grade">' + (state.flipped
-          ? '<button class="btn learn" data-act="learn">Still learning <span class="kbd">1</span></button><button class="btn know" data-act="know">Got it! <span class="kbd">2</span></button>'
-          : '<button class="btn flip" data-act="flip">Show answer</button>') +
-        "</div>" +
-        '<button class="nav" data-act="next" aria-label="Next card">›</button>' +
-      "</div>";
-
-    if (state.timer && !state.flipped) startTimer(d.time);
-  }
-  function groupShort(d) { var g = GROUPS.filter(function (x) { return x.id === d.group; })[0]; return g ? g.name : ""; }
-
-  function renderEnd() {
-    var list = state.order;
-    var k = list.filter(function (x) { return progress[x.id] === 1; }).length;
-    var l = list.length - k;
-    var pct = Math.round((k / list.length) * 100);
-    var words = pct === 100 ? "Perfect! You're ready for this deck." : pct >= 70 ? "Great work. Go over the ones you missed once more." : "Good start. Practice the tricky ones again, then try tomorrow.";
-    $("cardArea").innerHTML =
-      '<div class="panel"><span class="eyebrow">Deck finished</span><div class="score">' + k + " / " + list.length + "</div>" +
-      "<h3>" + words + "</h3><p>You marked " + l + " card" + (l === 1 ? "" : "s") + " as still learning. Mistakes fixed twice are rarely forgotten, so redo them in two days.</p>" +
-      '<div class="row">' + (l ? '<button class="btn learn" data-act="redo">Practice the ' + l + " again</button>" : "") +
-      '<button class="btn flip" data-act="restart">Start this deck over</button></div></div>';
-  }
-
-  function renderStrip() {
-    var s = $("strip");
-    if (!state.order.length || state.order.length > 120) { s.innerHTML = ""; return; }
-    s.innerHTML = state.order.map(function (x, i) {
-      var cls = progress[x.id] === 1 ? "k" : progress[x.id] === 0 ? "l" : "";
-      if (i === state.pos && !state.done) cls += " cur";
-      return '<button class="' + cls + '" data-i="' + i + '" aria-label="Go to card ' + (i + 1) + '"></button>';
-    }).join("");
-  }
-  $("strip").addEventListener("click", function (e) {
-    var b = e.target.closest("button"); if (!b) return;
-    state.pos = +b.getAttribute("data-i"); state.flipped = false; state.done = false;
-    renderCard(); renderStrip();
-  });
-
-  function renderOverall() {
-    var k = ALL.filter(function (x) { return progress[x.id] === 1; }).length;
-    $("overallText").textContent = k + " / " + ALL.length;
-    $("overallBar").style.width = (k / ALL.length * 100) + "%";
-  }
-
-  // ---------- Actions ----------
-  function flip() {
-    if (!state.order.length || state.done) return;
-    state.flipped = !state.flipped;
-    var card = $("card");
-    if (!card) return;
-    stopTimer();
-    renderCard();
-  }
-  function go(delta) {
-    if (!state.order.length) return;
-    if (state.done && delta < 0) { state.done = false; state.pos = state.order.length - 1; }
-    else {
-      var p = state.pos + delta;
-      if (p >= state.order.length) { state.done = true; }
-      else if (p >= 0) state.pos = p;
-    }
-    state.flipped = false;
-    renderCard(); renderStrip();
-  }
-  function grade(v) {
-    var x = state.order[state.pos]; if (!x) return;
-    progress[x.id] = v; save();
-    renderDeckList(); renderOverall();
-    go(1);
-  }
-
-  document.addEventListener("click", function (e) {
-    var a = e.target.closest("[data-act]");
-    if (a) {
-      unlockAudio();
-      var act = a.getAttribute("data-act");
-      if (act === "flip") flip();
-      else if (act === "prev") go(-1);
-      else if (act === "next") go(1);
-      else if (act === "know") grade(1);
-      else if (act === "learn") grade(0);
-      else if (act === "restart") startDeck();
-      else if (act === "redo") {
-        state.order = state.order.filter(function (x) { return progress[x.id] !== 1; });
-        state.pos = 0; state.flipped = false; state.done = false; renderCard(); renderStrip();
-      }
-      else if (act === "contest") { state.deck = "contest"; state.shuffle = true; state.learningOnly = false; startDeck(); }
-      return;
-    }
-    if (e.target.closest("#card")) { unlockAudio(); flip(); }
-  });
-
-  document.addEventListener("keydown", function (e) {
-    if (e.target.closest && e.target.closest("summary, .deck-btn, .chip, .strip, .reset, .confirm")) return;
-    if (e.key === " " || e.key === "Enter") {
-      if (e.target.closest && e.target.closest("button:not(#card)") ) return;
-      e.preventDefault(); unlockAudio(); flip();
-    }
-    else if (e.key === "ArrowRight") go(1);
-    else if (e.key === "ArrowLeft") go(-1);
-    else if (e.key === "1" && state.flipped) grade(0);
-    else if (e.key === "2" && state.flipped) grade(1);
-  });
-
-  $("tShuffle").addEventListener("click", function () { state.shuffle = !state.shuffle; startDeck(); });
-  $("tTimer").addEventListener("click", function () { unlockAudio(); state.timer = !state.timer; save(); renderToggles(); renderCard(); });
-  $("tLearning").addEventListener("click", function () { state.learningOnly = !state.learningOnly; startDeck(); });
-
-  $("resetBox").addEventListener("click", function (e) {
-    var t = e.target;
-    if (t.id === "resetBtn") {
-      $("resetBox").innerHTML = '<div class="confirm"><span>Clear all “Got it” and “Still learning” marks?</span><button class="chip" id="resetYes">Yes, clear</button><button class="chip" id="resetNo">Keep them</button></div>';
-    } else if (t.id === "resetYes") {
-      progress = {}; save(); startDeck(); resetLink();
-    } else if (t.id === "resetNo") { resetLink(); }
-  });
-  function resetLink() { $("resetBox").innerHTML = '<button class="reset" id="resetBtn">Clear my progress</button>'; }
-
-  // ---------- Contest timer ----------
-  var tick = null, audio = null;
-  function unlockAudio() {
-    if (audio) return;
-    try { var AC = window.AudioContext || window.webkitAudioContext; if (AC) audio = new AC(); } catch (e) {}
-  }
-  function beep() {
-    if (!audio) return;
+  // ---------- Sound & confetti ----------
+  var audio = null;
+  function ensureAudio() { if (audio || !save.sound) return; try { var AC = window.AudioContext || window.webkitAudioContext; if (AC) audio = new AC(); } catch (e) {} }
+  function tone(freqs, type, len, vol) {
+    if (!save.sound) return; ensureAudio(); if (!audio) return;
     try {
-      [0, 0.18].forEach(function (off) {
-        var o = audio.createOscillator(), g = audio.createGain();
-        o.frequency.value = 880; o.connect(g); g.connect(audio.destination);
-        var t = audio.currentTime + off;
-        g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.25, t + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.15);
-        o.start(t); o.stop(t + 0.16);
+      freqs.forEach(function (f, i) {
+        var o = audio.createOscillator(), g = audio.createGain(), t = audio.currentTime + i * len * 0.8;
+        o.type = type; o.frequency.value = f; o.connect(g); g.connect(audio.destination);
+        g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, t + len);
+        o.start(t); o.stop(t + len + 0.02);
       });
     } catch (e) {}
   }
-  function startTimer(secs) {
-    var bar = $("timerBar"), txt = $("timerText");
-    if (!bar) return;
-    bar.hidden = false;
-    var end = Date.now() + secs * 1000;
-    function step() {
-      var left = Math.max(0, end - Date.now());
-      var s = Math.ceil(left / 1000);
-      if (txt) { txt.textContent = s + "s"; txt.classList.toggle("low", s <= 5); }
-      bar.firstChild.style.transform = "scaleX(" + (left / (secs * 1000)) + ")";
-      if (left <= 0) { stopTimer(); beep(); state.flipped = true; renderCard(); }
+  var sfx = {
+    right: function () { tone([660, 880, 1320], "triangle", 0.14, 0.22); },
+    wrong: function () { tone([220, 165], "sawtooth", 0.2, 0.12); },
+    tick: function () { tone([990], "square", 0.05, 0.05); },
+    win: function () { tone([523, 659, 784, 1047, 1319], "triangle", 0.16, 0.22); }
+  };
+
+  var cv = document.getElementById("confetti"), cx = cv.getContext && cv.getContext("2d"), bits = [], raf = 0;
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function confetti(n) {
+    if (!cx || reduce) return;
+    cv.width = innerWidth; cv.height = innerHeight;
+    var colors = ["#2f5bff", "#ff7a1a", "#12a863", "#7a4dff", "#ef2f55", "#ffd23f"];
+    for (var i = 0; i < n; i++) bits.push({ x: innerWidth / 2 + (Math.random() - .5) * 200, y: innerHeight * .45, vx: (Math.random() - .5) * 14, vy: -Math.random() * 14 - 4, r: Math.random() * 6 + 4, c: colors[i % colors.length], a: Math.random() * 6, life: 90 + Math.random() * 40 });
+    if (!raf) raf = requestAnimationFrame(drawBits);
+  }
+  function drawBits() {
+    cx.clearRect(0, 0, cv.width, cv.height);
+    bits = bits.filter(function (b) { return b.life-- > 0 && b.y < cv.height + 20; });
+    bits.forEach(function (b) {
+      b.vy += 0.4; b.x += b.vx; b.y += b.vy; b.a += 0.2; b.vx *= 0.99;
+      cx.save(); cx.translate(b.x, b.y); cx.rotate(b.a); cx.fillStyle = b.c; cx.fillRect(-b.r, -b.r / 2, b.r * 2, b.r); cx.restore();
+    });
+    raf = bits.length ? requestAnimationFrame(drawBits) : 0;
+    if (!raf) cx.clearRect(0, 0, cv.width, cv.height);
+  }
+
+  // ---------- Ranks ----------
+  function rankFor(pct) {
+    if (pct >= 90) return { medal: "🏆", title: "Champion!", color: "var(--gold)", msg: "Amazing! You'd take home the trophy. Keep it sharp by playing again tomorrow." };
+    if (pct >= 75) return { medal: "🥈", title: "2nd Place", color: "var(--blue)", msg: "So close to the top! Fix the ones you missed and go for Champion." };
+    if (pct >= 60) return { medal: "🥉", title: "3rd Place", color: "var(--orange)", msg: "You made the podium! Practice your mistakes and climb higher." };
+    if (pct >= 40) return { medal: "⭐", title: "Finalist", color: "var(--purple)", msg: "Good fight! Play “Master it” to lock in the hard ones." };
+    return { medal: "💪", title: "Keep Training", color: "var(--red)", msg: "Every champion starts here. Learn the cards, then battle again." };
+  }
+
+  // ---------- Top bar controls ----------
+  var soundBtn = document.getElementById("soundBtn"), timerBtn = document.getElementById("timerBtn");
+  function paintTop() {
+    soundBtn.textContent = save.sound ? "🔊 Sound on" : "🔈 Sound off";
+    soundBtn.setAttribute("aria-pressed", save.sound);
+    timerBtn.textContent = "⏱ Timer: " + { on: "on", relaxed: "relaxed", off: "off" }[save.timer];
+  }
+  soundBtn.addEventListener("click", function () { save.sound = !save.sound; persist(); paintTop(); if (save.sound) sfx.right(); });
+  timerBtn.addEventListener("click", function () { save.timer = { on: "relaxed", relaxed: "off", off: "on" }[save.timer]; persist(); paintTop(); });
+
+  // ================= HOME =================
+  function home() {
+    stopTimer(); S = null;
+    var m = mastered(ALL), total = ALL.length;
+    var missedIds = Object.keys(save.missed).filter(function (id) { return BY_ID[id]; });
+    var html = '';
+    html += '<section class="box hello"><div class="hello-row">' +
+      '<div class="namebox"><label for="pname">Player</label><input id="pname" maxlength="18" placeholder="Type your name" value="' + esc(save.name) + '"></div>' +
+      '<div class="stats">' +
+        '<div class="stat"><b>' + m + '</b><span>Mastered</span></div>' +
+        '<div class="stat"><b>' + starSum(ALL) + '</b><span>Stars</span></div>' +
+        '<div class="stat"><b>' + missedIds.length + '</b><span>To fix</span></div>' +
+      '</div></div>' +
+      '<div class="bar" title="Cards mastered"><i style="width:' + (m / total * 100).toFixed(1) + '%"></i></div>' +
+      '<div style="font-size:14px;color:var(--ink-soft)">Get a card right <b>3 times</b> to earn ★★★ and master it. A wrong answer takes a star away, so keep practicing!</div>' +
+    '</section>';
+
+    html += '<section class="box battle"><div>' +
+      '<h2>Full SciMath Battle</h2>' +
+      '<p>Just like the real contest: 10 Easy, 10 Average, and 10 Difficult questions. The highest score is 60 points.</p>' +
+      '<div class="rounds-mini"><span class="pill easy">Easy · 1 pt</span><span class="pill average">Average · 2 pts</span><span class="pill difficult">Difficult · 3 pts</span></div>' +
+      '</div><button class="btn" data-full>Start the battle ▶</button></section>';
+
+    if (missedIds.length) {
+      html += '<section class="box battle" style="background:var(--red)"><div><h2 style="color:#fff">Fix my mistakes</h2>' +
+        '<p style="color:#fff">' + plural(missedIds.length, "card") + ' you got wrong last time. They come back until you get each one right.</p></div>' +
+        '<button class="btn" data-fix>Practice them ▶</button></section>';
     }
-    step();
-    tick = setInterval(step, 100);
+
+    html += '<div class="section-title"><h3>Pick a round to practice</h3><p>Tap a deck, then choose how to play.</p></div>';
+    GROUPS.forEach(function (g) {
+      var decks = DECKS.filter(function (d) { return d.group === g.id; });
+      html += '<section class="box group"><div class="group-head"><h4>' + esc(g.name) + '</h4><span>' + esc(g.note) + '</span></div><div class="tiles">';
+      decks.forEach(function (d) {
+        var list = BY_DECK[d.id], mm = mastered(list), avg = list.length ? Math.round(starSum(list) / list.length) : 0;
+        var sub = d.pts ? d.pts + " pt" + (d.pts > 1 ? "s" : "") + " · " + d.time + " s" : list.length + " cards";
+        html += '<button class="tile" data-round="' + d.round + '" data-deck="' + d.id + '">' +
+          '<span class="t-name">' + esc(d.name) + '</span>' +
+          '<span class="t-meta"><span>' + sub + '</span><span class="stars" aria-label="' + avg + ' of 3 stars">' + starStr(avg) + '</span></span>' +
+          '<span class="minibar"><i style="width:' + (list.length ? mm / list.length * 100 : 0) + '%"></i></span>' +
+          '<span class="t-meta"><span>' + mm + ' / ' + list.length + ' mastered</span></span></button>';
+      });
+      html += '</div></section>';
+    });
+
+    html += fameHTML(null);
+
+    html += '<details class="box rules"><summary>How the real contest works</summary><ul>' +
+      '<li><b>Easy:</b> 10 questions, 1 point each, 15 seconds. Solve in your head: no writing on the table, palm, or air.</li>' +
+      '<li><b>Average:</b> 10 questions, 2 points each, 30 seconds. Top 5 teams move on.</li>' +
+      '<li><b>Difficult:</b> 10 questions, 3 points each, 1 minute. Top 3 total scores win.</li>' +
+      '<li>Each question is read twice. Wait for “Go”, write on the board, raise it when time is up.</li>' +
+      '<li>Use lowest terms and <mark>always include units</mark>. Watch for <mark>“not”</mark> and <mark>“except”</mark>. Spell science words carefully.</li>' +
+      '<li>In this game, typing questions get 10 extra seconds. Tap “Timer” at the top for relaxed (double time) or no timer.</li>' +
+      '</ul></details>';
+
+    screen.innerHTML = html;
+    var inp = document.getElementById("pname");
+    inp.addEventListener("input", function () { save.name = inp.value.trim(); persist(); });
+    window.scrollTo(0, 0);
+  }
+
+  function fameHTML(highlightAt) {
+    var h = '<section class="box fame"><div class="group-head"><h4>🏅 Hall of Fame</h4><span>Best contest scores on this device</span></div>';
+    if (!save.fame.length) return h + '<p class="empty">No scores yet. Play a contest round to get on the board!</p></section>';
+    h += '<ol>';
+    save.fame.slice(0, 10).forEach(function (f, i) {
+      var medal = i === 0 ? "🥇" : i === 1 ? "🥈" : i === 2 ? "🥉" : (i + 1);
+      h += '<li class="' + (f.at === highlightAt ? "me" : "") + '"><span class="pos">' + medal + '</span>' +
+        '<span class="who">' + esc(f.name || "Player") + '<small>' + esc(f.deck) + ' · ' + esc(f.date) + '</small></span>' +
+        '<span class="pts">' + f.pts + '/' + f.max + '<br><small style="font-size:13px;color:var(--ink-soft)">' + f.pct + '%</small></span></li>';
+    });
+    return h + '</ol></section>';
+  }
+
+  // ================= MODE PICKER =================
+  function picker(deckId) {
+    var d = deckById(deckId), list = BY_DECK[deckId], g = groupOf(d);
+    var n = Math.min(10, list.length);
+    var html = '<section class="box picker" data-round="' + d.round + '">' +
+      '<div><span class="pill ' + d.round + '">' + esc(g.name) + '</span></div>' +
+      '<h2>' + esc(d.name) + '</h2><p class="sub">' + list.length + ' cards · ' + mastered(list) + ' mastered · ' + esc(g.note) + '</p>' +
+      '<div class="modes">' +
+        '<button class="mode m-contest" data-mode="contest" data-deck="' + d.id + '"><span class="ic">🏆</span><b>Contest round</b><span>' + n + ' questions with the timer. Get your score and rank.</span></button>' +
+        '<button class="mode m-master" data-mode="master" data-deck="' + d.id + '"><span class="ic">🔁</span><b>Master it</b><span>All ' + list.length + ' cards, no timer. Wrong ones come back until you get them right.</span></button>' +
+        '<button class="mode m-learn" data-mode="learn" data-deck="' + d.id + '"><span class="ic">📖</span><b>Learn first</b><span>See each question with its answer and memory trick. No score.</span></button>' +
+      '</div><div><button class="btn ghost" data-go="home">‹ Back</button></div></section>';
+    screen.innerHTML = html;
+    window.scrollTo(0, 0);
+  }
+
+  // ================= GAME SESSION =================
+  var S = null;
+  function makeItem(x, overrides) { return Object.assign({ id: x.id, deck: x.deck, card: x.card, pts: pointsFor(x.deck) }, overrides || {}); }
+
+  function startDeck(deckId, mode) {
+    var list = BY_DECK[deckId], d = deckById(deckId);
+    var items = mode === "contest" ? shuffle(list).slice(0, 10) : list.slice();
+    if (mode === "master") items = shuffle(items);
+    S = newSession(mode, d.name, items.map(function (x) { return makeItem(x); }));
+    S.deckId = deckId;
+    ask();
+  }
+  function startFull() {
+    function pool(ids) { return shuffle([].concat.apply([], ids.map(function (id) { return BY_DECK[id]; }))).slice(0, 10); }
+    var rounds = [
+      { name: "Easy Round", round: "easy", pts: 1, time: 15, items: pool(["e25", "et", "ep"]) },
+      { name: "Average Round", round: "average", pts: 2, time: 30, items: pool(["a25", "at", "ap"]) },
+      { name: "Difficult Round", round: "difficult", pts: 3, time: 60, items: pool(["d25", "dt", "dp"]) }
+    ];
+    var items = [];
+    rounds.forEach(function (r, ri) { r.items.forEach(function (x, i) { items.push(makeItem(x, { pts: r.pts, roundIdx: ri, first: i === 0 })); }); });
+    S = newSession("full", "Full SciMath Battle", items);
+    S.rounds = rounds;
+    ask();
+  }
+  function startFix() {
+    var ids = shuffle(Object.keys(save.missed).filter(function (id) { return BY_ID[id]; }));
+    S = newSession("master", "Fix my mistakes", ids.map(function (id) { return makeItem(BY_ID[id]); }));
+    ask();
+  }
+  function newSession(mode, title, items) {
+    return { mode: mode, title: title, queue: items, pos: 0, score: 0, max: 0, right: 0, done: {}, streak: 0, best: 0, wrongList: [], firstTries: 0, answered: false, uniq: {} };
+  }
+
+  // ---------- Ask a question ----------
+  function ask() {
+    stopTimer();
+    var it = S.queue[S.pos];
+    if (!it) return results();
+    if (S.mode === "full" && it.first && !it.shownSplash) { it.shownSplash = true; return splash(S.rounds[it.roundIdx]); }
+    S.answered = false; S.helped = false; S.lastUndo = null;
+    var c = it.card, d = it.deck, round = S.mode === "full" ? S.rounds[it.roundIdx].round : d.round;
+    var uniqueTotal = uniqCount();
+    var progressText = S.mode === "master"
+      ? Object.keys(S.done).length + " / " + uniqueTotal + " done"
+      : "Question " + (S.pos + 1) + " of " + S.queue.length;
+    var timed = (S.mode === "contest" || S.mode === "full") && save.timer !== "off";
+
+    var html = '<div class="hud">' +
+      '<button class="btn small ghost quit" data-go="home" aria-label="Quit to home">✕</button>' +
+      '<div class="hud-mid"><div class="hud-line"><span class="pill ' + round + '">' + esc(S.mode === "full" ? S.rounds[it.roundIdx].name : S.title) + '</span>' +
+        '<span class="count">' + progressText + '</span>' +
+        (S.streak >= 2 ? '<span class="streak">🔥 ' + S.streak + ' in a row!</span>' : '') +
+        (timed ? '<span class="timer-num" id="tnum"></span>' : '') + '</div>' +
+        (timed ? '<div class="timer" id="tbar"><i></i></div>' : '<div class="bar"><i style="width:' + (S.mode === "master" ? Object.keys(S.done).length / uniqueTotal * 100 : S.pos / S.queue.length * 100) + '%"></i></div>') +
+      '</div>' +
+      (S.mode === "learn" ? '' : '<div class="scorebox" id="scorebox"><b>' + fmtPts(S.score) + '</b><span>points</span></div>') +
+    '</div>';
+
+    html += '<section class="box qcard" data-round="' + round + '">' +
+      '<div class="q-top"><span class="q-cat">' + esc(c.cat || (groupOf(d) || {}).name || "") + '</span>' +
+        (S.mode === "learn" ? '' : '<span class="q-pts">' + (it.pts === 1 ? "1 point" : it.pts + " points") + '</span>') + '</div>' +
+      '<p class="q-text">' + hl(c.q, c.h) + '</p>' +
+      '<div id="answerZone">' + answerZone(it) + '</div>' +
+      '<div id="fb"></div>' +
+    '</section>';
+    screen.innerHTML = html;
+    window.scrollTo(0, 0);
+
+    var inp = document.getElementById("typed");
+    if (inp) {
+      inp.focus({ preventScroll: true });
+      inp.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); submitTyped(); } });
+    }
+    if (S.mode === "learn") reveal();
+    else if (timed) startTimer(timeFor(it));
+  }
+  function uniqCount() { var u = {}; S.queue.forEach(function (x) { u[x.id] = 1; }); return Object.keys(u).length; }
+  function fmtPts(n) { return (Math.round(n * 10) / 10).toString(); }
+
+  function answerZone(it) {
+    var c = it.card;
+    if (S.mode === "learn") {
+      if (!c.c) return "";
+      var r = "ABCD".indexOf(c.a.charAt(0));
+      return choicesHTML(c.c, false).replace(/<button class="choice"/g, '<button disabled class="choice"').replace('data-choice="' + r + '"', 'data-choice="' + r + '" data-right');
+    }
+    if (c.c) return choicesHTML(c.c, false);
+    if (c.self) return '<div class="helpers"><button class="btn blue" data-act="reveal">Show the answer</button></div>' +
+      '<p style="margin:0;font-size:15px;color:var(--ink-soft)">Say the answer out loud first. Then check yourself honestly!</p>';
+    return '<div class="typebox"><label for="typed">Type your answer</label>' +
+      '<div class="typerow"><input id="typed" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="Your answer…">' +
+      '<button class="btn green" data-act="submit">Check ✓</button></div>' +
+      '<div class="helpers"><button class="btn small ghost" data-act="help">💡 Show choices <span style="font-size:13px">(half points)</span></button>' +
+      '<button class="btn small ghost" data-act="skip">I don\'t know</button></div></div>';
+  }
+  function choicesHTML(list, helped) {
+    return '<div class="choices" role="group" aria-label="Answer choices">' + list.map(function (t, i) {
+      return '<button class="choice" data-choice="' + i + '"' + (helped ? ' data-helped="1"' : '') + '><span class="letter">' + "ABCD"[i] + '</span><span>' + esc(t) + '</span></button>';
+    }).join("") + '</div>';
+  }
+
+  // Make 4 choices for a typed question from other answers in the same group.
+  function makeChoices(it) {
+    var right = cleanAns(it.card.a).replace(/\s*\([^)]*\)/g, "").trim();
+    var isNum = /^[₱\d]/.test(right);
+    var pool = ALL.filter(function (x) { return x.deck.group === it.deck.group && x.id !== it.id && !x.card.c && !x.card.self; })
+      .map(function (x) { return cleanAns(x.card.a).replace(/\s*\([^)]*\)/g, "").trim(); })
+      .filter(function (a) { return a && a.toLowerCase() !== right.toLowerCase() && (/^[₱\d]/.test(a) === isNum); });
+    var uniq = []; shuffle(pool).forEach(function (a) { if (uniq.indexOf(a) < 0 && uniq.length < 3) uniq.push(a); });
+    if (isNum) { // add close numbers if the pool is thin
+      var n = parseFloat(right.replace(/[₱,]/g, ""));
+      [n + 1, n - 1, n * 2, n + 10].forEach(function (v) { if (uniq.length < 3 && !isNaN(v) && v > 0) uniq.push(right.replace(/[\d,.]+/, String(v))); });
+    }
+    var all = shuffle(uniq.concat([right]));
+    S.helpRight = all.indexOf(right);
+    return all;
+  }
+
+  // ---------- Answering ----------
+  function submitTyped() {
+    if (S.answered) return;
+    var inp = document.getElementById("typed");
+    var val = inp ? inp.value : "";
+    if (!val.trim()) { inp.focus(); inp.placeholder = "Type something first!"; return; }
+    var it = S.queue[S.pos];
+    var ok = Check.check(it.card, val);
+    if (inp) { inp.classList.add(ok ? "right" : "wrong"); inp.disabled = true; }
+    finish(ok, { given: val });
+  }
+  function pickChoice(btn) {
+    if (S.answered) return;
+    var it = S.queue[S.pos], i = +btn.getAttribute("data-choice");
+    var helped = btn.hasAttribute("data-helped");
+    var rightIdx = helped ? S.helpRight : "ABCD".indexOf(it.card.a.charAt(0));
+    var ok = i === rightIdx;
+    var btns = document.querySelectorAll(".choice");
+    btns.forEach(function (b, j) { b.disabled = true; if (j === rightIdx) b.classList.add("right"); });
+    if (!ok) btn.classList.add("wrong");
+    finish(ok, { given: btn.textContent.slice(1), helped: helped, mc: true });
+  }
+
+  function finish(ok, info) {
+    stopTimer();
+    S.answered = true;
+    var it = S.queue[S.pos];
+    var firstTime = !S.done[it.id] && !S.uniq[it.id];
+    S.uniq[it.id] = true;
+    var gain = 0;
+    var undo = { starsBefore: stars(it.id), missedBefore: !!save.missed[it.id], streakBefore: S.streak, inserted: -1, gain: 0, firstTime: firstTime };
+
+    if (firstTime) { S.max += it.pts; S.firstTries++; }
+    if (ok) {
+      if (firstTime) { gain = info.helped ? it.pts / 2 : it.pts; S.score += gain; S.right++; }
+      S.done[it.id] = true;
+      S.streak++; S.best = Math.max(S.best, S.streak);
+      save.stars[it.id] = Math.min(3, stars(it.id) + (info.helped ? 0 : 1));
+      delete save.missed[it.id];
+    } else {
+      S.streak = 0;
+      save.stars[it.id] = Math.max(0, stars(it.id) - 1);
+      save.missed[it.id] = 1;
+      if (firstTime) S.wrongList.push(it);
+      if (S.mode === "master") {
+        var at = Math.min(S.queue.length, S.pos + 3);
+        S.queue.splice(at, 0, Object.assign({}, it));
+        undo.inserted = at;
+      }
+    }
+    undo.gain = gain;
+    S.lastUndo = undo;
+    persist();
+
+    document.querySelectorAll("#answerZone .helpers, #answerZone [data-act=submit]").forEach(function (el) { el.hidden = true; });
+    if (ok) { sfx.right(); confetti(S.streak >= 3 ? 70 : 36); bumpScore(); }
+    else sfx.wrong();
+    showFeedback(ok, info);
+  }
+
+  function bumpScore() {
+    var sb = document.getElementById("scorebox");
+    if (!sb) return;
+    sb.querySelector("b").textContent = fmtPts(S.score);
+    sb.classList.remove("bump"); void sb.offsetWidth; sb.classList.add("bump");
+  }
+
+  // "My answer was right": the checker can't know every way to write an answer.
+  function overrule() {
+    var u = S.lastUndo, it = S.queue[S.pos];
+    if (!u || u.overruled) return;
+    u.overruled = true;
+    save.stars[it.id] = Math.min(3, u.starsBefore + 1);
+    delete save.missed[it.id];
+    if (u.firstTime) { S.score += it.pts; S.right++; S.wrongList = S.wrongList.filter(function (x) { return x.id !== it.id; }); }
+    if (u.inserted >= 0) S.queue.splice(u.inserted, 1);
+    S.done[it.id] = true;
+    S.streak = u.streakBefore + 1; S.best = Math.max(S.best, S.streak);
+    persist(); sfx.right(); confetti(30); bumpScore();
+    var inp = document.getElementById("typed"); if (inp) { inp.classList.remove("wrong"); inp.classList.add("right"); }
+    showFeedback(true, { overruled: true });
+  }
+
+  function showFeedback(ok, info) {
+    var it = S.queue[S.pos], c = it.card;
+    var words = (c.h || []).slice();
+    var ans = cleanAns(c.a);
+    var how = c.e ? '<p class="fb-how">' + hl(c.e, words) + '</p>' : '';
+    var trick = c.m ? '<p class="fb-trick"><b>Remember:</b> ' + hl(c.m, words) + '</p>' : '';
+    var last = S.pos === S.queue.length - 1;
+    var nextLabel = last ? "See my score ▶" : "Next ▶";
+    var cls, title, extra = "";
+
+    if (info.info) { cls = "info"; title = "The answer"; }
+    else if (ok) {
+      cls = "ok";
+      title = pickOne(["Correct!", "Great job!", "You got it!", "Awesome!", "Brilliant!"]);
+      if (info.overruled) title = "Counted as correct";
+      if (info.helped) extra = '<span class="fb-plus">+' + fmtPts(it.pts / 2) + '</span>';
+      else if (S.lastUndo && S.lastUndo.firstTime && S.mode !== "learn") extra = '<span class="fb-plus">+' + it.pts + '</span>';
+      if (S.lastUndo && S.lastUndo.firstTime === false && !info.overruled) extra = '<span class="fb-plus">Fixed!</span>';
+    } else {
+      cls = "no";
+      title = info.timeout ? "Time's up!" : info.skip ? "Here's the answer" : "Not quite!";
+    }
+
+    var yours = (!ok && info.given && !info.mc) ? '<div class="fb-yours">You wrote: <s>' + esc(info.given) + '</s></div>' : '';
+    var canOverrule = !ok && !info.mc && !info.timeout && !info.skip && !info.info && info.given;
+    var master = S.mode === "master" && !ok && !info.info ? '<div style="font-size:15px">🔁 This one will come back in a few questions.</div>' : '';
+
+    document.getElementById("fb").innerHTML =
+      '<div class="feedback ' + cls + '">' +
+        '<div class="fb-head"><span class="fb-title">' + title + '</span>' + extra + '</div>' +
+        '<div class="fb-answer"><small>Correct answer</small>' + hl(ans, words) + '</div>' + yours + how + trick + master +
+        '<div class="fb-actions">' +
+          (canOverrule ? '<button class="linkish" data-act="overrule">My answer means the same thing. Count it!</button>' : '<span></span>') +
+          (info.selfCheck
+            ? '<span style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn red" data-act="selfno">I missed it ✗</button><button class="btn green" data-act="selfyes">I got it ✓</button></span>'
+            : '<button class="btn blue" data-act="next" id="nextBtn">' + nextLabel + '</button>') +
+        '</div>' +
+      '</div>';
+    var nb = document.getElementById("nextBtn"); if (nb) nb.focus({ preventScroll: true });
+    var fb = document.getElementById("fb");
+    if (fb.getBoundingClientRect().top > innerHeight * 0.6) fb.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+  }
+  function pickOne(a) { return a[Math.floor(Math.random() * a.length)]; }
+
+  function reveal() {
+    var it = S.queue[S.pos];
+    if (S.mode === "learn") { S.answered = true; showFeedback(false, { info: true }); return; }
+    stopTimer();
+    document.getElementById("answerZone").innerHTML = "";
+    showFeedback(false, { info: true, selfCheck: true });
+  }
+
+  function next() {
+    S.pos++;
+    ask();
+  }
+
+  // ---------- Timer ----------
+  var tick = null;
+  function startTimer(secs) {
+    var bar = document.getElementById("tbar"), num = document.getElementById("tnum");
+    var end = Date.now() + secs * 1000, lastSec = -1;
+    function step() {
+      var left = Math.max(0, end - Date.now()), s = Math.ceil(left / 1000);
+      if (bar) { bar.firstChild.style.transform = "scaleX(" + left / (secs * 1000) + ")"; bar.classList.toggle("low", s <= 5); }
+      if (num) { num.textContent = s + "s"; num.classList.toggle("low", s <= 5); }
+      if (s !== lastSec && s <= 3 && s > 0) sfx.tick();
+      lastSec = s;
+      if (left <= 0) {
+        stopTimer();
+        if (S && !S.answered) {
+          var inp = document.getElementById("typed"); if (inp) inp.disabled = true;
+          var it = S.queue[S.pos];
+          if (it.card.self) { reveal(); return; }
+          document.querySelectorAll(".choice").forEach(function (b, j) {
+            b.disabled = true;
+            var rightIdx = b.hasAttribute("data-helped") ? S.helpRight : "ABCD".indexOf(it.card.a.charAt(0));
+            if (j === rightIdx) b.classList.add("right");
+          });
+          finish(false, { timeout: true });
+        }
+      }
+    }
+    step(); tick = setInterval(step, 100);
   }
   function stopTimer() { if (tick) { clearInterval(tick); tick = null; } }
 
-  // ---------- Boot ----------
-  if (window.matchMedia("(min-width: 861px)").matches) $("deckPanel").open = true;
-  startDeck();
+  // ---------- Round splash ----------
+  function splash(r) {
+    stopTimer();
+    screen.innerHTML = '<section class="box splash" data-round="' + r.round + '">' +
+      '<span class="pill ' + r.round + '">Round ' + (S.rounds.indexOf(r) + 1) + ' of 3</span>' +
+      '<div class="big">' + r.name + '</div>' +
+      '<p><b>' + r.items.length + ' questions</b> · <b>' + r.pts + ' point' + (r.pts > 1 ? "s" : "") + '</b> each · <b>' + (r.time >= 60 ? "1 minute" : r.time + " seconds") + '</b> per question' + (save.timer === "off" ? " (timer off)" : "") + '</p>' +
+      (S.pos > 0 ? '<p>Score so far: <b>' + fmtPts(S.score) + '</b> of ' + S.max + '</p>' : '<p>Read carefully. Watch for <mark>“not”</mark> and <mark>“except”</mark>!</p>') +
+      '<button class="btn blue" data-act="go" id="goBtn" style="font-size:24px;padding:16px 30px">Go! ▶</button></section>';
+    document.getElementById("goBtn").focus({ preventScroll: true });
+    window.scrollTo(0, 0);
+  }
+
+  // ---------- Results ----------
+  function results() {
+    stopTimer();
+    if (S.mode === "learn") {
+      screen.innerHTML = '<section class="box results"><div class="medal">📖</div><h2 class="rank-title">All done!</h2>' +
+        '<p class="rank-msg">You went through all ' + S.queue.length + ' cards. Now test yourself with a contest round or Master it.</p>' +
+        '<div class="res-actions"><button class="btn blue" data-mode="contest" data-deck="' + S.deckId + '">🏆 Contest round</button>' +
+        '<button class="btn green" data-mode="master" data-deck="' + S.deckId + '">🔁 Master it</button><button class="btn ghost" data-go="home">Home</button></div></section>';
+      return;
+    }
+    var pct = S.max ? Math.round(S.score / S.max * 100) : 0;
+    var r = rankFor(pct);
+    var fameAt = null, place = 0;
+    if (S.mode !== "master") {
+      fameAt = Date.now();
+      var d = new Date();
+      save.fame.push({ at: fameAt, name: save.name || "Player", deck: S.title, pts: S.score, max: S.max, pct: pct, date: d.toLocaleDateString(undefined, { month: "short", day: "numeric" }) });
+      save.fame.sort(function (a, b) { return b.pct - a.pct || b.pts - a.pts || a.at - b.at; });
+      save.fame = save.fame.slice(0, 30);
+      place = save.fame.findIndex(function (f) { return f.at === fameAt; }) + 1;
+      persist();
+    }
+    if (pct >= 60) { sfx.win(); confetti(pct >= 90 ? 220 : 120); }
+
+    var html = '<section class="box results">';
+    if (S.mode === "master") {
+      html += '<div class="medal">🔁</div><h2 class="rank-title" style="color:var(--green)">All mastered!</h2>' +
+        '<p class="rank-msg">You answered every card correctly. You got <b>' + S.right + ' of ' + S.firstTries + '</b> right on the first try. Play again tomorrow to earn more stars!</p>';
+    } else {
+      html += '<div class="medal">' + r.medal + '</div><h2 class="rank-title" style="color:' + r.color + ';-webkit-text-stroke:1.5px var(--ink);paint-order:stroke fill">' + r.title + '</h2>' +
+        '<div class="score-big">' + fmtPts(S.score) + '<small> / ' + S.max + ' pts</small></div>' +
+        '<p class="rank-msg">' + (save.name ? "<b>" + esc(save.name) + "!</b> " : "") + r.msg + '</p>' +
+        (place ? '<div class="fame-note">#' + place + ' in the Hall of Fame</div>' : '');
+    }
+    html += '<div class="res-stats"><div class="stat"><b>' + S.right + '/' + S.firstTries + '</b><span>First try</span></div>' +
+      '<div class="stat"><b>' + pct + '%</b><span>Score</span></div>' +
+      '<div class="stat"><b>🔥 ' + S.best + '</b><span>Best streak</span></div></div>';
+
+    var again = S.mode === "full" ? 'data-full' : 'data-mode="' + S.mode + '" data-deck="' + (S.deckId || "") + '"';
+    html += '<div class="res-actions">' +
+      (S.wrongList.length ? '<button class="btn red" data-act="fixthese">🔁 Practice my ' + plural(S.wrongList.length, "mistake") + '</button>' : '') +
+      (S.deckId || S.mode === "full" ? '<button class="btn blue" ' + again + '>Play again</button>' : '') +
+      '<button class="btn ghost" data-go="home">Home</button></div>';
+
+    if (S.wrongList.length && S.mode !== "master") {
+      html += '<div class="review"><h4>Remember these</h4>' + S.wrongList.map(function (it) {
+        return '<div class="review-item"><div class="rq">' + hl(it.card.q, it.card.h) + '</div><div class="ra">✓ ' + esc(cleanAns(it.card.a)) + '</div></div>';
+      }).join("") + '</div>';
+    }
+    html += '</section>';
+    if (S.mode !== "master") html += fameHTML(fameAt);
+    screen.innerHTML = html;
+    window.scrollTo(0, 0);
+  }
+
+  // ---------- Events ----------
+  document.addEventListener("click", function (e) {
+    var t = e.target.closest("button, [data-go]");
+    if (!t) return;
+    ensureAudio();
+    if (t.hasAttribute("data-go")) return home();
+    if (t.hasAttribute("data-full")) return startFull();
+    if (t.hasAttribute("data-fix")) return startFix();
+    if (t.hasAttribute("data-mode")) return startDeck(t.getAttribute("data-deck"), t.getAttribute("data-mode"));
+    if (t.classList.contains("tile")) return picker(t.getAttribute("data-deck"));
+    if (t.hasAttribute("data-choice")) return pickChoice(t);
+    var act = t.getAttribute("data-act");
+    if (!act || !S) return;
+    if (act === "submit") submitTyped();
+    else if (act === "next") next();
+    else if (act === "go") ask();
+    else if (act === "reveal") reveal();
+    else if (act === "overrule") overrule();
+    else if (act === "selfyes") finish(true, { mc: true, selfDone: true });
+    else if (act === "selfno") finish(false, { mc: true, selfDone: true });
+    else if (act === "skip") { if (!S.answered) { var inp = document.getElementById("typed"); if (inp) inp.disabled = true; finish(false, { skip: true }); } }
+    else if (act === "help") {
+      if (S.answered) return;
+      var it = S.queue[S.pos];
+      document.getElementById("answerZone").innerHTML = choicesHTML(makeChoices(it), true) +
+        '<p style="margin:0;font-size:14px;color:var(--ink-soft)">Choices on: this question is worth half points and doesn\'t earn a star.</p>';
+    }
+    else if (act === "fixthese") {
+      var list = S.wrongList.map(function (x) { return makeItem(BY_ID[x.id]); });
+      S = newSession("master", "Fix my mistakes", shuffle(list));
+      ask();
+    }
+  });
+
+  // Keyboard: A-D or 1-4 pick a choice, Enter goes on.
+  document.addEventListener("keydown", function (e) {
+    if (!S || e.target.tagName === "INPUT") return;
+    var k = e.key.toLowerCase();
+    if (!S.answered) {
+      var idx = "abcd".indexOf(k); if (idx < 0) idx = "1234".indexOf(k);
+      var btns = document.querySelectorAll(".choice");
+      if (idx >= 0 && btns[idx]) { e.preventDefault(); pickChoice(btns[idx]); }
+    }
+  });
+
+  paintTop();
+  home();
 })();
 </script>
 </body>

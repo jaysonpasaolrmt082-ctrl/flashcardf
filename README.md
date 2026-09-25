@@ -1,16 +1,24 @@
-# SciMath Battle Flashcards
+# SciMath Battle Arena
 
-Interactive flashcards for the DOST Caraga SciMath Battle (Grade 6).
-
+An interactive practice game for the DOST Caraga SciMath Battle (Grade 6).
 Open `index.html` in a browser. No install needed.
 
-- **Real 2025 contest**: all 30 official questions (Easy, Average, Difficult), with simple explanations.
-- **Possible twists** and **2026-style practice**: the same topics with new numbers.
-- **Memory sheet**, **Math / Science warm-ups**, **Formula sheet**, **Tech & STEM**.
-- Tap a card to flip it, then mark **Got it!** or **Still learning**. Progress is saved in the browser.
-- **Contest timer** uses the real round times (15 s, 30 s, 1 min).
-- **Cards I'm still learning** collects every missed card for extra practice.
+## How to play
+- **Full SciMath Battle**: 10 Easy (1 pt), 10 Average (2 pts), and 10 Difficult (3 pts) questions, timed like the real contest. Top score is 60.
+- **Pick a round**, then choose:
+  - **Contest round**: 10 timed questions, then a score and rank (Champion, 2nd, 3rd, Finalist).
+  - **Master it**: every card, no timer. Wrong answers come back until they are right.
+  - **Learn first**: each question with its answer and memory trick.
+- Multiple-choice questions: tap A–D (or press A–D / 1–4).
+- Other questions: type the answer. Small spelling slips, units, commas and ₱ signs are OK.
+  **Show choices** gives 4 options for half points. If the answer means the same thing but was marked wrong, tap **Count it**.
+- Every correct answer earns a star; 3 stars = mastered. Wrong answers lose a star and go to **Fix my mistakes**.
+- The **Hall of Fame** keeps the best contest scores on this device. Progress is saved in the browser.
+- Key words to remember are highlighted in yellow.
 
-Keyboard: Space = flip, ← → = previous/next, 1 = still learning, 2 = got it.
+## Files
+- `cards.js`: all 280 questions, answers, explanations and memory tricks.
+- `keys.js`: highlighted words, extra accepted answers, and self-check cards.
+- `check.js`: typed-answer checker.
 
 Note: the official 2025 slide for Average Q8 says 8:41 PM; the correct answer is 8:41 AM (LCM of 12, 30, 66 s = 11 minutes).
