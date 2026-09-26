@@ -24,9 +24,21 @@ Earth and weather, space, local news, Filipino knowledge, expert scenarios, data
 - **True or false blitz** (30) and **Caraga & PH science** (25)
 - **Science Battle** on the home screen: 30 science-only questions, contest style.
 
+## No memorizing
+- **Shuffled choices**: A–D are in a new order every time (true/false stays True, False).
+- **Tricky choices**: wrong options are look-alikes (perihelion / perigee / aphelion / apogee,
+  reflection / refraction) and common mistakes (8:41 AM vs PM, 3:5 vs 5:3, doubled or halved numbers).
+- **Question style changes** in contests: some typed questions become multiple choice, and some
+  multiple-choice questions must be typed with no choices shown.
+- **🔀 New numbers**: 18 kinds of number problems (ratios, LCM, discounts, dilution, painted cube,
+  wave speed, lightning distance and more) get fresh numbers whenever they come back.
+  The **New numbers every time** decks are made only of these.
+- **Least-recently-seen first**: rounds pick questions you have not seen lately.
+
 ## Files
 - `cards.js`: the 280 questions from the reviewer and 2025 slides
 - `sci.js`: 170 extra science questions (Committee picks)
+- `gen.js`: fresh-number question makers and tricky-choice builder
 - `keys.js`: highlighted words, extra accepted answers, and self-check cards.
 - `check.js`: typed-answer checker.
 

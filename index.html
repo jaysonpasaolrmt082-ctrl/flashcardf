@@ -306,6 +306,7 @@ mark, .hl {
 
 <script src="cards.js"></script>
 <script src="sci.js"></script>
+<script src="gen.js"></script>
 <script src="keys.js"></script>
 <script src="check.js"></script>
 <script>
@@ -334,6 +335,7 @@ mark, .hl {
   save.stars = save.stars || {};      // card id -> 0..3 stars
   save.missed = save.missed || {};    // card id -> 1 if last try was wrong
   save.fame = save.fame || [];        // hall of fame
+  save.seen = save.seen || {};        // card id -> last time it was asked
   save.name = save.name || "";
   save.timer = save.timer || "on";    // on | relaxed | off
   if (save.sound === undefined) save.sound = true;
@@ -448,7 +450,7 @@ mark, .hl {
     return h + '</div></section>';
   }
   function doReset(k) {
-    if (k === "progress" || k === "all") { save.stars = {}; save.missed = {}; save.name = ""; }
+    if (k === "progress" || k === "all") { save.stars = {}; save.missed = {}; save.seen = {}; save.name = ""; }
     if (k === "fame" || k === "all") save.fame = [];
     if (k === "all") { save.timer = "on"; save.sound = true; paintTop(); }
     persist();
@@ -568,18 +570,31 @@ mark, .hl {
 
   // ================= GAME SESSION =================
   var S = null;
-  function makeItem(x, overrides) { return Object.assign({ id: x.id, deck: x.deck, card: x.card, pts: pointsFor(x.deck) }, overrides || {}); }
+  // Number problems get fresh numbers: always in "new numbers" decks, and for other cards
+  // whenever they were seen before (or half the time), so answers can't be memorized.
+  function makeItem(x, overrides, mode) {
+    var card = x.card, g = card.gen || (mode !== "learn" && window.GEN_LINK[x.id] && (save.seen[x.id] || Math.random() < 0.5) ? window.GEN_LINK[x.id] : null);
+    if (g) card = Object.assign({}, window.GEN[g](), { fresh: true });
+    return Object.assign({ id: x.id, key: x.id, deck: x.deck, card: card, pts: pointsFor(x.deck) }, overrides || {});
+  }
+  // Pick cards not seen lately first, randomly within each group, so rounds don't repeat.
+  function pickFresh(list, n) {
+    var now = Date.now(), DAY = 864e5;
+    function bucket(x) { var t = save.seen[x.id]; return !t ? 0 : now - t > DAY ? 1 : 2; }
+    return shuffle(list).sort(function (a, b) { return bucket(a) - bucket(b); }).slice(0, n);
+  }
 
   function startDeck(deckId, mode) {
     var list = BY_DECK[deckId], d = deckById(deckId);
-    var items = mode === "contest" ? shuffle(list).slice(0, 10) : list.slice();
+    var items = mode === "contest" ? pickFresh(list, 10) : list.slice();
     if (mode === "master") items = shuffle(items);
-    S = newSession(mode, d.name, items.map(function (x) { return makeItem(x); }));
+    if (list[0] && list[0].card.gen && mode === "contest") items = shuffle(list.concat(list)).slice(0, 10); // question types repeat, numbers don't
+    S = newSession(mode, d.name, items.map(function (x, i) { return makeItem(x, { key: x.id + "#" + i }, mode); }));
     S.deckId = deckId;
     ask();
   }
   function startFull(kind) {
-    function pool(ids) { return shuffle([].concat.apply([], ids.map(function (id) { return BY_DECK[id]; }))).slice(0, 10); }
+    function pool(ids) { return pickFresh([].concat.apply([], ids.map(function (id) { return BY_DECK[id]; })), 10); }
     var sci = kind === "sci";
     var rounds = [
       { name: "Easy Round", round: "easy", pts: 1, time: 15, items: pool(sci ? ["se"] : ["e25", "et", "ep"]) },
@@ -587,7 +602,7 @@ mark, .hl {
       { name: "Difficult Round", round: "difficult", pts: 3, time: 60, items: pool(sci ? ["sd"] : ["d25", "dt", "dp"]) }
     ];
     var items = [];
-    rounds.forEach(function (r, ri) { r.items.forEach(function (x, i) { items.push(makeItem(x, { pts: r.pts, roundIdx: ri, first: i === 0 })); }); });
+    rounds.forEach(function (r, ri) { r.items.forEach(function (x, i) { items.push(makeItem(x, { pts: r.pts, roundIdx: ri, first: i === 0 }, "full")); }); });
     S = newSession("full", sci ? "Science Battle" : "Full SciMath Battle", items);
     S.kind = kind || "";
     S.rounds = rounds;
@@ -595,7 +610,7 @@ mark, .hl {
   }
   function startFix() {
     var ids = shuffle(Object.keys(save.missed).filter(function (id) { return BY_ID[id]; }));
-    S = newSession("master", "Fix my mistakes", ids.map(function (id) { return makeItem(BY_ID[id]); }));
+    S = newSession("master", "Fix my mistakes", ids.map(function (id) { return makeItem(BY_ID[id], null, "master"); }));
     ask();
   }
   function newSession(mode, title, items) {
@@ -610,6 +625,7 @@ mark, .hl {
     if (S.mode === "full" && it.first && !it.shownSplash) { it.shownSplash = true; return splash(S.rounds[it.roundIdx]); }
     S.answered = false; S.helped = false; S.lastUndo = null;
     var c = it.card, d = it.deck, round = S.mode === "full" ? S.rounds[it.roundIdx].round : d.round;
+    it.view = viewFor(it);
     var uniqueTotal = uniqCount();
     var progressText = S.mode === "master"
       ? Object.keys(S.done).length + " / " + uniqueTotal + " done"
@@ -629,6 +645,7 @@ mark, .hl {
 
     html += '<section class="box qcard" data-round="' + round + '">' +
       '<div class="q-top"><span class="q-cat">' + esc(c.cat || (groupOf(d) || {}).name || "") + '</span>' +
+        (c.fresh ? '<span class="q-pts" style="background:var(--purple)">🔀 New numbers</span>' : '') +
         (S.mode === "learn" ? '' : '<span class="q-pts">' + (it.pts === 1 ? "1 point" : it.pts + " points") + '</span>') + '</div>' +
       '<p class="q-text">' + hl(c.q, c.h) + '</p>' +
       '<div id="answerZone">' + answerZone(it) + '</div>' +
@@ -645,7 +662,7 @@ mark, .hl {
     if (S.mode === "learn") reveal();
     else if (timed) startTimer(timeFor(it));
   }
-  function uniqCount() { var u = {}; S.queue.forEach(function (x) { u[x.id] = 1; }); return Object.keys(u).length; }
+  function uniqCount() { var u = {}; S.queue.forEach(function (x) { u[x.key] = 1; }); return Object.keys(u).length; }
   function fmtPts(n) { return (Math.round(n * 10) / 10).toString(); }
 
   function answerZone(it) {
@@ -655,10 +672,11 @@ mark, .hl {
       var r = "ABCD".indexOf(c.a.charAt(0));
       return choicesHTML(c.c, false).replace(/<button class="choice"/g, '<button disabled class="choice"').replace('data-choice="' + r + '"', 'data-choice="' + r + '" data-right');
     }
-    if (c.c) return choicesHTML(c.c, false);
+    var v = it.view || {};
+    if (v.choices) return choicesHTML(v.choices, false);
     if (c.self) return '<div class="helpers"><button class="btn blue" data-act="reveal">Show the answer</button></div>' +
       '<p style="margin:0;font-size:15px;color:var(--ink-soft)">Say the answer out loud first. Then check yourself honestly!</p>';
-    return '<div class="typebox"><label for="typed">Type your answer</label>' +
+    return '<div class="typebox"><label for="typed">' + (v.converted ? "✍️ No choices this time. Type your answer!" : "Type your answer") + '</label>' +
       '<div class="typerow"><input id="typed" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="Your answer…">' +
       '<button class="btn green" data-act="submit">Check ✓</button></div>' +
       '<div class="helpers"><button class="btn small ghost" data-act="help">💡 Show choices <span style="font-size:13px">(half points)</span></button>' +
@@ -670,21 +688,24 @@ mark, .hl {
     }).join("") + '</div>';
   }
 
-  // Make 4 choices for a typed question from other answers in the same group.
-  function makeChoices(it) {
-    var right = cleanAns(it.card.a).replace(/\s*\([^)]*\)/g, "").trim();
-    var isNum = /^[₱\d]/.test(right);
-    var pool = ALL.filter(function (x) { return x.deck.group === it.deck.group && x.id !== it.id && !x.card.c && !x.card.self; })
-      .map(function (x) { return cleanAns(x.card.a).replace(/\s*\([^)]*\)/g, "").trim(); })
-      .filter(function (a) { return a && a.toLowerCase() !== right.toLowerCase() && (/^[₱\d]/.test(a) === isNum); });
-    var uniq = []; shuffle(pool).forEach(function (a) { if (uniq.indexOf(a) < 0 && uniq.length < 3) uniq.push(a); });
-    if (isNum) { // add close numbers if the pool is thin
-      var n = parseFloat(right.replace(/[₱,]/g, ""));
-      [n + 1, n - 1, n * 2, n + 10].forEach(function (v) { if (uniq.length < 3 && !isNaN(v) && v > 0) uniq.push(right.replace(/[\d,.]+/, String(v))); });
+  // How a question is shown this time. In contests, choices are shuffled, some typed
+  // questions become tricky multiple choice, and some multiple choice must be typed.
+  function viewFor(it) {
+    var c = it.card, contest = S.mode === "contest" || S.mode === "full";
+    if (S.mode === "learn" || c.self) return {};
+    if (c.c) {
+      var rightAt = "ABCD".indexOf(c.a.charAt(0));
+      if (c.c.length === 2) return { choices: c.c, right: rightAt };
+      if (contest && Math.random() < 0.3 && Traps.strip(c.a).length <= 22) return { converted: true };
+      var order = shuffle(c.c.map(function (_, i) { return i; }));
+      return { choices: order.map(function (i) { return c.c[i]; }), right: order.indexOf(rightAt) };
     }
-    var all = shuffle(uniq.concat([right]));
-    S.helpRight = all.indexOf(right);
-    return all;
+    if (contest && Traps.canChoose(c) && Math.random() < 0.35) return Traps.make(c, poolFor(it));
+    return {};
+  }
+  function poolFor(it) {
+    return ALL.filter(function (x) { return x.deck.group === it.deck.group && x.id !== it.id && !x.card.c && !x.card.self && !x.card.gen; })
+      .map(function (x) { return x.card.a; });
   }
 
   // ---------- Answering ----------
@@ -702,7 +723,7 @@ mark, .hl {
     if (S.answered) return;
     var it = S.queue[S.pos], i = +btn.getAttribute("data-choice");
     var helped = btn.hasAttribute("data-helped");
-    var rightIdx = helped ? S.helpRight : "ABCD".indexOf(it.card.a.charAt(0));
+    var rightIdx = it.view.right;
     var ok = i === rightIdx;
     var btns = document.querySelectorAll(".choice");
     btns.forEach(function (b, j) { b.disabled = true; if (j === rightIdx) b.classList.add("right"); });
@@ -714,15 +735,16 @@ mark, .hl {
     stopTimer();
     S.answered = true;
     var it = S.queue[S.pos];
-    var firstTime = !S.done[it.id] && !S.uniq[it.id];
-    S.uniq[it.id] = true;
+    var firstTime = !S.done[it.key] && !S.uniq[it.key];
+    save.seen[it.id] = Date.now();
+    S.uniq[it.key] = true;
     var gain = 0;
     var undo = { starsBefore: stars(it.id), missedBefore: !!save.missed[it.id], streakBefore: S.streak, inserted: -1, gain: 0, firstTime: firstTime };
 
     if (firstTime) { S.max += it.pts; S.firstTries++; }
     if (ok) {
       if (firstTime) { gain = info.helped ? it.pts / 2 : it.pts; S.score += gain; S.right++; }
-      S.done[it.id] = true;
+      S.done[it.key] = true;
       S.streak++; S.best = Math.max(S.best, S.streak);
       save.stars[it.id] = Math.min(3, stars(it.id) + (info.helped ? 0 : 1));
       delete save.missed[it.id];
@@ -761,9 +783,9 @@ mark, .hl {
     u.overruled = true;
     save.stars[it.id] = Math.min(3, u.starsBefore + 1);
     delete save.missed[it.id];
-    if (u.firstTime) { S.score += it.pts; S.right++; S.wrongList = S.wrongList.filter(function (x) { return x.id !== it.id; }); }
+    if (u.firstTime) { S.score += it.pts; S.right++; S.wrongList = S.wrongList.filter(function (x) { return x.key !== it.key; }); }
     if (u.inserted >= 0) S.queue.splice(u.inserted, 1);
-    S.done[it.id] = true;
+    S.done[it.key] = true;
     S.streak = u.streakBefore + 1; S.best = Math.max(S.best, S.streak);
     persist(); sfx.right(); confetti(30); bumpScore();
     var inp = document.getElementById("typed"); if (inp) { inp.classList.remove("wrong"); inp.classList.add("right"); }
@@ -846,7 +868,7 @@ mark, .hl {
           if (it.card.self) { reveal(); return; }
           document.querySelectorAll(".choice").forEach(function (b, j) {
             b.disabled = true;
-            var rightIdx = b.hasAttribute("data-helped") ? S.helpRight : "ABCD".indexOf(it.card.a.charAt(0));
+            var rightIdx = it.view.right;
             if (j === rightIdx) b.classList.add("right");
           });
           finish(false, { timeout: true });
@@ -952,11 +974,12 @@ mark, .hl {
     else if (act === "help") {
       if (S.answered) return;
       var it = S.queue[S.pos];
-      document.getElementById("answerZone").innerHTML = choicesHTML(makeChoices(it), true) +
+      it.view = Traps.make(it.card, poolFor(it));
+      document.getElementById("answerZone").innerHTML = choicesHTML(it.view.choices, true) +
         '<p style="margin:0;font-size:14px;color:var(--ink-soft)">Choices on: this question is worth half points and doesn\'t earn a star.</p>';
     }
     else if (act === "fixthese") {
-      var list = S.wrongList.map(function (x) { return makeItem(BY_ID[x.id]); });
+      var list = S.wrongList.map(function (x) { return makeItem(BY_ID[x.id], null, "master"); });
       S = newSession("master", "Fix my mistakes", shuffle(list));
       ask();
     }
@@ -973,6 +996,7 @@ mark, .hl {
     }
   });
 
+  window.__arena = function () { return S; }; // read-only peek used by automated tests
   paintTop();
   home();
 })();
