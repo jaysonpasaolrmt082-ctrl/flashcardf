@@ -305,6 +305,7 @@ mark, .hl {
 </div>
 
 <script src="cards.js"></script>
+<script src="sci.js"></script>
 <script src="keys.js"></script>
 <script src="check.js"></script>
 <script>
@@ -478,6 +479,11 @@ mark, .hl {
       '<div class="rounds-mini"><span class="pill easy">Easy · 1 pt</span><span class="pill average">Average · 2 pts</span><span class="pill difficult">Difficult · 3 pts</span></div>' +
       '</div><button class="btn" data-full>Start the battle ▶</button></section>';
 
+    html += '<section class="box battle" style="background:var(--green)"><div>' +
+      '<h2 style="color:#fff">Science Battle</h2>' +
+      '<p style="color:#fff">30 science-only questions from the committee picks: 10 Easy, 10 Average (with true or false and Caraga science), and 10 Difficult scenarios.</p>' +
+      '</div><button class="btn" data-full="sci">Start science ▶</button></section>';
+
     if (missedIds.length) {
       html += '<section class="box battle" style="background:var(--red)"><div><h2 style="color:#fff">Fix my mistakes</h2>' +
         '<p style="color:#fff">' + plural(missedIds.length, "card") + ' you got wrong last time. They come back until you get each one right.</p></div>' +
@@ -502,6 +508,17 @@ mark, .hl {
 
     html += fameHTML(null);
     html += resetHTML();
+
+    html += '<details class="box rules"><summary>What the 2025 science questions teach us</summary><ul>' +
+      '<li>About <mark>half of the 30 questions were science</mark>. The rest were math, and one mixed both (the acid solution).</li>' +
+      '<li><b>Most asked topics:</b> <mark>waves and sound</mark> (wavelength, frequency, echoes), <mark>the human body</mark> (veins, blood pressure, pregnancy), <mark>chemistry and heat</mark> (equilibrium, water phases, fermentation), <mark>Earth and weather</mark> (earthquakes, amihan), and <mark>space</mark> (Kepler, Moroporo).</li>' +
+      '<li><b>Real news:</b> the 2024 Paris Olympics swimmer and the July 2025 Lingig earthquake. Expect recent Caraga and Philippine events.</li>' +
+      '<li><b>Filipino knowledge:</b> amihan and habagat, old Filipino star names.</li>' +
+      '<li><b>“You are the expert” scenarios:</b> sound engineer, doctor, botanist. Read the story, find the science word.</li>' +
+      '<li><b>Big words from high school and medicine:</b> tunic, sphygmomanometer, ectopic. Learn word parts like <mark>peri, ecto, -itis</mark>.</li>' +
+      '<li><b>Reading data:</b> pick only what the graph shows.</li>' +
+      '<li>The <b>Committee picks: Science</b> decks follow these same patterns.</li>' +
+      '</ul></details>';
 
     html += '<details class="box rules"><summary>How the real contest works</summary><ul>' +
       '<li><b>Easy:</b> 10 questions, 1 point each, 15 seconds. Solve in your head: no writing on the table, palm, or air.</li>' +
@@ -561,16 +578,18 @@ mark, .hl {
     S.deckId = deckId;
     ask();
   }
-  function startFull() {
+  function startFull(kind) {
     function pool(ids) { return shuffle([].concat.apply([], ids.map(function (id) { return BY_DECK[id]; }))).slice(0, 10); }
+    var sci = kind === "sci";
     var rounds = [
-      { name: "Easy Round", round: "easy", pts: 1, time: 15, items: pool(["e25", "et", "ep"]) },
-      { name: "Average Round", round: "average", pts: 2, time: 30, items: pool(["a25", "at", "ap"]) },
-      { name: "Difficult Round", round: "difficult", pts: 3, time: 60, items: pool(["d25", "dt", "dp"]) }
+      { name: "Easy Round", round: "easy", pts: 1, time: 15, items: pool(sci ? ["se"] : ["e25", "et", "ep"]) },
+      { name: "Average Round", round: "average", pts: 2, time: 30, items: pool(sci ? ["sa", "stf", "sph"] : ["a25", "at", "ap"]) },
+      { name: "Difficult Round", round: "difficult", pts: 3, time: 60, items: pool(sci ? ["sd"] : ["d25", "dt", "dp"]) }
     ];
     var items = [];
     rounds.forEach(function (r, ri) { r.items.forEach(function (x, i) { items.push(makeItem(x, { pts: r.pts, roundIdx: ri, first: i === 0 })); }); });
-    S = newSession("full", "Full SciMath Battle", items);
+    S = newSession("full", sci ? "Science Battle" : "Full SciMath Battle", items);
+    S.kind = kind || "";
     S.rounds = rounds;
     ask();
   }
@@ -889,7 +908,7 @@ mark, .hl {
       '<div class="stat"><b>' + pct + '%</b><span>Score</span></div>' +
       '<div class="stat"><b>🔥 ' + S.best + '</b><span>Best streak</span></div></div>';
 
-    var again = S.mode === "full" ? 'data-full' : 'data-mode="' + S.mode + '" data-deck="' + (S.deckId || "") + '"';
+    var again = S.mode === "full" ? 'data-full="' + (S.kind || "") + '"' : 'data-mode="' + S.mode + '" data-deck="' + (S.deckId || "") + '"';
     html += '<div class="res-actions">' +
       (S.wrongList.length ? '<button class="btn red" data-act="fixthese">🔁 Practice my ' + plural(S.wrongList.length, "mistake") + '</button>' : '') +
       (S.deckId || S.mode === "full" ? '<button class="btn blue" ' + again + '>Play again</button>' : '') +
@@ -915,7 +934,7 @@ mark, .hl {
     if (t.hasAttribute("data-reset")) { asking = t.getAttribute("data-reset"); document.getElementById("resetBox").outerHTML = resetHTML(); var y = document.querySelector("[data-reset-yes]"); if (y) y.focus(); return; }
     if (t.hasAttribute("data-reset-no")) { asking = null; document.getElementById("resetBox").outerHTML = resetHTML(); return; }
     if (t.hasAttribute("data-reset-yes")) return doReset(t.getAttribute("data-reset-yes"));
-    if (t.hasAttribute("data-full")) return startFull();
+    if (t.hasAttribute("data-full")) return startFull(t.getAttribute("data-full"));
     if (t.hasAttribute("data-fix")) return startFix();
     if (t.hasAttribute("data-mode")) return startDeck(t.getAttribute("data-deck"), t.getAttribute("data-mode"));
     if (t.classList.contains("tile")) return picker(t.getAttribute("data-deck"));

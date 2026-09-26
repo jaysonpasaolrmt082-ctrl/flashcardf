@@ -17,8 +17,16 @@ Open `index.html` in a browser. No install needed.
 - Key words to remember are highlighted in yellow.
 - **↺ Start over** (top of the page, or the box at the bottom of the home screen): **New player** clears the name, stars and mistakes; **Clear Hall of Fame** removes saved scores; **Reset everything** goes back to the very beginning. Each asks "Are you sure?" first.
 
+## Committee picks: Science (170 new questions)
+Written by studying the 2025 science questions (waves and sound, the human body, chemistry and heat,
+Earth and weather, space, local news, Filipino knowledge, expert scenarios, data reading):
+- **Easy science** (40), **Average science** (40), **Difficult science** (35 scenarios)
+- **True or false blitz** (30) and **Caraga & PH science** (25)
+- **Science Battle** on the home screen: 30 science-only questions, contest style.
+
 ## Files
-- `cards.js`: all 280 questions, answers, explanations and memory tricks.
+- `cards.js`: the 280 questions from the reviewer and 2025 slides
+- `sci.js`: 170 extra science questions (Committee picks)
 - `keys.js`: highlighted words, extra accepted answers, and self-check cards.
 - `check.js`: typed-answer checker.
 
