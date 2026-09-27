@@ -504,7 +504,7 @@ mark, .hl {
       '</div><button class="btn" data-full>Start the battle ▶</button></section>';
     var sciHTML = '<section class="box battle" style="background:var(--green)"><div>' +
       '<h2 style="color:#fff">🔬 Science Battle</h2>' +
-      '<p style="color:#fff">30 science questions, never the same twice: real 2025 science, the committee\'s 2026 set, and ' + window.FACTGEN.count + ' science facts asked in 8 different ways. 10 Easy, 10 Average, 10 Difficult.</p>' +
+      '<p style="color:#fff">30 science questions, never the same twice: real 2025 science, the committee\'s 2026 set, and ' + window.FACTGEN.count + ' science facts asked in different contest-style ways. 10 Easy, 10 Average, 10 Difficult.</p>' +
       '<div class="rounds-mini"><span class="pill easy">Easy · 1 pt</span><span class="pill average">Average · 2 pts</span><span class="pill difficult">Difficult · 3 pts</span></div>' +
       '</div><button class="btn" data-full="sci">Start science ▶</button></section>';
     html += save.focus === "math" ? fullHTML : save.focus === "sci" ? sciHTML + fullHTML : fullHTML + sciHTML;
@@ -677,7 +677,6 @@ mark, .hl {
     html += '<section class="box qcard" data-round="' + round + '">' +
       '<div class="q-top"><span class="q-cat">' + esc(c.cat || (groupOf(d) || {}).name || "") + '</span>' +
         (c.fresh ? '<span class="q-pts" style="background:var(--purple)">🔀 New numbers</span>' : '') +
-        (c.shape ? '<span class="q-pts" style="background:var(--teal)">' + SHAPE_NAMES[c.shape] + '</span>' : '') +
         (S.mode === "learn" ? '' : '<span class="q-pts">' + (it.pts === 1 ? "1 point" : it.pts + " points") + '</span>') + '</div>' +
       '<p class="q-text">' + hl(c.q, c.h) + '</p>' +
       '<div id="answerZone">' + answerZone(it) + '</div>' +
@@ -708,7 +707,7 @@ mark, .hl {
     if (v.choices) return choicesHTML(v.choices, false);
     if (c.self) return '<div class="helpers"><button class="btn blue" data-act="reveal">Show the answer</button></div>' +
       '<p style="margin:0;font-size:15px;color:var(--ink-soft)">Say the answer out loud first. Then check yourself honestly!</p>';
-    return '<div class="typebox"><label for="typed">' + (v.converted ? "✍️ No choices this time. Type your answer!" : "Type your answer") + '</label>' +
+    return '<div class="typebox"><label for="typed">' + "Type your answer" + '</label>' +
       '<div class="typerow"><input id="typed" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="Your answer…">' +
       '<button class="btn green" data-act="submit">Check ✓</button></div>' +
       '<div class="helpers"><button class="btn small ghost" data-act="help">💡 Show choices <span style="font-size:13px">(half points)</span></button>' +
@@ -722,15 +721,12 @@ mark, .hl {
 
   // How a question is shown this time. In contests, choices are shuffled, some typed
   // questions become tricky multiple choice, and some multiple choice must be typed.
-  var SHAPE_NAMES = { identify: "✏️ Identify", pickTerm: "🎯 Pick one", pickDesc: "🔎 Describe it", trueFalse: "✅ True or false", oddOne: "🧩 Odd one out",
-    twoStatements: "⚖️ Two statements", analogy: "🔗 Analogy", pairs: "🔗 Match it", riddle: "🕵️ Who am I?" };
   function viewFor(it) {
     var c = it.card, contest = S.mode === "contest" || S.mode === "full";
     if (S.mode === "learn" || c.self) return {};
     if (c.c) {
       var rightAt = "ABCD".indexOf(c.a.charAt(0));
       if (c.c.length === 2 || c.fixed) return { choices: c.c, right: rightAt };
-      if (contest && Math.random() < 0.3 && Traps.strip(c.a).length <= 22) return { converted: true };
       var order = shuffle(c.c.map(function (_, i) { return i; }));
       return { choices: order.map(function (i) { return c.c[i]; }), right: order.indexOf(rightAt) };
     }

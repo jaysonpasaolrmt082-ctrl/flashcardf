@@ -1,6 +1,6 @@
 // Science fact bank + question maker. Every fact can be asked many different ways
-// (identify, what-does-it-do, true/false, odd one out, two statements, analogy,
-// matching pairs, "who am I?" riddle), picked at random each time it is played.
+// in the styles the 2025 contest used (identification, multiple choice, true or false,
+// "which is NOT"), picked at random each time it is played.
 //
 // Group fields: g/gp = kind of thing (singular/plural), art = use "the" before the term,
 //               topic = which deck it belongs to.
@@ -289,8 +289,8 @@
     { topic: "tEarth", g: "Philippine weather word", gp: "Philippine weather words", art: "the", f: [
       F("Amihan", "is the cool northeast monsoon, from about November to February", { s: "cool wind", k: ["northeast monsoon"] }),
       F("Habagat", "is the wet southwest monsoon that brings heavy rain", { s: "rainy wind", k: ["southwest monsoon"] }),
-      F("El Niño", "brings drought and less rain to the Philippines", { art: "", s: "drought", k: ["el nino"] }),
-      F("La Niña", "brings more rain than normal to the Philippines", { art: "", s: "extra rain", k: ["la nina"] })
+      F("El Niño", "brings drought and less rain to the Philippines", { art: "", proper: true, s: "drought", k: ["el nino"] }),
+      F("La Niña", "brings more rain than normal to the Philippines", { art: "", proper: true, s: "extra rain", k: ["la nina"] })
     ]},
 
     { topic: "tSpace", g: "space object", gp: "space objects", art: "a", f: [
@@ -388,9 +388,10 @@
   }
   function lowSubj(f) {
     var x = subj(f);
-    if (x === f.t) return grp(f).proper || /^[A-Z]{2,}/.test(x) ? x : x.charAt(0).toLowerCase() + x.slice(1);
+    if (x === f.t) return grp(f).proper || f.proper || /^[A-Z]{2,}/.test(x) ? x : x.charAt(0).toLowerCase() + x.slice(1);
     return x.replace(/^(The|An|A) /, function (m) { return m.toLowerCase(); });
   }
+  function d3(f) { return f.d; }
   function kindOf(f) { return f.pl ? grp(f).gp : grp(f).g; }
   function sentence(f, d) { return subj(f) + " " + (d || f.d) + "."; }
   function base(f, extra) {
@@ -404,27 +405,28 @@
 
   // ---------- question shapes ----------
   var SHAPES = {
-    identify: function (f) { // typed
+    identify: function (f) { // typed, worded like the 2025 identification questions
       var k = kindOf(f), d = f.d;
       var q = P([
-        "Identify the " + k + ": it " + d + ".",
-        "What " + k + " " + d + "?",
-        "Name the " + k + " that " + d + ".",
-        "Fill in the blank: The ________ " + d + "."
+        "It refers to the " + k + " that " + d + ".",
+        "What do you call the " + k + " that " + d + "?",
+        "Identify the " + k + " that " + d + ".",
+        "What " + k + " " + d + "?"
       ]);
-      if (q.indexOf("Fill in") === 0 && !grp(f).art) q = "Fill in the blank: ________ " + d + ".";
       return base(f, { q: q, h: [d] });
     },
-    pickTerm: function (f) { // which term fits the description
+    pickTerm: function (f) { // multiple choice: which term fits the description
       var w = shuffle(sibs(f)).map(function (x) { return x.t; });
       if (w.length < 3) w = w.concat(shuffle(outsiders(f)).slice(0, 3 - w.length).map(function (x) { return x.t; }));
-      return mcFrom(f.t, w, base(f, { q: "Which " + kindOf(f) + " " + f.d + "?", h: [f.d] }));
+      var q = P(["Which of the following " + d3(f) + "?", "Which " + kindOf(f) + " " + f.d + "?"]);
+      return mcFrom(f.t, w, base(f, { q: q, h: [f.d] }));
     },
-    pickDesc: function (f) { // which description fits the term
-      var w = shuffle(sibs(f, true)).concat(shuffle(sibs(f, false))).map(function (x) { return cap(x.d); });
+    pickDesc: function (f) { // multiple choice: which description fits the term
+      function desc(x) { return cap(x.d.replace(/^(is|are) /, "")); } // "is when the Moon..." -> "When the Moon..."
+      var w = shuffle(sibs(f, true)).concat(shuffle(sibs(f, false))).map(desc);
       w = w.filter(function (x, i) { return w.indexOf(x) === i; });
       if (w.length < 3) return null;
-      return mcFrom(cap(f.d), w, base(f, { q: P(["Which statement correctly describes " + lowSubj(f) + "?", "What is true about " + lowSubj(f) + "?"]), a: cap(f.d), h: [f.t] }));
+      return mcFrom(desc(f), w.filter(function (x) { return x !== desc(f); }), base(f, { q: "Which of the following best describes " + lowSubj(f) + "?", h: [f.t] }));
     },
     trueFalse: function (f) {
       var s = sibs(f, true);
@@ -438,48 +440,14 @@
       if (!groups.length) groups = GROUPS.filter(function (g, gi) { return gi !== f.gi && g.f.length >= 3; });
       var g = P(groups), three = shuffle(g.f).slice(0, 3).map(function (x) { return x.t; });
       if (g.f.some(function (x) { return x.t.toLowerCase() === f.t.toLowerCase(); })) return null; // e.g. Mercury is a planet AND an element
-      return mcFrom(f.t, three, base(f, { q: P(["Odd one out: which one does NOT belong with the others?", "Which of these is NOT one of the " + g.gp + "?"]),
-        e: three.join(", ") + " are all " + g.gp + ". " + sentence(f), h: ["NOT"] }));
+      return mcFrom(f.t, three, base(f, { q: P(["Which of the following is NOT " + an(g.g) + "?", "Which of the following is NOT one of the " + g.gp + "?"]),
+        e: three.join(", ") + " are all " + g.gp + ". " + sentence(f), h: ["NOT"], cat: cap(g.gp) }));
     },
-    twoStatements: function (f) {
-      var s = sibs(f, true), g = P(sibs(f)) || P(outsiders(f));
-      if (!s.length || !g) return null;
-      var t1 = Math.random() < 0.5, t2 = Math.random() < 0.5;
-      var gs = sibs(g, true).filter(function (x) { return x !== f; });
-      if (!gs.length) t2 = true;
-      var lie1 = P(s), lie2 = gs.length ? P(gs) : null;
-      var st1 = sentence(f, t1 ? f.d : lie1.d), st2 = sentence(g, t2 ? g.d : lie2.d);
-      var opts = ["Both statements are true", "Only statement I is true", "Only statement II is true", "Both statements are false"];
-      var right = t1 && t2 ? 0 : t1 ? 1 : t2 ? 2 : 3;
-      return { cat: cap(grp(f).g), fact: f.fid, fixed: true, q: "Read both statements. I: " + st1 + " II: " + st2, c: opts, a: "ABCD"[right] + " · " + opts[right],
-        e: "Statement I is " + (t1 ? "true" : "false") + ": " + sentence(f) + " Statement II is " + (t2 ? "true" : "false") + ": " + sentence(g), h: ["I:", "II:"] };
-    },
-    analogy: function (f) {
-      var s = sibs(f).filter(function (x) { return x.s; });
-      if (!f.s || !s.length) return null;
-      var g = P(s), w = sibs(f).filter(function (x) { return x !== g && x.s; }).map(function (x) { return x.s; });
-      if (w.length < 3) return null;
-      return mcFrom(f.s, w, base(f, { q: g.t + " is to “" + g.s + "” as " + f.t + " is to ______.", a: f.s, e: sentence(g) + " " + sentence(f), h: [g.t, f.t] }));
-    },
-    pairs: function (f) {
-      var s = shuffle(sibs(f).filter(function (x) { return x.s; })).slice(0, 3);
-      if (!f.s || s.length < 3) return null;
-      var right = f.t + " — " + f.s;
-      var wrong = s.map(function (x, i) { return x.t + " — " + s[(i + 1) % 3].s; }); // rotate the cues so every pair is wrong
-      return mcFrom(right, wrong, base(f, { q: "Which pair is correctly matched?", a: right, e: [f].concat(s).map(function (x) { return x.t + " → " + x.s; }).join(" · ") + ".", h: ["correctly matched"] }));
-    },
-    riddle: function (f) { // typed
-      var clues = [f.pl ? "We are " + grp(f).gp + "." : "I am " + an(grp(f).g) + ".", f.pl ? "We " + f.d + "." : "I " + firstPerson(f.d) + "."];
-      if (f.x) clues.push(f.x);
-      var letters = f.t.replace(/[^A-Za-z]/g, "");
-      clues.push((f.pl ? "Our" : "My") + " name starts with “" + letters.charAt(0).toUpperCase() + "” and has " + letters.length + " letters.");
-      return base(f, { q: (f.pl ? "Who are we? " : "Who am I? ") + clues.join(" "), h: [grp(f).g] });
-    }
   };
   var BY_LEVEL = {
-    1: ["identify", "pickTerm", "pickTerm", "pickDesc", "trueFalse", "riddle"],
-    2: ["pickTerm", "pickDesc", "trueFalse", "oddOne", "twoStatements", "analogy", "pairs", "identify", "riddle"],
-    3: ["riddle", "twoStatements", "identify", "pairs", "oddOne", "analogy"]
+    1: ["identify", "pickTerm", "pickTerm", "trueFalse"],
+    2: ["pickTerm", "pickDesc", "trueFalse", "oddOne", "identify"],
+    3: ["identify", "identify", "pickDesc", "oddOne"]
   };
 
   function make(fid, level) {
@@ -493,7 +461,7 @@
   }
 
   // ---------- register decks ----------
-  window.GROUPS.splice(0, 0, { id: "topics", name: "Science topics · a different question every time", note: "Built from " + ALLF.length + " science facts. Each one can be asked 8 different ways, picked at random." });
+  window.GROUPS.splice(0, 0, { id: "topics", name: "Science topics · a different question every time", note: "Built from " + ALLF.length + " science facts. Each one is asked a different way each time: identification, multiple choice, true or false, or “which is NOT”." });
   TOPICS.forEach(function (t) {
     window.DECKS.push({ id: t.id, group: "topics", name: t.name, round: "mix", pts: 2, time: 30 });
     window.CARDS[t.id] = ALLF.filter(function (f) { return grp(f).topic === t.id; }).map(function (f) {

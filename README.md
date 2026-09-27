@@ -24,8 +24,9 @@ between 🔬 Science, ➗ Math, or Both. Science focus hides math-only decks and
 ## Science topics · a different question every time
 `facts.js` holds 241 science facts in 43 groups (cells, body, plants, animals, matter, energy, waves,
 Earth, weather, space, scientists, agencies, word parts). Each time a fact is played it is asked in one of
-9 random shapes: identify, pick one, describe it, true or false, odd one out, two statements, analogy,
-match it, or "Who am I?" riddle.
+the styles the 2025 contest used: identification ("It refers to…", "What do you call…"), multiple choice
+("Which of the following…"), "Which of the following best describes…", TRUE or FALSE, or
+"Which of the following is NOT…". Multiple-choice questions always show their choices.
 
 ## Committee's 2026 set
 44 hand-written questions in shapes the fact bank can't make: put in order, what if, experiment design,
@@ -42,8 +43,7 @@ Earth and weather, space, local news, Filipino knowledge, expert scenarios, data
 - **Shuffled choices**: A–D are in a new order every time (true/false stays True, False).
 - **Tricky choices**: wrong options are look-alikes (perihelion / perigee / aphelion / apogee,
   reflection / refraction) and common mistakes (8:41 AM vs PM, 3:5 vs 5:3, doubled or halved numbers).
-- **Question style changes** in contests: some typed questions become multiple choice, and some
-  multiple-choice questions must be typed with no choices shown.
+- **Question style changes** in contests: some typed questions become multiple choice.
 - **🔀 New numbers**: 18 kinds of number problems (ratios, LCM, discounts, dilution, painted cube,
   wave speed, lightning distance and more) get fresh numbers whenever they come back.
   The **New numbers every time** decks are made only of these.
