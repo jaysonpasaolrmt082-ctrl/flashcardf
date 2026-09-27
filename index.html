@@ -97,6 +97,7 @@ mark, .hl {
   border: var(--edge); border-radius: 12px; padding: 8px 12px; width: 190px; max-width: 100%;
   font: 700 18px/1.2 var(--body); background: var(--cloud);
 }
+.focus-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font: 600 17px/1.2 var(--display); }
 .stats { display: flex; gap: 10px; flex-wrap: wrap; }
 .stat { background: var(--cloud); border-radius: 14px; padding: 6px 14px; text-align: center; min-width: 92px; }
 .stat b { display: block; font: 700 24px/1.1 var(--display); font-variant-numeric: tabular-nums; }
@@ -307,6 +308,7 @@ mark, .hl {
 <script src="cards.js"></script>
 <script src="sci.js"></script>
 <script src="gen.js"></script>
+<script src="facts.js"></script>
 <script src="keys.js"></script>
 <script src="check.js"></script>
 <script>
@@ -327,6 +329,21 @@ mark, .hl {
       ALL.push(item); BY_ID[id] = item; BY_DECK[d.id].push(item);
     });
   });
+  // ---------- Science / math focus ----------
+  var MATH_CATS = ["Geometry", "Ratio", "Fractions", "Ratio & proportion", "Ratio & percent", "Equations", "Numbers", "LCM", "Prime numbers",
+    "Discounts", "Percentage", "Counting", "Volume", "Painted cube", "Percent", "Mixtures", "Strategy"];
+  var SCI_GENS = ["speed", "pulse", "waveSpeed", "accel", "lightning", "fact"];
+  function isSci(x) {
+    var g = x.deck.group, c = x.card;
+    if (g === "math") return false;
+    if (g === "topics" || g === "csci" || g === "sci" || g === "tech") return true;
+    if (c.gen) return SCI_GENS.indexOf(c.gen) >= 0;
+    if (c.cat === "Motion" && ["real", "twist", "p26"].indexOf(g) >= 0) return false; // the walking and cycling problems
+    return MATH_CATS.indexOf(c.cat) < 0;
+  }
+  function inFocus(x) { return save.focus === "both" || (save.focus === "math" ? !isSci(x) : isSci(x)); }
+  function deckItems(id) { return (BY_DECK[id] || []).filter(inFocus); }
+
   function deckById(id) { return DECKS.filter(function (d) { return d.id === id; })[0]; }
   function groupOf(d) { return GROUPS.filter(function (g) { return g.id === d.group; })[0]; }
 
@@ -336,6 +353,7 @@ mark, .hl {
   save.missed = save.missed || {};    // card id -> 1 if last try was wrong
   save.fame = save.fame || [];        // hall of fame
   save.seen = save.seen || {};        // card id -> last time it was asked
+  save.focus = save.focus || "sci";   // sci | math | both (the nephew is the team's science player)
   save.name = save.name || "";
   save.timer = save.timer || "on";    // on | relaxed | off
   if (save.sound === undefined) save.sound = true;
@@ -461,30 +479,35 @@ mark, .hl {
 
   function home(focusReset) {
     stopTimer(); S = null;
-    var m = mastered(ALL), total = ALL.length;
-    var missedIds = Object.keys(save.missed).filter(function (id) { return BY_ID[id]; });
+    var mine = ALL.filter(inFocus), m = mastered(mine), total = mine.length || 1;
+    var missedIds = Object.keys(save.missed).filter(function (id) { return BY_ID[id] && inFocus(BY_ID[id]); });
     var html = '';
     html += '<section class="box hello"><div class="hello-row">' +
       '<div class="namebox"><label for="pname">Player</label><input id="pname" maxlength="18" placeholder="Type your name" value="' + esc(save.name) + '"></div>' +
       '<div class="stats">' +
         '<div class="stat"><b>' + m + '</b><span>Mastered</span></div>' +
-        '<div class="stat"><b>' + starSum(ALL) + '</b><span>Stars</span></div>' +
+        '<div class="stat"><b>' + starSum(mine) + '</b><span>Stars</span></div>' +
         '<div class="stat"><b>' + missedIds.length + '</b><span>To fix</span></div>' +
       '</div></div>' +
       '<div class="bar" title="Cards mastered"><i style="width:' + (m / total * 100).toFixed(1) + '%"></i></div>' +
       '<div style="font-size:14px;color:var(--ink-soft)">Get a card right <b>3 times</b> to earn ★★★ and master it. A wrong answer takes a star away, so keep practicing!</div>' +
+      '<div class="focus-row"><span>My part of the team:</span>' +
+        ['sci', 'math', 'both'].map(function (f) {
+          return '<button class="btn small ' + (save.focus === f ? "blue" : "ghost") + '" data-focus="' + f + '" aria-pressed="' + (save.focus === f) + '">' + { sci: "🔬 Science", math: "➗ Math", both: "Both" }[f] + '</button>';
+        }).join("") + '</div>' +
     '</section>';
 
-    html += '<section class="box battle"><div>' +
-      '<h2>Full SciMath Battle</h2>' +
-      '<p>Just like the real contest: 10 Easy, 10 Average, and 10 Difficult questions. The highest score is 60 points.</p>' +
+    var fullHTML = '<section class="box battle"><div>' +
+      '<h2>' + (save.focus === "sci" ? "Team SciMath Battle" : "Full SciMath Battle") + '</h2>' +
+      '<p>Just like the real contest, science and math mixed: 10 Easy, 10 Average, and 10 Difficult questions. The highest score is 60 points.</p>' +
       '<div class="rounds-mini"><span class="pill easy">Easy · 1 pt</span><span class="pill average">Average · 2 pts</span><span class="pill difficult">Difficult · 3 pts</span></div>' +
       '</div><button class="btn" data-full>Start the battle ▶</button></section>';
-
-    html += '<section class="box battle" style="background:var(--green)"><div>' +
-      '<h2 style="color:#fff">Science Battle</h2>' +
-      '<p style="color:#fff">30 science-only questions from the committee picks: 10 Easy, 10 Average (with true or false and Caraga science), and 10 Difficult scenarios.</p>' +
+    var sciHTML = '<section class="box battle" style="background:var(--green)"><div>' +
+      '<h2 style="color:#fff">🔬 Science Battle</h2>' +
+      '<p style="color:#fff">30 science questions, never the same twice: real 2025 science, the committee\'s 2026 set, and ' + window.FACTGEN.count + ' science facts asked in 8 different ways. 10 Easy, 10 Average, 10 Difficult.</p>' +
+      '<div class="rounds-mini"><span class="pill easy">Easy · 1 pt</span><span class="pill average">Average · 2 pts</span><span class="pill difficult">Difficult · 3 pts</span></div>' +
       '</div><button class="btn" data-full="sci">Start science ▶</button></section>';
+    html += save.focus === "math" ? fullHTML : save.focus === "sci" ? sciHTML + fullHTML : fullHTML + sciHTML;
 
     if (missedIds.length) {
       html += '<section class="box battle" style="background:var(--red)"><div><h2 style="color:#fff">Fix my mistakes</h2>' +
@@ -494,10 +517,11 @@ mark, .hl {
 
     html += '<div class="section-title"><h3>Pick a round to practice</h3><p>Tap a deck, then choose how to play.</p></div>';
     GROUPS.forEach(function (g) {
-      var decks = DECKS.filter(function (d) { return d.group === g.id; });
+      var decks = DECKS.filter(function (d) { return d.group === g.id && deckItems(d.id).length; });
+      if (!decks.length) return;
       html += '<section class="box group"><div class="group-head"><h4>' + esc(g.name) + '</h4><span>' + esc(g.note) + '</span></div><div class="tiles">';
       decks.forEach(function (d) {
-        var list = BY_DECK[d.id], mm = mastered(list), avg = list.length ? Math.round(starSum(list) / list.length) : 0;
+        var list = deckItems(d.id), mm = mastered(list), avg = list.length ? Math.round(starSum(list) / list.length) : 0;
         var sub = d.pts ? d.pts + " pt" + (d.pts > 1 ? "s" : "") + " · " + d.time + " s" : list.length + " cards";
         html += '<button class="tile" data-round="' + d.round + '" data-deck="' + d.id + '">' +
           '<span class="t-name">' + esc(d.name) + '</span>' +
@@ -554,7 +578,7 @@ mark, .hl {
 
   // ================= MODE PICKER =================
   function picker(deckId) {
-    var d = deckById(deckId), list = BY_DECK[deckId], g = groupOf(d);
+    var d = deckById(deckId), list = deckItems(deckId), g = groupOf(d);
     var n = Math.min(10, list.length);
     var html = '<section class="box picker" data-round="' + d.round + '">' +
       '<div><span class="pill ' + d.round + '">' + esc(g.name) + '</span></div>' +
@@ -574,7 +598,8 @@ mark, .hl {
   // whenever they were seen before (or half the time), so answers can't be memorized.
   function makeItem(x, overrides, mode) {
     var card = x.card, g = card.gen || (mode !== "learn" && window.GEN_LINK[x.id] && (save.seen[x.id] || Math.random() < 0.5) ? window.GEN_LINK[x.id] : null);
-    if (g) card = Object.assign({}, window.GEN[g](), { fresh: true });
+    if (g === "fact") { if (mode !== "learn") card = window.FACTGEN.make(card.fid, (overrides && overrides.pts) || x.deck.pts || 2); }
+    else if (g) card = Object.assign({}, window.GEN[g](), { fresh: true });
     return Object.assign({ id: x.id, key: x.id, deck: x.deck, card: card, pts: pointsFor(x.deck) }, overrides || {});
   }
   // Pick cards not seen lately first, randomly within each group, so rounds don't repeat.
@@ -585,7 +610,7 @@ mark, .hl {
   }
 
   function startDeck(deckId, mode) {
-    var list = BY_DECK[deckId], d = deckById(deckId);
+    var list = deckItems(deckId), d = deckById(deckId);
     var items = mode === "contest" ? pickFresh(list, 10) : list.slice();
     if (mode === "master") items = shuffle(items);
     if (list[0] && list[0].card.gen && mode === "contest") items = shuffle(list.concat(list)).slice(0, 10); // question types repeat, numbers don't
@@ -594,12 +619,18 @@ mark, .hl {
     ask();
   }
   function startFull(kind) {
-    function pool(ids) { return pickFresh([].concat.apply([], ids.map(function (id) { return BY_DECK[id]; })), 10); }
+    function pool(ids, n, onlySci) {
+      var all = [].concat.apply([], ids.map(function (id) { return BY_DECK[id]; }));
+      return pickFresh(onlySci ? all.filter(isSci) : all, n || 10);
+    }
     var sci = kind === "sci";
+    var topics = window.DECKS.filter(function (d) { return d.group === "topics"; }).map(function (d) { return d.id; });
+    // Science Battle: real 2025 science + committee questions + fact-bank questions in random shapes.
+    function sciRound(fixed, facts) { return shuffle(pool(fixed, 10 - facts, true).concat(pool(topics, facts))); }
     var rounds = [
-      { name: "Easy Round", round: "easy", pts: 1, time: 15, items: pool(sci ? ["se"] : ["e25", "et", "ep"]) },
-      { name: "Average Round", round: "average", pts: 2, time: 30, items: pool(sci ? ["sa", "stf", "sph"] : ["a25", "at", "ap"]) },
-      { name: "Difficult Round", round: "difficult", pts: 3, time: 60, items: pool(sci ? ["sd"] : ["d25", "dt", "dp"]) }
+      { name: "Easy Round", round: "easy", pts: 1, time: 15, items: sci ? sciRound(["se", "e25", "et", "ep"], 4) : pool(["e25", "et", "ep"]) },
+      { name: "Average Round", round: "average", pts: 2, time: 30, items: sci ? sciRound(["sa", "stf", "sph", "a25", "at", "ap"], 4) : pool(["a25", "at", "ap"]) },
+      { name: "Difficult Round", round: "difficult", pts: 3, time: 60, items: sci ? sciRound(["sd", "sc26", "d25", "dt", "dp"], 3) : pool(["d25", "dt", "dp"]) }
     ];
     var items = [];
     rounds.forEach(function (r, ri) { r.items.forEach(function (x, i) { items.push(makeItem(x, { pts: r.pts, roundIdx: ri, first: i === 0 }, "full")); }); });
@@ -609,7 +640,7 @@ mark, .hl {
     ask();
   }
   function startFix() {
-    var ids = shuffle(Object.keys(save.missed).filter(function (id) { return BY_ID[id]; }));
+    var ids = shuffle(Object.keys(save.missed).filter(function (id) { return BY_ID[id] && inFocus(BY_ID[id]); }));
     S = newSession("master", "Fix my mistakes", ids.map(function (id) { return makeItem(BY_ID[id], null, "master"); }));
     ask();
   }
@@ -646,6 +677,7 @@ mark, .hl {
     html += '<section class="box qcard" data-round="' + round + '">' +
       '<div class="q-top"><span class="q-cat">' + esc(c.cat || (groupOf(d) || {}).name || "") + '</span>' +
         (c.fresh ? '<span class="q-pts" style="background:var(--purple)">🔀 New numbers</span>' : '') +
+        (c.shape ? '<span class="q-pts" style="background:var(--teal)">' + SHAPE_NAMES[c.shape] + '</span>' : '') +
         (S.mode === "learn" ? '' : '<span class="q-pts">' + (it.pts === 1 ? "1 point" : it.pts + " points") + '</span>') + '</div>' +
       '<p class="q-text">' + hl(c.q, c.h) + '</p>' +
       '<div id="answerZone">' + answerZone(it) + '</div>' +
@@ -690,12 +722,14 @@ mark, .hl {
 
   // How a question is shown this time. In contests, choices are shuffled, some typed
   // questions become tricky multiple choice, and some multiple choice must be typed.
+  var SHAPE_NAMES = { identify: "✏️ Identify", pickTerm: "🎯 Pick one", pickDesc: "🔎 Describe it", trueFalse: "✅ True or false", oddOne: "🧩 Odd one out",
+    twoStatements: "⚖️ Two statements", analogy: "🔗 Analogy", pairs: "🔗 Match it", riddle: "🕵️ Who am I?" };
   function viewFor(it) {
     var c = it.card, contest = S.mode === "contest" || S.mode === "full";
     if (S.mode === "learn" || c.self) return {};
     if (c.c) {
       var rightAt = "ABCD".indexOf(c.a.charAt(0));
-      if (c.c.length === 2) return { choices: c.c, right: rightAt };
+      if (c.c.length === 2 || c.fixed) return { choices: c.c, right: rightAt };
       if (contest && Math.random() < 0.3 && Traps.strip(c.a).length <= 22) return { converted: true };
       var order = shuffle(c.c.map(function (_, i) { return i; }));
       return { choices: order.map(function (i) { return c.c[i]; }), right: order.indexOf(rightAt) };
@@ -957,6 +991,7 @@ mark, .hl {
     if (t.hasAttribute("data-reset-no")) { asking = null; document.getElementById("resetBox").outerHTML = resetHTML(); return; }
     if (t.hasAttribute("data-reset-yes")) return doReset(t.getAttribute("data-reset-yes"));
     if (t.hasAttribute("data-full")) return startFull(t.getAttribute("data-full"));
+    if (t.hasAttribute("data-focus")) { save.focus = t.getAttribute("data-focus"); persist(); return home(); }
     if (t.hasAttribute("data-fix")) return startFix();
     if (t.hasAttribute("data-mode")) return startDeck(t.getAttribute("data-deck"), t.getAttribute("data-mode"));
     if (t.classList.contains("tile")) return picker(t.getAttribute("data-deck"));

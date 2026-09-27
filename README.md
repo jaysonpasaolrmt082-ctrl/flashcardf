@@ -17,6 +17,20 @@ Open `index.html` in a browser. No install needed.
 - Key words to remember are highlighted in yellow.
 - **↺ Start over** (top of the page, or the box at the bottom of the home screen): **New player** clears the name, stars and mistakes; **Clear Hall of Fame** removes saved scores; **Reset everything** goes back to the very beginning. Each asks "Are you sure?" first.
 
+## Science focus (default)
+The team has a science player and a math player. **My part of the team** on the home screen switches
+between 🔬 Science, ➗ Math, or Both. Science focus hides math-only decks and puts the **Science Battle** first.
+
+## Science topics · a different question every time
+`facts.js` holds 241 science facts in 43 groups (cells, body, plants, animals, matter, energy, waves,
+Earth, weather, space, scientists, agencies, word parts). Each time a fact is played it is asked in one of
+9 random shapes: identify, pick one, describe it, true or false, odd one out, two statements, analogy,
+match it, or "Who am I?" riddle.
+
+## Committee's 2026 set
+44 hand-written questions in shapes the fact bank can't make: put in order, what if, experiment design,
+read the data, spot the wrong statement, classify, and recent news.
+
 ## Committee picks: Science (170 new questions)
 Written by studying the 2025 science questions (waves and sound, the human body, chemistry and heat,
 Earth and weather, space, local news, Filipino knowledge, expert scenarios, data reading):
@@ -38,6 +52,7 @@ Earth and weather, space, local news, Filipino knowledge, expert scenarios, data
 ## Files
 - `cards.js`: the 280 questions from the reviewer and 2025 slides
 - `sci.js`: 170 extra science questions (Committee picks)
+- `facts.js`: science fact bank and random question shapes
 - `gen.js`: fresh-number question makers and tricky-choice builder
 - `keys.js`: highlighted words, extra accepted answers, and self-check cards.
 - `check.js`: typed-answer checker.
