@@ -57,6 +57,7 @@ for (oc in unique(bin_primary$outcome)) {
   add_sens(d[is.na(d$rob_overall) | tolower(d$rob_overall) != "high", ], "excluding high risk of bias")
   add_sens(d[tolower(d$histology_confirmed) %in% "yes", ], "histology-confirmed SACC only")
   add_sens(d[d$species_stratum == "S_japonicum_confirmed", ], "S. japonicum-confirmed only")
+  add_sens(d[!grepl("preprint", d$notes, ignore.case = TRUE), ], "excluding preprints")
   l1o <- leave1out(res)
   sens_rows[[length(sens_rows) + 1]] <- data.frame(
     outcome = label_of(oc), analysis = paste("leave-one-out: omit", l1o$slab), k = res$k - 1,

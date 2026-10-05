@@ -74,7 +74,7 @@ het_label <- function(res) {
 
 # Summarise a fitted rma object into one table row.
 summarise_rma <- function(res, outcome, measure, nS = NA, nN = NA, analysis = "primary") {
-  fe <- tryCatch(update(res, method = "EE"), error = function(e) NULL)
+  fe <- tryCatch(rma(yi = res$yi, vi = res$vi, method = "EE"), error = function(e) NULL)
   data.frame(
     outcome = outcome, analysis = analysis, k = res$k,
     n_SACC = nS, n_NSACC = nN, measure = measure,

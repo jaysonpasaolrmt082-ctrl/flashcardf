@@ -1,0 +1,31 @@
+study_id,biomarker,positive_SACC,total_SACC,positive_NSACC,total_NSACC,source_location,notes
+Zheng2023,KRAS_mutation,249,479,4165,9514,Suppl Table S5,"Unknown excluded"
+Zheng2023,NRAS_mutation,5,266,241,6341,Suppl Table S5,"Unknown excluded"
+Zheng2023,BRAF_mutation,17,478,297,9378,Suppl Table S5,"Unknown excluded"
+Zheng2023,PIK3CA_mutation,3,207,181,4511,Suppl Table S5,"Unknown excluded"
+Zheng2023,dMMR,63,452,1157,7820,Suppl Table S5,"Unknown excluded"
+Li2024,KRAS_mutation (any; qPCR),19,30,224,459,Main text; Suppl Table 4,
+Li2024,KRAS_G12S/D (qPCR),13,30,83,459,Suppl Table 4,"Main text states 12/30 but also 43.3% (=13/30); Table S4 gives 13 - inconsistency"
+Li2024,KRAS_G12C/R/V/A or G13C (qPCR),4,30,74,459,Suppl Table 4,
+Li2024,KRAS_G13D (qPCR),0,30,40,459,Suppl Table 4,
+Li2024,KRAS_Q61L/R/H (qPCR),0,30,12,459,Suppl Table 4,
+Li2024,KRAS_K117N/A146T/V/P (qPCR),2,30,16,459,Suppl Table 4,
+Li2024,KRAS_G12D (NGS; PSM 1:4 subset),4,8,3,32,Main text; Suppl Table 5,"Separate NGS cohort of 230 patients, 1:4 PSM (all male). Table S5 total printed '8 (17.5)' (should be 7); Table S5 lists G12S 'present' in 100% whereas text says G12S absent"
+Pan2020,c-MYC amplification (FISH c-MYC:CEP8 >=1.8),19,138,31,216,Table 1 (Schistosomiasis row),"P=0.878; TMA single core. Qingpu cohort overlapping WangW2020"
+Pan2020,c-MYC protein overexpression (IHC >10% moderate/strong nuclear),98,138,143,216,Table 1 (Schistosomiasis row),P=0.344
+Pan2022,MET FISH-positive (mean >=3 copies/cell; copy-number gain - no true amplification found),12,131,22,207,Table 2 (MET FISH SCRC/NSCRC columns); Results text (9.2% vs 10.7%),"Cut-off chosen post hoc from survival curves. Qingpu cohort overlapping WangW2020/Pan2020"
+Pan2022,MET protein high expression (IHC),78,131,126,207,Table 2 (MET expression),"SCRC 53 neg/78 pos from table; NSCRC computed by subtraction from total (134 neg/204 pos): 81 neg/126 pos"
+WangW2021,stromal PD-L1 positive (sPD-L1; Table 2 grouping),56,128,86,210,Table 2 (Schistosomiasis row),"P=0.650. Table 2 groups 196 neg/142 pos, matching the >=2% 'high' cut-off in text, whereas Table 1 reports sPD-L1 >=1% positive in 200 (64%) - cut-off used in Table 2 ambiguous. TMA. Qingpu cohort overlapping WangW2020"
+WangW2021,tumoural PD-L1 positive (tPD-L1 >=1%/>=2%),58,128,80,210,Table 2 (Schistosomiasis row),"P=0.210; 138 positive overall (41%)"
+WangW2021,CD8+ TIL density (high >=279 cells/mm2),,128,,210,Fig 2A; Results,"Not tabulated by schistosomiasis status; only 'no significant correlation (p>0.05)' reported"
+WangW2023,stromal TILs rich (>=2%; H&E),73,126,121,188,Table 2,"P=0.287; Table 2 restricted to 314 pts with IHC (of 349). Qingpu cohort overlapping WangW2020"
+WangW2023,intratumoural TILs rich (>=2%; H&E),6,126,3,188,Table 2,P=0.164
+WangW2023,CD3+ T cells rich (>=24%; IHC),35,126,65,188,Table 2,"P=0.219; X-tile-derived cut-off"
+WangW2023,CD20+ B cells rich (>=4%; IHC),53,126,84,188,Table 2,"P=0.728; X-tile-derived cut-off"
+Cheng2023,intratumoral CD4+ high (>=29 cells/mm2),92,137,149,214,Table 3 (Schistosomiasis row),"P=0.639; X-tile cut-offs; TMA. Qingpu cohort (=WangW2020 351 pts)"
+Cheng2023,stromal CD4+ high (>=145 cells/mm2),78,137,139,214,Table 3 (Schistosomiasis row),"P=0.144. Row sums (134 low/217 high) differ from column headers (135/216)"
+Cheng2023,intratumoral CD8+ high (>=77 cells/mm2),111,137,174,214,Table 3 (Schistosomiasis row),"P=0.998. Row sums (66/285) differ from headers (65/286)"
+Cheng2023,stromal CD8+ high (>=645 cells/mm2),41,137,67,214,Table 3 (Schistosomiasis row),"P=0.813. Row sums (243/108) differ from headers (238/113)"
+Cheng2023,stromal CRP positive (IHC),,137,,214,Results (Comparison of TILs density and positive stained CRP),"Only percentages reported: 30% SACC vs 22% NSACC (approx. 41/137 vs 47/214 - NOT reported, do not use without caution)"
+Cheng2023,tumoral CRP positive (IHC),,137,,214,Results (Comparison of TILs density and positive stained CRP),"Only percentages reported: 15% SACC vs 14% NSACC"
+Chai2026,CFIm25 high expression (IHC intensity >=2),70,112,120,174,Table 3 (Schistosomiasis row - all patients),"P=0.25; X-tile cut-off on 5-y OS; TMA; 286 of 351 Qingpu patients (65 excluded for tissue detachment). Text percentages for CFIm25-high within LNM/stage subgroups contradict Table 3 (see issues.md)"

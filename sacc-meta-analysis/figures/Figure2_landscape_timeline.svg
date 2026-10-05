@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="768.98042pt" height="852.761008pt" viewBox="0 0 768.98042 852.761008" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="608.682545pt" height="644.200566pt" viewBox="0 0 608.682545 644.200566" xmlns="http://www.w3.org/2000/svg" version="1.1">
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-10-05T16:30:18.229186</dc:date>
+    <dc:date>2026-10-05T16:57:06.504636</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -21,682 +21,588 @@
  </defs>
  <g id="figure_1">
   <g id="patch_1">
-   <path d="M 0 852.761008 
-L 768.98042 852.761008 
-L 768.98042 0 
+   <path d="M 0 644.200566 
+L 608.682545 644.200566 
+L 608.682545 0 
 L 0 0 
 z
 " style="fill: #ffffff"/>
   </g>
   <g id="axes_1">
    <g id="patch_2">
-    <path d="M 127.582458 733.602048 
-L 540.502458 733.602048 
-L 540.502458 15.099648 
-L 127.582458 15.099648 
+    <path d="M 125.657302 547.395014 
+L 538.577302 547.395014 
+L 538.577302 15.171014 
+L 125.657302 15.171014 
 z
 " style="fill: #ffffff"/>
    </g>
    <g id="matplotlib.axis_1">
     <g id="xtick_1">
      <g id="line2d_1">
-      <path d="M 137.185249 733.602048 
-L 137.185249 15.099648 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #e5e5e5; stroke-width: 0.6; stroke-linecap: square"/>
+      <path d="M 135.260092 547.395014 
+L 135.260092 15.171014 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #e5e5e5; stroke-width: 0.6; stroke-linecap: square"/>
      </g>
      <g id="line2d_2">
       <defs>
-       <path id="mb0a06ba577" d="M 0 0 
+       <path id="mbd65f3154e" d="M 0 0 
 L 0 3.5 
 " style="stroke: #000000; stroke-width: 0.8"/>
       </defs>
       <g>
-       <use xlink:href="#mb0a06ba577" x="137.185249" y="733.602048" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#mbd65f3154e" x="135.260092" y="547.395014" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_1">
-      <text style="font-size: 9px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle" x="137.185249" y="747.154295" transform="rotate(-0 137.185249 747.154295)">1985</text>
+      <text style="font-size: 9px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle" x="135.260092" y="560.94726" transform="rotate(-0 135.260092 560.94726)">1985</text>
      </g>
     </g>
     <g id="xtick_2">
      <g id="line2d_3">
-      <path d="M 185.199202 733.602048 
-L 185.199202 15.099648 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #e5e5e5; stroke-width: 0.6; stroke-linecap: square"/>
+      <path d="M 183.274046 547.395014 
+L 183.274046 15.171014 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #e5e5e5; stroke-width: 0.6; stroke-linecap: square"/>
      </g>
      <g id="line2d_4">
       <g>
-       <use xlink:href="#mb0a06ba577" x="185.199202" y="733.602048" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#mbd65f3154e" x="183.274046" y="547.395014" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_2">
-      <text style="font-size: 9px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle" x="185.199202" y="747.154295" transform="rotate(-0 185.199202 747.154295)">1990</text>
+      <text style="font-size: 9px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle" x="183.274046" y="560.94726" transform="rotate(-0 183.274046 560.94726)">1990</text>
      </g>
     </g>
     <g id="xtick_3">
      <g id="line2d_5">
-      <path d="M 233.213156 733.602048 
-L 233.213156 15.099648 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #e5e5e5; stroke-width: 0.6; stroke-linecap: square"/>
+      <path d="M 231.287999 547.395014 
+L 231.287999 15.171014 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #e5e5e5; stroke-width: 0.6; stroke-linecap: square"/>
      </g>
      <g id="line2d_6">
       <g>
-       <use xlink:href="#mb0a06ba577" x="233.213156" y="733.602048" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#mbd65f3154e" x="231.287999" y="547.395014" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_3">
-      <text style="font-size: 9px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle" x="233.213156" y="747.154295" transform="rotate(-0 233.213156 747.154295)">1995</text>
+      <text style="font-size: 9px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle" x="231.287999" y="560.94726" transform="rotate(-0 231.287999 560.94726)">1995</text>
      </g>
     </g>
     <g id="xtick_4">
      <g id="line2d_7">
-      <path d="M 281.227109 733.602048 
-L 281.227109 15.099648 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #e5e5e5; stroke-width: 0.6; stroke-linecap: square"/>
+      <path d="M 279.301953 547.395014 
+L 279.301953 15.171014 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #e5e5e5; stroke-width: 0.6; stroke-linecap: square"/>
      </g>
      <g id="line2d_8">
       <g>
-       <use xlink:href="#mb0a06ba577" x="281.227109" y="733.602048" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#mbd65f3154e" x="279.301953" y="547.395014" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_4">
-      <text style="font-size: 9px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle" x="281.227109" y="747.154295" transform="rotate(-0 281.227109 747.154295)">2000</text>
+      <text style="font-size: 9px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle" x="279.301953" y="560.94726" transform="rotate(-0 279.301953 560.94726)">2000</text>
      </g>
     </g>
     <g id="xtick_5">
      <g id="line2d_9">
-      <path d="M 329.241063 733.602048 
-L 329.241063 15.099648 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #e5e5e5; stroke-width: 0.6; stroke-linecap: square"/>
+      <path d="M 327.315906 547.395014 
+L 327.315906 15.171014 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #e5e5e5; stroke-width: 0.6; stroke-linecap: square"/>
      </g>
      <g id="line2d_10">
       <g>
-       <use xlink:href="#mb0a06ba577" x="329.241063" y="733.602048" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#mbd65f3154e" x="327.315906" y="547.395014" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_5">
-      <text style="font-size: 9px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle" x="329.241063" y="747.154295" transform="rotate(-0 329.241063 747.154295)">2005</text>
+      <text style="font-size: 9px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle" x="327.315906" y="560.94726" transform="rotate(-0 327.315906 560.94726)">2005</text>
      </g>
     </g>
     <g id="xtick_6">
      <g id="line2d_11">
-      <path d="M 377.255016 733.602048 
-L 377.255016 15.099648 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #e5e5e5; stroke-width: 0.6; stroke-linecap: square"/>
+      <path d="M 375.32986 547.395014 
+L 375.32986 15.171014 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #e5e5e5; stroke-width: 0.6; stroke-linecap: square"/>
      </g>
      <g id="line2d_12">
       <g>
-       <use xlink:href="#mb0a06ba577" x="377.255016" y="733.602048" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#mbd65f3154e" x="375.32986" y="547.395014" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_6">
-      <text style="font-size: 9px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle" x="377.255016" y="747.154295" transform="rotate(-0 377.255016 747.154295)">2010</text>
+      <text style="font-size: 9px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle" x="375.32986" y="560.94726" transform="rotate(-0 375.32986 560.94726)">2010</text>
      </g>
     </g>
     <g id="xtick_7">
      <g id="line2d_13">
-      <path d="M 425.268969 733.602048 
-L 425.268969 15.099648 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #e5e5e5; stroke-width: 0.6; stroke-linecap: square"/>
+      <path d="M 423.343813 547.395014 
+L 423.343813 15.171014 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #e5e5e5; stroke-width: 0.6; stroke-linecap: square"/>
      </g>
      <g id="line2d_14">
       <g>
-       <use xlink:href="#mb0a06ba577" x="425.268969" y="733.602048" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#mbd65f3154e" x="423.343813" y="547.395014" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_7">
-      <text style="font-size: 9px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle" x="425.268969" y="747.154295" transform="rotate(-0 425.268969 747.154295)">2015</text>
+      <text style="font-size: 9px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle" x="423.343813" y="560.94726" transform="rotate(-0 423.343813 560.94726)">2015</text>
      </g>
     </g>
     <g id="xtick_8">
      <g id="line2d_15">
-      <path d="M 473.282923 733.602048 
-L 473.282923 15.099648 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #e5e5e5; stroke-width: 0.6; stroke-linecap: square"/>
+      <path d="M 471.357767 547.395014 
+L 471.357767 15.171014 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #e5e5e5; stroke-width: 0.6; stroke-linecap: square"/>
      </g>
      <g id="line2d_16">
       <g>
-       <use xlink:href="#mb0a06ba577" x="473.282923" y="733.602048" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#mbd65f3154e" x="471.357767" y="547.395014" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_8">
-      <text style="font-size: 9px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle" x="473.282923" y="747.154295" transform="rotate(-0 473.282923 747.154295)">2020</text>
+      <text style="font-size: 9px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle" x="471.357767" y="560.94726" transform="rotate(-0 471.357767 560.94726)">2020</text>
      </g>
     </g>
     <g id="xtick_9">
      <g id="line2d_17">
-      <path d="M 521.296876 733.602048 
-L 521.296876 15.099648 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #e5e5e5; stroke-width: 0.6; stroke-linecap: square"/>
+      <path d="M 519.37172 547.395014 
+L 519.37172 15.171014 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #e5e5e5; stroke-width: 0.6; stroke-linecap: square"/>
      </g>
      <g id="line2d_18">
       <g>
-       <use xlink:href="#mb0a06ba577" x="521.296876" y="733.602048" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#mbd65f3154e" x="519.37172" y="547.395014" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_9">
-      <text style="font-size: 9px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle" x="521.296876" y="747.154295" transform="rotate(-0 521.296876 747.154295)">2025</text>
+      <text style="font-size: 9px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle" x="519.37172" y="560.94726" transform="rotate(-0 519.37172 560.94726)">2025</text>
      </g>
     </g>
     <g id="text_10">
-     <text style="font-size: 9px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle" x="334.042458" y="759.600584" transform="rotate(-0 334.042458 759.600584)">Calendar year</text>
+     <text style="font-size: 9px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle" x="332.117302" y="573.393549" transform="rotate(-0 332.117302 573.393549)">Calendar year</text>
     </g>
    </g>
    <g id="matplotlib.axis_2"/>
    <g id="line2d_19">
-    <path d="M 358.049435 462.279464 
-L 444.474551 462.279464 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #009e73; stroke-width: 6"/>
+    <path d="M 356.124278 526.726121 
+L 442.549395 526.726121 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #009e73; stroke-width: 6"/>
    </g>
    <g id="line2d_20">
-    <path d="M 473.282923 437.157002 
-L 502.091295 437.157002 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #1f4e79; stroke-width: 6"/>
+    <path d="M 404.138232 500.890004 
+L 519.37172 500.890004 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #1f4e79; stroke-width: 6"/>
    </g>
    <g id="line2d_21">
-    <path d="M 377.255016 412.034541 
-L 473.282923 412.034541 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #1f4e79; stroke-width: 6"/>
+    <path d="M 471.357767 475.053888 
+L 500.166139 475.053888 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #1f4e79; stroke-width: 6"/>
    </g>
    <g id="line2d_22">
-    <path d="M 415.666179 386.912079 
-L 482.885714 386.912079 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #009e73; stroke-width: 6"/>
+    <path d="M 375.32986 449.217771 
+L 471.357767 449.217771 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #1f4e79; stroke-width: 6"/>
    </g>
    <g id="line2d_23">
-    <path d="M 434.87176 361.789618 
-L 463.680132 361.789618 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #d55e00; stroke-width: 6"/>
+    <path d="M 413.741023 423.381655 
+L 471.357767 423.381655 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #1f4e79; stroke-width: 6"/>
    </g>
    <g id="line2d_24">
-    <path d="M 425.268969 336.667156 
-L 492.488504 336.667156 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #1f4e79; stroke-width: 6"/>
+    <path d="M 413.741023 397.545538 
+L 480.960557 397.545538 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #009e73; stroke-width: 6"/>
    </g>
    <g id="line2d_25">
-    <path d="M 473.282923 311.544695 
-L 502.091295 311.544695 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #1f4e79; stroke-width: 6"/>
+    <path d="M 432.946604 371.709422 
+L 461.754976 371.709422 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #d55e00; stroke-width: 6"/>
    </g>
    <g id="line2d_26">
-    <path d="M 358.049435 286.422233 
-L 444.474551 286.422233 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #1f4e79; stroke-width: 6"/>
+    <path d="M 423.343813 345.873305 
+L 490.563348 345.873305 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #1f4e79; stroke-width: 6"/>
    </g>
    <g id="line2d_27">
-    <path d="M 358.049435 261.299772 
-L 444.474551 261.299772 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #1f4e79; stroke-width: 6"/>
+    <path d="M 471.357767 320.037189 
+L 500.166139 320.037189 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #1f4e79; stroke-width: 6"/>
    </g>
    <g id="line2d_28">
-    <path d="M 290.8299 236.17731 
-L 492.488504 236.17731 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #1f4e79; stroke-width: 6"/>
+    <path d="M 356.124278 294.201072 
+L 442.549395 294.201072 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #1f4e79; stroke-width: 6"/>
    </g>
    <g id="line2d_29">
-    <path d="M 425.268969 211.054848 
-L 482.885714 211.054848 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #1f4e79; stroke-width: 6"/>
+    <path d="M 356.124278 268.364956 
+L 442.549395 268.364956 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #1f4e79; stroke-width: 6"/>
    </g>
    <g id="line2d_30">
-    <path d="M 358.049435 185.932387 
-L 444.474551 185.932387 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #1f4e79; stroke-width: 6"/>
+    <path d="M 288.904743 242.528839 
+L 490.563348 242.528839 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #1f4e79; stroke-width: 6"/>
    </g>
    <g id="line2d_31">
-    <path d="M 358.049435 160.809925 
-L 444.474551 160.809925 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #009e73; stroke-width: 6"/>
+    <path d="M 356.124278 216.692723 
+L 442.549395 216.692723 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #009e73; stroke-width: 6"/>
    </g>
    <g id="line2d_32">
-    <path d="M 358.049435 135.687464 
-L 444.474551 135.687464 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #1f4e79; stroke-width: 6"/>
+    <path d="M 423.343813 190.856606 
+L 480.960557 190.856606 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #1f4e79; stroke-width: 6"/>
    </g>
    <g id="line2d_33">
-    <path d="M 396.460597 110.565002 
-L 463.680132 110.565002 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #1f4e79; stroke-width: 6"/>
+    <path d="M 356.124278 165.02049 
+L 442.549395 165.02049 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #1f4e79; stroke-width: 6"/>
    </g>
    <g id="line2d_34">
-    <path d="M 367.652225 85.442541 
-L 406.063388 85.442541 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #d55e00; stroke-width: 6"/>
+    <path d="M 356.124278 139.184373 
+L 442.549395 139.184373 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #009e73; stroke-width: 6"/>
    </g>
    <g id="line2d_35">
-    <path d="M 367.652225 60.320079 
-L 415.666179 60.320079 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #1f4e79; stroke-width: 6"/>
+    <path d="M 356.124278 113.348257 
+L 442.549395 113.348257 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #1f4e79; stroke-width: 6"/>
    </g>
    <g id="line2d_36">
-    <path d="M 338.843853 35.197618 
-L 406.063388 35.197618 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #d55e00; stroke-width: 6"/>
-   </g>
-   <g id="patch_3">
-    <path d="M 127.582458 733.602048 
-L 540.502458 733.602048 
-" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+    <path d="M 394.535441 87.51214 
+L 461.754976 87.51214 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #1f4e79; stroke-width: 6"/>
    </g>
    <g id="line2d_37">
-    <path d="M 487.687109 713.504079 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
+    <path d="M 365.727069 61.676024 
+L 413.741023 61.676024 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #1f4e79; stroke-width: 6"/>
+   </g>
+   <g id="line2d_38">
+    <path d="M 365.727069 35.839907 
+L 375.32986 35.839907 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #1f4e79; stroke-width: 6"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 125.657302 547.395014 
+L 538.577302 547.395014 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_39">
+    <path d="M 533.775906 526.726121 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
     <defs>
-     <path id="mae4f2c8601" d="M -0 3.535534 
+     <path id="m81238ca0a4" d="M -0 3.535534 
 L 3.535534 0 
 L 0 -3.535534 
 L -3.535534 -0 
 z
 " style="stroke: #000000; stroke-linejoin: miter"/>
     </defs>
-    <g clip-path="url(#p1c3fe06e23)">
-     <use xlink:href="#mae4f2c8601" x="487.687109" y="713.504079" style="stroke: #000000; stroke-linejoin: miter"/>
+    <g clip-path="url(#pd0daf7eb63)">
+     <use xlink:href="#m81238ca0a4" x="533.775906" y="526.726121" style="stroke: #000000; stroke-linejoin: miter"/>
     </g>
    </g>
    <g id="text_11">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="122.781063" y="715.419118" transform="rotate(-0 122.781063 715.419118)">YangXG2021  (Dali, Yunnan)</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="120.855906" y="528.64116" transform="rotate(-0 120.855906 528.64116)">Chai2026  (Shanghai (Qingpu))</text>
    </g>
    <g id="text_12">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="543.383295" y="715.419118" transform="rotate(-0 543.383295 715.419118)">30 / 30</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="541.458139" y="528.64116" transform="rotate(-0 541.458139 528.64116)">112 / 174</text>
    </g>
-   <g id="line2d_38">
-    <path d="M 439.673156 688.381618 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
-    <g clip-path="url(#p1c3fe06e23)">
-     <use xlink:href="#mae4f2c8601" x="439.673156" y="688.381618" style="stroke: #000000; stroke-linejoin: miter"/>
+   <g id="line2d_40">
+    <path d="M 524.173116 500.890004 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
+    <g clip-path="url(#pd0daf7eb63)">
+     <use xlink:href="#m81238ca0a4" x="524.173116" y="500.890004" style="stroke: #000000; stroke-linejoin: miter"/>
     </g>
    </g>
    <g id="text_13">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="122.781063" y="690.296657" transform="rotate(-0 122.781063 690.296657)">Chen2016  (Hangzhou, Zhejiang)</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="120.855906" y="502.805043" transform="rotate(-0 120.855906 502.805043)">Zhou2025  (Jiujiang, Jiangxi)</text>
    </g>
    <g id="text_14">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="543.383295" y="690.296657" transform="rotate(-0 543.383295 690.296657)">80 / 258</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="541.458139" y="502.805043" transform="rotate(-0 541.458139 502.805043)">NR / 1030</text>
    </g>
-   <g id="line2d_39">
-    <path d="M 420.467574 663.259156 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
-    <g clip-path="url(#p1c3fe06e23)">
-     <use xlink:href="#mae4f2c8601" x="420.467574" y="663.259156" style="stroke: #000000; stroke-linejoin: miter"/>
+   <g id="line2d_41">
+    <path d="M 514.570325 475.053888 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
+    <g clip-path="url(#pd0daf7eb63)">
+     <use xlink:href="#m81238ca0a4" x="514.570325" y="475.053888" style="stroke: #000000; stroke-linejoin: miter"/>
     </g>
    </g>
    <g id="text_15">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="122.781063" y="665.174195" transform="rotate(-0 122.781063 665.174195)">YangDH2014  (location NR)</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="120.855906" y="476.968927" transform="rotate(-0 120.855906 476.968927)">Zhu2024  (Jingzhou, Hubei)</text>
    </g>
    <g id="text_16">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="543.383295" y="665.174195" transform="rotate(-0 543.383295 665.174195)">80 / 80</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="541.458139" y="476.968927" transform="rotate(-0 541.458139 476.968927)">95 / 406</text>
    </g>
-   <g id="line2d_40">
-    <path d="M 420.467574 638.136695 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
-    <g clip-path="url(#p1c3fe06e23)">
-     <use xlink:href="#mae4f2c8601" x="420.467574" y="638.136695" style="stroke: #000000; stroke-linejoin: miter"/>
+   <g id="line2d_42">
+    <path d="M 514.570325 449.217771 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
+    <g clip-path="url(#pd0daf7eb63)">
+     <use xlink:href="#m81238ca0a4" x="514.570325" y="449.217771" style="stroke: #000000; stroke-linejoin: miter"/>
     </g>
    </g>
    <g id="text_17">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="122.781063" y="640.051734" transform="rotate(-0 122.781063 640.051734)">WangM2014  (Chengdu, Sichuan)</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="120.855906" y="451.13281" transform="rotate(-0 120.855906 451.13281)">Li2024  (Wuhan, Hubei)</text>
    </g>
    <g id="text_18">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="543.383295" y="640.051734" transform="rotate(-0 543.383295 640.051734)">30 / 30</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="541.458139" y="451.13281" transform="rotate(-0 541.458139 451.13281)">30 / 459</text>
    </g>
-   <g id="line2d_41">
-    <path d="M 410.864783 613.014233 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
-    <g clip-path="url(#p1c3fe06e23)">
-     <use xlink:href="#mae4f2c8601" x="410.864783" y="613.014233" style="stroke: #000000; stroke-linejoin: miter"/>
+   <g id="line2d_43">
+    <path d="M 504.967534 423.381655 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
+    <g clip-path="url(#pd0daf7eb63)">
+     <use xlink:href="#m81238ca0a4" x="504.967534" y="423.381655" style="stroke: #000000; stroke-linejoin: miter"/>
     </g>
    </g>
    <g id="text_19">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="122.781063" y="614.929272" transform="rotate(-0 122.781063 614.929272)">Ruan2013  (location NR)</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="120.855906" y="425.296694" transform="rotate(-0 120.855906 425.296694)">Ge2023  (Changsha, Hunan)</text>
    </g>
    <g id="text_20">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="543.383295" y="614.929272" transform="rotate(-0 543.383295 614.929272)">30 / 30</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="541.458139" y="425.296694" transform="rotate(-0 541.458139 425.296694)">94 / 6025</text>
    </g>
-   <g id="line2d_42">
-    <path d="M 401.261993 587.891772 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
-    <g clip-path="url(#p1c3fe06e23)">
-     <use xlink:href="#mae4f2c8601" x="401.261993" y="587.891772" style="stroke: #000000; stroke-linejoin: miter"/>
+   <g id="line2d_44">
+    <path d="M 504.967534 397.545538 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
+    <g clip-path="url(#pd0daf7eb63)">
+     <use xlink:href="#m81238ca0a4" x="504.967534" y="397.545538" style="stroke: #000000; stroke-linejoin: miter"/>
     </g>
    </g>
    <g id="text_21">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="122.781063" y="589.806811" transform="rotate(-0 122.781063 589.806811)">Zhou_CT2012  (Shanghai)</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="120.855906" y="399.460577" transform="rotate(-0 120.855906 399.460577)">Genomic2023  (Shanghai)</text>
    </g>
    <g id="text_22">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="543.383295" y="589.806811" transform="rotate(-0 543.383295 589.806811)">130 / -</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="541.458139" y="399.460577" transform="rotate(-0 541.458139 399.460577)">30 / NR</text>
    </g>
-   <g id="line2d_43">
-    <path d="M 353.248039 562.76931 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
-    <g clip-path="url(#p1c3fe06e23)">
-     <use xlink:href="#mae4f2c8601" x="353.248039" y="562.76931" style="stroke: #000000; stroke-linejoin: miter"/>
+   <g id="line2d_45">
+    <path d="M 504.967534 371.709422 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
+    <g clip-path="url(#pd0daf7eb63)">
+     <use xlink:href="#m81238ca0a4" x="504.967534" y="371.709422" style="stroke: #000000; stroke-linejoin: miter"/>
     </g>
    </g>
    <g id="text_23">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="122.781063" y="564.684349" transform="rotate(-0 122.781063 564.684349)">Madbouly2007  (Alexandria, Egypt)</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="120.855906" y="373.624461" transform="rotate(-0 120.855906 373.624461)">Pan2023  (Shanghai)</text>
    </g>
    <g id="text_24">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="543.383295" y="564.684349" transform="rotate(-0 543.383295 564.684349)">40 / 20</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="541.458139" y="373.624461" transform="rotate(-0 541.458139 373.624461)">172 / -</text>
    </g>
-   <g id="line2d_44">
-    <path d="M 334.042458 537.646848 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
-    <g clip-path="url(#p1c3fe06e23)">
-     <use xlink:href="#mae4f2c8601" x="334.042458" y="537.646848" style="stroke: #000000; stroke-linejoin: miter"/>
+   <g id="line2d_46">
+    <path d="M 504.967534 345.873305 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
+    <g clip-path="url(#pd0daf7eb63)">
+     <use xlink:href="#m81238ca0a4" x="504.967534" y="345.873305" style="stroke: #000000; stroke-linejoin: miter"/>
     </g>
    </g>
    <g id="text_25">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="122.781063" y="539.561888" transform="rotate(-0 122.781063 539.561888)">Zalata2005  (Egypt)</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="120.855906" y="347.788344" transform="rotate(-0 120.855906 347.788344)">Yang2023  (Wuhu, Anhui)</text>
    </g>
    <g id="text_26">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="543.383295" y="539.561888" transform="rotate(-0 543.383295 539.561888)">NR / NR</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="541.458139" y="347.788344" transform="rotate(-0 541.458139 347.788344)">298 / 326</text>
    </g>
-   <g id="line2d_45">
-    <path d="M 266.822923 512.524387 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
-    <g clip-path="url(#p1c3fe06e23)">
-     <use xlink:href="#mae4f2c8601" x="266.822923" y="512.524387" style="stroke: #000000; stroke-linejoin: miter"/>
+   <g id="line2d_47">
+    <path d="M 504.967534 320.037189 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
+    <g clip-path="url(#pd0daf7eb63)">
+     <use xlink:href="#m81238ca0a4" x="504.967534" y="320.037189" style="stroke: #000000; stroke-linejoin: miter"/>
     </g>
    </g>
    <g id="text_27">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="122.781063" y="514.439426" transform="rotate(-0 122.781063 514.439426)">ZhangR1998  (China)</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="120.855906" y="321.952228" transform="rotate(-0 120.855906 321.952228)">Zhang2023  (Jingzhou, Hubei)</text>
    </g>
    <g id="text_28">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="543.383295" y="514.439426" transform="rotate(-0 543.383295 514.439426)">22 / 22</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="541.458139" y="321.952228" transform="rotate(-0 541.458139 321.952228)">101 / 240</text>
    </g>
-   <g id="line2d_46">
-    <path d="M 151.589435 487.401925 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
-    <g clip-path="url(#p1c3fe06e23)">
-     <use xlink:href="#mae4f2c8601" x="151.589435" y="487.401925" style="stroke: #000000; stroke-linejoin: miter"/>
+   <g id="line2d_48">
+    <path d="M 504.967534 294.201072 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
+    <g clip-path="url(#pd0daf7eb63)">
+     <use xlink:href="#m81238ca0a4" x="504.967534" y="294.201072" style="stroke: #000000; stroke-linejoin: miter"/>
     </g>
    </g>
    <g id="text_29">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="122.781063" y="489.316964" transform="rotate(-0 122.781063 489.316964)">NCG1986  (China (multi-province))</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="120.855906" y="296.116111" transform="rotate(-0 120.855906 296.116111)">Cheng2023  (Shanghai (Qingpu))</text>
    </g>
    <g id="text_30">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="543.383295" y="489.316964" transform="rotate(-0 543.383295 489.316964)">430 / NR</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="541.458139" y="296.116111" transform="rotate(-0 541.458139 296.116111)">137 / 214</text>
    </g>
-   <g id="line2d_47">
-    <path d="M 535.701063 462.279464 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
-    <g clip-path="url(#p1c3fe06e23)">
-     <use xlink:href="#mae4f2c8601" x="535.701063" y="462.279464" style="stroke: #000000; stroke-linejoin: miter"/>
+   <g id="line2d_49">
+    <path d="M 504.967534 268.364956 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
+    <g clip-path="url(#pd0daf7eb63)">
+     <use xlink:href="#m81238ca0a4" x="504.967534" y="268.364956" style="stroke: #000000; stroke-linejoin: miter"/>
     </g>
    </g>
    <g id="text_31">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="122.781063" y="464.194503" transform="rotate(-0 122.781063 464.194503)">Chai2026  (Shanghai (Qingpu))</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="120.855906" y="270.279995" transform="rotate(-0 120.855906 270.279995)">WangW2023  (Shanghai (Qingpu))</text>
    </g>
    <g id="text_32">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="543.383295" y="464.194503" transform="rotate(-0 543.383295 464.194503)">112 / 174</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="541.458139" y="270.279995" transform="rotate(-0 541.458139 270.279995)">137 / 212</text>
    </g>
-   <g id="line2d_48">
-    <path d="M 516.495481 437.157002 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
-    <g clip-path="url(#p1c3fe06e23)">
-     <use xlink:href="#mae4f2c8601" x="516.495481" y="437.157002" style="stroke: #000000; stroke-linejoin: miter"/>
+   <g id="line2d_50">
+    <path d="M 504.967534 242.528839 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
+    <g clip-path="url(#pd0daf7eb63)">
+     <use xlink:href="#m81238ca0a4" x="504.967534" y="242.528839" style="stroke: #000000; stroke-linejoin: miter"/>
     </g>
    </g>
    <g id="text_33">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="122.781063" y="439.072041" transform="rotate(-0 122.781063 439.072041)">Zhu2024  (Jingzhou, Hubei)</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="120.855906" y="244.443878" transform="rotate(-0 120.855906 244.443878)">Zheng2023  (Shanghai)</text>
    </g>
    <g id="text_34">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="543.383295" y="439.072041" transform="rotate(-0 543.383295 439.072041)">95 / 406</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="541.458139" y="244.443878" transform="rotate(-0 541.458139 244.443878)">823 / 30330</text>
    </g>
-   <g id="line2d_49">
-    <path d="M 516.495481 412.034541 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
-    <g clip-path="url(#p1c3fe06e23)">
-     <use xlink:href="#mae4f2c8601" x="516.495481" y="412.034541" style="stroke: #000000; stroke-linejoin: miter"/>
+   <g id="line2d_51">
+    <path d="M 495.364743 216.692723 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
+    <g clip-path="url(#pd0daf7eb63)">
+     <use xlink:href="#m81238ca0a4" x="495.364743" y="216.692723" style="stroke: #000000; stroke-linejoin: miter"/>
     </g>
    </g>
    <g id="text_35">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="122.781063" y="413.94958" transform="rotate(-0 122.781063 413.94958)">Li2024  (Wuhan, Hubei)</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="120.855906" y="218.607762" transform="rotate(-0 120.855906 218.607762)">Pan2022  (Shanghai (Qingpu))</text>
    </g>
    <g id="text_36">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="543.383295" y="413.94958" transform="rotate(-0 543.383295 413.94958)">30 / 459</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="541.458139" y="218.607762" transform="rotate(-0 541.458139 218.607762)">131 / 207</text>
    </g>
-   <g id="line2d_50">
-    <path d="M 506.89269 386.912079 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
-    <g clip-path="url(#p1c3fe06e23)">
-     <use xlink:href="#mae4f2c8601" x="506.89269" y="386.912079" style="stroke: #000000; stroke-linejoin: miter"/>
+   <g id="line2d_52">
+    <path d="M 485.761953 190.856606 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
+    <g clip-path="url(#pd0daf7eb63)">
+     <use xlink:href="#m81238ca0a4" x="485.761953" y="190.856606" style="stroke: #000000; stroke-linejoin: miter"/>
     </g>
    </g>
    <g id="text_37">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="122.781063" y="388.827118" transform="rotate(-0 122.781063 388.827118)">Genomic2023  (Shanghai)</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="120.855906" y="192.771645" transform="rotate(-0 120.855906 192.771645)">Wu2021  (Wuhu, Anhui)</text>
    </g>
    <g id="text_38">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="543.383295" y="388.827118" transform="rotate(-0 543.383295 388.827118)">30 / NR</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="541.458139" y="192.771645" transform="rotate(-0 541.458139 192.771645)">56 / 307</text>
    </g>
-   <g id="line2d_51">
-    <path d="M 506.89269 361.789618 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
-    <g clip-path="url(#p1c3fe06e23)">
-     <use xlink:href="#mae4f2c8601" x="506.89269" y="361.789618" style="stroke: #000000; stroke-linejoin: miter"/>
+   <g id="line2d_53">
+    <path d="M 485.761953 165.02049 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
+    <g clip-path="url(#pd0daf7eb63)">
+     <use xlink:href="#m81238ca0a4" x="485.761953" y="165.02049" style="stroke: #000000; stroke-linejoin: miter"/>
     </g>
    </g>
    <g id="text_39">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="122.781063" y="363.704657" transform="rotate(-0 122.781063 363.704657)">Pan2023  (Shanghai)</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="120.855906" y="166.935529" transform="rotate(-0 120.855906 166.935529)">WangW2021  (Shanghai (Qingpu))</text>
    </g>
    <g id="text_40">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="543.383295" y="363.704657" transform="rotate(-0 543.383295 363.704657)">172 / 0</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="541.458139" y="166.935529" transform="rotate(-0 541.458139 166.935529)">128 / 210</text>
    </g>
-   <g id="line2d_52">
-    <path d="M 506.89269 336.667156 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
-    <g clip-path="url(#p1c3fe06e23)">
-     <use xlink:href="#mae4f2c8601" x="506.89269" y="336.667156" style="stroke: #000000; stroke-linejoin: miter"/>
+   <g id="line2d_54">
+    <path d="M 476.159162 139.184373 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
+    <g clip-path="url(#pd0daf7eb63)">
+     <use xlink:href="#m81238ca0a4" x="476.159162" y="139.184373" style="stroke: #000000; stroke-linejoin: miter"/>
     </g>
    </g>
    <g id="text_41">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="122.781063" y="338.582195" transform="rotate(-0 122.781063 338.582195)">Yang2023  (Wuhu, Anhui)</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="120.855906" y="141.099412" transform="rotate(-0 120.855906 141.099412)">Pan2020  (Shanghai (Qingpu))</text>
    </g>
    <g id="text_42">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="543.383295" y="338.582195" transform="rotate(-0 543.383295 338.582195)">298 CRC (158 colon, 140 rectal) / 326 CRC (159 colon, 167 rectal)</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="541.458139" y="141.099412" transform="rotate(-0 541.458139 141.099412)">138 / 216</text>
    </g>
-   <g id="line2d_53">
-    <path d="M 506.89269 311.544695 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
-    <g clip-path="url(#p1c3fe06e23)">
-     <use xlink:href="#mae4f2c8601" x="506.89269" y="311.544695" style="stroke: #000000; stroke-linejoin: miter"/>
+   <g id="line2d_55">
+    <path d="M 476.159162 113.348257 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
+    <g clip-path="url(#pd0daf7eb63)">
+     <use xlink:href="#m81238ca0a4" x="476.159162" y="113.348257" style="stroke: #000000; stroke-linejoin: miter"/>
     </g>
    </g>
    <g id="text_43">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="122.781063" y="313.459734" transform="rotate(-0 122.781063 313.459734)">Zhang2023  (Jingzhou, Hubei)</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="120.855906" y="115.263296" transform="rotate(-0 120.855906 115.263296)">WangW2020  (Shanghai (Qingpu))</text>
    </g>
    <g id="text_44">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="543.383295" y="313.459734" transform="rotate(-0 543.383295 313.459734)">101 / 240</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="541.458139" y="115.263296" transform="rotate(-0 541.458139 115.263296)">137 / 214</text>
    </g>
-   <g id="line2d_54">
-    <path d="M 506.89269 286.422233 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
-    <g clip-path="url(#p1c3fe06e23)">
-     <use xlink:href="#mae4f2c8601" x="506.89269" y="286.422233" style="stroke: #000000; stroke-linejoin: miter"/>
+   <g id="line2d_56">
+    <path d="M 476.159162 87.51214 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
+    <g clip-path="url(#pd0daf7eb63)">
+     <use xlink:href="#m81238ca0a4" x="476.159162" y="87.51214" style="stroke: #000000; stroke-linejoin: miter"/>
     </g>
    </g>
    <g id="text_45">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="122.781063" y="288.337272" transform="rotate(-0 122.781063 288.337272)">Cheng2023  (Shanghai (Qingpu))</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="120.855906" y="89.427179" transform="rotate(-0 120.855906 89.427179)">WangZ2020  (Wuhu, Anhui)</text>
    </g>
    <g id="text_46">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="543.383295" y="288.337272" transform="rotate(-0 543.383295 288.337272)">137 / 214</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="541.458139" y="89.427179" transform="rotate(-0 541.458139 89.427179)">253 / 2885</text>
    </g>
-   <g id="line2d_55">
-    <path d="M 506.89269 261.299772 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
-    <g clip-path="url(#p1c3fe06e23)">
-     <use xlink:href="#mae4f2c8601" x="506.89269" y="261.299772" style="stroke: #000000; stroke-linejoin: miter"/>
+   <g id="line2d_57">
+    <path d="M 428.145209 61.676024 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
+    <g clip-path="url(#pd0daf7eb63)">
+     <use xlink:href="#m81238ca0a4" x="428.145209" y="61.676024" style="stroke: #000000; stroke-linejoin: miter"/>
     </g>
    </g>
    <g id="text_47">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="122.781063" y="263.214811" transform="rotate(-0 122.781063 263.214811)">WangW2023  (Shanghai (Qingpu))</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="120.855906" y="63.591063" transform="rotate(-0 120.855906 63.591063)">Feng2015  (Shanghai)</text>
    </g>
    <g id="text_48">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="543.383295" y="263.214811" transform="rotate(-0 543.383295 263.214811)">137 (126 with IHC) / 212 (188 with IHC)</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="541.458139" y="63.591063" transform="rotate(-0 541.458139 63.591063)">26 / 34</text>
    </g>
-   <g id="line2d_56">
-    <path d="M 506.89269 236.17731 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
-    <g clip-path="url(#p1c3fe06e23)">
-     <use xlink:href="#mae4f2c8601" x="506.89269" y="236.17731" style="stroke: #000000; stroke-linejoin: miter"/>
+   <g id="line2d_58">
+    <path d="M 418.542418 35.839907 
+" clip-path="url(#pd0daf7eb63)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
+    <g clip-path="url(#pd0daf7eb63)">
+     <use xlink:href="#m81238ca0a4" x="418.542418" y="35.839907" style="stroke: #000000; stroke-linejoin: miter"/>
     </g>
    </g>
    <g id="text_49">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="122.781063" y="238.092349" transform="rotate(-0 122.781063 238.092349)">Zheng2023  (Shanghai)</text>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="120.855906" y="37.754946" transform="rotate(-0 120.855906 37.754946)">WangM2014  (Chengdu, Sichuan)</text>
    </g>
    <g id="text_50">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="543.383295" y="238.092349" transform="rotate(-0 543.383295 238.092349)">823 / 30330</text>
-   </g>
-   <g id="line2d_57">
-    <path d="M 487.687109 211.054848 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
-    <g clip-path="url(#p1c3fe06e23)">
-     <use xlink:href="#mae4f2c8601" x="487.687109" y="211.054848" style="stroke: #000000; stroke-linejoin: miter"/>
-    </g>
+    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="541.458139" y="37.754946" transform="rotate(-0 541.458139 37.754946)">30 / 30</text>
    </g>
    <g id="text_51">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="122.781063" y="212.969888" transform="rotate(-0 122.781063 212.969888)">Wu2021  (Wuhu, Anhui)</text>
-   </g>
-   <g id="text_52">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="543.383295" y="212.969888" transform="rotate(-0 543.383295 212.969888)">56 / 307</text>
-   </g>
-   <g id="line2d_58">
-    <path d="M 487.687109 185.932387 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
-    <g clip-path="url(#p1c3fe06e23)">
-     <use xlink:href="#mae4f2c8601" x="487.687109" y="185.932387" style="stroke: #000000; stroke-linejoin: miter"/>
-    </g>
-   </g>
-   <g id="text_53">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="122.781063" y="187.847426" transform="rotate(-0 122.781063 187.847426)">WangW2021  (Shanghai (Qingpu))</text>
-   </g>
-   <g id="text_54">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="543.383295" y="187.847426" transform="rotate(-0 543.383295 187.847426)">128 / 210</text>
-   </g>
-   <g id="line2d_59">
-    <path d="M 478.084318 160.809925 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
-    <g clip-path="url(#p1c3fe06e23)">
-     <use xlink:href="#mae4f2c8601" x="478.084318" y="160.809925" style="stroke: #000000; stroke-linejoin: miter"/>
-    </g>
-   </g>
-   <g id="text_55">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="122.781063" y="162.724964" transform="rotate(-0 122.781063 162.724964)">Pan2020  (Shanghai)</text>
-   </g>
-   <g id="text_56">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="543.383295" y="162.724964" transform="rotate(-0 543.383295 162.724964)">138 / 216</text>
-   </g>
-   <g id="line2d_60">
-    <path d="M 478.084318 135.687464 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
-    <g clip-path="url(#p1c3fe06e23)">
-     <use xlink:href="#mae4f2c8601" x="478.084318" y="135.687464" style="stroke: #000000; stroke-linejoin: miter"/>
-    </g>
-   </g>
-   <g id="text_57">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="122.781063" y="137.602503" transform="rotate(-0 122.781063 137.602503)">WangW2020  (Shanghai (Qingpu))</text>
-   </g>
-   <g id="text_58">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="543.383295" y="137.602503" transform="rotate(-0 543.383295 137.602503)">137 / 214</text>
-   </g>
-   <g id="line2d_61">
-    <path d="M 478.084318 110.565002 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
-    <g clip-path="url(#p1c3fe06e23)">
-     <use xlink:href="#mae4f2c8601" x="478.084318" y="110.565002" style="stroke: #000000; stroke-linejoin: miter"/>
-    </g>
-   </g>
-   <g id="text_59">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="122.781063" y="112.480041" transform="rotate(-0 122.781063 112.480041)">WangZ2020  (Wuhu, Anhui)</text>
-   </g>
-   <g id="text_60">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="543.383295" y="112.480041" transform="rotate(-0 543.383295 112.480041)">253 / 2885</text>
-   </g>
-   <g id="line2d_62">
-    <path d="M 439.673156 85.442541 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
-    <g clip-path="url(#p1c3fe06e23)">
-     <use xlink:href="#mae4f2c8601" x="439.673156" y="85.442541" style="stroke: #000000; stroke-linejoin: miter"/>
-    </g>
-   </g>
-   <g id="text_61">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="122.781063" y="87.35758" transform="rotate(-0 122.781063 87.35758)">WangM2016  (Chengdu, Sichuan)</text>
-   </g>
-   <g id="text_62">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="543.383295" y="87.35758" transform="rotate(-0 543.383295 87.35758)">74 / -</text>
-   </g>
-   <g id="line2d_63">
-    <path d="M 430.070365 60.320079 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
-    <g clip-path="url(#p1c3fe06e23)">
-     <use xlink:href="#mae4f2c8601" x="430.070365" y="60.320079" style="stroke: #000000; stroke-linejoin: miter"/>
-    </g>
-   </g>
-   <g id="text_63">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="122.781063" y="62.235118" transform="rotate(-0 122.781063 62.235118)">Feng2015  (Shanghai)</text>
-   </g>
-   <g id="text_64">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="543.383295" y="62.235118" transform="rotate(-0 543.383295 62.235118)">26 / 34</text>
-   </g>
-   <g id="line2d_64">
-    <path d="M 410.864783 35.197618 
-" clip-path="url(#p1c3fe06e23)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
-    <g clip-path="url(#p1c3fe06e23)">
-     <use xlink:href="#mae4f2c8601" x="410.864783" y="35.197618" style="stroke: #000000; stroke-linejoin: miter"/>
-    </g>
-   </g>
-   <g id="text_65">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="122.781063" y="37.112657" transform="rotate(-0 122.781063 37.112657)">Liu2013  (Chengdu, Sichuan)</text>
-   </g>
-   <g id="text_66">
-    <text style="font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="543.383295" y="37.112657" transform="rotate(-0 543.383295 37.112657)">32 / -</text>
-   </g>
-   <g id="text_67">
-    <text style="font-weight: 700; font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="543.383295" y="12.587402" transform="rotate(-0 543.383295 12.587402)">SACC / NSACC n</text>
+    <text style="font-weight: 700; font-size: 7.4px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="541.458139" y="12.587402" transform="rotate(-0 541.458139 12.587402)">SACC / NSACC n</text>
    </g>
    <g id="legend_1">
-    <g id="line2d_65">
-     <path d="M 136.555677 828.768528 
-L 143.555677 828.768528 
-L 150.555677 828.768528 
+    <g id="line2d_59">
+     <path d="M 134.63052 620.208085 
+L 141.63052 620.208085 
+L 148.63052 620.208085 
 " style="fill: none; stroke: #1f4e79; stroke-width: 6; stroke-linecap: square"/>
     </g>
-    <g id="text_68">
-     <text style="font-size: 7px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="156.155677" y="831.218528" transform="rotate(-0 156.155677 831.218528)">Recruitment period: comparative (S. japonicum)</text>
+    <g id="text_52">
+     <text style="font-size: 7px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="154.23052" y="622.658085" transform="rotate(-0 154.23052 622.658085)">Recruitment period: comparative (S. japonicum)</text>
     </g>
-    <g id="line2d_66">
-     <path d="M 136.555677 838.837864 
-L 143.555677 838.837864 
-L 150.555677 838.837864 
+    <g id="line2d_60">
+     <path d="M 134.63052 630.277421 
+L 141.63052 630.277421 
+L 148.63052 630.277421 
 " style="fill: none; stroke: #d55e00; stroke-width: 6; stroke-linecap: square"/>
     </g>
-    <g id="text_69">
-     <text style="font-size: 7px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="156.155677" y="841.287864" transform="rotate(-0 156.155677 841.287864)">within-SACC</text>
+    <g id="text_53">
+     <text style="font-size: 7px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="154.23052" y="632.727421" transform="rotate(-0 154.23052 632.727421)">within-SACC</text>
     </g>
-    <g id="line2d_67">
-     <path d="M 318.37302 828.768528 
-L 325.37302 828.768528 
-L 332.37302 828.768528 
+    <g id="line2d_61">
+     <path d="M 316.447864 620.208085 
+L 323.447864 620.208085 
+L 330.447864 620.208085 
 " style="fill: none; stroke: #009e73; stroke-width: 6; stroke-linecap: square"/>
     </g>
-    <g id="text_70">
-     <text style="font-size: 7px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="337.97302" y="831.218528" transform="rotate(-0 337.97302 831.218528)">molecular map</text>
+    <g id="text_54">
+     <text style="font-size: 7px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="336.047864" y="622.658085" transform="rotate(-0 336.047864 622.658085)">molecular map</text>
     </g>
-    <g id="line2d_68">
-     <path d="M 318.37302 838.837864 
-L 325.37302 838.837864 
-L 332.37302 838.837864 
+    <g id="line2d_62">
+     <path d="M 316.447864 630.277421 
+L 323.447864 630.277421 
+L 330.447864 630.277421 
 " style="fill: none; stroke: #6e6e6e; stroke-width: 6; stroke-linecap: square"/>
     </g>
-    <g id="text_71">
-     <text style="font-size: 7px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="337.97302" y="841.287864" transform="rotate(-0 337.97302 841.287864)">S. mansoni (separate)</text>
+    <g id="text_55">
+     <text style="font-size: 7px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="336.047864" y="632.727421" transform="rotate(-0 336.047864 632.727421)">S. mansoni (separate)</text>
     </g>
-    <g id="line2d_69">
-     <path d="M 420.833333 828.768528 
-L 427.833333 828.768528 
-L 434.833333 828.768528 
+    <g id="line2d_63">
+     <path d="M 418.908177 620.208085 
+L 425.908177 620.208085 
+L 432.908177 620.208085 
 " style="fill: none"/>
      <defs>
-      <path id="m3708160734" d="M -0 4.242641 
+      <path id="m3bc0d2379f" d="M -0 4.242641 
 L 4.242641 0 
 L 0 -4.242641 
 L -4.242641 -0 
@@ -704,18 +610,18 @@ z
 " style="stroke: #000000; stroke-linejoin: miter"/>
      </defs>
      <g>
-      <use xlink:href="#m3708160734" x="427.833333" y="828.768528" style="stroke: #000000; stroke-linejoin: miter"/>
+      <use xlink:href="#m3bc0d2379f" x="425.908177" y="620.208085" style="stroke: #000000; stroke-linejoin: miter"/>
      </g>
     </g>
-    <g id="text_72">
-     <text style="font-size: 7px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="440.433333" y="831.218528" transform="rotate(-0 440.433333 831.218528)">Publication year</text>
+    <g id="text_56">
+     <text style="font-size: 7px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="438.508177" y="622.658085" transform="rotate(-0 438.508177 622.658085)">Publication year</text>
     </g>
    </g>
   </g>
  </g>
  <defs>
-  <clipPath id="p1c3fe06e23">
-   <rect x="127.582458" y="15.099648" width="412.92" height="718.5024"/>
+  <clipPath id="pd0daf7eb63">
+   <rect x="125.657302" y="15.171014" width="412.92" height="532.224"/>
   </clipPath>
  </defs>
 </svg>

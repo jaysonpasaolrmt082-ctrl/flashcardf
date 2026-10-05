@@ -8,6 +8,7 @@
 "Intratumoral TILs rich",126,188,1,"Not pooled (k < 2)"
 "KRAS G12S/D mutation",30,459,1,"Not pooled (k < 2)"
 "KRAS mutation",509,9973,2,"OR 1.41 (1.18-1.69); I2 0%"
+"MET FISH-positive",131,207,1,"Not pooled (k < 2)"
 "MSI-L/MSS",30,NA,1,"Not pooled (k < 2)"
 "NRAS mutation",266,6341,1,"Not pooled (k < 2)"
 "PIK3CA mutation",207,4511,1,"Not pooled (k < 2)"

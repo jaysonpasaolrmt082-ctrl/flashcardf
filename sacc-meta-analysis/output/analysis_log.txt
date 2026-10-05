@@ -1,15 +1,15 @@
-SACC meta-analysis run 2026-10-05 16:26:11 
+SACC meta-analysis run 2026-10-05 16:56:04 
  R version 4.3.3 (2024-02-29) 
 metafor 4.4.0 
 
-Binary rows (verified, primary): 71 
-   male_sex : k = 6 < 10, small-study tests not performed 
-   rectal_location : k = 5 < 10, small-study tests not performed 
-   right_sided : k = 5 < 10, small-study tests not performed 
-   advanced_stage_III_IV : k = 4 < 10, small-study tests not performed 
+Binary rows (verified, primary): 79 
+   male_sex : k = 7 < 10, small-study tests not performed 
+   rectal_location : k = 6 < 10, small-study tests not performed 
+   right_sided : k = 6 < 10, small-study tests not performed 
+   advanced_stage_III_IV : k = 5 < 10, small-study tests not performed 
    T3_T4 : k = 5 < 10, small-study tests not performed 
    LN_metastasis : k = 5 < 10, small-study tests not performed 
-   distant_metastasis : k = 2 < 10, small-study tests not performed 
+   distant_metastasis : k = 4 < 10, small-study tests not performed 
    poor_differentiation : k = 7 < 10, small-study tests not performed 
    vascular_invasion : k = 5 < 10, small-study tests not performed 
    perineural_invasion : k = 5 < 10, small-study tests not performed 
@@ -21,8 +21,8 @@ Binary rows (verified, primary): 71
    BRAF_mut : k = 1, not pooled 
    NRAS_mut : k = 1, not pooled 
    dMMR : k = 1, not pooled 
-   age_over_60 : k = 4 < 10, small-study tests not performed 
-   sigmoid_location : k = 2 < 10, small-study tests not performed 
+   age_over_60 : k = 5 < 10, small-study tests not performed 
+   sigmoid_location : k = 3 < 10, small-study tests not performed 
    tumor_size_5cm : k = 2 < 10, small-study tests not performed 
    lymphovascular_invasion : k = 1, not pooled 
    mucinous : k = 3 < 10, small-study tests not performed 

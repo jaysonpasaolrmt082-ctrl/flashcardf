@@ -69,7 +69,7 @@ def figure1():
     box(ax, L, y, W, h, "Records identified from:\n"
         f"PubMed: {n('db_pubmed')}\nScopus: {n('db_scopus')}\nWeb of Science: {n('db_wos')}\n"
         f"Embase: {n('db_embase')}\nCNKI: {n('db_cnki')}\nWanfang: {n('db_wanfang')}\n"
-        f"SinoMed: {n('db_sinomed')}\nOther sources (citation searching,\nreference lists): {n('other_sources')}", fs=6.3)
+        f"SinoMed: {n('db_sinomed')}\nOther sources (Europe PMC,\nCrossref): {n('other_sources')}", fs=6.3)
     box(ax, R, y + 0.05, W, 0.10, "Records removed before screening:\nduplicate records, " + n("duplicates_removed"), fs=7.2)
     y, h = rows["scr"];    box(ax, L, y, W, h, "Records screened (title/abstract)\n" + n("screened"), fs=7.2)
     box(ax, R, y, W, h, "Records excluded\n" + n("excluded_title_abstract"), fs=7.2)
@@ -95,7 +95,8 @@ def figure1():
 # ----------------------------------------------------------------- Figure 2 --
 def figure2():
     rows = list(csv.DictReader(open(os.path.join(ROOT, "data/study_inventory.csv"))))
-    keep = [r for r in rows if r["analysis_set"].startswith(("Primary", "Within", "Molecular", "Separate"))]
+    keep = [r for r in rows if r["eligibility_status"].startswith("Included")]
+    num = lambda v: (re.match(r"\d[\d,]*", v).group(0) if re.match(r"\d", v) else v.split(" ")[0])
     keep.sort(key=lambda r: (r["recruitment_period"] == "NR", int(r["year"])))
     fig, ax = plt.subplots(figsize=(7.4, 0.42 * len(keep) + 1.2))
     for i, r in enumerate(reversed(keep)):
@@ -107,8 +108,8 @@ def figure2():
             a, b = yrs[0], yrs[-1]
             ax.plot([a, b + 1], [i, i], lw=6, color=col, solid_capstyle="butt")
         ax.plot(int(r["year"]) + 0.5, i, marker="D", ms=5, color="black", zorder=3)
-        ns = r["n_SACC"] if r["n_SACC"] != "NR" else "NR"
-        nn = r["n_NSACC"] if r["n_NSACC"] not in ("NR", "") else ("-" if "Within" in r["analysis_set"] else "NR")
+        ns = num(r["n_SACC"]) if r["n_SACC"] != "NR" else "NR"
+        nn = num(r["n_NSACC"]) if r["n_NSACC"] not in ("NR", "", "0") else ("-" if "Within" in r["analysis_set"] or r["n_NSACC"] == "0" else "NR")
         loc = r["city_province"] if r["city_province"] != "NR" else "location NR"
         ax.text(1983.5, i, f"{r['study_id']}  ({loc})", va="center", ha="right", fontsize=7.4)
         ax.text(2027.3, i, f"{ns} / {nn}", va="center", ha="left", fontsize=7.4)

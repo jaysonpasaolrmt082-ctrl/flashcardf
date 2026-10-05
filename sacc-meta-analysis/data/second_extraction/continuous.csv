@@ -1,0 +1,19 @@
+study_id,outcome,mean_SACC,sd_SACC,n_SACC,mean_NSACC,sd_NSACC,n_NSACC,source_location,notes
+Zheng2023,age,67.5,8.8,823,60.5,12.5,30330,Suppl Table S1; Results text,"Registry cohort; age for the 808/16155 database cohort not reported"
+Zheng2023,BMI,22.95,2.97,566,23.39,4.32,11090,Table 1,
+Zheng2023,tumor_diameter_cm,4.36,1.86,729,4.33,1.89,14643,Table 1,
+WangZ2020,age,65.32,10.57,253,61.39,11.93,2885,Table I,"Methods text gives SACC SD as '10' (65.32±10); Table I value used"
+WangZ2020,CEA,45.30,198.83,253,44.68,175.74,2885,Table IV,"Highly skewed"
+WangZ2020,CA19-9,92.44,250.44,253,115.09,281.13,2885,Table IV,"Highly skewed"
+Yang2023,age,66.568,9.855,298,60.335,13.625,326,Table 6 + Table 7,"Computed pooled mean/SD of colon (SACC 67.331±10.082 n158; NSACC 61.194±11.675 n159) and rectal (SACC 65.706±9.554 n140 [text 9.5549]; NSACC 59.517±15.242 n167) subgroups"
+Yang2023,age_colon,67.331,10.082,158,61.194,11.675,159,Table 6,colon cancer only
+Yang2023,age_rectal,65.706,9.554,140,59.517,15.242,167,Table 7,"rectal cancer only; text gives SD 9.5549"
+WangW2020,age,,,137,,,214,Results (Association of schistosomiasis...) ,"Only medians reported: 74.0 (SACC) vs 64.0 y (NSACC), P<0.001; no mean/SD or IQR"
+Zhu2024,age,66.03,,95,61.84,,406,Methods (Patients and samples),"Means only; SD not reported (ranges 46-88 vs 26-92)"
+Feng2015,age,60.7,10.6,26,63,8.7,34,Table 1,"Rectosigmoid only"
+Feng2015,CA-125,27.4,3.3,26,12.7,10.0,34,Table 1,"CA-125 measured in only 15 SACC per text (7/15 abnormal); SD of 3.3 implausible"
+Feng2015,CEA,4.2,8.8,26,82.9,428.1,34,Table 1,
+Feng2015,CA19-9,10.9,306.5,26,35.1,65.1,34,Table 1,"SACC SD 306.5 implausible for mean 10.9 (text: CA19-9 available in 11 SACC)"
+WangM2014,age,63.87,9.20,30,63.47,9.42,30,Table 1,"Matched on age"
+WangM2014,tumor_size_cm,4.27,1.62,30,3.33,1.31,30,Table 1,
+Ge2023,age,66.13,9.23,94,58.35,12.07,6025,Results text (clinical baseline data); Discussion,"Unmatched cohort. After PSM: 66.1±9.23 vs 65.6±8.94 (n=94 each, Table 2)"

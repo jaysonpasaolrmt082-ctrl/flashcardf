@@ -1,15 +1,17 @@
 study_id,S1_representativeness,S2_selection_nonexposed,S3_ascertainment_exposure,S4_outcome_absent_at_start,C1_comparability,O1_assessment_outcome,O2_follow_up_length,O3_follow_up_adequacy,total_stars,rating,assessor_1,assessor_2,consensus_notes
-Zheng2023,1,1,1,1,2,1,0,0,7,low,"Claude (AI-assisted, 2026-10-05)",PENDING human second assessor,"Survival available for 6,537/16,963 (O3 not met); follow-up duration NR (O2 not met). Comparability: multivariable DFS model with stage and age"
-WangZ2020,1,1,1,1,0,1,1,0,6,moderate,"Claude (AI-assisted, 2026-10-05)",PENDING human second assessor,No adjusted SACC-vs-NSACC comparison; survival only for 100 patients from 2012-2013
-WangW2020,1,1,1,1,2,1,1,0,8,low,"Claude (AI-assisted, 2026-10-05)",PENDING human second assessor,"Adjusted OS HR (TNM stage, gender); blinded egg assessment; loss to follow-up NR"
-Li2024,1,1,1,1,2,1,0,0,7,low,"Claude (AI-assisted, 2026-10-05)",PENDING human second assessor,"Adjusted for stage, age, sex and others; follow-up duration and completeness NR (research letter)"
-Zhu2024,1,1,1,1,0,1,0,0,5,moderate,"Claude (AI-assisted, 2026-10-05)",PENDING human second assessor,Cross-sectional comparison; no adjustment; follow-up items not applicable
-Zhang2023,1,1,1,1,0,1,0,0,5,moderate,"Claude (AI-assisted, 2026-10-05)",PENDING human second assessor,Cross-sectional; T stage from imaging; no adjustment
-Yang2023,1,0,1,1,0,1,0,0,4,high,"Claude (AI-assisted, 2026-10-05)",PENDING human second assessor,"Non-exposed group frequency-sampled per year, two hospitals; missing LN data for colon"
-Wu2021,1,1,1,1,0,1,0,0,5,moderate,"Claude (AI-assisted, 2026-10-05)",PENDING human second assessor,Cross-sectional; no adjustment
-Feng2015,1,0,1,1,0,1,0,0,4,high,"Claude (AI-assisted, 2026-10-05)",PENDING human second assessor,Control selection not described; rectosigmoid laparoscopic cases only
+Zheng2023,1,1,1,1,2,1,0,0,7,low,"Claude (AI-assisted, 2026-10-05)","Independent blinded second assessment (AI), 2026-10-05","Survival available for 6,537/16,963 (O3 not met); follow-up duration NR (O2 not met). Comparability: multivariable DFS model with stage and age"
+WangZ2020,1,1,1,1,0,1,1,0,6,moderate,"Claude (AI-assisted, 2026-10-05)","Independent blinded second assessment (AI), 2026-10-05",No adjusted SACC-vs-NSACC comparison; survival only for 100 patients from 2012-2013
+WangW2020,1,1,1,1,1,1,1,0,7,low,"Claude (AI-assisted, 2026-10-05)","Independent blinded second assessment (AI), 2026-10-05","Adjusted OS HR (TNM stage, gender); blinded egg assessment; loss to follow-up NR; second assessor differed on C1_comparability; consensus 1 star (adjusted for stage and sex, not age), total 7, rating unchanged"
+Li2024,1,1,1,1,2,1,0,0,7,low,"Claude (AI-assisted, 2026-10-05)","Independent blinded second assessment (AI), 2026-10-05","Adjusted for stage, age, sex and others; follow-up duration and completeness NR (research letter)"
+Zhu2024,1,1,1,1,0,1,0,0,5,moderate,"Claude (AI-assisted, 2026-10-05)","Independent blinded second assessment (AI), 2026-10-05",Cross-sectional comparison; no adjustment; follow-up items not applicable
+Zhang2023,1,1,1,1,0,1,0,0,5,moderate,"Claude (AI-assisted, 2026-10-05)","Independent blinded second assessment (AI), 2026-10-05",Cross-sectional; T stage from imaging; no adjustment
+Yang2023,1,0,1,1,0,1,0,0,4,high,"Claude (AI-assisted, 2026-10-05)","Independent blinded second assessment (AI), 2026-10-05","Non-exposed group frequency-sampled per year, two hospitals; missing LN data for colon"
+Wu2021,1,1,1,1,0,1,0,0,5,moderate,"Claude (AI-assisted, 2026-10-05)","Independent blinded second assessment (AI), 2026-10-05",Cross-sectional; no adjustment
+Feng2015,1,0,1,1,0,1,0,0,4,high,"Claude (AI-assisted, 2026-10-05)","Independent blinded second assessment (AI), 2026-10-05",Control selection not described; rectosigmoid laparoscopic cases only
 WangW2021,1,1,1,1,0,1,1,0,6,moderate,"Claude (AI-assisted, 2026-10-05)",PENDING human second assessor,Biomarker comparison unadjusted; same cohort as WangW2020
 WangW2023,1,1,1,1,0,1,1,0,6,moderate,"Claude (AI-assisted, 2026-10-05)",PENDING human second assessor,Biomarker comparison unadjusted; same cohort as WangW2020
 Pan2020,1,1,1,1,0,1,1,0,6,moderate,"Claude (AI-assisted, 2026-10-05)",PENDING human second assessor,Biomarker comparison unadjusted; same cohort as WangW2020
 Cheng2023,1,1,1,1,0,1,1,0,6,moderate,"Claude (AI-assisted, 2026-10-05)",PENDING human second assessor,Biomarker comparison unadjusted; same cohort as WangW2020
 Chai2026,1,1,1,1,0,1,1,0,6,moderate,"Claude (AI-assisted, 2026-10-05)",PENDING human second assessor,Biomarker comparison unadjusted; same cohort as WangW2020 (286 with evaluable TMA)
+Ge2023,1,1,1,1,2,1,0,0,7,low,"Claude (AI-assisted, 2026-10-05)","Independent blinded second assessment (AI), 2026-10-05","Survival comparison propensity-matched on stage, age, sex; follow-up to Aug 2022 (median NR; completeness NR); preprint"
+WangM2014,1,1,0,1,2,1,1,1,8,low,"Claude (AI-assisted, 2026-10-05)","Independent blinded second assessment (AI), 2026-10-05","Matched on age, sex and stage, adjusted Cox; SACC definition not stated (S3 not awarded); 3/33 SACC lost to follow-up; median FU 49.8 mo"

@@ -2,15 +2,30 @@
 
 **Defining Schistosomiasis-Associated Colorectal Cancer: A Systematic Analysis and Meta-analysis of Clinicopathological, Molecular, and Prognostic Features**
 
-## Status (updated 2026-10-05)
+## Status (updated 2026-10-05, second pass)
 
-This is an **interim analysed draft**. Full texts were retrieved from PMC, Europe PMC and the publishers' open supplements for 17 reports. The data were extracted into `data/analysis_ready/*.csv`, with a source location for every value, and the overlap groups were resolved (`data/overlap_matrix.csv`). The pipeline has been run, and the manuscript was rebuilt from the verified output. `data/EXTRACTION_LOG.md` lists the sources, the decisions and the inconsistencies found in the papers.
+The manuscript is a **complete draft**: Results, GRADE, Discussion and Conclusion are written and generated from the verified data. Only items that the authors alone can supply remain, highlighted in yellow as `[AUTHOR INPUT: ...]`: co-authors, affiliations, address, ORCID, registration, funding, conflicts, CRediT roles, acknowledgments, repository DOI, and the names of the authors who verified the AI-assisted work.
 
-What is still provisional:
-- **Searches.** Only PubMed has been searched (337 records). Scopus, Web of Science, Embase, CNKI, Wanfang and SinoMed have not been searched yet.
-- **Reports not retrieved.** 12 reports could not be retrieved; they need CNKI or publisher access (Supplementary Table S2).
-- **Single reviewer.** Screening, extraction and risk of bias were done by one AI-assisted reviewer and checked programmatically against the source text. **A second, independent human reviewer is still required.**
-- **Not yet written.** GRADE ratings, the Discussion and the Conclusion are still to be written by the authors.
+**Searches**
+- PubMed, Europe PMC (including preprints and Chinese Biological Abstracts) and Crossref were searched on 2026-10-05.
+- Scopus, Web of Science, Embase, CNKI, Wanfang and SinoMed could **not** be searched, because there was no subscription or login access. The manuscript states this as a limitation; Table S1 gives ready-to-run strategies for all six.
+
+**Full texts**
+- 22 full texts were assessed and 20 reports included.
+- 11 reports could not be retrieved (Supplementary Table S2).
+- Wang M 2014 and Liu 2013 were obtained this round via open copies on KoreaScience.
+
+**Duplicate extraction**
+- A second, independent extraction was blinded to the first; it was done by an AI agent working only from the source texts, not by a human (`data/second_extraction/`).
+- Disagreements were adjudicated against the source (`data/ADJUDICATION_LOG.md`).
+- Agreement: 78/82 binary rows; 100% for survival, continuous, molecular and within-SACC values; 87/88 NOS items.
+
+**GRADE**
+- Ratings are in `data/analysis_ready/grade.csv` (Supplementary Table S4b).
+
+**Before submission**
+- An author must check the extraction and judgements against the source articles and complete the AUTHOR INPUT fields.
+- If institutional access is available, run the six remaining database searches and re-run `R/run_all.R` and `manuscript/build_manuscript.py`.
 
 ## Contents
 

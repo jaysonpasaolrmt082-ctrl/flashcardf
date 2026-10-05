@@ -64,3 +64,26 @@ This log explains where the numbers in `data/analysis_ready/*.csv` came from and
   - Zhou LN 2022 and Yi 2016: no non-schistosomal comparator.
   - Kaw 2002: a Philippine CRC series with no schistosomiasis comparison.
   - Noeman 1994: S. mansoni laboratory markers, with mixed groups.
+
+## Second pass (2026-10-05)
+
+- **Additional searches.**
+  - Europe PMC title/abstract search: 297 records, 30 not in PubMed.
+  - Crossref bibliographic search: 15 relevant titles not found elsewhere.
+  - OpenAlex was rate-limited and not used. Scopus, WoS, Embase, CNKI, Wanfang and SinoMed were inaccessible.
+- **Newly retrieved.**
+  - Wang M 2014: KoreaScience OA PDF. Adjusted OS HR 3.661 (1.458-9.193) and DFS HR 3.147 (1.359-7.290), Table 3; matched on age, sex and stage.
+  - Liu 2013: no comparator; excluded.
+  - Ge 2023: Research Square preprint, Xiangya Hospital, 94 vs 6025. OS HR 2.16 (1.26-3.71) derived from the matched cohort (35 vs 18 deaths, log-rank P=0.005).
+  - Zhou 2025: preprint, Jiujiang. Percentages only, so qualitative.
+  - Pan 2022: preprint, Qingpu. MET FISH-positive 12/131 vs 22/207.
+- **Still not retrieved.**
+  - Wang M 2016 (Wiley).
+  - NCG 1986 (print only).
+  - Madbouly 2007 (Springer).
+  - Zhang W 2012 (Elsevier).
+  - Zhang R 1998 (Elsevier).
+  - Zalata 2005 (PMC/Hindawi access blocked).
+  - Farid 2006 (site unreachable).
+  - Four Chinese-language reports (CNKI/Wanfang).
+- **Duplicate extraction and adjudication.** See `ADJUDICATION_LOG.md`.

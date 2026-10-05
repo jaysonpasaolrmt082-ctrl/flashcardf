@@ -1,0 +1,22 @@
+outcome,certainty,risk_of_bias,inconsistency,indirectness,imprecision,publication_bias,upgrade,explanation
+OS - Adjusted,very low,not serious,serious,not serious,serious,undetected (k<10),none,Start low (observational). Three small cohorts (197 SACC); I2 57% and leave-one-out estimates range 1.76-2.86; few events and wide CI. HR >2 not used to upgrade because of the downgrades.
+OS - Unadjusted,very low,serious,very serious,not serious,serious,undetected (k<10),none,Opposite directions across cohorts (I2 87%); one estimate derived from a log-rank P in a 100-patient subset; CI includes harm and benefit.
+DFS - Adjusted,very low,not serious,serious,not serious,serious,undetected (k<10),none,I2 67%; CI 0.93-3.07 includes no effect; three cohorts with different covariate sets.
+DFS - Unadjusted,very low,serious,not serious,not serious,serious,undetected (k<10),none,Two cohorts; unadjusted for stage; both attenuate after adjustment.
+Stage III-IV,very low,not serious,serious,not serious,serious,undetected (k<10),none,"I2 61%; CI 0.56-1.07; significant without the preprint cohort (OR 0.84, 0.74-0.97) but not without the largest cohort (OR 0.68, 0.33-1.40)."
+Lymph-node metastasis,low,not serious,not serious,not serious,not serious,undetected (k<10),none,Five cohorts; I2 49%; CI 0.76-1.23 excludes large differences in either direction.
+Distant metastasis,very low,serious,not serious,not serious,serious,undetected (k<10),none,Four cohorts (I2 12%) using stage IV as proxy; one report stated that metastatic disease was excluded; CI 0.58-1.13 includes appreciable benefit and no effect.
+pT3-T4,very low,not serious,serious,serious,not serious,undetected (k<10),none,I2 69%; depth definitions differ (pathological vs infiltration-depth categories).
+Male sex,low,not serious,not serious,not serious,not serious,undetected (k<10),none,"Seven cohorts, I2 0%, robust to every sensitivity analysis."
+age,low,not serious,not serious,not serious,not serious,undetected (k<10),none,Magnitude heterogeneous (I2 96%) but every cohort older or similar; not downgraded for inconsistency of direction.
+Age > 60 years,low,not serious,not serious,not serious,not serious,undetected (k<10),none,"Five cohorts, all in the same direction; heterogeneity in magnitude only."
+Rectal location,very low,not serious,not serious,not serious,serious,undetected (k<10),none,"Small effect (OR 1.17) that is lost without the largest cohort (OR 1.06, 0.88-1.26)."
+Sigmoid location,low,not serious,not serious,not serious,not serious,undetected (k<10),none,"Three cohorts, I2 0%, no difference."
+Right-sided colon,very low,not serious,serious,not serious,serious,undetected (k<10),none,I2 50%; CI includes no effect; side definitions differ.
+Poor differentiation,very low,not serious,very serious,serious,serious,undetected (k<10),none,I2 88%; definitions differ (one cohort includes mucinous/signet-ring); one implausible cohort.
+Mucinous histology,very low,serious,serious,not serious,very serious,undetected (k<10),none,Three small cohorts; wide CI 0.61-3.47.
+Vascular invasion,low,not serious,not serious,not serious,not serious,undetected (k<10),none,"Five cohorts, I2 17%, no difference."
+Perineural invasion,low,not serious,not serious,not serious,not serious,undetected (k<10),none,"Five cohorts, I2 6%, no difference."
+Tumour budding,very low,not serious,very serious,serious,serious,undetected (k<10),none,Two cohorts with different cut-offs; I2 90%.
+Tumour size >= 5 cm,very low,not serious,not serious,not serious,very serious,undetected (k<10),none,Two small cohorts.
+KRAS mutation,very low,not serious,not serious,serious,serious,undetected (k<10),none,Two cohorts with different assays; only the larger cohort significant; KRAS status unknown in 41-60% of the largest cohort.

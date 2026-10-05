@@ -1,0 +1,97 @@
+study_id,outcome,event_SACC,n_SACC,event_NSACC,n_NSACC,source_location,notes
+Zheng2023,male_sex,566,823,18827,30330,Suppl Table S1 (pathology-registry cohort),"Registry cohort (823 vs 30330), not the 808 vs 16155 database cohort; sex not tabulated for the database cohort"
+Zheng2023,rectal_location,474,798,16047,29782,Suppl Table S1,"Computed: denominators exclude unknown location (SACRC 25, NSACRC 548); with unknowns included 474/823 vs 16047/30330 (57.6% vs 52.9% as printed)"
+Zheng2023,right_sided,141,798,5204,29782,Suppl Table S1,"Right-sided colon cancer; denominators exclude unknown location (25/548). Including unknown: 141/823 vs 5204/30330"
+Zheng2023,advanced_stage_III_IV,308,767,7056,15829,Table 1 (pTNM),"Computed III+IV (SACRC 205+103; NSACRC 4552+2504); unknown excluded (41/326)"
+Zheng2023,T3_T4,563,752,11779,15483,Table 1 (Invasion depth pT),"Unknown excluded (56/672)"
+Zheng2023,LN_metastasis,260,751,6001,15383,Table 1 (pN),"Computed N1+N2 (178+82; 3811+2190); unknown excluded (57/772). NB Suppl Table S4 gives SACRC 261/751 (N0 490 vs 491 in Table 1) - internal inconsistency"
+Zheng2023,distant_metastasis,103,808,2504,16155,Suppl Table S4 (Distant metastasis) / Table 1 pTNM IV,"Same counts as pTNM stage IV (103/767 vs 2504/15829 if pTNM-unknown excluded)"
+Zheng2023,poor_differentiation,122,792,1920,15165,Table 1 (Differentiation),"Definition: poorly differentiated + mucinous adenocarcinoma + signet ring cell carcinoma combined (not separable); unknown excluded (16/990)"
+Zheng2023,vascular_invasion,54,808,1461,16155,Suppl Table S4,
+Zheng2023,perineural_invasion,85,808,1888,16155,Suppl Table S4,
+Zheng2023,tumor_budding,109,808,3742,16155,Suppl Table S4,"Yes = intermediate/high budding (per Table 2 definition)"
+Zheng2023,multiple_primary,35,808,460,16155,Suppl Table S4 (Multiple primary CRC),
+Zheng2023,concomitant_polyps,162,808,2191,16155,Suppl Table S4,
+Zheng2023,positive_margin,29,808,178,16155,Suppl Table S5,
+Zheng2023,KRAS_mut,249,479,4165,9514,Suppl Table S5,"Tested only; unknown excluded (329/6641)"
+WangZ2020,male_sex,174,253,1721,2885,Table I; Results (Clinical characteristics),
+WangZ2020,age_over_60,176,253,1609,2885,Table I (age bands),"Cut-off >60 y (i.e. 61+): computed 61-70 + 71-80 + >=81 (SACC 97+62+17; NSACC 891+601+117)"
+WangZ2020,rectal_location,130,253,1395,2885,Table I (Location),
+WangZ2020,sigmoid_location,47,253,607,2885,Table I (Location),
+WangZ2020,right_sided,47,253,651,2885,Table I (Location),"Computed ileocecal + ascending (34+13; 221+430); transverse listed separately (6 vs 126) - including transverse gives 53/253 vs 777/2885"
+WangZ2020,T3_T4,178,253,2300,2885,Table IV (T stage),"Computed T3+T4 (158+20; 1639+661)"
+WangZ2020,poor_differentiation,7,253,633,2885,Table IV (Differentiation),"Poorly differentiated only; mucinous not reported. NB reported P=0.155 (text P=0.2) is implausible for 2.6% vs 21.9%"
+Yang2023,male_sex,207,298,185,326,Table 6 (colon) + Table 7 (rectal),"Computed colon+rectal: SACC 108+99, NSACC 84+101; n 158+140 vs 159+167"
+Yang2023,rectal_location,140,298,167,326,Tables 6-7 (group sizes),"Computed: rectal cases / (colon+rectal). Group composition reflects separate sampling of controls (NSACC 'almost the same number of patients each year'), so proportion may not reflect natural distribution"
+Yang2023,sigmoid_location,54,298,58,326,Table 6 (Location),"Sigmoid colon cases over all colorectal (colon+rectal) cases"
+Yang2023,right_sided,86,298,74,326,Table 6 (Location),"Computed ascending + ileocecal (22+64; 28+46); transverse listed separately (7 vs 14) - including transverse 93/298 vs 88/326"
+Yang2023,poor_differentiation,63,298,58,316,Table 6 + Table 7 (Differentiation),"Poorly differentiated only (colon 38+rectal 25; 35+23). NSACC colon differentiation rows sum to 149 not 159 (35+86+28), so NSACC denominator = 149+167 = 316"
+Yang2023,LN_metastasis,42,195,61,227,Table 6 + Table 7 (Lymph node metastasis),"Computed colon (18/55 vs 25/60) + rectal (24/140 vs 36/167); colon LN status available only for 55 of 158 SACC and 60 of 159 NSACC"
+Yang2023,vascular_invasion,38,195,47,227,Table 6 + Table 7 (Cancer thrombus),"'Cancer thrombus' (intravascular tumour thrombus) - computed colon (11/55 vs 8/60) + rectal (27/140 vs 39/167); colon data available only in subset"
+WangW2020,male_sex,86,137,126,214,Table 3 (All patients),"Table 1 lists 214 males overall whereas text says 212 (60.2%) and Table 3 sums to 212"
+WangW2020,age_over_60,132,137,136,214,Table 3 (All patients),"Cut-off >=60 y (Table 3 '<60' vs '>=60')"
+WangW2020,rectal_location,37,137,57,214,Table 3 (Tumor site),
+WangW2020,right_sided,49,137,93,214,Table 3 (Tumor site: right colon),"Left colon 51 vs 64 (sigmoid not reported separately)"
+WangW2020,advanced_stage_III_IV,61,137,98,214,Table 3 (TNM stage),
+WangW2020,T3_T4,108,137,163,214,Table 3 (Pathological T stage),
+WangW2020,LN_metastasis,56,137,88,214,Table 3 (Lymph node metastasis),
+WangW2020,poor_differentiation,35,137,49,214,Table 3 (Differentiation),"Poorly differentiated vs well+moderate ('well diff.' includes moderate); mucinous reported separately"
+WangW2020,mucinous,17,137,23,214,Table 3 (Histological type),"Mucinous adenocarcinoma or signet-ring cell carcinoma combined"
+WangW2020,lymphovascular_invasion,47,137,76,214,Table 3,
+WangW2020,perineural_invasion,12,137,20,214,Table 3 (Nervous invasion),"Table 1 gives 31 positive overall vs 32 from Table 3"
+WangW2020,tumor_budding,88,137,131,214,Table 3,"High budding = >=5 buds (10-HPF method)"
+WangW2020,tumor_size_5cm,69,137,108,214,Table 3 (Tumor size >=5 cm),
+Li2024,male_sex,22,30,288,459,Suppl Table 1,
+Li2024,age_over_60,13,30,206,459,Suppl Table 1 (age bands),"Cut-off >=60 y: computed 60-69 + >=70 (7+6; 140+66)"
+Li2024,rectal_location,13,30,195,459,Suppl Table 1 (Tumor site),
+Li2024,right_sided,9,30,150,459,Suppl Table 1 (Tumor site),"Right = caecum, ascending and transverse colon"
+Li2024,advanced_stage_III_IV,19,30,251,459,Suppl Table 1 (Stage),"Computed III+IV (13+6; 191+60). NB main text says patients with metastatic disease were excluded, yet 66 stage IV patients are tabulated"
+Li2024,distant_metastasis,6,30,60,459,Suppl Table 1 (Stage IV),Stage IV used as proxy for M1
+Li2024,poor_differentiation,4,30,75,459,Suppl Table 1 (Differentiation),Poorly differentiated only
+Li2024,vascular_invasion,8,30,115,459,Suppl Table 1 (Vascular tumor embolus),
+Li2024,perineural_invasion,11,30,114,459,Suppl Table 1 (Neurological invasion),
+Li2024,tumor_size_5cm,11,30,165,459,Suppl Table 1 (Tumor size d>=5 cm),
+Li2024,KRAS_mut,19,30,224,459,Main text; Suppl Table 4,"qPCR kit; all 489 tested"
+Zhu2024,male_sex,65,95,234,406,Table 2; Methods (Patients and samples),
+Zhu2024,age_over_60,70,95,228,406,Table 2 (Age),"Cut-off: table rows '<60' vs '>60' (handling of exactly 60 unclear)"
+Zhu2024,rectal_location,23,95,105,406,Table 2 (Location),"NSACC location rows sum to 405 (+1 total-colon case per footnote b)"
+Zhu2024,sigmoid_location,29,95,117,406,Table 2 (Location),
+Zhu2024,right_sided,8,95,114,406,Table 2 (Location: ascending colon),"Ascending colon only (no caecum category); adding transverse colon gives 22/95 vs 148/406"
+Zhu2024,T3_T4,78,95,322,406,Table 2 (Infiltrative depth: serosa/fibrous membrane or beyond),"Derived from depth of invasion (serosa/outside ~ pT3-4). The separate 'T stage I+II / III+IV' row (90/95 vs 325/406) appears to be TNM stage - see advanced_stage row"
+Zhu2024,advanced_stage_III_IV,90,95,325,406,Table 2 ('T stage' III+IV),"Labelled 'T stage I+II vs III+IV' (likely TNM stage). Internally inconsistent: reported chi2=0.861 P=0.354 incompatible with 94.7% vs 80.0%, and 90/95 stage III-IV incompatible with only 6 LN-positive SACC. Use with caution"
+Zhu2024,LN_metastasis,6,95,19,406,Table 2 (Lymph node metastasis),"Counts as printed; printed percentages (10.3%, 8.2%) imply denominators of ~58 and ~232, not 95/406. Unreliable"
+Zhu2024,poor_differentiation,9,89,39,375,Table 2 (Differentiation),"Poorly differentiated among graded adenocarcinomas (mucinous carcinomas 6/31 not graded, excluded); with full n: 9/95 vs 39/406"
+Zhu2024,mucinous,6,95,31,406,Table 2 (Histological type),Mucinous carcinoma
+Zhu2024,vascular_invasion,38,95,174,406,Table 2 (Intravascular tumor thrombus),"SACC % (40.4) implies n=94; 'all patients' column 209 does not equal 174+38=212"
+Zhang2023,male_sex,73,101,144,240,Table 1; Methods (Patients),
+Zhang2023,age_over_60,93,101,212,240,Table 1 (Age <=50/>50),"CUT-OFF IS >50 y, NOT 60 (only dichotomy reported) - not poolable with >=60 cut-offs"
+Zhang2023,T3_T4,79,101,174,240,Table 1 (Imaging TNM staging T1-2/T3/T4),"Computed T3+T4 (73+6; 141+33). T category from preoperative CT/MRI imaging, not pathology"
+Zhang2023,LN_metastasis,38,101,87,240,Table 1,
+Zhang2023,poor_differentiation,7,101,21,240,Table 1 (Histologic grade low),"Low grade (0-49% gland formation, WHO 2010)"
+Zhang2023,perineural_invasion,30,101,62,240,Table 1 ('Peripheral invasion'; text: nerve invasion),
+Zhang2023,vascular_invasion,20,101,52,240,Table 1 (Vascular invasion / vascular cancer thrombus),
+Wu2021,T3_T4,49,56,249,307,Table 1 (肿瘤浸润深度 depth of invasion),"Computed: through wall to subserosa (pT3) + penetrating serosa (pT4): SACC 49+0; NSACC 242+7"
+Wu2021,LN_metastasis,35,56,145,307,Table 1 (淋巴结转移); Abstract,"Reported chi2=3.827 with P<0.05; 3.827 equals the Yates-corrected chi2 (P=0.050); uncorrected chi2=4.417 (P=0.036) - computed by reviewer"
+Wu2021,poor_differentiation,6,56,52,307,Table 1 (肿瘤分化程度),"Definition: 'moderately-poorly differentiated' (中-低分化) vs moderately differentiated; no well/poor split"
+Wu2021,vascular_invasion,13,56,52,307,Table 1 (脉管浸润 vascular/lymphovascular invasion),"Chinese term 脉管浸润 covers vessel (blood/lymphatic) invasion"
+Wu2021,perineural_invasion,8,56,69,307,Table 1 (神经浸润),
+Feng2015,male_sex,18,26,22,34,Table 1 (Gender),Rectosigmoid cancers only
+Feng2015,advanced_stage_III_IV,4,26,18,34,Table 1 (Tumor stage),"Computed III+IV (4+0; 17+1)"
+Feng2015,distant_metastasis,0,26,1,34,Table 1 (Tumor stage IV),Stage IV as proxy for M1
+Feng2015,poor_differentiation,3,26,3,34,Table 1 (Differentiation),Poorly differentiated only
+Feng2015,mucinous,10,26,4,34,Table 1 (Postoperative pathology),"Computed mucinous + signet-ring. SACC row counts/percentages conflict (printed SRC '7 (7.7%)', mucinous '3 (30.8%)'; text says SRC 8% and mucinous 31% i.e. 2 and 8); both readings give a combined 10/26. NSACC 4 mucinous + 0 SRC"
+WangM2014,male_sex,18,30,18,30,Table 1 (Gender),"MATCHED on age, sex and stage (1:1) - design-constrained, not informative for group differences. Text says males 57% in both groups but 18/30 = 60%"
+WangM2014,advanced_stage_III_IV,18,30,18,30,Table 1 (TNM stage),"Computed IIIA+IIIB+IIIC (1+15+2) each group; matched on stage (identical by design); no stage IV"
+WangM2014,distant_metastasis,0,30,0,30,Table 1 (TNM stage),"No stage IV patients in either group (stage-matched)"
+WangM2014,T3_T4,26,30,26,30,Table 1 (Pathologic T stage),"Computed T3+T4a (5+21; 7+19); matched on stage"
+WangM2014,LN_metastasis,18,30,18,30,Table 1 (Pathologic N stage),"Computed N1a+N1b+N2a+N2b (11+3+4+0; 8+6+3+1); matched on stage"
+WangM2014,lymphovascular_invasion,3,30,3,30,Table 1 (LVI),
+WangM2014,mucinous,0,30,0,30,Discussion,"All tumours were adenocarcinoma; no signet-ring or mucinous cases"
+Ge2023,male_sex,64,94,3606,6025,Table 1 (unmatched cohort); Results text,
+Ge2023,age_over_60,79,94,2973,6025,Results text (Statistical analysis of clinical baseline data); Discussion,"Cut-off >=60 y per Discussion ('>=60 years old', 84.0% vs 49.3%). Table 1 age bands give >60 (61+) = 78/94 (50+24+4) vs 2787/6025 (1866+755+166)"
+Ge2023,rectal_location,47,94,3005,6025,Table 1 (unmatched),
+Ge2023,sigmoid_location,16,94,1085,6025,Table 1 (unmatched),
+Ge2023,right_sided,24,94,1360,6025,Table 1 (unmatched; right colon),"Transverse colon listed separately (0/94 vs 71/6025 in Table 1; but Table 2 lists 1 SACC transverse case with otherwise identical counts, summing to 95)"
+Ge2023,advanced_stage_III_IV,36,94,3085,6025,Table 1 (TNM),"Computed III+IV (32+4; 2525+560)"
+Ge2023,distant_metastasis,4,94,560,6025,Table 1 (TNM stage IV),Stage IV as proxy for M1
+Ge2023,concomitant_polyps,27,94,27,94,Results text (colonoscopy),"PSM-MATCHED cohort only (94 vs 94); defined as multiple (>=2) colon polyps; not available for unmatched 6025"

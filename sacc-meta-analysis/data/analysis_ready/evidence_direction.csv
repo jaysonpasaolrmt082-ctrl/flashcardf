@@ -63,7 +63,7 @@ Wu2021,poor_differentiation,no_difference,P>0.05,Wu 2021 Table 1,yes
 Wu2021,vascular_invasion,no_difference,P>0.05,Wu 2021 Table 1,yes
 Wu2021,perineural_invasion,no_difference,P>0.05,Wu 2021 Table 1,yes
 Wu2021,T3_T4,no_difference,P>0.05,Wu 2021 Table 1,yes
-Wu2021,LN_metastasis,higher,"62.5 vs 47.2%, P<0.05",Wu 2021 Table 1,yes
+Wu2021,LN_metastasis,higher,"62.5 vs 47.2%; uncorrected chi-square P=0.036 (continuity-corrected P=0.050, printed chi2=3.827)",Wu 2021 Table 1,yes
 Feng2015,age_older,no_difference,P=0.61,Feng 2015 Table 1,yes
 Feng2015,male_sex,no_difference,not significant,Feng 2015 Table 1,yes
 Feng2015,advanced_stage_III_IV,lower,stage distribution P=0.003 (more stage I in SACC),Feng 2015 Table 1,yes
@@ -73,3 +73,16 @@ Yang2023,age_older,higher,colon and rectum P<0.001,Yang 2023 Tables 6-7,yes
 Yang2023,male_sex,higher,colon P=0.005; rectum P=0.061,Yang 2023 Tables 6-7,yes
 Yang2023,LN_metastasis,no_difference,colon P=0.076; rectum P=0.331,Yang 2023 Tables 6-7,yes
 Yang2023,vascular_invasion,no_difference,colon P=0.069; rectum P=0.388,Yang 2023 Tables 6-7,yes
+Ge2023,age_older,higher,66.1 vs 58.4 y; >60 y P<0.001,Ge 2023 Table 1,yes
+Ge2023,male_sex,no_difference,"68.1 vs 59.9%, P=0.106",Ge 2023 Table 1,yes
+Ge2023,rectal_location,no_difference,location P=0.807,Ge 2023 Table 1,yes
+Ge2023,advanced_stage_III_IV,no_difference,TNM P=0.062,Ge 2023 Table 1,yes
+Ge2023,OS_hazard,higher,"matched cohort, log-rank P=0.005",Ge 2023 Fig. 4,yes
+WangM2014,OS_hazard,higher,adjusted HR 3.661 (1.458-9.193),Wang M 2014 Table 3,yes
+WangM2014,DFS_hazard,higher,adjusted HR 3.147 (1.359-7.290),Wang M 2014 Table 3,yes
+WangM2014,tumor_size_5cm,higher,"mean 4.27 vs 3.33 cm, P=0.017 (continuous)",Wang M 2014 Table 1,yes
+Zhou2025,age_older,higher,71-80 y 52% vs ~26% (Fig. 4A),Zhou 2025 Results and Fig. 4,yes
+Zhou2025,male_sex,higher,68.4 vs 55.9% (no test reported),Zhou 2025 Results,yes
+Zhou2025,poor_differentiation,no_difference,no significant difference (Fig. 4C),Zhou 2025 Results,yes
+Zhou2025,advanced_stage_III_IV,no_difference,similar TNM distribution (Fig. 4D),Zhou 2025 Results,yes
+Zhou2025,LN_metastasis,lower,28.4 vs 35.8% (no test reported),Zhou 2025 Results,yes

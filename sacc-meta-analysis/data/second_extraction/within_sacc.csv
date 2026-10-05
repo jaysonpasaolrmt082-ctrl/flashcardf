@@ -1,0 +1,225 @@
+study_id,factor,outcome,hr,lower95,upper95,adjusted,n,source_location,notes
+Zheng2023,Sex (female vs male),DFS,1.011,0.674,1.517,no,392,Table 2,P=0.957
+Zheng2023,Sex (female vs male),OS,0.946,0.609,1.468,no,392,Table 2,P=0.804
+Zheng2023,BMI (>=23.36 vs <23.36),DFS,1.071,0.684,1.680,no,392,Table 2,P=0.763
+Zheng2023,BMI (>=23.36 vs <23.36),OS,0.975,0.605,1.570,no,392,Table 2,P=0.917
+Zheng2023,Age >=60 vs <60,DFS,2.031,1.023,4.032,no,392,Table 2,P=0.043
+Zheng2023,Age >=60 vs <60,DFS,3.240,0.876,11.986,yes,392,Table 2,"Multivariate P=0.078"
+Zheng2023,Age >=60 vs <60,OS,3.158,1.280,7.796,no,392,Table 2,P=0.013
+Zheng2023,Age >=60 vs <60,OS,1.655,0.249,2.141,yes,392,Table 2,"Multivariate P=0.146; CI implausibly asymmetric around HR"
+Zheng2023,CEA >=5 vs <5,DFS,1.705,1.110,2.617,no,392,Table 2,P=0.015
+Zheng2023,CEA >=5 vs <5,DFS,0.891,0.462,1.717,yes,392,Table 2,"Printed as '0.89 1'; P=0.730"
+Zheng2023,CEA >=5 vs <5,OS,1.929,1.213,3.068,no,392,Table 2,P=0.006
+Zheng2023,CEA >=5 vs <5,OS,1.282,0.646,2.541,yes,392,Table 2,P=0.478
+Zheng2023,CA19-9 >=37 vs <37,DFS,2.864,1.828,4.489,no,392,Table 2,P<0.001
+Zheng2023,CA19-9 >=37 vs <37,DFS,0.851,0.372,1.947,yes,392,Table 2,P=0.702
+Zheng2023,CA19-9 >=37 vs <37,OS,2.913,1.792,4.734,no,392,Table 2,P<0.001
+Zheng2023,CA19-9 >=37 vs <37,OS,0.701,0.275,1.788,yes,392,Table 2,P=0.457
+Zheng2023,Laparoscopic surgery,DFS,0.830,0.498,1.383,no,392,Table 2,P=0.474
+Zheng2023,Laparoscopic surgery,OS,0.948,0.558,1.613,no,392,Table 2,P=0.845
+Zheng2023,Palliative resection,DFS,4.783,2.685,8.522,no,392,Table 2,P<0.001
+Zheng2023,Palliative resection,DFS,1.025,0.327,3.218,yes,392,Table 2,P=0.966
+Zheng2023,Palliative resection,OS,5.384,2.948,9.832,no,392,Table 2,P<0.001
+Zheng2023,Palliative resection,OS,0.617,0.161,2.369,yes,392,Table 2,P=0.482
+Zheng2023,Extended radical resection,DFS,1.162,0.636,2.126,no,392,Table 2,P=0.625
+Zheng2023,Extended radical resection,OS,1.228,0.652,2.312,no,392,Table 2,P=0.525
+Zheng2023,Preoperative radiotherapy,DFS,0.876,0.679,1.131,no,392,Table 2,P=0.309
+Zheng2023,Preoperative radiotherapy,OS,0.826,0.634,1.077,no,392,Table 2,P=0.158
+Zheng2023,Preoperative chemotherapy,DFS,0.867,0.675,1.112,no,392,Table 2,P=0.261
+Zheng2023,Preoperative chemotherapy,OS,0.813,0.627,1.053,no,392,Table 2,P=0.116
+Zheng2023,Preoperative targeted therapy,DFS,4.512,0.001,38223,no,392,Table 2,P=0.744 (non-estimable)
+Zheng2023,Preoperative targeted therapy,OS,4.512,0,338000,no,392,Table 2,"P=0.792; upper printed 3.38x10^5"
+Zheng2023,Gross appearance infiltrating vs ulcerative/polypoid,DFS,0.597,0.220,1.622,no,392,Table 2,P=0.312
+Zheng2023,Gross appearance infiltrating vs ulcerative/polypoid,OS,0.353,0.087,1.435,no,392,Table 2,P=0.146
+Zheng2023,Poor/mucinous/signet-ring vs well/moderate,DFS,1.664,1.018,2.717,no,392,Table 2,P=0.042
+Zheng2023,Poor/mucinous/signet-ring vs well/moderate,DFS,2.041,0.927,4.494,yes,392,Table 2,P=0.076
+Zheng2023,Poor/mucinous/signet-ring vs well/moderate,OS,1.835,1.091,3.088,no,392,Table 2,P=0.022
+Zheng2023,Poor/mucinous/signet-ring vs well/moderate,OS,1.610,0.181,3.765,yes,392,Table 2,"P=0.177; CI asymmetric"
+Zheng2023,pT3-4 vs pT0-2,DFS,1.813,1.088,3.019,no,392,Table 2,P=0.022
+Zheng2023,pT3-4 vs pT0-2,DFS,1.443,0.609,3.415,yes,392,Table 2,P=0.405
+Zheng2023,pT3-4 vs pT0-2,OS,1.630,0.960,2.770,no,392,Table 2,P=0.071
+Zheng2023,pN1-2 vs pN0,DFS,2.675,1.799,3.979,no,392,Table 2,P<0.001
+Zheng2023,pN1-2 vs pN0,DFS,1.615,0.166,2.284,yes,392,Table 2,"P=0.468; CI asymmetric"
+Zheng2023,pN1-2 vs pN0,OS,2.821,1.840,4.322,no,392,Table 2,P<0.001
+Zheng2023,pN1-2 vs pN0,OS,2.467,1.383,4.401,yes,392,Table 2,P=0.002
+Zheng2023,Distant metastasis,DFS,4.435,2.865,6.865,no,392,Table 2,P<0.001
+Zheng2023,Distant metastasis,DFS,1.854,0.320,4.253,yes,392,Table 2,"P=0.136; CI asymmetric"
+Zheng2023,Distant metastasis,OS,4.856,3.072,7.674,no,392,Table 2,P<0.001
+Zheng2023,Distant metastasis,OS,4.248,2.311,7.806,yes,392,Table 2,P<0.001
+Zheng2023,pTNM III-IV vs I-II,DFS,3.414,2.275,5.123,no,392,Table 2,P<0.001
+Zheng2023,pTNM III-IV vs I-II,DFS,2.869,1.589,5.18,yes,392,Table 2,P<0.001
+Zheng2023,pTNM III-IV vs I-II,OS,3.499,2.258,5.421,no,392,Table 2,P<0.001
+Zheng2023,pTNM III-IV vs I-II,OS,0.366,0.085,1.572,yes,392,Table 2,P=0.177
+Zheng2023,KRAS mutant vs wild,DFS,1.047,0.644,1.703,no,392,Table 2,"P=0.853; n tested smaller than 392"
+Zheng2023,KRAS mutant vs wild,OS,1.020,0.615,1.693,no,392,Table 2,P=0.938
+Zheng2023,NRAS mutant vs wild,DFS,1.57,0.214,11.532,no,392,Table 2,P=0.657
+Zheng2023,NRAS mutant vs wild,OS,1.666,0.227,12.255,no,392,Table 2,P=0.616
+Zheng2023,BRAF mutant vs wild,DFS,3.398,1.230,9.382,no,392,Table 2,P=0.018
+Zheng2023,BRAF mutant vs wild,DFS,4.531,1.608,12.762,yes,392,Table 2,P=0.004
+Zheng2023,BRAF mutant vs wild,OS,3.450,1.242,9.581,no,392,Table 2,P=0.017
+Zheng2023,BRAF mutant vs wild,OS,4.033,1.407,11.559,yes,392,Table 2,P=0.009
+Zheng2023,PIK3CA mutant vs wild,DFS,0.049,0.000,73309,no,392,Table 2,P=0.677 (non-estimable)
+Zheng2023,PIK3CA mutant vs wild,OS,0.048,0.000,34726,no,392,Table 2,P=0.660 (non-estimable)
+Zheng2023,Tumor deposit,DFS,2.312,1.451,3.684,no,392,Table 2,P<0.001
+Zheng2023,Tumor deposit,DFS,1.368,0.644,2.908,yes,392,Table 2,P=0.415
+Zheng2023,Tumor deposit,OS,2.460,1.517,3.990,no,392,Table 2,P<0.001
+Zheng2023,Tumor deposit,OS,1.049,0.456,2.413,yes,392,Table 2,P=0.910
+Zheng2023,Vascular invasion,DFS,2.422,1.436,4.084,no,392,Table 2,P=0.001
+Zheng2023,Vascular invasion,DFS,0.336,0.112,1.011,yes,392,Table 2,P=0.052
+Zheng2023,Vascular invasion,OS,2.803,1.647,4.771,no,392,Table 2,P<0.001
+Zheng2023,Vascular invasion,OS,0.313,0.105,1.931,yes,392,Table 2,"P=0.337; CI asymmetric"
+Zheng2023,Perineural invasion,DFS,1.443,0.844,2.469,no,392,Table 2,P=0.180
+Zheng2023,Perineural invasion,OS,1.547,0.885,2.702,no,392,Table 2,P=0.126
+Zheng2023,Tumor budding intermediate/high vs low,DFS,1.751,1.060,2.894,no,392,Table 2,P=0.029
+Zheng2023,Tumor budding intermediate/high vs low,DFS,1.413,0.681,2.929,yes,392,Table 2,P=0.353
+Zheng2023,Tumor budding intermediate/high vs low,OS,2.015,1.175,3.456,no,392,Table 2,P=0.011
+Zheng2023,Tumor budding intermediate/high vs low,OS,2.217,1.060,4.635,yes,392,Table 2,P=0.034
+Zheng2023,Resection margin positive,DFS,1.528,0.667,3.500,no,392,Table 2,P=0.316
+Zheng2023,Resection margin positive,OS,1.832,0.796,4.215,no,392,Table 2,P=0.155
+Zheng2023,Postoperative radiotherapy,DFS,2.736,1.567,4.777,no,392,Table 2,P<0.001
+Zheng2023,Postoperative radiotherapy,DFS,1.622,0.638,4.129,yes,392,Table 2,P=0.310
+Zheng2023,Postoperative radiotherapy,OS,2.955,1.647,5.302,no,392,Table 2,P<0.001
+Zheng2023,Postoperative radiotherapy,OS,2.343,1.060,5.181,yes,392,Table 2,P=0.035
+Zheng2023,Postoperative chemotherapy,DFS,0.953,0.625,1.454,no,392,Table 2,P=0.824
+Zheng2023,Postoperative chemotherapy,OS,0.768,0.488,1.209,no,392,Table 2,P=0.254
+Zheng2023,Postoperative targeted therapy,DFS,5.862,3.211,10.701,no,392,Table 2,P<0.001
+Zheng2023,Postoperative targeted therapy,DFS,4.317,2.013,9.259,yes,392,Table 2,P<0.001
+Zheng2023,Postoperative targeted therapy,OS,5.100,2.728,9.537,no,392,Table 2,P<0.001
+Zheng2023,Postoperative targeted therapy,OS,1.673,0.586,4.772,yes,392,Table 2,P=0.336
+Pan2020,Gender,OS,1.251,0.749,2.088,no,138,Table 3 (CRC-S),P=0.392
+Pan2020,Tumor site left colon vs rectum,OS,1.261,0.656,2.4223,no,138,Table 3 (CRC-S),"P=0.487; upper CI printed 2.4223"
+Pan2020,Tumor site right colon vs rectum,OS,1.687,0.898,3.168,no,138,Table 3 (CRC-S),P=0.104
+Pan2020,Tumor size >=5 cm,OS,1.574,0.960,2.582,no,138,Table 3 (CRC-S),P=0.072
+Pan2020,Invasive depth,OS,1.882,0.930,3.805,no,138,Table 3 (CRC-S),P=0.079
+Pan2020,Lymph node metastasis,OS,3.391,2.055,5.595,no,138,Table 3 (CRC-S),P<0.001
+Pan2020,Clinical stage (III-IV vs I-II),OS,3.998,2.384,6.704,no,138,Table 3 (CRC-S),P<0.001
+Pan2020,Clinical stage (III-IV vs I-II),OS,3.640,2.143,6.183,yes,138,Table 3 (CRC-S multivariate),P<0.001
+Pan2020,Differentiation (low),OS,1.627,0.968,2.734,no,138,Table 3 (CRC-S),P=0.066
+Pan2020,c-MYC amplification,OS,2.719,1.504,4.918,no,138,Table 3 (CRC-S),P=0.001
+Pan2020,c-MYC amplification,OS,1.861,1.012,3.419,yes,138,Table 3 (CRC-S multivariate),"P=0.046; adjusted for clinical stage (only other retained variable); age not entered"
+Pan2020,c-MYC IHC positive,OS,0.824,0.496,1.368,no,138,Table 3 (CRC-S),P=0.454
+Pan2022,Gender,OS,1.258,0.739,2.144,no,131,Table 3 (SCRC),P=0.398
+Pan2022,Tumor site left vs rectum,OS,1.297,0.666,2.526,no,131,Table 3 (SCRC),P=0.445
+Pan2022,Tumor site right vs rectum,OS,1.633,0.846,3.151,no,131,Table 3 (SCRC),P=0.143
+Pan2022,Tumor size,OS,1.241,0.752,2.047,no,131,Table 3 (SCRC),P=0.399
+Pan2022,Differentiation,OS,1.664,0.976,2.836,no,131,Table 3 (SCRC),P=0.061
+Pan2022,Invasive depth,OS,1.739,0.857,3.529,no,131,Table 3 (SCRC),P=0.126
+Pan2022,Lymph node metastasis,OS,3.741,2.229,6.278,no,131,Table 3 (SCRC),P printed 0.001 (likely <0.001)
+Pan2022,Clinical stage (III-IV vs I-II),OS,4.479,2.618,7.663,no,131,Table 3 (SCRC),P printed 0.001
+Pan2022,Clinical stage (III-IV vs I-II),OS,4.479,2.618,7.663,yes,131,Table 3 (SCRC multivariate),"Only variable retained; identical to univariate"
+Pan2022,Vessel invasion,OS,1.348,0.804,2.258,no,131,Table 3 (SCRC),P=0.257
+Pan2022,Nerve invasion,OS,1.627,0.648,4.082,no,131,Table 3 (SCRC),P=0.3
+Pan2022,MET FISH-positive (>=3 copies),OS,2.362,1.163,4.798,no,131,Table 3 (SCRC),"P=0.017; NOT retained in multivariable model (contradicts Discussion claim that it is independent of stage)"
+Pan2022,MET protein expression,OS,0.989,0.595,1.643,no,131,Table 3 (SCRC),P=0.965
+Pan2023,Age <60 (vs >=60; direction as printed),DFS,1.750,0.425,7.202,no,172,Table 3 (all patients),P=0.438
+Pan2023,Gender (male/female),DFS,1.714,0.980,2.998,no,172,Table 3 (all patients),P=0.059
+Pan2023,Tumor size >=5 cm,DFS,0.770,0.432,1.372,no,172,Table 3 (all patients),P=0.376
+Pan2023,Histology subtype (mucinous/SRCC),DFS,1.057,0.583,1.916,no,172,Table 3 (all patients),P=0.855
+Pan2023,Histology grade (poor),DFS,1.676,0.875,3.209,no,172,Table 3 (all patients),P=0.119
+Pan2023,Lymphovascular invasion,DFS,2.167,1.238,3.795,no,172,Table 3 (all patients),P=0.007
+Pan2023,Perineural invasion,DFS,2.693,1.537,4.719,no,172,Table 3 (all patients),P=0.001
+Pan2023,Perineural invasion,DFS,2.693,1.537,4.719,yes,172,Table 3 (all patients multivariate),"P=0.001; only variable retained"
+Pan2023,pN1 vs N0,DFS,2.209,1.205,4.051,no,172,Table 3 (all patients),P=0.010
+Pan2023,pN2 vs N0,DFS,2.189,0.974,4.919,no,172,Table 3 (all patients),P=0.058
+Pan2023,Stage III vs I,DFS,4.377,1.327,14.437,no,172,Table 3 (all patients),P=0.015
+Pan2023,Hepatic schistosomiasis,DFS,1.345,0.733,2.467,no,172,Table 3 (all patients),P=0.338
+Pan2023,Hepatic schistosomiasis,DFS,3.630,1.625,8.108,no,62,Table 3 (stage III),P=0.002
+Pan2023,Hepatic schistosomiasis,DFS,3.948,1.748,8.917,yes,62,Table 3 (stage III multivariate),"P=0.001; with perineural invasion 2.554 (1.135-5.747)"
+Pan2023,Egg presence site PS2 (muscularis/full thickness) vs PS1 (mucosa),DFS,1.857,1.048,3.289,no,172,Table 3 (all patients),P=0.034; KM P=0.031
+Pan2023,Egg presence site PS2 vs PS1,DFS,1.723,0.745,3.985,no,110,Table 3 (stage I-II),P=0.204
+Pan2023,Egg presence site PS2 vs PS1,DFS,2.079,0.950,4.548,no,62,Table 3 (stage III),P=0.067
+Pan2023,Eggs in cutting edge,DFS,1.502,0.467,4.830,no,172,Table 3 (all patients),P=0.495
+Pan2023,Eggs in lymph node,DFS,1.423,0.814,2.490,no,172,Table 3 (all patients),P=0.216
+Pan2023,Eggs in lymph node,DFS,0.817,0.360,1.855,no,110,Table 3 (stage I-II),P=0.629
+Pan2023,Eggs in lymph node,DFS,2.993,1.364,6.568,no,62,Table 3 (stage III),P=0.006; KM P=0.004
+Pan2023,Eggs in lymph node,DFS,3.000,1.365,6.592,yes,62,Table 3 (stage III multivariate excluding hepatic schistosomiasis),"P=0.006; adjusted for perineural invasion only (hepatic schistosomiasis deliberately removed)"
+Pan2023,Age <60 (direction as printed),OS,2.107,0.287,15.440,no,172,Table 4 (all patients),P=0.463
+Pan2023,Gender (male/female),OS,1.457,0.725,2.927,no,172,Table 4 (all patients),P=0.291
+Pan2023,Histology grade (poor),OS,2.465,1.166,5.214,no,172,Table 4 (all patients),P=0.018
+Pan2023,Histology grade (poor),OS,2.335,1.103,4.943,yes,172,Table 4 (all patients multivariate),"P=0.027; with perineural invasion"
+Pan2023,Lymphovascular invasion,OS,2.091,1.039,4.208,no,172,Table 4 (all patients),P=0.039
+Pan2023,Perineural invasion,OS,2.865,1.418,5.786,no,172,Table 4 (all patients),P=0.003
+Pan2023,Perineural invasion,OS,2.771,1.371,5.598,yes,172,Table 4 (all patients multivariate),P=0.005
+Pan2023,pN1 vs N0,OS,2.824,1.321,6.037,no,172,Table 4 (all patients),P=0.007
+Pan2023,Stage III vs I,OS,8.767,1.173,65.516,no,172,Table 4 (all patients),P=0.034
+Pan2023,Hepatic schistosomiasis,OS,1.062,0.476,2.367,no,172,Table 4 (all patients),P=0.884
+Pan2023,Hepatic schistosomiasis,OS,4.465,1.671,11.933,no,62,Table 4 (stage III),P=0.003
+Pan2023,Hepatic schistosomiasis,OS,4.967,1.836,13.432,yes,62,Table 4 (stage III multivariate),"P=0.002; with perineural invasion 2.744 (1.031-7.305)"
+Pan2023,Egg presence site PS2 vs PS1,OS,1.839,0.899,3.762,no,172,Table 4 (all patients),"P=0.095 (KM P=0.091)"
+Pan2023,Egg presence site PS2 vs PS1,OS,2.627,0.995,6.939,no,62,Table 4 (stage III),"P=0.051 (KM log-rank P=0.044)"
+Pan2023,Eggs in cutting edge,OS,2.854,0.389,20.925,no,172,Table 4 (all patients),P=0.302
+Pan2023,Eggs in cutting edge,OS,1.494,1.199,11.212,no,62,Table 4 (stage III),"P=0.696; point estimate lies OUTSIDE printed CI - reporting error"
+Pan2023,Eggs in lymph node,OS,1.241,0.620,2.487,no,172,Table 4 (all patients),P=0.542
+Pan2023,Eggs in lymph node,OS,0.766,0.257,2.282,no,110,Table 4 (stage I-II),P=0.632
+Pan2023,Eggs in lymph node,OS,2.396,0.957,6.000,no,62,Table 4 (stage III),"P=0.062 (KM P=0.056); not significant after adjustment"
+WangW2021,Age <60,OS,21.827,0.139,3436.270,no,128,Table 4 (SCRC set),"P=0.232; non-estimable (very few SCRC <60)"
+WangW2021,Gender (male),OS,1.311,0.779,2.207,no,128,Table 4 (SCRC set),P=0.307
+WangW2021,Tumor size >=5 cm,OS,1.282,0.786,2.089,no,128,Table 4 (SCRC set),P=0.320
+WangW2021,Tumor site left vs rectum,OS,1.263,0.657,2.427,no,128,Table 4 (SCRC set),P=0.484
+WangW2021,Tumor site right vs rectum,OS,1.631,0.865,3.076,no,128,Table 4 (SCRC set),P=0.130
+WangW2021,Pathological T stage,OS,1.851,0.915,3.747,no,128,Table 4 (SCRC set),P=0.087
+WangW2021,Lymph node metastasis,OS,3.552,2.141,5.894,no,128,Table 4 (SCRC set),P<0.001
+WangW2021,TNM stage (III-IV vs I-II),OS,4.219,2.497,7.128,no,128,Table 4 (SCRC set),P<0.001
+WangW2021,TNM stage (III-IV vs I-II),OS,3.250,1.836,5.755,yes,128,Table 4 (SCRC multivariate),P<0.001
+WangW2021,Differentiation (poor),OS,1.668,0.991,2.809,no,128,Table 4 (SCRC set),"P=0.054 (text lists differentiation as significant)"
+WangW2021,Vessel invasion,OS,1.321,0.801,2.180,no,128,Table 4 (SCRC set),P=0.275
+WangW2021,Intraneural invasion,OS,1.727,0.741,4.024,no,128,Table 4 (SCRC set),P=0.206
+WangW2021,Tumor deposit,OS,4.138,2.205,7.769,no,128,Table 4 (SCRC set),P<0.001
+WangW2021,Tumor deposit,OS,2.106,1.086,4.084,yes,128,Table 4 (SCRC multivariate),P=0.027
+WangW2021,Colonic perforation,OS,0.506,0.070,3.657,no,128,Table 4 (SCRC set),P=0.500
+WangW2021,Tumor budding (>=5 buds),OS,1.311,0.771,2.229,no,128,Table 4 (SCRC set),P=0.318
+WangW2021,Ulceration,OS,0.725,0.437,1.201,no,128,Table 4 (SCRC set),P=0.212
+WangW2021,Histological type (mucinous/SRCC),OS,0.685,0.312,1.503,no,128,Table 4 (SCRC set),P=0.345
+WangW2021,CD8+ TIL density (high vs low),OS,0.412,0.239,0.711,no,128,Table 4 (SCRC set),P<0.001
+WangW2021,CD8+ TIL density (high vs low),OS,0.592,0.337,1.039,yes,128,Table 4 (SCRC multivariate),"P=0.045 reported but CI includes 1 - internal inconsistency"
+WangW2021,Stromal PD-L1,OS,1.035,0.624,1.717,no,128,Table 4 (SCRC set),P=0.893
+WangW2021,Tumoural PD-L1,OS,1.059,0.639,1.756,no,128,Table 4 (SCRC set),P=0.823
+WangW2023,Stromal TILs rich,OS,0.704,0.431,1.151,no,126,Table 3 (SCRC),P=0.162 (KM P=0.0119)
+WangW2023,Intratumoural TILs rich,OS,2.533,0.609,10.546,no,126,Table 3 (SCRC),P=0.201
+WangW2023,CD3 rich,OS,0.318,0.127,0.796,no,126,Table 3 (SCRC),P=0.014
+WangW2023,CD3 rich,OS,0.404,0.160,1.021,yes,126,Table 3 (SCRC multivariate),"P=0.045 reported but CI includes 1 - internal inconsistency; adjusted for TNM stage"
+WangW2023,CD20 rich,OS,0.573,0.333,0.985,no,126,Table 3 (SCRC),P=0.044
+WangW2023,Age <60,OS,21.827,0.139,3436.270,no,126,Table 3 (SCRC),"P=0.232; identical to WangW2021 Table 4 (n=128)"
+WangW2023,Gender,OS,1.311,0.779,2.207,no,126,Table 3 (SCRC),"P=0.307; identical to WangW2021"
+WangW2023,Tumor size >=5 cm,OS,1.282,0.786,2.089,no,126,Table 3 (SCRC),P=0.320
+WangW2023,Tumor site left vs rectum,OS,1.229,0.636,2.376,no,126,Table 3 (SCRC),P=0.539
+WangW2023,Tumor site right vs rectum,OS,1.636,0.867,3.084,no,126,Table 3 (SCRC),P=0.128
+WangW2023,Pathological T stage,OS,1.851,0.915,3.747,no,126,Table 3 (SCRC),P=0.087
+WangW2023,Lymph node metastasis,OS,3.552,2.141,5.894,no,126,Table 3 (SCRC),P<0.001
+WangW2023,TNM stage (III-IV vs I-II),OS,4.219,2.479,7.128,no,126,Table 3 (SCRC),"lower CI 2.479 here vs 2.497 in WangW2021"
+WangW2023,TNM stage (III-IV vs I-II),OS,3.703,2.149,6.381,yes,126,Table 3 (SCRC multivariate),P<0.001
+WangW2023,Differentiation (poor),OS,1.668,0.991,2.809,no,126,Table 3 (SCRC),P=0.054
+WangW2023,Lymphangio(vascular) invasion,OS,1.321,0.801,2.180,no,126,Table 3 (SCRC),P=0.275
+WangW2023,Nervous invasion,OS,1.727,0.741,4.024,no,126,Table 3 (SCRC),P=0.500 (WangW2021 gives P=0.206 for identical HR/CI)
+WangW2023,Tumor deposit >2,OS,4.138,2.205,7.769,no,126,Table 3 (SCRC),P<0.001; not retained in multivariable
+WangW2023,Colonic perforation,OS,0.506,0.070,3.657,no,126,Table 3 (SCRC),P=0.508
+WangW2023,Tumor budding,OS,1.247,0.729,2.134,no,126,Table 3 (SCRC),P=0.421
+WangW2023,Ulceration,OS,0.725,0.437,1.201,no,126,Table 3 (SCRC),P=0.212
+WangW2023,Histological type (mucinous/SRCC),OS,0.760,0.362,1.594,no,126,Table 3 (SCRC),P=0.467
+Cheng2023,Intratumoral CD4 high,OS,0.676,0.411,1.112,no,137,Table 4 (SCRC column),"P=0.123. NB Table 4 header labels NSCRC N=137 and SCRC N=214 (swapped); the SCRC column is used here (true SCRC n=137)"
+Cheng2023,Stromal CD4 high,OS,0.924,0.566,1.507,no,137,Table 4 (SCRC),P=0.75
+Cheng2023,Intratumoral CD8 high,OS,0.412,0.239,0.711,no,137,Table 4 (SCRC),"P=0.001; identical to WangW2021 SCRC 'CD8 density' HR"
+Cheng2023,Intratumoral CD8 high,OS,0.518,0.298,0.903,yes,137,Table 4 (SCRC multivariate),"P=0.020; with LN metastasis, tumour deposit (age, differentiation, sCD8 listed non-significant)"
+Cheng2023,Stromal CD8 high,OS,0.538,0.297,0.972,no,137,Table 4 (SCRC),P=0.04
+Cheng2023,Stromal CD8 high,OS,0.648,0.356,1.180,yes,137,Table 4 (SCRC multivariate),P=0.156
+Cheng2023,Stromal CRP positive,OS,1.168,0.610,2.234,no,137,Table 4 (SCRC),P=0.64
+Cheng2023,Tumoral CRP positive,OS,0.615,0.244,1.547,no,137,Table 4 (SCRC),P=0.301
+Cheng2023,Age <60,OS,21.827,0.139,3436.270,no,137,Table 4 (SCRC),"P=0.232; multivariate age HR printed 1669993.854 (0.000-4.660E+255) P=0.967 - non-estimable"
+Cheng2023,Gender,OS,1.311,0.779,2.207,no,137,Table 4 (SCRC),P=0.307
+Cheng2023,Tumor size >=5 cm,OS,1.282,0.786,2.089,no,137,Table 4 (SCRC),P=0.32
+Cheng2023,Tumor site left vs rectum,OS,1.263,0.657,2.427,no,137,Table 4 (SCRC),P=0.484
+Cheng2023,Tumor site right vs rectum,OS,1.631,0.865,3.076,no,137,Table 4 (SCRC),P=0.13
+Cheng2023,Pathological T stage,OS,1.851,0.915,3.747,no,137,Table 4 (SCRC),P=0.087
+Cheng2023,Lymph node metastasis,OS,3.552,2.141,5.894,no,137,Table 4 (SCRC),P<0.001
+Cheng2023,Lymph node metastasis,OS,2.715,1.570,4.696,yes,137,Table 4 (SCRC multivariate),P<0.001
+Cheng2023,TNM stage,OS,4.219,2.497,7.128,no,137,Table 4 (SCRC),P<0.001
+Cheng2023,Tumor differentiation (poor),OS,1.668,0.991,2.809,no,137,Table 4 (SCRC),P=0.054
+Cheng2023,Tumor differentiation (poor),OS,1.366,0.800,2.331,yes,137,Table 4 (SCRC multivariate),P=0.254
+Cheng2023,Lymphovascular invasion,OS,1.321,0.801,2.180,no,137,Table 4 (SCRC),P=0.275
+Cheng2023,Nervous invasion,OS,1.727,0.741,4.024,no,137,Table 4 (SCRC),P=0.206
+Cheng2023,Tumor deposit,OS,4.138,2.205,7.769,no,137,Table 4 (SCRC),P<0.001
+Cheng2023,Tumor deposit,OS,2.257,1.158,4.400,yes,137,Table 4 (SCRC multivariate),P=0.015
+Cheng2023,Colonic perforation,OS,0.506,0.070,3.657,no,137,Table 4 (SCRC),P=0.5
+Cheng2023,Tumor budding,OS,1.354,0.819,2.238,no,137,Table 4 (SCRC),P=0.237
+Cheng2023,Ulceration,OS,1.008,0.670,1.514,no,137,Table 4 (SCRC),"P=0.971; identical to WangW2020 Table 2 stage III-IV ulceration HR - possible copy error"
+Cheng2023,Histological type,OS,0.760,0.362,1.594,no,137,Table 4 (SCRC),P=0.467
