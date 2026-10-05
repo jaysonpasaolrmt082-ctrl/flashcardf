@@ -1,0 +1,1 @@
+study_id,factor,comparison,outcome,hr,lower95,upper95,adjusted,covariates,hr_priority,n_SACC_total,n_events,species_stratum,histology_confirmed,overlap_group,include_primary,rob_overall,data_origin,source_location,extractor_1,extractor_2,verified,notes

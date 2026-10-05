@@ -1,0 +1,1 @@
+study_id,outcome,hr,lower95,upper95,adjusted,covariates,hr_priority,reference_group,n_SACC,n_NSACC,median_follow_up_months,species_stratum,histology_confirmed,overlap_group,include_primary,rob_overall,data_origin,source_location,extractor_1,extractor_2,verified,notes
