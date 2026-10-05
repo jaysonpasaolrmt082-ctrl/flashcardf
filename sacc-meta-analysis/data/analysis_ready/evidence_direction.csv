@@ -86,3 +86,11 @@ Zhou2025,male_sex,higher,68.4 vs 55.9% (no test reported),Zhou 2025 Results,yes
 Zhou2025,poor_differentiation,no_difference,no significant difference (Fig. 4C),Zhou 2025 Results,yes
 Zhou2025,advanced_stage_III_IV,no_difference,similar TNM distribution (Fig. 4D),Zhou 2025 Results,yes
 Zhou2025,LN_metastasis,lower,28.4 vs 35.8% (no test reported),Zhou 2025 Results,yes
+NCG1986,OS_hazard,higher,"5-y survival 45.6 vs 50.9%, P<0.05",NCG 1986 Results,yes
+NCG1986,male_sex,higher,male:female 1.9 vs 1.4 (no test reported),NCG 1986 Results,yes
+NCG1986,age_older,no_difference,age distributions similar; peak 40-49 y in both,NCG 1986 Results,yes
+NCG1986,rectal_location,no_difference,site and size distribution similar,NCG 1986 Results,yes
+NCG1986,T3_T4,higher,"serosal penetration 43.3 vs 33.7%, P<0.001",NCG 1986 Results,yes
+ZhangR1998,male_sex,no_difference,18/22 vs 17/22,Zhang 1998 Methods,yes
+ZhangR1998,age_older,no_difference,50.4 vs 55.1 y (no test),Zhang 1998 Methods,yes
+ZhangR1998,mucinous,lower,0/22 vs 4/22 (no test),Zhang 1998 Table 1,yes

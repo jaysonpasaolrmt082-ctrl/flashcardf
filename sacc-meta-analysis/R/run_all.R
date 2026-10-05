@@ -117,9 +117,10 @@ if (nrow(con)) {
     summary_rows[[length(summary_rows) + 1]] <- row
     save_fig(paste0("Fig_forest_", oc), 8, 2.2 + 0.32 * res$k, function() {
       par(mar = c(4, 0, 2, 0), family = "Arial", cex = 0.85)
-      fp <- forest(res, refline = 0, xlab = "Mean difference (SACC - NSACC)", mlab = het_label(res),
+      fp <- forest(res, refline = 0, xlab = "Mean difference (SACC - NSACC)", mlab = "Random-effects model (REML)", ylim = c(-3, res$k + 3),
              ilab = cbind(d$n_SACC, d$n_NSACC), header = c("Study", "MD [95% CI]"))
       ilab_headers(fp, c("SACC n", "NSACC n"))
+      par(xpd = NA); text(par("usr")[1], -2.2, het_stats(res), pos = 4, cex = 0.8, col = "grey25")
     }, fig_dir)
   }
 }
@@ -154,21 +155,31 @@ if (nrow(sv)) {
     d_all <- d_all[order(d_all$adjusted, d_all$study_id), ]  # Adjusted block first
     yi <- log(d_all$hr); sei <- (log(d_all$upper95) - log(d_all$lower95)) / (2 * Z975)
     n_adj <- sum(d_all$adjusted == "Adjusted"); n_un <- sum(d_all$adjusted == "Unadjusted")
-    rows <- c(if (n_adj) seq(n_un + 3 + n_adj, n_un + 4), if (n_un) seq(n_un, 1))
+    un_rows <- if (n_un) seq(n_un + 2, 3) else integer(0)
+    base_adj <- if (n_un) n_un + 6 else 0
+    adj_rows <- if (n_adj) seq(base_adj + n_adj + 2, base_adj + 3) else integer(0)
+    rows <- c(adj_rows, un_rows)
     fig_name <- if (oc == "OS") "Figure4_OS_forest" else paste0("Figure5_", oc, "_forest")
-    save_fig(fig_name, 8.5, 3 + 0.35 * nrow(d_all) + 1.2 * length(fits), function() {
+    save_fig(fig_name, 9, 2.6 + 0.36 * (max(rows) + 4), function() {
       par(mar = c(4, 0, 1, 0), family = "Arial", cex = 0.85)
       ylim_top <- max(rows) + 4
       fp <- forest(yi, sei = sei, slab = d_all$study_id, atransf = exp, refline = 0,
              at = log_ticks(min(log(d_all$lower95)), max(log(d_all$upper95))),
-             rows = rows, ylim = c(-2, ylim_top), xlab = "Hazard ratio, SACC vs NSACC (log scale)",
+             rows = rows, ylim = c(-0.5, ylim_top), xlab = "Hazard ratio, SACC vs NSACC (log scale)",
              ilab = cbind(d_all$n_SACC, d_all$n_NSACC, d_all$hr_priority),
-             header = c("Study", "HR [95% CI]"), col = "#1F4E79")
+             header = c("Study", "HR [95% CI]"), col = "#1F4E79", psize = 1)
       ilab_headers(fp, c("SACC n", "NSACC n", "Source"))
-      if (n_adj) text(par("usr")[1], max(rows) + 1.2, "Multivariable-adjusted", pos = 4, font = 4)
-      if (n_un) text(par("usr")[1], n_un + 1.2, "Unadjusted / derived", pos = 4, font = 4)
-      if (!is.null(fits$Adjusted)) addpoly(fits$Adjusted, row = n_un + 2.5, mlab = het_label(fits$Adjusted))
-      if (!is.null(fits$Unadjusted)) addpoly(fits$Unadjusted, row = -1, mlab = het_label(fits$Unadjusted))
+      x0 <- par("usr")[1]; par(xpd = NA)
+      if (n_adj) text(x0, max(adj_rows) + 1.2, "Multivariable-adjusted", pos = 4, font = 4)
+      if (n_un) text(x0, max(un_rows) + 1.2, "Unadjusted / derived", pos = 4, font = 4)
+      if (!is.null(fits$Adjusted)) {
+        addpoly(fits$Adjusted, row = base_adj + 1.5, mlab = "Random-effects model (REML)", col = "#B22222", border = "#B22222")
+        text(x0, base_adj + 0.5, het_stats(fits$Adjusted), pos = 4, cex = 0.8, col = "grey25")
+      }
+      if (!is.null(fits$Unadjusted)) {
+        addpoly(fits$Unadjusted, row = 1.5, mlab = "Random-effects model (REML)", col = "#B22222", border = "#B22222")
+        text(x0, 0.5, het_stats(fits$Unadjusted), pos = 4, cex = 0.8, col = "grey25")
+      }
     }, fig_dir)
   }
 }
@@ -181,7 +192,8 @@ if (nrow(mol)) {
   mol_tab$pooled <- "Not pooled (k < 2)"
   mol_fits <- list()
   for (bm in mol_tab$biomarker[mol_tab$k >= 2]) {
-    d <- mol[mol$biomarker == bm & mol$comparator_type == "internal", ]
+    d <- mol[mol$biomarker == bm & mol$comparator_type == "internal" & mol$species_stratum %in% PRIMARY_SPECIES, ]
+    check_overlap(d, "biomarker")
     names(d)[names(d) == "positive_SACC"] <- "event_SACC"; names(d)[names(d) == "total_SACC"] <- "n_SACC"
     names(d)[names(d) == "positive_NSACC"] <- "event_NSACC"; names(d)[names(d) == "total_NSACC"] <- "n_NSACC"
     if (nrow(d) < 2) next
@@ -225,9 +237,17 @@ if (nrow(ws)) {
 # ------------------------------------------------------------ heatmap -------
 ev <- read_verified(file.path(data_dir, "evidence_direction.csv"))
 if (nrow(ev)) {
-  p <- plot_evidence_heatmap(ev)
+  # column labels carry SACC / non-SACC sample sizes (largest comparison reported)
+  nsrc <- rbind(bin[, c("study_id", "n_SACC", "n_NSACC")],
+                read_verified(file.path(data_dir, "survival_outcomes.csv"))[, c("study_id", "n_SACC", "n_NSACC")])
+  nsrc <- nsrc[!is.na(nsrc$n_SACC) & !is.na(nsrc$n_NSACC), ]
+  nsrc <- nsrc[order(-(nsrc$n_SACC + nsrc$n_NSACC)), ]
+  nsrc <- nsrc[!duplicated(nsrc$study_id), ]
+  n_lab <- setNames(sprintf("%d / %d", nsrc$n_SACC, nsrc$n_NSACC), nsrc$study_id)
+  g <- plot_evidence_heatmap(ev, n_lab)
   nf <- length(unique(ev$feature)); ns <- length(unique(ev$study_id))
-  save_fig("Figure7_evidence_heatmap", max(6, 2.5 + 0.45 * ns), 1.8 + 0.28 * nf, function() print(p), fig_dir)
+  save_fig("Figure7_evidence_heatmap", 3.6 + 0.42 * ns, 2.6 + 0.27 * nf,
+           function() { grid::grid.newpage(); grid::grid.draw(g) }, fig_dir)
 }
 
 # ------------------------------------------------------------ tables --------

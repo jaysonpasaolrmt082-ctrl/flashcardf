@@ -23,3 +23,28 @@ Reviewer 2 flagged three additional source inconsistencies, now noted in the ext
 - **Chai 2026:** P < 0.05 is reported with confidence intervals that include 1.
 
 **Human verification by the authors** is still required before submission. See "Use of AI-assisted Tools" in the manuscript.
+
+## Round 2: reports supplied by the review team (2026-10-05)
+
+Wang M 2016, NCG 1986, Zhang R 1998, Madbouly 2007, Zalata 2005 and Farid 2006 were re-extracted blind by a second AI reviewer, working only from the source texts and page images.
+
+**Agreement.** All numeric values matched for the binary, continuous, molecular, survival-source and within-SACC rows: Madbouly 9/9, Zhang R 5/5, Zalata 3/3, NCG 1/1 and Wang M 2016 CEA 1/1.
+
+**Discrepancies resolved:**
+- **Zalata 2005, p53 antibody.** Changed to clone 1801 (Methods, line "antibody (clone 1801)"), with a diffuse threshold of >30% nuclei. Reviewer 2 was correct.
+- **Added from reviewer 2:**
+  - Zalata 2005 male sex, 16/24 vs 28/59. Calculated from percentages; S. mansoni stratum; not pooled.
+  - Madbouly 2007 DCC loss, 16/40 vs 11/20.
+- **NCG 1986 overall survival.** Reviewer 2 recorded crude 5-year survival only (45.6% vs 50.9%). The HR used (1.163, 1.007-1.344) is derived from these figures with the Parmar method and is labelled `derived_from_5y_survival`. It enters only the unadjusted pool.
+- **NOS ratings.** Reviewer 2's scores were adopted for four items:
+  - NCG 1986, O1: 0, because outcome ascertainment is not described. Total 5, moderate.
+  - Zhang R 1998, S3: 0, because the method of diagnosing schistosomiasis is not stated. Total 3, high.
+  - Madbouly 2007, S1: 0, because the paper does not say patients were consecutive. Total 4, high.
+  - Zalata 2005, S1: 1, because the paper reports "eighty-three consecutive patients". Total 5, moderate.
+- **Farid 2006.** Both reviewers agree it has no non-schistosomal comparator, so it is excluded at full text.
+- **Wang M 2016.** Both reviewers agree it is SACC-only and is used only for the within-SACC CEA estimate.
+
+**Reporting inconsistencies found by reviewer 2.** These are recorded in the row notes:
+- Madbouly 2007: the P values for LN involvement and age conflict between sources.
+- Zalata 2005: the recalculated p53 P value is 0.37, not the reported 0.073.
+- NCG 1986: two different 5-year survival figures are given for tumours >10 cm (26.5% vs 37.5%).

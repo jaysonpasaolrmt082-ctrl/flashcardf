@@ -87,3 +87,15 @@ This log explains where the numbers in `data/analysis_ready/*.csv` came from and
   - Farid 2006 (site unreachable).
   - Four Chinese-language reports (CNKI/Wanfang).
 - **Duplicate extraction and adjudication.** See `ADJUDICATION_LOG.md`.
+
+## Third pass (2026-10-05): reports supplied by the review team
+
+- **Extracted from the supplied PDFs.** Only the extracted data are stored in this repository; the PDFs themselves are not.
+  - **Wang M 2016.** Within-SACC; CEA HR 4.053.
+  - **NCG 1986.** Chinese; pages read as images. Male sex, T3-T4 direction, and an OS HR derived from 5-year survival with the Parmar method.
+  - **Zhang R 1998.** Male sex, differentiation, mucinous histology, age, p53 and TP53.
+  - **Madbouly 2007** and **Zalata 2005.** S. mansoni stratum; not pooled with S. japonicum.
+  - **Farid 2006.** Excluded: no comparator.
+- **Not obtained, so excluded:** Chen 2016, Yang DH 2014, Ruan 2013, Yang XG 2021 and Zhang W 2012. They are listed in Table S2 only.
+- **Blinded second extraction.** Completed for all six reports; see ADJUDICATION_LOG.md, round 2.
+- **The "Not retrieved" section above is superseded** by this pass.

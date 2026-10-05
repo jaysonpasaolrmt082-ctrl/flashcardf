@@ -1,16 +1,16 @@
-SACC meta-analysis run 2026-10-05 16:56:04 
+SACC meta-analysis run 2026-10-05 17:44:46 
  R version 4.3.3 (2024-02-29) 
 metafor 4.4.0 
 
-Binary rows (verified, primary): 79 
-   male_sex : k = 7 < 10, small-study tests not performed 
+Binary rows (verified, primary): 83 
+   male_sex : k = 9 < 10, small-study tests not performed 
    rectal_location : k = 6 < 10, small-study tests not performed 
    right_sided : k = 6 < 10, small-study tests not performed 
    advanced_stage_III_IV : k = 5 < 10, small-study tests not performed 
    T3_T4 : k = 5 < 10, small-study tests not performed 
    LN_metastasis : k = 5 < 10, small-study tests not performed 
    distant_metastasis : k = 4 < 10, small-study tests not performed 
-   poor_differentiation : k = 7 < 10, small-study tests not performed 
+   poor_differentiation : k = 8 < 10, small-study tests not performed 
    vascular_invasion : k = 5 < 10, small-study tests not performed 
    perineural_invasion : k = 5 < 10, small-study tests not performed 
    tumor_budding : k = 2 < 10, small-study tests not performed 
@@ -25,7 +25,7 @@ Binary rows (verified, primary): 79
    sigmoid_location : k = 3 < 10, small-study tests not performed 
    tumor_size_5cm : k = 2 < 10, small-study tests not performed 
    lymphovascular_invasion : k = 1, not pooled 
-   mucinous : k = 3 < 10, small-study tests not performed 
+   mucinous : k = 4 < 10, small-study tests not performed 
   converted median/IQR -> mean/SD: Zheng2023 CEA 
   converted median/IQR -> mean/SD: Zheng2023 CA19_9 
 Pooled outcomes: 21 

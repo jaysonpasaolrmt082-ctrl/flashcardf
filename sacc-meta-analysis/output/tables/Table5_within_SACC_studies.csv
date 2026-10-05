@@ -18,3 +18,4 @@
 "WangW2023","CD3_rich",">=24% vs <24%","OS",0.404,0.16,1.021,"yes","TNM stage","P1",126
 "Pan2020","cMYC_amplification","c-MYC:CEP8 >=1.8 vs <1.8 (FISH)","OS",1.861,1.012,3.419,"yes","Clinical stage","P1",138
 "Pan2022","MET_copy_gain","MET FISH-positive vs negative","OS",2.362,1.163,4.798,"no",NA,"P2",131
+"WangM2016","CEA_elevated",">5 vs <5 ng/mL","OS",4.053,1.457,11.28,"yes","T stage, N stage, egg deposition site","P1",74

@@ -14,11 +14,13 @@ Li2024,"Union Hospital, Tongji Medical College, Wuhan",2010-01 to 2019-06,30,459
 Zhu2024,Jingzhou Hospital Affiliated to Yangtze University (pathology),2020-01 to 2022-08,95,406,"Zhang2023 (same hospital, same years, shared author Zhu Y)",RESOLVED: G5 index for all shared outcomes (larger; pathological staging)
 Zhang2023,Jingzhou Hospital Affiliated to Yangtze University (radiology),2020-01 to 2022-12,101,240,Zhu2024,RESOLVED: used only for LN metastasis (Zhu2024 row internally inconsistent) and perineural invasion (not in Zhu2024)
 Feng2015,"Ruijin Hospital, Shanghai Jiao Tong University",2009-10 to 2013-11,26,34,None identified,RESOLVED: separate cohort G11 (rectosigmoid only)
-WangM2014,"West China Hospital, Chengdu",2009,30,30 (matched),"WangM2016 (same department, 2009-07 to 2012-07, SACC only); Liu2013 (endoscopy series)",RESOLVED: survival only (adjusted HRs); WangM2016 not retrieved
-WangM2016,"West China Hospital, Chengdu",2009-07 to 2012-07,74,0,WangM2014,UNRESOLVED: full text not retrieved; not analysed
-NCG1986,"Multicentre, China",NR,430,2717 (secondary citations),None identified (historical),UNRESOLVED: Chinese full text not retrieved
-Madbouly2007,"University of Alexandria, Egypt",NR,40,20,None,S. mansoni stratum; full text not retrieved (abstract data not analysed)
+WangM2014,"West China Hospital, Chengdu",2009,30,30 (matched),"WangM2016 (same department, 2009-07 to 2012-07, SACC only); Liu2013 (endoscopy series)",RESOLVED: survival only (adjusted HRs); WangM2016 used for within-SACC analysis only
 Genomic2023,"Changzheng Hospital, Naval Medical University, Shanghai",2014-2020,30,external (TCGA),Zheng2023 (different hospital),Molecular map only
 Ge2023,"Xiangya Hospital, Changsha",2014-01 to 2019-12,94,6025 (94 matched),None identified,RESOLVED: separate cohort G14 (preprint)
 Zhou2025,Affiliated Hospital of Jiujiang University,2013-07 to 2024-08,NR (~95),1030,None identified,Separate cohort G15; qualitative only (no denominators)
 Pan2022,Qingpu Branch of Zhongshan Hospital,2008-01 to 2016-08,131,207,WangW2020 (338 of 351),RESOLVED: MET only
+WangM2016,"West China Hospital, Chengdu",2009-07 to 2012-07,74,0,WangM2014 (same department; comparative survival study),RESOLVED: within-SACC only (different analysis from WangM2014)
+NCG1986,"National Cooperative Group (multicentre), China",NR (before 1985),430,2717,None (historical),RESOLVED: separate cohort G7
+ZhangR1998,Hunan Province,NR (before 1998),22,22,"Ge2023 (Hunan, 2014-2019) - non-overlapping era",RESOLVED: separate cohort G16
+Madbouly2007,"University of Alexandria, Egypt",1999-01 to 2001-06,40,20,None,S. mansoni stratum (not pooled with S. japonicum)
+Zalata2005,"Mansoura University, Egypt",NR,24,45,"Farid2006 (Mansoura, SACC-only; excluded)",S. mansoni biomarker map only

@@ -2,7 +2,7 @@
 
 **Defining Schistosomiasis-Associated Colorectal Cancer: A Systematic Analysis and Meta-analysis of Clinicopathological, Molecular, and Prognostic Features**
 
-## Status (updated 2026-10-05, second pass)
+## Status (updated 2026-10-05, third pass)
 
 The manuscript is a **complete draft**: Results, GRADE, Discussion and Conclusion are written and generated from the verified data. Only items that the authors alone can supply remain, highlighted in yellow as `[AUTHOR INPUT: ...]`: co-authors, affiliations, address, ORCID, registration, funding, conflicts, CRediT roles, acknowledgments, repository DOI, and the names of the authors who verified the AI-assisted work.
 
@@ -11,14 +11,20 @@ The manuscript is a **complete draft**: Results, GRADE, Discussion and Conclusio
 - Scopus, Web of Science, Embase, CNKI, Wanfang and SinoMed could **not** be searched, because there was no subscription or login access. The manuscript states this as a limitation; Table S1 gives ready-to-run strategies for all six.
 
 **Full texts**
-- 22 full texts were assessed and 20 reports included.
-- 11 reports could not be retrieved (Supplementary Table S2).
-- Wang M 2014 and Liu 2013 were obtained this round via open copies on KoreaScience.
+- 28 full texts were assessed and 25 reports included: 12 S. japonicum comparative cohorts, 2 SACC-only cohorts, 1 genomic study and 2 S. mansoni series. 15 reports contribute to at least one meta-analysis.
+- The review team supplied six PDFs: Wang M 2016, NCG 1986, Zhang R 1998, Madbouly 2007, Zalata 2005 and Farid 2006. All six were extracted; Farid 2006 was excluded because it has no comparator. The PDFs are not stored in this repository.
+- Five reports could not be obtained, so they were **excluded** and listed in Supplementary Table S2 and the PRISMA "not retrieved" box. Four are Chinese-language biomarker studies and one is an imaging study. They are not cited anywhere else in the manuscript.
 
 **Duplicate extraction**
 - A second, independent extraction was blinded to the first; it was done by an AI agent working only from the source texts, not by a human (`data/second_extraction/`).
 - Disagreements were adjudicated against the source (`data/ADJUDICATION_LOG.md`).
 - Agreement: 78/82 binary rows; 100% for survival, continuous, molecular and within-SACC values; 87/88 NOS items.
+- Round 2 covered the six supplied reports. All doubly extracted values agreed. Four NOS item disagreements were resolved in favour of the source text: NCG 1986 is now 5 (moderate), Zhang R 1998 3 (high), Madbouly 2007 4 (high) and Zalata 2005 5 (moderate).
+
+**Figures**
+- Figure 1 (PRISMA) shows only the sources actually searched.
+- In Figures 4 and 5, heterogeneity statistics now sit below each pooled diamond, so there is no overlap.
+- Figure 7 was redesigned as a domain-grouped evidence map with direction symbols, sample sizes and per-feature tallies.
 
 **GRADE**
 - Ratings are in `data/analysis_ready/grade.csv` (Supplementary Table S4b).

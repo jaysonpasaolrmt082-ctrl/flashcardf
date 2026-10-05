@@ -66,22 +66,20 @@ def figure1():
         ax.add_patch(FancyBboxPatch((0.0, y0), 0.05, y1 - y0, boxstyle="round,pad=0,rounding_size=0.01", fc="#DCE6F1", ec="none"))
         ax.text(0.025, (y0 + y1) / 2, lab, rotation=90, ha="center", va="center", fontweight="bold", fontsize=8.5)
     y, h = rows["id"]
-    box(ax, L, y, W, h, "Records identified from:\n"
-        f"PubMed: {n('db_pubmed')}\nScopus: {n('db_scopus')}\nWeb of Science: {n('db_wos')}\n"
-        f"Embase: {n('db_embase')}\nCNKI: {n('db_cnki')}\nWanfang: {n('db_wanfang')}\n"
-        f"SinoMed: {n('db_sinomed')}\nOther sources (Europe PMC,\nCrossref): {n('other_sources')}", fs=6.3)
+    box(ax, L, y, W, h, "Records identified from databases\n(searched 5 October 2026):\n\n"
+        f"MEDLINE via PubMed: {n('db_pubmed')}\nEurope PMC: {n('db_europepmc')}\nCrossref: {n('db_crossref')}\n\n"
+        f"Total: n = {int(counts['db_pubmed']) + int(counts['db_europepmc']) + int(counts['db_crossref'])}", fs=7.4)
     box(ax, R, y + 0.05, W, 0.10, "Records removed before screening:\nduplicate records, " + n("duplicates_removed"), fs=7.2)
     y, h = rows["scr"];    box(ax, L, y, W, h, "Records screened (title/abstract)\n" + n("screened"), fs=7.2)
     box(ax, R, y, W, h, "Records excluded\n" + n("excluded_title_abstract"), fs=7.2)
     y, h = rows["sought"]; box(ax, L, y, W, h, "Reports sought for retrieval\n" + n("reports_sought"), fs=7.2)
-    box(ax, R, y, W, h, "Reports not retrieved\n" + n("reports_not_retrieved"), fs=7.2)
+    box(ax, R, y, W, h, "Reports not retrieved\n" + n("reports_not_retrieved") + "\n(full text unavailable; excluded)", fs=7.2)
     y, h = rows["assess"]; box(ax, L, y, W, h, "Full-text reports assessed\nfor eligibility\n" + n("full_text_assessed"), fs=7.2)
     box(ax, R, y, W, h, "Full-text reports excluded, " + n("full_text_excluded") + "\n"
-        "No non-schistosomal comparator\nCase report / small case series\nCRC not separable from other cancers\n"
-        "Schistosomiasis status undeterminable\nDuplicate cohort, same outcome\n(counts per reason: Table S2)", fs=6.5)
-    y, h = rows["qual"];   box(ax, L, y, W, h, "Studies included in qualitative synthesis\n" + n("included_qualitative") +
-                               "\n(comparative; within-SACC; molecular map)", fs=7.2)
-    y, h = rows["quant"];  box(ax, L, y, W, h, "Studies included in quantitative\nsynthesis (meta-analysis)\n" + n("included_quantitative"), fs=7.2)
+        "No non-schistosomal comparator (n = 2)\nNo CRC-specific comparison (n = 1)", fs=6.5)
+    y, h = rows["qual"];   box(ax, L, y, W, h, "Reports included in the review\n" + n("included_qualitative") +
+                               "\n(12 S. japonicum comparative cohorts, 2 SACC-only\ncohorts, 1 genomic study; 2 S. mansoni reports)", fs=7.2)
+    y, h = rows["quant"];  box(ax, L, y, W, h, "Reports included in\nmeta-analysis\n" + n("included_quantitative"), fs=7.2)
     cx = L + W / 2
     order = ["id", "scr", "sought", "assess", "qual", "quant"]
     for t, b_ in zip(order[:-1], order[1:]):
