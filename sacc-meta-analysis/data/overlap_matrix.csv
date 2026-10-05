@@ -1,16 +1,21 @@
 study_id,hospital,recruitment_dates,SACC_n,NSACC_n,potential_overlap,decision
-Zheng2023,"Changhai Hospital, Shanghai",2001-2021,823,30330,"Genomic2023 (Changzheng Hospital, Shanghai; different hospital, same health system)",Retain; confirm no shared patients with Genomic2023
-WangZ2020,"Yijishan Hospital, Wuhu",NR,253,2885,Yang2023 (same hospital),Retain WangZ2020 for CRC outcomes; use Yang2023 only if CRC data are separable and non-duplicative
-WangW2020,"Qingpu Branch, Zhongshan Hospital, Shanghai",2008-2016,137,214,"WangW2021, WangW2023, Pan2020, BMCGastro2023, Pan2023 (shared authors/institution)",Index study for clinicopathological and OS outcomes of group G3
-WangW2021,"Qingpu Branch, Zhongshan Hospital",NR,NR,NR (338 total),WangW2020,Use only for CD8/PD-L1; never re-enter OS or clinicopathology
-WangW2023,"Qingpu Branch, Zhongshan Hospital",NR,NR,NR (349 total),WangW2020,Use only for sTIL/CD3/CD20
-Pan2020,Zhongshan Hospital (Fudan) / Qingpu,NR,NR,NR (354 total),WangW2020,Use only for c-MYC
-BMCGastro2023,NR (suspected Qingpu),NR,NR,NR,WangW2020 (suspected),Use only for CD4/CD8/CRP after institution check
-Li2024,"Union Hospital, Wuhan",NR,30,459,None identified,Retain
-Zhang2023,"Jingzhou Hospital, Hubei",2020-2022,101,240,"Zhu2024 (shared author, identical period)",Choose larger/more complete per outcome after full-text check; never pool both for same outcome
-Zhu2024,Central China (verify),2020-2022,95,406,Zhang2023,See Zhang2023
-WangM2014,"West China Hospital, Chengdu",NR,30,30 (matched),WangM2016 (same group; within-SACC),Survival only in primary set; WangM2016 kept in within-SACC set
-NCG1986,"Multicentre, China",NR,430,NR,None identified (historical),Retain if comparator data extractable
-Madbouly2007,"Alexandria, Egypt",NR,40,20,None,S. mansoni stratum only
-Pan2023,NR (verify),NR,172,0,G3 (suspected via authors),Within-SACC only
-WangM2016,"West China Hospital, Chengdu",NR,NR,0,WangM2014,Within-SACC only
+Zheng2023,"Changhai Hospital, Naval Medical University, Shanghai",2001-01 to 2021-12,823 (808 database; 392 survival),30330 (16155 database; 6145 survival),"Genomic2023 (Changzheng Hospital; different hospital, 30 SACC, external comparator)",RESOLVED: G1 retained for all outcomes; Genomic2023 is never pooled (external comparator)
+WangZ2020,"Yijishan Hospital of Wannan Medical College, Wuhu",2012-01 to 2018-12,253 (43 survival),2885 (57 survival),Yang2023 (same hospital; Yang adds Chizhou People's Hospital; 2015-2021),RESOLVED: G2 index; WangZ2020 used for every outcome it reports
+Yang2023,"Yijishan Hospital of Wannan Medical College + Chizhou People's Hospital",2015-01 to 2021-12,298 CRC,326 CRC (frequency-sampled),WangZ2020 (overlap 2015-2018),RESOLVED: used only for LN metastasis and vascular invasion (not reported by WangZ2020)
+Wu2021,"Wuhu Second People's Hospital",2015-06 to 2020-06,56,307,"Same city as G2 (different hospital)",RESOLVED: separate cohort G10; residual overlap judged unlikely (different institution)
+WangW2020,"Qingpu Branch of Zhongshan Hospital, Fudan University, Shanghai",2008-01 to 2016-08,137,214,"WangW2021, WangW2023, Pan2020, Cheng2023, Chai2026 (same hospital and period confirmed in full texts)",RESOLVED: G3 index for clinicopathological outcomes and OS
+WangW2021,"Qingpu Branch of Zhongshan Hospital",2008-01 to 2016-08,128,210,WangW2020 (338 of 351),RESOLVED: PD-L1 only; OS and clinicopathology never re-entered
+WangW2023,"Qingpu Branch of Zhongshan Hospital",2008-01 to 2016-08,137 (126 IHC),212 (188 IHC),WangW2020 (349 of 351),RESOLVED: TILs/CD3/CD20 only
+Pan2020,"Qingpu Branch of Zhongshan Hospital",2008-01 to 2016-08,138,216,WangW2020 (354; superset by 3),RESOLVED: c-MYC only (comparative and within-SACC)
+Cheng2023,"Qingpu Branch of Zhongshan Hospital",2008-01 to 2016-08,137,214,WangW2020 (identical 351),RESOLVED: CD4/CD8 only (comparative) and within-SACC HRs
+Chai2026,"Qingpu Branch of Zhongshan Hospital",2008-01 to 2016-08,112,174,WangW2020 (286 of 351),RESOLVED: CFIm25 only
+Pan2023,"Zhongshan Hospital main campus, Fudan University, Shanghai",2016-01 to 2018-12,172,0,"Formerly suspected G3; different campus and non-overlapping period",RESOLVED: separate SACC-only cohort G9 (within-SACC analysis only)
+Li2024,"Union Hospital, Tongji Medical College, Wuhan",2010-01 to 2019-06,30,459,None identified,RESOLVED: G4 retained
+Zhu2024,"Jingzhou Hospital Affiliated to Yangtze University (pathology)",2020-01 to 2022-08,95,406,"Zhang2023 (same hospital, same years, shared author Zhu Y)",RESOLVED: G5 index for all shared outcomes (larger; pathological staging)
+Zhang2023,"Jingzhou Hospital Affiliated to Yangtze University (radiology)",2020-01 to 2022-12,101,240,Zhu2024,RESOLVED: used only for LN metastasis (Zhu2024 row internally inconsistent) and perineural invasion (not in Zhu2024)
+Feng2015,"Ruijin Hospital, Shanghai Jiao Tong University",2009-10 to 2013-11,26,34,None identified,RESOLVED: separate cohort G11 (rectosigmoid only)
+WangM2014,"West China Hospital, Chengdu",NR,30,30 (matched),WangM2016 and Liu2013 (same hospital),UNRESOLVED: full text not retrieved; not analysed
+WangM2016,"West China Hospital, Chengdu",2009-07 to 2012-07,74,0,WangM2014,UNRESOLVED: full text not retrieved; not analysed
+NCG1986,"Multicentre, China",NR,430,2717 (secondary citations),None identified (historical),UNRESOLVED: Chinese full text not retrieved
+Madbouly2007,"University of Alexandria, Egypt",NR,40,20,None,S. mansoni stratum; full text not retrieved (abstract data not analysed)
+Genomic2023,"Changzheng Hospital, Naval Medical University, Shanghai",2014-2020,30,external (TCGA),Zheng2023 (different hospital),Molecular map only

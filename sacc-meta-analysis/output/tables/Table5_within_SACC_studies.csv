@@ -1,0 +1,19 @@
+"study_id","factor","comparison","outcome","hr","lower95","upper95","adjusted","covariates","hr_priority","n_SACC_total"
+"Pan2023","eggs_in_lymph_nodes_stageIII","eggs present vs absent in regional LNs (stage III)","DFS",3,1.365,6.592,"yes","Perineural invasion, hepatic schistosomiasis","P1",62
+"Pan2023","eggs_in_lymph_nodes_stageIII","eggs present vs absent in regional LNs (stage III)","OS",2.396,0.957,6,"no",NA,"P2",62
+"Pan2023","eggs_in_lymph_nodes","eggs present vs absent in regional LNs (all stages)","DFS",1.423,0.814,2.49,"no",NA,"P2",172
+"Pan2023","hepatic_schistosomiasis_stageIII","present vs absent (imaging), stage III","DFS",3.948,1.748,8.917,"yes","Perineural invasion","P1",62
+"Pan2023","hepatic_schistosomiasis_stageIII","present vs absent (imaging), stage III","OS",4.967,1.836,13.432,"yes","Perineural invasion","P1",62
+"Pan2023","egg_deposition_deep","eggs in muscularis propria/full thickness (PS2) vs mucosa only (PS1)","DFS",1.857,1.048,3.289,"no",NA,"P2",172
+"Pan2023","egg_deposition_deep","PS2 vs PS1","OS",1.839,0.899,3.762,"no",NA,"P2",172
+"Zheng2023","LN_metastasis","pN1-2 vs pN0","OS",2.467,1.383,4.401,"yes","Multivariable Cox within SACC (stepwise)","P1",808
+"Zheng2023","distant_metastasis","yes vs no","OS",4.248,2.311,7.806,"yes","Multivariable Cox within SACC (stepwise)","P1",808
+"Zheng2023","BRAF_mut","mutant vs wild type","OS",4.033,1.407,11.559,"yes","Multivariable Cox within SACC (stepwise)","P1",808
+"Zheng2023","BRAF_mut","mutant vs wild type","DFS",4.531,1.608,12.762,"yes","Multivariable Cox within SACC (stepwise)","P1",808
+"Zheng2023","tumor_budding","intermediate/high vs low","OS",2.217,1.06,4.635,"yes","Multivariable Cox within SACC (stepwise)","P1",808
+"Zheng2023","CEA_elevated",">=5 vs <5 ng/mL","OS",1.282,0.646,2.541,"yes","Multivariable Cox within SACC (stepwise)","P1",808
+"Cheng2023","LN_metastasis","present vs absent","OS",2.715,1.57,4.696,"yes","Multivariable Cox within SACC (backward stepwise; iCD8, tumour deposit, differentiation, sCD8, age)","P1",137
+"Cheng2023","intratumoral_CD8_high",">=77 vs <77 cells/mm2","OS",0.518,0.298,0.903,"yes","LN metastasis, tumour deposit, differentiation, sCD8","P1",137
+"WangW2021","CD8_TIL_high",">=279 vs <279 cells/mm2","OS",0.592,0.337,1.039,"yes","TNM stage, tumour deposit","P1",128
+"WangW2023","CD3_rich",">=24% vs <24%","OS",0.404,0.16,1.021,"yes","TNM stage","P1",126
+"Pan2020","cMYC_amplification","c-MYC:CEP8 >=1.8 vs <1.8 (FISH)","OS",1.861,1.012,3.419,"yes","Clinical stage","P1",138

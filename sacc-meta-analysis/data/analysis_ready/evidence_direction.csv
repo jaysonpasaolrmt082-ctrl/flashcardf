@@ -1,1 +1,75 @@
 study_id,feature,direction,basis,source_location,verified
+Zheng2023,age_older,higher,"67.5 vs 60.5 y, P<0.001",Zheng 2023 Table 1/Table S1/S4/S5/S6,yes
+Zheng2023,male_sex,higher,"68.8 vs 62.1%, P<0.001",Zheng 2023 Table 1/Table S1/S4/S5/S6,yes
+Zheng2023,rectal_location,higher,"57.6 vs 52.9%, P<0.001 (location)",Zheng 2023 Table 1/Table S1/S4/S5/S6,yes
+Zheng2023,advanced_stage_III_IV,no_difference,pTNM P=0.060,Zheng 2023 Table 1/Table S1/S4/S5/S6,yes
+Zheng2023,T3_T4,no_difference,P=0.448,Zheng 2023 Table 1/Table S1/S4/S5/S6,yes
+Zheng2023,LN_metastasis,lower,"34.8 vs 39.0%, P=0.019",Zheng 2023 Table 1/Table S1/S4/S5/S6,yes
+Zheng2023,distant_metastasis,lower,"12.7 vs 15.5%, P=0.034",Zheng 2023 Table 1/Table S1/S4/S5/S6,yes
+Zheng2023,poor_differentiation,higher,"15.4 vs 12.7%, P=0.015 (incl. mucinous/SRC)",Zheng 2023 Table 1/Table S1/S4/S5/S6,yes
+Zheng2023,vascular_invasion,lower,"6.7 vs 9.0%, P=0.022",Zheng 2023 Table 1/Table S1/S4/S5/S6,yes
+Zheng2023,perineural_invasion,no_difference,P=0.313,Zheng 2023 Table 1/Table S1/S4/S5/S6,yes
+Zheng2023,tumor_budding,lower,"13.5 vs 23.2%, P<0.001",Zheng 2023 Table 1/Table S1/S4/S5/S6,yes
+Zheng2023,multiple_primary,higher,"4.3 vs 2.8%, P=0.014",Zheng 2023 Table 1/Table S1/S4/S5/S6,yes
+Zheng2023,concomitant_polyps,higher,"20.0 vs 13.6%, P<0.001",Zheng 2023 Table 1/Table S1/S4/S5/S6,yes
+Zheng2023,positive_margin,higher,"3.6 vs 1.1%, P<0.001",Zheng 2023 Table 1/Table S1/S4/S5/S6,yes
+Zheng2023,KRAS_mut,higher,"52.0 vs 43.8%, P<0.001",Zheng 2023 Table 1/Table S1/S4/S5/S6,yes
+Zheng2023,OS_hazard,no_difference,"HR 1.211 (0.972-1.509), P=0.089",Zheng 2023 Table 1/Table S1/S4/S5/S6,yes
+Zheng2023,DFS_hazard,higher,"unadjusted HR 1.575, P<0.001; adjusted HR 1.098, P=0.601",Zheng 2023 Table 1/Table S1/S4/S5/S6,yes
+WangZ2020,age_older,higher,"65.3 vs 61.4 y, P=0.002","Wang Z 2020 Tables I, IV, V",yes
+WangZ2020,male_sex,higher,"chi2=8.09, P=0.004","Wang Z 2020 Tables I, IV, V",yes
+WangZ2020,rectal_location,no_difference,location P=0.349,"Wang Z 2020 Tables I, IV, V",yes
+WangZ2020,T3_T4,lower,"T4 7.8 vs 22.9%, P=0.001","Wang Z 2020 Tables I, IV, V",yes
+WangZ2020,poor_differentiation,no_difference,P=0.155 as reported,"Wang Z 2020 Tables I, IV, V",yes
+WangZ2020,OS_hazard,lower,"5-y OS 68.9 vs 46.4%, log-rank P=0.026","Wang Z 2020 Tables I, IV, V",yes
+WangW2020,age_older,higher,"median 74 vs 64 y, P<0.001",Wang W 2020 Tables 2-3,yes
+WangW2020,male_sex,no_difference,P=0.467,Wang W 2020 Tables 2-3,yes
+WangW2020,rectal_location,no_difference,site P=0.274,Wang W 2020 Tables 2-3,yes
+WangW2020,advanced_stage_III_IV,no_difference,P=0.816,Wang W 2020 Tables 2-3,yes
+WangW2020,LN_metastasis,no_difference,P=0.883,Wang W 2020 Tables 2-3,yes
+WangW2020,T3_T4,no_difference,P=0.562,Wang W 2020 Tables 2-3,yes
+WangW2020,poor_differentiation,no_difference,P=0.570,Wang W 2020 Tables 2-3,yes
+WangW2020,mucinous,no_difference,P=0.731,Wang W 2020 Tables 2-3,yes
+WangW2020,vascular_invasion,no_difference,lymphovascular invasion P=0.909,Wang W 2020 Tables 2-3,yes
+WangW2020,perineural_invasion,no_difference,P=1.000,Wang W 2020 Tables 2-3,yes
+WangW2020,tumor_budding,no_difference,P=0.652,Wang W 2020 Tables 2-3,yes
+WangW2020,OS_hazard,higher,adjusted HR 1.458 (1.049-2.027),Wang W 2020 Tables 2-3,yes
+Li2024,age_older,no_difference,P=0.750,Li 2024 main text + SDC Tables S1-S4,yes
+Li2024,male_sex,no_difference,P=0.243,Li 2024 main text + SDC Tables S1-S4,yes
+Li2024,rectal_location,no_difference,site P=0.949,Li 2024 main text + SDC Tables S1-S4,yes
+Li2024,advanced_stage_III_IV,no_difference,stage P=0.235,Li 2024 main text + SDC Tables S1-S4,yes
+Li2024,poor_differentiation,no_difference,P=0.943,Li 2024 main text + SDC Tables S1-S4,yes
+Li2024,vascular_invasion,no_difference,P=0.844,Li 2024 main text + SDC Tables S1-S4,yes
+Li2024,perineural_invasion,no_difference,P=0.150,Li 2024 main text + SDC Tables S1-S4,yes
+Li2024,KRAS_mut,no_difference,"63.3 vs 48.8%, P=0.123",Li 2024 main text + SDC Tables S1-S4,yes
+Li2024,OS_hazard,higher,adjusted HR 2.507 (1.275-4.932),Li 2024 main text + SDC Tables S1-S4,yes
+Li2024,DFS_hazard,higher,"unadjusted HR 2.062, P=0.024 (adjusted P=0.068)",Li 2024 main text + SDC Tables S1-S4,yes
+Zhu2024,age_older,higher,">60 y 73.7 vs 56.2%, P=0.002",Zhu 2024 Table 2,yes
+Zhu2024,male_sex,no_difference,P=0.054,Zhu 2024 Table 2,yes
+Zhu2024,rectal_location,no_difference,24.2 vs 25.9% (overall location P<0.001),Zhu 2024 Table 2,yes
+Zhu2024,T3_T4,no_difference,infiltrative depth P=0.811,Zhu 2024 Table 2,yes
+Zhu2024,poor_differentiation,no_difference,P=0.837,Zhu 2024 Table 2,yes
+Zhu2024,mucinous,no_difference,P=0.654,Zhu 2024 Table 2,yes
+Zhu2024,vascular_invasion,no_difference,P=0.698,Zhu 2024 Table 2,yes
+Zhang2023,age_older,no_difference,">50 y, P=0.404",Zhang 2023 Table 1,yes
+Zhang2023,male_sex,higher,P=0.043,Zhang 2023 Table 1,yes
+Zhang2023,LN_metastasis,no_difference,P=0.907,Zhang 2023 Table 1,yes
+Zhang2023,perineural_invasion,no_difference,P=0.548,Zhang 2023 Table 1,yes
+Zhang2023,vascular_invasion,no_difference,P=0.810,Zhang 2023 Table 1,yes
+Zhang2023,poor_differentiation,no_difference,low vs medium grade P=0.856 (more well-differentiated in SACC),Zhang 2023 Table 1,yes
+Wu2021,age_older,higher,"older in CRC-S, P<0.05 (Methods 1.1)",Wu 2021 Table 1,yes
+Wu2021,male_sex,no_difference,P>0.05 (Methods 1.1),Wu 2021 Table 1,yes
+Wu2021,poor_differentiation,no_difference,P>0.05,Wu 2021 Table 1,yes
+Wu2021,vascular_invasion,no_difference,P>0.05,Wu 2021 Table 1,yes
+Wu2021,perineural_invasion,no_difference,P>0.05,Wu 2021 Table 1,yes
+Wu2021,T3_T4,no_difference,P>0.05,Wu 2021 Table 1,yes
+Wu2021,LN_metastasis,higher,"62.5 vs 47.2%, P<0.05",Wu 2021 Table 1,yes
+Feng2015,age_older,no_difference,P=0.61,Feng 2015 Table 1,yes
+Feng2015,male_sex,no_difference,not significant,Feng 2015 Table 1,yes
+Feng2015,advanced_stage_III_IV,lower,stage distribution P=0.003 (more stage I in SACC),Feng 2015 Table 1,yes
+Feng2015,poor_differentiation,no_difference,P=0.40,Feng 2015 Table 1,yes
+Feng2015,mucinous,no_difference,P=0.13,Feng 2015 Table 1,yes
+Yang2023,age_older,higher,colon and rectum P<0.001,Yang 2023 Tables 6-7,yes
+Yang2023,male_sex,higher,colon P=0.005; rectum P=0.061,Yang 2023 Tables 6-7,yes
+Yang2023,LN_metastasis,no_difference,colon P=0.076; rectum P=0.331,Yang 2023 Tables 6-7,yes
+Yang2023,vascular_invasion,no_difference,colon P=0.069; rectum P=0.388,Yang 2023 Tables 6-7,yes

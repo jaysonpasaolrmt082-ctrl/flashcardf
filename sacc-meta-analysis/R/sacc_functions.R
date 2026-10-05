@@ -33,7 +33,9 @@ OUTCOME_LABELS <- c(
   NRAS_mut = "NRAS mutation", BRAF_mut = "BRAF mutation", TP53_mut = "TP53 mutation",
   p53_IHC_positive = "p53 IHC positive", MSI_H = "MSI-high", dMMR = "dMMR",
   CEA_elevated = "Elevated CEA", CA19_9_elevated = "Elevated CA19-9",
-  recurrence = "Recurrence"
+  recurrence = "Recurrence", right_sided = "Right-sided colon",
+  tumor_size_5cm = "Tumour size >= 5 cm", age_older = "Older age",
+  OS_hazard = "Overall survival hazard", DFS_hazard = "DFS/RFS hazard"
 )
 PRIMARY_BINARY <- c("advanced_stage_III_IV", "LN_metastasis", "distant_metastasis")
 

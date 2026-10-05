@@ -1,0 +1,2 @@
+"outcome","analysis","k","n_SACC","n_NSACC","measure","estimate","lower95","upper95","p_value","I2","tau2","Q","Q_p","fixed_estimate","fixed_lower95","fixed_upper95","certainty_GRADE"
+"LN_metastasis OS","within-SACC",2,945,NA,"HR",2.59484989158988,1.7430990319478,3.86280173213111,2.63639742663663e-06,0,0,0.0554991374366026,0.81375661617287,NA,NA,NA,"[TO BE ASSESSED]"

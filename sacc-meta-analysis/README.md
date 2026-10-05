@@ -2,9 +2,15 @@
 
 **Defining Schistosomiasis-Associated Colorectal Cancer: A Systematic Analysis and Meta-analysis of Clinicopathological, Molecular, and Prognostic Features**
 
-## Status
+## Status (updated 2026-10-05)
 
-This is a **submission-formatted draft, not a finished paper**. The Introduction, Methods, Discussion framework, search strategies, figures 1, 2 and 8, the table structures and the analysis code are complete. Every result that depends on screening or pooling is a highlighted `[TO BE CALCULATED]` placeholder. No study-level numbers have been entered or pooled, because full texts could not be accessed from the build environment (see `phase1/Phase1_Report.md`).
+This is an **interim analysed draft**. Full texts were retrieved from PMC, Europe PMC and the publishers' open supplements for 17 reports. The data were extracted into `data/analysis_ready/*.csv`, with a source location for every value, and the overlap groups were resolved (`data/overlap_matrix.csv`). The pipeline has been run, and the manuscript was rebuilt from the verified output. `data/EXTRACTION_LOG.md` lists the sources, the decisions and the inconsistencies found in the papers.
+
+What is still provisional:
+- **Searches.** Only PubMed has been searched (337 records). Scopus, Web of Science, Embase, CNKI, Wanfang and SinoMed have not been searched yet.
+- **Reports not retrieved.** 12 reports could not be retrieved; they need CNKI or publisher access (Supplementary Table S2).
+- **Single reviewer.** Screening, extraction and risk of bias were done by one AI-assisted reviewer and checked programmatically against the source text. **A second, independent human reviewer is still required.**
+- **Not yet written.** GRADE ratings, the Discussion and the Conclusion are still to be written by the authors.
 
 ## Contents
 
@@ -16,7 +22,9 @@ This is a **submission-formatted draft, not a finished paper**. The Introduction
 | `manuscript/Cover_Letter.docx`, `Highlights_and_Graphical_Abstract.docx`, `Figure_and_Table_Legends.docx` | Submission extras |
 | `data/study_inventory.csv`, `data/overlap_matrix.csv` | Study inventory and overlap matrix |
 | `data/SACC_master_extraction.xlsx` | Master extraction workbook |
-| `data/analysis_ready/*.csv` | Analysis-ready long-format files (empty, headers only) |
+| `data/analysis_ready/*.csv` | Analysis-ready long-format files (extracted data, `verified = yes`) |
+| `data/EXTRACTION_LOG.md` | Sources, overlap decisions, derived values and source-paper inconsistencies |
+| `output/tables/` | Pooled results (Table 4), sensitivity (Table S5), within-SACC and molecular tables, analysis log; figures are regenerated into `output/figures/` (git-ignored) |
 | `R/run_all.R`, `R/sacc_functions.R` | Full metafor pipeline: REML random effects, sensitivity analyses, Egger (k ≥ 10), Figures 3–7, Tables 3–5 and S5 |
 | `tests/test_pipeline.R` | Validation against metafor's BCG benchmark and checks on the integrity guards |
 | `figures/` | Figures 1, 2 and 8 (PDF, SVG, 600-dpi PNG and TIFF) and their script |

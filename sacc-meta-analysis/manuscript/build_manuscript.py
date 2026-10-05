@@ -66,7 +66,8 @@ def manuscript_blocks():
     h1("ABSTRACT")
     p("**Background and Objective.** Schistosoma japonicum infection has long been linked to colorectal cancer in endemic Asia, but whether schistosomiasis-associated colorectal cancer (SACC) is a reproducibly distinct clinical entity is unresolved. This study aimed to systematically quantify the clinicopathological, molecular, and prognostic differences between SACC and non-schistosomiasis-associated colorectal cancer (NSACC) and to determine whether the available evidence supports a distinct schistosomal colorectal cancer phenotype.")
     p("**Methods.** MEDLINE/PubMed, Scopus, Web of Science Core Collection, Embase, CNKI, Wanfang, and SinoMed were searched from inception to [SEARCH DATE TO BE ADDED], supplemented by citation searching, without language restriction. Observational studies comparing SACC with NSACC were eligible; SACC-only cohorts contributed to a separate within-SACC prognostic analysis. Two reviewers independently screened records, extracted data, and assessed study quality with the Newcastle-Ottawa Scale. Overlapping cohorts were identified and each patient was counted once per outcome. Odds ratios (OR), mean differences, and hazard ratios (HR) were pooled with random-effects models (restricted maximum likelihood). Species were analysed separately. Certainty of evidence was rated with GRADE.")
-    p("**Results.** [TO BE CALCULATED] records were screened and [TO BE CALCULATED] studies ([TO BE CALCULATED] independent cohorts; [TO BE CALCULATED] SACC and [TO BE CALCULATED] NSACC patients) were included. Compared with NSACC, SACC was associated with overall survival HR [TO BE CALCULATED] (95% CI [TO BE CALCULATED]; I² [TO BE CALCULATED]), disease-free survival HR [TO BE CALCULATED], stage III-IV disease OR [TO BE CALCULATED], lymph-node metastasis OR [TO BE CALCULATED], and distant metastasis OR [TO BE CALCULATED]. [Secondary findings and certainty ratings TO BE WRITTEN from verified results.]")
+    p(abstract_results(pooled))
+    _unused = ("**Results.** [TO BE CALCULATED] records were screened and [TO BE CALCULATED] studies ([TO BE CALCULATED] independent cohorts; [TO BE CALCULATED] SACC and [TO BE CALCULATED] NSACC patients) were included. Compared with NSACC, SACC was associated with overall survival HR [TO BE CALCULATED] (95% CI [TO BE CALCULATED]; I² [TO BE CALCULATED]), disease-free survival HR [TO BE CALCULATED], stage III-IV disease OR [TO BE CALCULATED], lymph-node metastasis OR [TO BE CALCULATED], and distant metastasis OR [TO BE CALCULATED]. [Secondary findings and certainty ratings TO BE WRITTEN from verified results.]")
     p("**Conclusion.** [TO BE WRITTEN after analysis, using restrained wording; see Conclusion template.] Prospective molecularly characterised cohorts from contemporary endemic settings are needed to determine whether these clinical differences reflect a biologically distinct form of colorectal carcinogenesis.")
     p("**Registration.** [PROSPERO/OSF registration number TO BE ADDED, or a statement that the protocol was not registered.]")
     B.append(("pb",))
@@ -95,7 +96,7 @@ def manuscript_blocks():
     h2("Study selection")
     p("Two reviewers ([INITIALS]) independently screened titles and abstracts and then full texts against the eligibility criteria. Disagreements were resolved by discussion or by a third reviewer ([INITIALS]). One principal reason was recorded for every excluded full text (Supplementary Table S2).")
     h2("Data extraction")
-    p("Two reviewers independently extracted data into a piloted spreadsheet (Supplementary Table S3) covering study identification (authors, year, PMID, DOI, institution, city, province, department), design and recruitment period, schistosomiasis ascertainment (species, diagnostic method, verbatim definition), patient numbers, demographics, tumour location, pathology, stage, metastasis, molecular and laboratory markers, and survival estimates. Each value was labelled by origin: reported directly; calculated from reported raw data; estimated from Kaplan-Meier curves; or pooled. When studies reported medians with interquartile ranges, means and standard deviations were estimated with the method of Wan et al.{c:wan2014} and the transformation was recorded. Study authors were contacted for missing data [TO BE CONFIRMED].")
+    p("Two reviewers independently extracted data into a piloted spreadsheet (Supplementary Table S3) covering study identification (authors, year, PMID, DOI, institution, city, province, department), design and recruitment period, schistosomiasis ascertainment (species, diagnostic method, verbatim definition), patient numbers, demographics, tumour location, pathology, stage, metastasis, molecular and laboratory markers, and survival estimates. [Interim: for this draft, data were extracted from full texts by one AI-assisted extractor and checked programmatically against the source text; independent extraction by a second reviewer is PENDING.] Each value was labelled by origin: reported directly; calculated from reported raw data; estimated from Kaplan-Meier curves; or pooled. When studies reported medians with interquartile ranges, means and standard deviations were estimated with the method of Wan et al.{c:wan2014} and the transformation was recorded. Study authors were contacted for missing data [TO BE CONFIRMED].")
     p("For survival, the extraction priority was: (1) multivariable-adjusted HR with 95% confidence interval (CI); (2) unadjusted HR; (3) HR derived from reported survival statistics with the methods of Tierney et al.;{c:tierney2007} and (4) HR reconstructed from Kaplan-Meier curves with the algorithm of Guyot et al.{c:guyot2012} All HRs were expressed as SACC versus NSACC. Adjusted and unadjusted estimates were analysed separately.")
     h2("Outcome definitions")
     p("Primary outcomes were overall survival (HR), disease-free or recurrence-free survival (HR), advanced stage (stage III-IV versus I-II; OR), lymph-node metastasis (OR), and distant metastasis (OR). Secondary outcomes were age (mean difference in years) and age over 60 years; male sex; tumour location (rectum versus colon, sigmoid colon, right- versus left-sided); tumour size; differentiation; mucinous and signet-ring-cell histology; multiple primary or synchronous tumours; concomitant polyps; lymphovascular, vascular, and perineural invasion; tumour budding; positive margins; molecular alterations (KRAS, NRAS, BRAF, TP53, APC, PIK3CA, microsatellite instability, mismatch-repair proteins, beta-catenin, p53 immunohistochemistry, Ki-67, and any other reported marker); laboratory markers (CEA, CA19-9, haemoglobin, leukocyte and platelet counts, inflammatory indices); and recurrence. Laboratory outcomes were exploratory.")
@@ -119,47 +120,47 @@ def manuscript_blocks():
     # -------------------------------------------------------------- results --
     h1("RESULTS")
     h2("Search results")
-    p("The database searches identified [TO BE CALCULATED] records and other sources [TO BE CALCULATED]. After removal of [TO BE CALCULATED] duplicates, [TO BE CALCULATED] records were screened and [TO BE CALCULATED] full texts were assessed. [TO BE CALCULATED] studies met the eligibility criteria: [TO BE CALCULATED] in the primary comparative analysis, [TO BE CALCULATED] in the within-SACC analysis, and [TO BE CALCULATED] in quantitative synthesis (Figure 1). Excluded full texts and reasons are listed in Supplementary Table S2.")
+    p(search_paragraph())
     B.append(("fig", {"file": "Figure1_PRISMA_flow.png", "w": 15.0,
-                      "cap": "**Figure 1.** PRISMA 2020 flow diagram of study selection. Record counts are entered from verified screening logs."}))
+                      "cap": "**Figure 1.** PRISMA 2020 flow diagram of study selection (interim: PubMed only; the remaining databases are still to be searched). Counts are read from data/analysis_ready/prisma_counts.csv."}))
     h2("Characteristics of included studies")
-    p("Table 1 summarises the reports identified. [Description of study designs, countries/provinces, recruitment periods, sample sizes, and follow-up TO BE WRITTEN after full-text verification.] Reports from the same institutions were grouped into overlap groups (Supplementary Table S6); the number of independent cohorts was [TO BE CALCULATED]. Figure 2 shows the chronological landscape of the evidence.")
+    p(characteristics_paragraph())
     B.append(("table", table1(inv)))
     B.append(("fig", {"file": "Figure2_landscape_timeline.png", "w": 16.0,
                       "cap": "**Figure 2.** Chronological landscape of identified studies. Bars show recruitment periods where reported; diamonds show publication year. Right column: SACC/NSACC sample sizes (NR, not reported; dash, SACC-only cohort). Labels give city/province."}))
     h2("Schistosomiasis ascertainment")
-    p("[TO BE WRITTEN: number of studies using histological egg identification, documented history, serology, stool examination, or combinations; number confirming S. japonicum versus presuming species from endemicity.]")
+    p("All analysed comparative cohorts defined schistosomiasis by histological identification of schistosome eggs (often calcified) in the resected colorectal specimen; one series also accepted ova in stool or biopsy.{c:feng2015} No study confirmed the species morphologically or molecularly; all were classified as S. japonicum presumed from endemic-area residence. Two pathologists blinded to clinical data reviewed slides in the Qingpu reports;{c:wangw2020,wangw2023} Zheng et al. noted that egg reporting was not compulsory in routine pathology, so some SACC may have been misclassified as NSACC.{c:zheng2023} The comparison was therefore strictly SACC with egg-proven intestinal involvement versus CRC without eggs in the specimen.")
     h2("Demographic characteristics")
-    p(pooled_sentence(pooled, "Male sex", "male sex") + " " + pooled_sentence(pooled, "age", "age (mean difference, years)", md=True))
+    p(pooled_sentence(pooled, "Male sex", "male sex") + " " + pooled_sentence(pooled, "age", "age (mean difference, years)", md=True) + " " + pooled_sentence(pooled, "Age > 60 years", "age over 60 years") + " Every cohort that reported age found SACC patients to be older or of similar age (Figure 7); the very high heterogeneity reflects the size, not the direction, of the difference.")
     h2("Anatomical distribution")
-    p(pooled_sentence(pooled, "Rectal location", "rectal location") + " [Sigmoid, right- versus left-sided location TO BE REPORTED.]")
+    p(pooled_sentence(pooled, "Rectal location", "rectal location") + " " + sens_sentence("Rectal location") + " " + pooled_sentence(pooled, "Right-sided colon", "right-sided colon location") + " " + pooled_sentence(pooled, "Sigmoid location", "sigmoid location"))
     h2("Pathological characteristics")
-    p("[Differentiation, mucinous and signet-ring histology, vascular, lymphovascular and perineural invasion, tumour budding, multiple primary tumours, concomitant polyps, and margins TO BE REPORTED from Table 2 and Figure 3.]")
+    p(pathology_paragraph(pooled))
     B.append(("table", table2(inv)))
     h2("Tumour stage and metastatic behaviour")
-    p(pooled_sentence(pooled, "Stage III-IV", "stage III-IV disease") + " " + pooled_sentence(pooled, "Lymph-node metastasis", "lymph-node metastasis") + " " + pooled_sentence(pooled, "Distant metastasis", "distant metastasis"))
+    p(pooled_sentence(pooled, "Stage III-IV", "stage III-IV disease") + " " + sens_sentence("Stage III-IV") + " " + pooled_sentence(pooled, "pT3-T4", "pT3-T4 tumours") + " " + pooled_sentence(pooled, "Lymph-node metastasis", "lymph-node metastasis") + " " + pooled_sentence(pooled, "Distant metastasis", "distant metastasis") + " The largest cohort reported less nodal and distant metastasis in SACC,{c:zheng2023} whereas the Wuhu Second People's Hospital cohort reported more nodal metastasis;{c:wu2021} the pooled estimates show no consistent difference.")
     B.append(("fig", {"file": "Figure3_phenotype_forest.png", "w": 16.0, "from_output": True,
                       "cap": "**Figure 3.** Clinicopathological phenotype of SACC versus NSACC: pooled odds ratios (random effects, REML) with 95% confidence intervals for each outcome with at least two independent cohorts. Red, primary outcomes; blue, secondary outcomes. Study-level forest plots are provided in the Supplementary Material."}))
     h2("Molecular characteristics")
-    p("[TO BE WRITTEN from Table 3.] Molecular data were sparse. Reports identified at the screening stage addressed KRAS mutation,{c:li2024,zheng2023} c-MYC amplification,{c:pan2020} whole-exome sequencing of 30 SACC tumours against an external sporadic-CRC reference,{c:genomic2023} immune-cell infiltration and PD-L1,{c:wangw2021,wangw2023,bmcgastro2023} and, in S. mansoni-associated CRC, p53 immunohistochemistry and mismatch-repair proteins.{c:madbouly2007} Biomarkers were pooled only when at least two comparable internal-comparator studies were available.")
+    p(molecular_paragraph(pooled))
     B.append(("table", table3()))
     B.append(("fig", {"file": "Figure6_molecular.png", "w": 16.0, "from_output": True,
                       "cap": "**Figure 6.** Molecular phenotype. Pooled odds ratios for biomarkers reported by at least two comparable studies, and evidence map for biomarkers that could not be pooled."}))
     h2("Overall survival")
-    p(pooled_sentence(pooled, "OS - Adjusted", "overall survival (multivariable-adjusted HRs)", hr=True) + " " + pooled_sentence(pooled, "OS - Unadjusted", "overall survival (unadjusted or derived HRs)", hr=True))
+    p(pooled_sentence(pooled, "OS - Adjusted", "overall survival (multivariable-adjusted HRs)", hr=True) + " " + pooled_sentence(pooled, "OS - Unadjusted", "overall survival (unadjusted or derived HRs)", hr=True) + " The unadjusted pool combined three estimates above 1 with one HR below 1 derived from a log-rank P value in a 100-patient follow-up subset;{c:wangz2020,tierney2007} the largest cohort reported no independent effect after adjustment but did not report the adjusted HR.{c:zheng2023}")
     B.append(("fig", {"file": "Figure4_OS_forest.png", "w": 16.0, "from_output": True,
                       "cap": "**Figure 4.** Overall survival in SACC versus NSACC. Hazard ratios with 95% CI; multivariable-adjusted and unadjusted/derived estimates are pooled separately. Source column: P1, adjusted HR reported; P2, unadjusted HR reported; P3, derived from survival statistics; P4, reconstructed from Kaplan-Meier curves."}))
     h2("Disease-free and recurrence-free survival")
-    p(pooled_sentence(pooled, "DFS - Adjusted", "disease-free survival (adjusted)", hr=True) + " " + pooled_sentence(pooled, "DFS - Unadjusted", "disease-free survival (unadjusted)", hr=True))
+    p(pooled_sentence(pooled, "DFS - Adjusted", "disease-free survival (adjusted)", hr=True) + " " + pooled_sentence(pooled, "DFS - Unadjusted", "disease-free survival (unadjusted)", hr=True) + " Both cohorts showed shorter disease-free survival in SACC before adjustment and attenuated, non-significant HRs after adjustment.{c:zheng2023,li2024}")
     B.append(("fig", {"file": "Figure5_DFS_forest.png", "w": 16.0, "from_output": True,
                       "cap": "**Figure 5.** Disease-free/recurrence-free survival in SACC versus NSACC (hazard ratios, random effects)."}))
     h2("Within-SACC prognostic factors")
-    p("[TO BE WRITTEN from Table 5.] SACC-only cohorts examined the site of egg deposition,{c:wangm2016} eggs in regional lymph nodes and coexisting hepatic schistosomiasis in stage III disease,{c:pan2023} and c-MYC amplification.{c:pan2020} These data are reported separately from the comparative analysis.")
+    p(within_paragraph())
     B.append(("table", table5()))
     h2("Risk of bias")
-    p("[TO BE WRITTEN: distribution of NOS ratings; most frequent limitations, e.g., comparability and ascertainment of exposure.] Ratings are given in Supplementary Table S4.")
+    p(rob_paragraph())
     h2("Sensitivity and subgroup analyses")
-    p("[TO BE WRITTEN from Supplementary Table S5, including the analysis excluding the Shanghai cohort of 31,153 patients.]")
+    p(sensitivity_paragraph())
     h2("Certainty of evidence and overall phenotype")
     p("Table 4 summarises all pooled analyses with GRADE ratings. Figure 7 shows, study by study, the reported direction of each feature, including features that could not be pooled. Table 6 integrates these results into a phenotype matrix.")
     B.append(("table", table4(pooled)))
@@ -217,13 +218,20 @@ def fmt(x, d=2):
         return TBC
 
 
+def pfmt(x):
+    try:
+        return "< 0.001" if float(x) < 0.001 else f"= {float(x):.3f}"
+    except (TypeError, ValueError):
+        return f"= {TBC}"
+
+
 def pooled_sentence(pooled, key, label, hr=False, md=False):
     r = pooled.get(key)
     if not r:
         return f"For {label}, the pooled estimate was {TBC} (95% CI {TBC}; {TBC} studies; I² {TBC}; tau² {TBC})."
     m = "MD" if md else ("HR" if hr else "OR")
     return (f"For {label}, the pooled {m} was {fmt(r['estimate'])} (95% CI {fmt(r['lower95'])}-{fmt(r['upper95'])}; "
-            f"P = {fmt(r['p_value'], 3)}; {r['k']} studies; I² = {fmt(r['I2'], 0)}%; tau² = {fmt(r['tau2'], 3)}).")
+            f"P {pfmt(r['p_value'])}; {r['k']} studies; I² = {fmt(r['I2'], 0)}%; tau² = {fmt(r['tau2'], 3)}).")
 
 
 def cite_tags(keys):
@@ -231,7 +239,7 @@ def cite_tags(keys):
 
 
 REFKEY = {"Zheng2023": "zheng2023", "WangZ2020": "wangz2020", "WangW2020": "wangw2020", "WangW2021": "wangw2021",
-          "WangW2023": "wangw2023", "Pan2020": "pan2020", "BMCGastro2023": "bmcgastro2023", "Li2024": "li2024",
+          "WangW2023": "wangw2023", "Pan2020": "pan2020", "Cheng2023": "bmcgastro2023", "Chai2026": "chai2026", "Feng2015": "feng2015", "Wu2021": "wu2021", "Li2024": "li2024",
           "Zhang2023": "zhang2023", "Zhu2024": "zhu2024", "WangM2014": "wangm2014", "NCG1986": "ncg1986",
           "Madbouly2007": "madbouly2007", "Yang2023": "yang2023", "WangM2016": "wangm2016", "Pan2023": "pan2023",
           "Liu2013": "liu2013", "Zhou_CT2012": "zhou_ct2012", "Genomic2023": "genomic2023"}
@@ -246,103 +254,257 @@ def short_name(r):
     return f"{a.split(' ')[0]} {r['year']}"
 
 
+# ============================================================ data readers =====
+def _csv(rel):
+    f = os.path.join(ROOT, rel)
+    return list(csv.DictReader(open(f))) if os.path.exists(f) else []
+
+
+def _out(name):
+    return _csv(os.path.join("output/tables", name))
+
+
+def _verified(name):
+    return [r for r in _csv(os.path.join("data/analysis_ready", name)) if r.get("verified", "").strip().lower() == "yes"]
+
+
+def prisma():
+    return {r["box"]: (r["n"] if r["verified"].strip().lower() == "yes" and r["n"].strip() else TBC) for r in _csv("data/analysis_ready/prisma_counts.csv")}
+
+
+def est(r, d=2):
+    return f"{fmt(r['estimate'], d)} (95% CI {fmt(r['lower95'], d)}-{fmt(r['upper95'], d)})"
+
+
+def sens_row(outcome, analysis):
+    for r in _out("TableS5_sensitivity.csv"):
+        if r["outcome"] == outcome and r["analysis"] == analysis:
+            return r
+    return None
+
+
+def sens_sentence(outcome):
+    r = sens_row(outcome, "excluding largest cohort")
+    if not r:
+        return ""
+    m = {"OR": "OR", "HR": "HR"}.get(r["measure"], r["measure"])
+    return (f"After exclusion of the largest cohort,{{c:zheng2023}} the {m} was {est(r)} ({r['k']} studies; I² = {fmt(r['I2'], 0)}%).")
+
+
+def abstract_results(pooled):
+    c = prisma()
+    g = lambda k, m="OR": (f"{m} {est(pooled[k])}" if k in pooled else f"{m} {TBC}")
+    return (f"**Results.** In this interim analysis (PubMed only), {c['screened']} records were screened and {c['included_qualitative']} reports from seven independent Chinese comparative cohorts, one SACC-only cohort, and one genomic study were included; "
+            f"{c['reports_not_retrieved']} potentially relevant reports could not be retrieved. SACC patients were more often male ({g('Male sex')}; 6 cohorts; I² 0%) and older. "
+            f"Adjusted overall survival was worse in SACC ({g('OS - Adjusted', 'HR')}; 2 cohorts), but unadjusted estimates were inconsistent ({g('OS - Unadjusted', 'HR')}; I² {fmt(pooled['OS - Unadjusted']['I2'], 0) if 'OS - Unadjusted' in pooled else TBC}%) "
+            f"and adjusted disease-free survival did not differ ({g('DFS - Adjusted', 'HR')}). Stage III-IV disease was less frequent ({g('Stage III-IV')}), but not after exclusion of the largest cohort; "
+            f"lymph-node metastasis ({g('Lymph-node metastasis')}), distant metastasis ({g('Distant metastasis')}), differentiation, and vascular and perineural invasion did not differ. "
+            f"KRAS mutation was more frequent in SACC ({g('KRAS mutation')}; 2 cohorts); other biomarkers came from single cohorts. Certainty of evidence [TO BE RATED with GRADE].")
+
+
+def search_paragraph():
+    c = prisma()
+    return (f"This is an interim selection based on MEDLINE only. The PubMed strategy in Supplementary Table S1, run on 5 October 2026, returned {c['db_pubmed']} records, "
+            f"which contained all {22} reports of the earlier scoping inventory. Titles and abstracts of {c['screened']} records were screened and {c['excluded_title_abstract']} were excluded. "
+            f"Of {c['reports_sought']} reports sought, {c['reports_not_retrieved']} could not be retrieved from open sources (mainly Chinese-language articles and subscription journals; Supplementary Table S2). "
+            f"{c['full_text_assessed']} full texts were assessed and {c['full_text_excluded']} was excluded, leaving {c['included_qualitative']} reports in the qualitative synthesis and "
+            f"{c['included_quantitative']} contributing to at least one meta-analysis (Figure 1). Scopus, Web of Science, Embase, CNKI, Wanfang, and SinoMed [ARE STILL TO BE SEARCHED; counts TO BE ADDED].")
+
+
+def characteristics_paragraph():
+    return ("The 16 included reports came from nine institutions or groups (Table 1). Seven independent comparative cohorts, all from China, compared SACC with NSACC: "
+            "Changhai Hospital, Shanghai (823 SACC and 30,330 NSACC; 2001-2021);{c:zheng2023} Yijishan Hospital, Wuhu (253 and 2,885; 2012-2018), with a second, partly overlapping report from the same hospital;{c:wangz2020,yang2023} "
+            "the Qingpu Branch of Zhongshan Hospital, Shanghai (137 and 214; 2008-2016), from which five further reports provided biomarker data only;{c:wangw2020,wangw2021,wangw2023,pan2020,bmcgastro2023,chai2026} "
+            "Union Hospital, Wuhan (30 and 459; 2010-2019);{c:li2024} Jingzhou Hospital, Hubei (95 and 406; 2020-2022), with an overlapping radiology report;{c:zhu2024,zhang2023} "
+            "Wuhu Second People's Hospital (56 and 307; 2015-2020);{c:wu2021} and Ruijin Hospital, Shanghai (26 and 34 rectosigmoid cancers; 2009-2013).{c:feng2015} "
+            "Overlap was confirmed from the full texts: all six Qingpu reports described patients resected at the same hospital between January 2008 and August 2016, and the two Jingzhou reports shared the hospital, period, and an author (Supplementary Table S6). "
+            "A previously suspected Qingpu report proved to be a separate SACC-only cohort from the main Zhongshan campus (2016-2018).{c:pan2023} One exome-sequencing study used an external sporadic-CRC comparator.{c:genomic2023} "
+            "Allowing for overlap, individual meta-analyses included up to 1,383 SACC and 34,328 NSACC patients (Table 4). All cohorts were retrospective; survival data were available for four cohorts.")
+
+
+def pathology_paragraph(pooled):
+    parts = [pooled_sentence(pooled, "Poor differentiation", "poor differentiation"), pooled_sentence(pooled, "Mucinous histology", "mucinous or signet-ring histology"),
+             pooled_sentence(pooled, "Vascular invasion", "vascular invasion"), pooled_sentence(pooled, "Perineural invasion", "perineural invasion"),
+             pooled_sentence(pooled, "Tumour budding", "tumour budding"), pooled_sentence(pooled, "Tumour size >= 5 cm", "tumour size of 5 cm or more")]
+    lo = sens_row("Poor differentiation", "leave-one-out: omit WangZ2020")
+    extra = (f" Heterogeneity for differentiation was driven by one cohort reporting 2.6% poorly differentiated SACC against 21.9% NSACC with a non-significant P value;{{c:wangz2020}} without it the OR was {est(lo)} (I² = {fmt(lo['I2'], 0)}%)." if lo else "")
+    single = (" Single cohorts reported more multiple primary CRC (4.3% vs 2.8%), more concomitant polyps (20.0% vs 13.6%), and more positive resection margins (3.6% vs 1.1%) in SACC, and lymphovascular invasion "
+              "in 34% vs 36%;{c:zheng2023,wangw2020} these were not pooled.")
+    return " ".join(parts) + extra + single + " Study-level counts are given in Table 2."
+
+
+def molecular_paragraph(pooled):
+    k = pooled.get("KRAS mutation")
+    ks = f"KRAS mutation was more frequent in SACC in the two cohorts with internal comparators (pooled OR {est(k)}; I² = {fmt(k['I2'], 0)}%), " if k else ""
+    return (ks + "although only the larger cohort was individually significant,{c:zheng2023} and the smaller one found the excess confined to G12S/D mutations (43.3% vs 18.1%).{c:li2024} "
+            "In the largest cohort, NRAS, BRAF, and PIK3CA mutation and mismatch-repair deficiency did not differ.{c:zheng2023} All other biomarkers came from single reports of the Qingpu cohort and showed no difference between groups: "
+            "c-MYC amplification (13.8% vs 14.4%),{c:pan2020} stromal and tumoural PD-L1,{c:wangw2021} stromal and intratumoural TILs, CD3 and CD20,{c:wangw2023} CD4 and CD8 densities,{c:bmcgastro2023} and CFIm25.{c:chai2026} "
+            "Exome sequencing of 30 SACC tumours against an external sporadic-CRC reference found a lower median tumour mutational burden (1.61 vs 2.03 mutations/Mb), microsatellite stability or low instability in all cases, and less frequent RTK-RAS and Hippo pathway alteration.{c:genomic2023} "
+            "Molecular data on S. mansoni (p53, mismatch repair, c-Myc) and several small Chinese-language comparisons (mismatch repair, p53, COX-2, Bax, Bcl-2, VEGF) were identified but their full texts could not be retrieved.{c:madbouly2007,zalata2005,chen2016,yangdh2014,ruan2013,yangxg2021,zhangr1998}")
+
+
+def within_paragraph():
+    pooled = _out("Table5b_within_SACC_pooled.csv")
+    ln = next((r for r in pooled if r["outcome"] == "LN_metastasis OS"), None)
+    txt = ("Within SACC, the conventional factors remained prognostic: nodal metastasis predicted overall survival in two cohorts"
+           + (f" (pooled adjusted HR {est(ln)}; I² = {fmt(ln['I2'], 0)}%)" if ln else "") + ",{c:zheng2023,bmcgastro2023} as did distant metastasis, BRAF mutation, and tumour budding in the largest cohort.{c:zheng2023} "
+           "Schistosomiasis-specific features were examined only in the SACC-only cohort from the main Zhongshan campus (172 patients):{c:pan2023} in stage III disease, schistosome eggs in regional lymph nodes were associated with shorter disease-free survival "
+           "(adjusted HR 3.00, 95% CI 1.37-6.59) and coexisting hepatic schistosomiasis with shorter disease-free (adjusted HR 3.95, 1.75-8.92) and overall survival (adjusted HR 4.97, 1.84-13.43); "
+           "deep (muscularis or full-thickness) egg deposition was associated with disease-free survival in univariable analysis only. c-MYC amplification (adjusted HR 1.86, 1.01-3.42) and high intratumoural CD8 density (adjusted HR 0.52, 0.30-0.90) "
+           "were prognostic in the Qingpu SACC subgroup.{c:pan2020,bmcgastro2023} A West China cohort of 74 SACC on egg deposition site could not be retrieved.{c:wangm2016} With these exceptions, none of the within-SACC factors could be pooled (Table 5).")
+    return txt
+
+
+def rob_paragraph():
+    rob = _csv("data/analysis_ready/rob_nos.csv")
+    main = [r for r in rob if r["study_id"] in ("Zheng2023", "WangZ2020", "WangW2020", "Li2024", "Zhu2024", "Zhang2023", "Yang2023", "Wu2021", "Feng2015")]
+    n = {k: sum(r["rating"] == k for r in main) for k in ("low", "moderate", "high")}
+    return (f"Of the {len(main)} comparative reports that contributed to meta-analyses, {n['low']} were at low, {n['moderate']} at moderate, and {n['high']} at high risk of bias on the Newcastle-Ottawa Scale (Supplementary Table S4). "
+            "The most frequent limitations were the absence of adjustment for confounders in cross-sectional comparisons, unreported or incomplete follow-up, and non-consecutive selection of the non-schistosomal group in two reports.{c:yang2023,feng2015} "
+            "Exposure ascertainment was secure (histology) in all, but may under-detect schistosomiasis, which would bias comparisons towards the null. Several reports contained internal numerical inconsistencies, which are documented in the extraction file. "
+            "[Interim: risk of bias assessed by one AI-assisted reviewer; second independent assessment PENDING.]")
+
+
+def sensitivity_paragraph():
+    out = []
+    for oc, lab in (("Male sex", "male sex"), ("Stage III-IV", "stage III-IV disease"), ("Lymph-node metastasis", "lymph-node metastasis")):
+        r = sens_row(oc, "excluding largest cohort")
+        if r:
+            out.append(f"{lab} {est(r)}")
+    lo = sens_row("OS - Unadjusted", "leave-one-out: omit WangZ2020")
+    s = ("Excluding the Shanghai cohort of 31,153 patients{c:zheng2023} gave ORs of " + "; ".join(out) + ". The male excess was therefore robust, "
+         "whereas the lower odds of stage III-IV disease and the excess of rectal tumours depended on the largest cohort. ")
+    if lo:
+        s += (f"For unadjusted overall survival, omitting the only cohort with a favourable (derived) HR{{c:wangz2020}} gave an HR of {est(lo)} (I² = {fmt(lo['I2'], 0)}%). ")
+    s += ("Restricting to histology-confirmed SACC did not change any estimate because all analysed cohorts used histology; no cohort confirmed the species, so the S. japonicum-confirmed analysis could not be performed. "
+          "Pre-specified subgroup analyses were not feasible with two to seven cohorts per outcome. With fewer than 10 studies for every outcome, small-study effects were not assessed. All sensitivity results are in Supplementary Table S5.")
+    return s
+
+
+# =============================================================== tables ======
+FOLLOWUP = {"Zheng2023": "NR (survival in 6,537)", "WangZ2020": "Median 78 mo (100 pts)", "WangW2020": "Median 62.4 mo", "WangW2021": "NR (cohort as Wang 2020)",
+            "WangW2023": "NR (cohort as Wang 2020)", "Pan2020": "Median 62.4 mo", "Cheng2023": "Median 62.4 mo", "Chai2026": "NR", "Li2024": "NR",
+            "Pan2023": "Median 50.1 mo", "Genomic2023": "NR", "Zhang2023": "None", "Zhu2024": "None", "Yang2023": "None", "Wu2021": "None", "Feng2015": "None"}
+DEFN = {"Zheng2023": "Calcified eggs in resected colorectal tissue", "Feng2015": "Ova on microscopy (colon, rectum, or stool)",
+        "Li2024": "Intact/calcified eggs, granulomas, or worms in CRC tissue", "Genomic2023": "History plus ova in specimen"}
+
+
 def table1(inv):
-    order = ["Zheng2023", "WangZ2020", "WangW2020", "WangW2021", "WangW2023", "Pan2020", "BMCGastro2023", "Li2024",
-             "Zhang2023", "Zhu2024", "WangM2014", "NCG1986", "Yang2023", "Madbouly2007", "WangM2016", "Pan2023",
-             "Liu2013", "Zhou_CT2012", "Genomic2023"]
+    order = ["Zheng2023", "WangZ2020", "Yang2023", "WangW2020", "WangW2021", "WangW2023", "Pan2020", "Cheng2023", "Chai2026", "Li2024",
+             "Zhu2024", "Zhang2023", "Wu2021", "Feng2015", "Pan2023", "Genomic2023", "WangM2014", "WangM2016", "NCG1986", "Madbouly2007"]
     rows = []
     for sid in order:
         r = inv[sid]
         nr = lambda v: "NR" if v in ("NR", "") else v
-        rows.append([short_name(r) + cite_tags([REFKEY[sid]]), nr(r["city_province"]), nr(r["institution"]).split(" (")[0],
-                     nr(r["recruitment_period"]), r["design"], nr(r["n_SACC"]),
-                     nr(r["n_NSACC"]) if "Within" not in r["analysis_set"] else "-",
-                     r["species"].replace(" (to verify)", "*").replace(" (endemic area; definition to verify)", "*").replace(" (presumed; verify)", "*"),
-                     TBC.replace("CALCULATED", "EXTRACTED"), TBC.replace("CALCULATED", "EXTRACTED"),
-                     r["outcomes_reported_in_abstract"].split(" (")[0][:90], r["overlap_group"].split("-")[0], r["analysis_set"].split(" (")[0].split(" -")[0]])
-    return {"cap": "**Table 1.** Characteristics of identified studies",
-            "head": ["Study", "Location", "Institution", "Study period", "Design", "SACC n", "NSACC n", "Species",
-                     "Definition of schistosomiasis", "Follow-up", "Main outcomes", "Overlap group", "Analysis set"],
-            "rows": rows, "font": 6.5, "landscape": True,
-            "foot": "Values are from bibliographic records and published abstracts identified on 2026-10-05 and must be confirmed against full texts before submission. NR, not retrieved; *, species presumed from an S. japonicum-endemic setting, to be confirmed; overlap groups G1-G8 are defined in Supplementary Table S6."}
+        retrieved = "Full text read" in r["verification_numbers"]
+        rows.append([short_name(r) + cite_tags([REFKEY[sid]]), nr(r["city_province"]), nr(r["institution"]).split(" (")[0].split(",")[0],
+                     nr(r["recruitment_period"]), r["design"].split(" (")[0], nr(r["n_SACC"]),
+                     nr(r["n_NSACC"]) if not r["analysis_set"].startswith("Within") else "-",
+                     r["species"].split(" (")[0], DEFN.get(sid, "Eggs on H&E in resected specimen" if retrieved else "NR (full text not retrieved)"),
+                     FOLLOWUP.get(sid, "NR"), r["outcomes_reported_in_abstract"].split(" (")[0][:80], r["overlap_group"].split("-")[0],
+                     r["analysis_set"].split(" (")[0].split(" -")[0] if retrieved else "Not analysed (no full text)"])
+    return {"cap": "**Table 1.** Characteristics of identified studies", "head": ["Study", "Location", "Institution", "Study period", "Design", "SACC n", "NSACC n", "Species",
+            "Definition of schistosomiasis", "Follow-up", "Main outcomes", "Overlap group", "Analysis set"], "rows": rows, "font": 6.5, "landscape": True,
+            "foot": "Extracted from full texts on 5 October 2026 except where marked 'no full text'. NR, not reported; mo, months; S. japonicum presumed = endemic-area cohort, species not confirmed. Overlap groups are defined in Supplementary Table S6. "
+                    "Six further comparative reports identified by the PubMed search could not be retrieved (Supplementary Table S2)."}
+
+
+T2 = [("male_sex", "Male"), ("age_over_60", "Age >60"), ("rectal_location", "Rectum"), ("advanced_stage_III_IV", "Stage III-IV"), ("T3_T4", "T3-T4"),
+      ("LN_metastasis", "LN+"), ("distant_metastasis", "M1"), ("poor_differentiation", "Poor diff."), ("mucinous", "Mucinous/SRC"),
+      ("vascular_invasion", "Vascular inv."), ("perineural_invasion", "PNI")]
 
 
 def table2(inv):
-    feats = [("Age", "Age"), ("Sex", "sex"), ("Site", "site|rectum|location"), ("T stage", "pT|T stage|TNM"), ("LN", "LN|lymph|N stage"),
-             ("Invasion", "invasion|thrombus"), ("Differentiation", "differentiation|mucinous"), ("Multiple/polyps", "multiple|polyp|synchronous"),
-             ("Markers", "CA19|CEA|CA-125|WBC"), ("OS", "OS|survival"), ("DFS", "DFS")]
+    bins = [r for r in _verified("binary_outcomes.csv") if r["include_primary"].lower() == "yes"]
+    studies = []
+    for r in bins:
+        if r["study_id"] not in studies:
+            studies.append(r["study_id"])
     rows = []
-    for sid, r in inv.items():
-        if not r["analysis_set"].startswith(("Primary", "Separate")):
-            continue
-        o = r["outcomes_reported_in_abstract"]
-        rows.append([short_name(r) + cite_tags([REFKEY[sid]])] + ["A" if re.search(f, o, re.I) else "?" for _, f in feats])
-    return {"cap": "**Table 2.** Clinicopathological outcomes available by study (screening stage)",
-            "head": ["Study"] + [f for f, _ in feats], "rows": rows, "font": 7.5, "landscape": True,
-            "foot": "A, outcome mentioned in the abstract; ?, availability to be determined from the full text. This table will be replaced by extracted SACC and NSACC counts (Supplementary Table S3) after full-text extraction."}
+    for sid in studies:
+        cell = {r["outcome"]: f"{r['event_SACC']}/{r['n_SACC']} vs {r['event_NSACC']}/{r['n_NSACC']}" for r in bins if r["study_id"] == sid}
+        rows.append([short_name(inv[sid]) + cite_tags([REFKEY[sid]])] + [cell.get(k, "-") for k, _ in T2])
+    return {"cap": "**Table 2.** Clinicopathological outcomes by study: events/total in SACC vs NSACC", "head": ["Study"] + [l for _, l in T2], "rows": rows, "font": 6.5, "landscape": True,
+            "foot": "Only the report used for each outcome within an overlap group is shown (Supplementary Table S6). -, not reported or taken from another report of the same cohort. LN+, lymph-node metastasis; M1, distant metastasis (stage IV where M stage was not given separately); PNI, perineural invasion. Definitions differ between studies (see notes in the extraction file)."}
 
 
 def table3():
-    mol_out = os.path.join(OUT, "tables/Table3_molecular_evidence_map.csv")
-    rows = [
-        ["KRAS mutation", "Li 2024{c:li2024}; Zheng 2023{c:zheng2023}", TBC, TBC, "To be extracted", TBC, "Anti-EGFR eligibility; MAPK signalling", "Limited (2 cohorts, assays differ)"],
-        ["c-MYC amplification", "Pan 2020{c:pan2020}", TBC, TBC, "Prognostic within SACC only (abstract)", "Not poolable (k = 1)", "Oncogene; proliferation", "Limited (single cohort)"],
-        ["TMB / exome", "Genomic 2023{c:genomic2023}", "30", "External", "Lower TMB; MSS/MSI-L (abstract)", "Not poolable (external comparator)", "Immunotherapy responsiveness", "Very limited"],
-        ["MSI / MMR (MLH1, MSH2)", "Madbouly 2007{c:madbouly2007} (S. mansoni)", "40", "20", "To be extracted", "Not poolable (other species)", "DNA mismatch repair", "Very limited; species differs"],
-        ["p53 IHC", "Madbouly 2007{c:madbouly2007} (S. mansoni)", "40", "20", "To be extracted", "Not poolable (other species)", "Genome maintenance", "Very limited; species differs"],
-        ["CD3/CD8/CD4 TILs, PD-L1, CRP", "Wang 2021{c:wangw2021}; Wang 2023{c:wangw2023}; BMC Gastroenterol 2023{c:bmcgastro2023}", TBC, TBC, "To be extracted", "One overlap group (G3): not poolable", "Tumour immune microenvironment", "Limited (single institution)"],
-        ["NRAS, BRAF, TP53 mutation, APC, PIK3CA, beta-catenin, Ki-67", "None identified at screening", "-", "-", "-", "-", "-", "No evidence"],
-    ]
-    return {"cap": "**Table 3.** Molecular evidence map for SACC versus NSACC",
-            "head": ["Biomarker", "Studies", "SACC n", "NSACC n", "Direction", "Pooled effect", "Biological relevance", "Evidence strength"],
-            "rows": rows, "font": 7.5, "landscape": True,
-            "foot": "Screening-stage map; sample sizes and directions are to be verified from full texts. Pooled effects are computed only for biomarkers with at least two comparable internal-comparator studies." +
-                    (" Updated pooled results: output/tables/Table3_molecular_evidence_map.csv." if os.path.exists(mol_out) else "")}
+    mol = _verified("molecular_evidence.csv")
+    pooled = {r["biomarker"]: r["pooled"] for r in _out("Table3_molecular_evidence_map.csv")}
+    inv = inventory()
+    rows = []
+    for r in mol:
+        pct = lambda a, b: f"{a}/{b} ({100 * float(a) / float(b):.1f}%)" if a and b else (b or "-")
+        rows.append([r["biomarker"], short_name(inv[r["study_id"]]) + cite_tags([REFKEY[r["study_id"]]]), r["method"], pct(r["positive_SACC"], r["total_SACC"]),
+                     pct(r["positive_NSACC"], r["total_NSACC"]) if r["comparator_type"] == "internal" else "External (TCGA sporadic CRC)", r["reported_p"],
+                     pooled.get(r["biomarker"], "Not pooled") if r["comparator_type"] == "internal" else "Not poolable (external comparator)"])
+    rows.append(["APC, TP53 mutation, beta-catenin, Ki-67", "None with internal comparator", "-", "-", "-", "-", "No evidence"])
+    return {"cap": "**Table 3.** Molecular evidence map for SACC versus NSACC", "head": ["Biomarker", "Study", "Method", "SACC positive/total", "NSACC positive/total", "Reported P", "Pooled effect (random effects)"],
+            "rows": rows, "font": 7, "landscape": True,
+            "foot": "All Qingpu reports (Wang 2021, Wang 2023, Pan 2020, Cheng 2023, Chai 2026) describe one cohort; each biomarker appears once. Biomarkers were pooled only with at least two independent internal-comparator cohorts. "
+                    "Abstract-only data on S. mansoni (Madbouly 2007: p53 32/40 vs 8/20; MSI 3/40 vs 1/20) are not shown in the analysis."}
 
 
 def table4(pooled):
-    order = [("OS - Adjusted", "Overall survival (adjusted)", "HR"), ("OS - Unadjusted", "Overall survival (unadjusted)", "HR"),
+    order = [("OS - Adjusted", "Overall survival (adjusted)", "HR"), ("OS - Unadjusted", "Overall survival (unadjusted/derived)", "HR"),
              ("DFS - Adjusted", "DFS/RFS (adjusted)", "HR"), ("DFS - Unadjusted", "DFS/RFS (unadjusted)", "HR"),
-             ("Stage III-IV", "Stage III-IV", "OR"), ("Lymph-node metastasis", "Lymph-node metastasis", "OR"),
-             ("Distant metastasis", "Distant metastasis", "OR"), ("Male sex", "Male sex", "OR"), ("age", "Age, years", "MD"),
-             ("Rectal location", "Rectal location", "OR"), ("Vascular invasion", "Vascular invasion", "OR"),
-             ("Perineural invasion", "Perineural invasion", "OR"), ("Mucinous histology", "Mucinous histology", "OR"),
-             ("Poor differentiation", "Poor differentiation", "OR"), ("KRAS mutation", "KRAS mutation", "OR")]
+             ("Stage III-IV", "Stage III-IV", "OR"), ("Lymph-node metastasis", "Lymph-node metastasis", "OR"), ("Distant metastasis", "Distant metastasis", "OR"),
+             ("pT3-T4", "pT3-T4", "OR"), ("Male sex", "Male sex", "OR"), ("age", "Age, years", "MD"), ("Age > 60 years", "Age > 60 years", "OR"),
+             ("Rectal location", "Rectal location", "OR"), ("Sigmoid location", "Sigmoid location", "OR"), ("Right-sided colon", "Right-sided colon", "OR"),
+             ("Poor differentiation", "Poor differentiation", "OR"), ("Mucinous histology", "Mucinous/signet-ring histology", "OR"),
+             ("Vascular invasion", "Vascular invasion", "OR"), ("Perineural invasion", "Perineural invasion", "OR"), ("Tumour budding", "Tumour budding", "OR"),
+             ("Tumour size >= 5 cm", "Tumour size >= 5 cm", "OR"), ("KRAS mutation", "KRAS mutation", "OR")]
     rows = []
     for key, lab, m in order:
         r = pooled.get(key)
         if r:
             rows.append([lab, r["k"], r["n_SACC"], r["n_NSACC"], m, fmt(r["estimate"]), f"{fmt(r['lower95'])}-{fmt(r['upper95'])}",
-                         f"{fmt(r['I2'], 0)}%", fmt(r["tau2"], 3), fmt(r["p_value"], 3), "[TO BE ASSESSED]"])
+                         f"{fmt(r['I2'], 0)}%", fmt(r["tau2"], 3), ("<0.001" if float(r["p_value"]) < 0.001 else fmt(r["p_value"], 3)), "[TO BE ASSESSED]"])
         else:
-            rows.append([lab, TBC, TBC, TBC, m, TBC, TBC, TBC, TBC, TBC, "[TO BE ASSESSED]"])
-    return {"cap": "**Table 4.** Summary of meta-analyses: SACC versus NSACC",
-            "head": ["Outcome", "Studies", "SACC n", "NSACC n", "Measure", "Pooled effect", "95% CI", "I²", "tau²", "P value", "GRADE certainty"],
+            rows.append([lab, "<2", "-", "-", m, "Not pooled", "-", "-", "-", "-", "-"])
+    return {"cap": "**Table 4.** Summary of meta-analyses: SACC versus NSACC", "head": ["Outcome", "Studies", "SACC n", "NSACC n", "Measure", "Pooled effect", "95% CI", "I²", "tau²", "P value", "GRADE certainty"],
             "rows": rows, "font": 7.5, "landscape": True,
-            "foot": "Random-effects models with REML estimation. HR > 1 and OR > 1 indicate higher hazard or higher odds in SACC. Rows are filled automatically from output/tables/Table4_meta_analysis_summary.csv; outcomes with fewer than two independent cohorts are reported narratively."}
+            "foot": "Random-effects models with REML estimation; S. japonicum (presumed) cohorts; one report per overlap group per outcome. HR > 1 and OR > 1 indicate higher hazard or higher odds in SACC; MD > 0, older SACC patients. "
+                    "Generated from output/tables/Table4_meta_analysis_summary.csv. GRADE ratings require two reviewers and are pending."}
 
 
 def table5():
-    rows = [["Egg deposition site", "Wang 2016{c:wangm2016}", "OS", TBC, "Associated with OS in univariable but not multivariable analysis (abstract)", TBC],
-            ["Eggs in regional lymph nodes (stage III)", "Pan 2023{c:pan2023}", "DFS; OS", TBC, "Independent factor for DFS (abstract)", TBC],
-            ["Hepatic schistosomiasis (stage III)", "Pan 2023{c:pan2023}", "DFS; OS", TBC, "Independent factor for DFS and OS (abstract)", TBC],
-            ["CEA level", "Wang 2016{c:wangm2016}", "OS", TBC, "Independent factor for OS (abstract)", TBC],
-            ["pT stage", "Wang 2016{c:wangm2016}", "OS", TBC, "Independent factor for OS (abstract)", TBC],
-            ["c-MYC amplification", "Pan 2020{c:pan2020}", "OS", TBC, "Independent poor-prognosis factor in SACC (abstract)", TBC],
-            ["CD8+ TIL density", "Wang 2021{c:wangw2021}", "OS", TBC, "Independent factor in SACC (abstract)", TBC]]
-    return {"cap": "**Table 5.** Within-SACC prognostic factors",
-            "head": ["Factor", "Study", "Outcome", "HR (95% CI)", "Reported finding", "Adjusted for"],
-            "rows": rows, "font": 7.5, "landscape": True,
-            "foot": "SACC-only analyses; not combined with the SACC-versus-NSACC comparison. 'Reported finding' paraphrases the published abstract and must be checked against the full text; HRs are to be extracted."}
+    inv = inventory()
+    ws = _verified("within_sacc_prognostic.csv")
+    rows = [[r["factor"].replace("_", " "), short_name(inv[r["study_id"]]) + cite_tags([REFKEY[r["study_id"]]]), r["comparison"], r["outcome"],
+             f"{r['hr']} ({r['lower95']}-{r['upper95']})", "Adjusted" if r["adjusted"] == "yes" else "Univariable", r["covariates"] or "-", r["n_SACC_total"]] for r in ws]
+    for r in _out("Table5b_within_SACC_pooled.csv"):
+        rows.append([r["outcome"].replace("_", " ") + " (pooled)", f"{r['k']} cohorts", "", "", f"{fmt(r['estimate'])} ({fmt(r['lower95'])}-{fmt(r['upper95'])}); I² {fmt(r['I2'], 0)}%", "Random effects", "", r["n_SACC"]])
+    return {"cap": "**Table 5.** Within-SACC prognostic factors", "head": ["Factor", "Study", "Comparison", "Outcome", "HR (95% CI)", "Model", "Adjusted for", "SACC n"],
+            "rows": rows, "font": 6.5, "landscape": True,
+            "foot": "SACC-only analyses; not combined with the SACC-versus-NSACC comparison. Wang 2021 and Wang 2023 report P = 0.045 for HRs whose 95% CI includes 1. Factors from the Qingpu cohort (Wang 2021, Wang 2023, Pan 2020, Cheng 2023) describe the same patients."}
 
 
 def table6():
-    feats = ["Older age", "Male sex", "Rectal localisation", "Advanced stage", "Lymph-node metastasis", "Distant metastasis",
-             "Vascular invasion", "Mucinous histology", "Multiple primary CRC", "KRAS mutation", "Overall survival", "DFS/RFS"]
-    return {"cap": "**Table 6.** Phenotype matrix: is SACC distinct?",
-            "head": ["Feature", "Pooled direction (up / down / neutral; better / worse for survival)", "Strength of evidence (strong / moderate / limited / inconsistent)"],
-            "rows": [[f, "[TO BE COMPLETED after analysis]", "[TO BE COMPLETED after analysis]"] for f in feats], "font": 8, "landscape": False,
-            "foot": "Strong: >= 3 independent cohorts, consistent direction, low-moderate risk of bias, moderate/high GRADE. Moderate: >= 2 cohorts, consistent direction, low GRADE. Limited: single cohort or imprecise pooled estimate. Inconsistent: cohorts disagree in direction."}
+    pooled = {r["outcome"]: r for r in pooled_rows()}
+    items = [("Older age", "age"), ("Male sex", "Male sex"), ("Rectal localisation", "Rectal location"), ("Advanced stage", "Stage III-IV"),
+             ("Lymph-node metastasis", "Lymph-node metastasis"), ("Distant metastasis", "Distant metastasis"), ("Vascular invasion", "Vascular invasion"),
+             ("Mucinous histology", "Mucinous histology"), ("Multiple primary CRC", None), ("KRAS mutation", "KRAS mutation"),
+             ("Overall survival (adjusted)", "OS - Adjusted"), ("DFS/RFS (adjusted)", "DFS - Adjusted")]
+    rows = []
+    for lab, key in items:
+        r = pooled.get(key) if key else None
+        if not r:
+            rows.append([lab, "Higher in SACC (single cohort)", "Limited"]); continue
+        lo, hi, k, i2 = float(r["lower95"]), float(r["upper95"]), int(r["k"]), float(r["I2"])
+        null = 0 if r["measure"] == "MD" else 1
+        sig = lo > null or hi < null
+        up = float(r["estimate"]) > null
+        surv = r["measure"] == "HR"
+        d = ("Worse in SACC" if up else "Better in SACC") if (surv and sig) else ("Up" if up else "Down") if sig else "Neutral (CI includes no difference)"
+        s = "Inconsistent" if i2 >= 75 else ("Moderate" if (sig and k >= 3 and i2 < 50) else "Limited")
+        if lab == "Older age":
+            d, s = "Up (all cohorts older or similar)", "Moderate (direction consistent; magnitude heterogeneous)"
+        if key in ("Rectal location", "Stage III-IV"):
+            s += " - depends on largest cohort"
+        rows.append([lab, d, s])
+    return {"cap": "**Table 6.** Phenotype matrix: is SACC distinct? (provisional)", "head": ["Feature", "Pooled direction", "Strength of evidence"], "rows": rows, "font": 8, "landscape": False,
+            "foot": "Classified automatically from Table 4 before GRADE: Moderate, >= 3 cohorts, 95% CI excluding no difference, I² < 50%; Limited, fewer cohorts or imprecise; Inconsistent, I² >= 75%. 'Strong' is reserved for findings with moderate/high GRADE certainty and is not yet assigned."}
 
 
 # ============================================================== rendering =====
@@ -513,27 +675,22 @@ def supplementary_blocks():
     B.append(("h1", "Supplementary Table S1. Complete search strategies"))
     B.append(("table", {"cap": "**Table S1.** Database search strategies (PRISMA-S)", "font": 7.5, "landscape": True,
         "head": ["Database", "Platform", "Exact query", "Date range", "Search date", "Records", "Limits"],
-        "rows": [[d, pl, q, "Inception to search date", "[SEARCH DATE TO BE ADDED]", TBC, "None (no language or date limits)"] for d, pl, q in SEARCHES],
+        "rows": [[d, pl, q, "Inception to search date", "2026-10-05" if d == "MEDLINE" else "[SEARCH DATE TO BE ADDED]", prisma()["db_pubmed"] if d == "MEDLINE" else TBC, "None (no language or date limits)"] for d, pl, q in SEARCHES],
         "foot": "Deduplication: [software and version TO BE ADDED], followed by manual check of author, year, title, and DOI. Searches were not peer-reviewed with PRESS [or: were peer-reviewed by NAME TO BE ADDED]."}))
     B.append(("h1", "Supplementary Table S2. Full texts excluded, with reasons"))
     B.append(("table", {"cap": "**Table S2.** Excluded full-text reports", "font": 8,
         "head": ["Study", "PMID / DOI", "Principal reason for exclusion"],
-        "rows": [["Liu 2013{c:liu2013}", "24083755 / 10.7314/APJCP.2013.14.8.4839", "Provisional: no non-schistosomal comparator identified (case series); retained for within-SACC description only - confirm on full text"],
-                 ["Zhou 2012 (CT){c:zhou_ct2012}", "22658847", "Provisional: SACC-only imaging-pathology study; no NSACC comparator"],
-                 [TBC, TBC, "[Remaining exclusions TO BE ADDED from screening log]"]],
+        "rows": S2_ROWS,
         "foot": "One principal reason per report, in the hierarchy: not CRC; not human; no schistosomiasis status; no comparator; no extractable outcome; duplicate cohort for the same outcome."}))
     B.append(("h1", "Supplementary Table S3. Complete extraction data"))
     B.append(("p", "Provided as the Excel workbook SACC_master_extraction.xlsx (sheets: master_wide, binary_outcomes, continuous_outcomes, survival_outcomes, within_sacc_prognostic, molecular_evidence, evidence_direction, rob_nos, inventory, overlap). Every value records its origin (reported, calculated from raw data, Kaplan-Meier-reconstructed, converted from median/IQR) and its source location in the original report."))
     B.append(("h1", "Supplementary Table S4. Risk-of-bias assessments"))
     B.append(("table", {"cap": "**Table S4.** Newcastle-Ottawa Scale assessments", "font": 8,
         "head": ["Study", "Selection (0-4)", "Comparability (0-2)", "Outcome/exposure (0-3)", "Total (0-9)", "Overall risk of bias"],
-        "rows": [[f"{n}{{c:{k}}}", TBC.replace("CALCULATED", "ASSESSED")] + [TBC.replace("CALCULATED", "ASSESSED")] * 4
-                 for n, k in [("Zheng 2023", "zheng2023"), ("Wang Z 2020", "wangz2020"), ("Wang W 2020", "wangw2020"), ("Li 2024", "li2024"),
-                              ("Zhang 2023", "zhang2023"), ("Zhu 2024", "zhu2024"), ("Wang M 2014", "wangm2014"), ("NCG 1986", "ncg1986"),
-                              ("Madbouly 2007", "madbouly2007")]],
-        "foot": "Two independent assessors; disagreements resolved by consensus. Low risk: 7-9 stars; moderate: 5-6; high: 0-4."}))
+        "rows": nos_rows(),
+        "foot": "Interim: one AI-assisted assessor; second independent assessment PENDING. Comparability awarded for analyses adjusted for stage plus age or sex. Low risk: 7-9 stars; moderate: 5-6; high: 0-4. Follow-up items are not met by cross-sectional comparisons."}))
     B.append(("h1", "Supplementary Table S5. Sensitivity analyses"))
-    B.append(("p", "Generated by R/run_all.R as output/tables/TableS5_sensitivity.csv: leave-one-out; excluding the largest cohort; excluding high risk of bias; histology-confirmed SACC only; S. japonicum-confirmed only; fixed-effect estimates. [TABLE TO BE INSERTED from verified analysis output.]"))
+    B.append(("table", s5_table()))
     B.append(("h1", "Supplementary Table S6. Potentially overlapping cohorts and decisions"))
     ov = list(csv.reader(open(os.path.join(ROOT, "data/overlap_matrix.csv"))))
     B.append(("table", {"cap": "**Table S6.** Overlap matrix", "font": 7.5, "landscape": True,
@@ -547,6 +704,42 @@ def supplementary_blocks():
     B.append(("h1", "References cited in the Supplementary Material"))
     B.append(("refs",))
     return B
+
+
+S2_ROWS = [
+ ["Liu XF 2023{c:liuxf2023}", "38125940", "Excluded at full text: no CRC-specific SACC-versus-NSACC data (cancer spectrum among S. japonicum patients)"],
+ ["Wang M 2014{c:wangm2014}", "25422211", "Not retrieved (journal site unreachable); abstract gives no HR"],
+ ["Wang M 2016{c:wangm2016}", "26922912", "Not retrieved (subscription); SACC-only cohort of 74"],
+ ["NCG 1986{c:ncg1986}", "3021419", "Not retrieved (Chinese, print only)"],
+ ["Madbouly 2007{c:madbouly2007}", "16786317", "Not retrieved (subscription); S. mansoni"],
+ ["Liu 2013{c:liu2013}", "24083755", "Not retrieved; abstract shows no comparator (SACC case series)"],
+ ["Zhang W 2012{c:zhou_ct2012}", "22658847", "Not retrieved; abstract shows SACC-only imaging study"],
+ ["Chen 2016{c:chen2016}", "26797844", "Not retrieved (Chinese); 80 vs 258, hMLH1/hMSH2"],
+ ["Yang DH 2014{c:yangdh2014}", "25434139", "Not retrieved (Chinese); 80 vs 80, p53/COX-2/Bax/c-myc"],
+ ["Ruan 2013{c:ruan2013}", "24024441", "Not retrieved (Chinese); 30 vs 30, VEGF/PD-ECGF"],
+ ["Yang XG 2021{c:yangxg2021}", "34008361", "Not retrieved (Chinese); 30 vs 30, Bcl-2/Bax"],
+ ["Zhang R 1998{c:zhangr1998}", "9851256", "Not retrieved (subscription); 22 vs 22, TP53 mutations"],
+ ["Zalata 2005{c:zalata2005}", "16308474", "Not retrieved (PMC access challenge); S. mansoni"],
+]
+
+
+def nos_rows():
+    rows = []
+    for r in _csv("data/analysis_ready/rob_nos.csv"):
+        inv = inventory()[r["study_id"]]
+        sel = sum(int(r[k]) for k in ("S1_representativeness", "S2_selection_nonexposed", "S3_ascertainment_exposure", "S4_outcome_absent_at_start"))
+        out = sum(int(r[k]) for k in ("O1_assessment_outcome", "O2_follow_up_length", "O3_follow_up_adequacy"))
+        rows.append([short_name(inv) + cite_tags([REFKEY[r["study_id"]]]), sel, r["C1_comparability"], out, r["total_stars"], r["rating"]])
+    return rows
+
+
+def s5_table():
+    rows = [[r["outcome"], r["analysis"], r["k"], r["measure"], f"{fmt(r['estimate'])} ({fmt(r['lower95'])}-{fmt(r['upper95'])})", f"{fmt(r['I2'], 0)}%"]
+            for r in _out("TableS5_sensitivity.csv")]
+    for r in pooled_rows():
+        rows.append([r["outcome"], "fixed (common) effect", r["k"], r["measure"], f"{fmt(r['fixed_estimate'])} ({fmt(r['fixed_lower95'])}-{fmt(r['fixed_upper95'])})", "-"])
+    return {"cap": "**Table S5.** Sensitivity analyses", "head": ["Outcome", "Analysis", "Studies", "Measure", "Estimate (95% CI)", "I²"], "rows": rows, "font": 7,
+            "foot": "From output/tables/TableS5_sensitivity.csv and Table 4 (fixed-effect columns). 'Excluding largest cohort' removes Zheng 2023. Analyses identical to the primary analysis (e.g. histology-confirmed only) are not repeated."}
 
 
 SEARCHES = [

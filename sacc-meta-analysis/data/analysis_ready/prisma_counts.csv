@@ -1,18 +1,18 @@
 box,n,verified,notes
-db_pubmed,,no,
-db_scopus,,no,
-db_wos,,no,
-db_embase,,no,
-db_cnki,,no,
-db_wanfang,,no,
-db_sinomed,,no,
-other_sources,,no,
-duplicates_removed,,no,
-screened,,no,
-excluded_title_abstract,,no,
-reports_sought,,no,
-reports_not_retrieved,,no,
-full_text_assessed,,no,
-full_text_excluded,,no,
-included_qualitative,,no,
-included_quantitative,,no,
+db_pubmed,337,yes,"PubMed searched 2026-10-05 with the exact Table S1 strategy (esearch count); all 22 inventory records retrieved by it"
+db_scopus,,no,Not yet run (no access from build environment)
+db_wos,,no,Not yet run
+db_embase,,no,Not yet run
+db_cnki,,no,Not yet run
+db_wanfang,,no,Not yet run
+db_sinomed,,no,Not yet run
+other_sources,0,yes,"Earlier web-search inventory (22 records) fully contained in the PubMed result; citation chasing of included studies not yet done"
+duplicates_removed,0,yes,Single database so far
+screened,337,yes,"Interim (PubMed only): titles screened by one AI-assisted reviewer on 2026-10-05; second human screener pending"
+excluded_title_abstract,308,yes,Interim (PubMed only)
+reports_sought,29,yes,"22 inventory reports (minus 2 epidemiological risk studies catalogued from abstracts) + 9 newly identified (Feng 2015, Wu 2021, Chai 2026, Chen 2016, Yang DH 2014, Ruan 2013, Yang XG 2021, Zhang R 1998, Zalata 2005)"
+reports_not_retrieved,12,yes,"Wang M 2014, Wang M 2016, NCG 1986, Madbouly 2007, Liu 2013, Zhang W 2012 (CT), Chen 2016, Yang DH 2014, Ruan 2013, Yang XG 2021, Zhang R 1998, Zalata 2005 (publisher/CNKI access needed)"
+full_text_assessed,17,yes,"Zheng 2023, Wang Z 2020, Wang W 2020/2021/2023, Pan 2020, Cheng 2023, Chai 2026, Li 2024, Zhang 2023, Zhu 2024, Yang 2023, Wu 2021, Feng 2015, Pan 2023, Yu 2023 (genomic), Liu XF 2023"
+full_text_excluded,1,yes,"Liu XF 2023: no CRC-specific SACC-versus-NSACC data (malignancy spectrum among S. japonicum patients)"
+included_qualitative,16,yes,"16 reports from 9 overlap groups: 7 independent comparative cohorts (14 reports incl. 5 biomarker reports from the Qingpu cohort), 1 SACC-only cohort, 1 external-comparator genomic study"
+included_quantitative,10,yes,"Reports contributing to at least one pooled estimate: Zheng 2023, Wang Z 2020, Yang 2023, Wang W 2020, Li 2024, Zhu 2024, Zhang 2023, Wu 2021, Feng 2015 (7 independent comparative cohorts) + Cheng 2023 (within-SACC pooled LN metastasis)"

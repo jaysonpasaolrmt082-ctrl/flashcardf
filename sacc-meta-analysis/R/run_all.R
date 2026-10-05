@@ -207,6 +207,7 @@ if (nrow(mol)) {
 # ------------------------------------------------------------ within-SACC ---
 ws <- read_verified(file.path(data_dir, "within_sacc_prognostic.csv"))
 if (nrow(ws)) {
+  check_overlap(transform(ws, key = paste(factor, outcome, adjusted)), "key")
   t5 <- ws[, c("study_id", "factor", "comparison", "outcome", "hr", "lower95", "upper95",
                "adjusted", "covariates", "hr_priority", "n_SACC_total")]
   pooled <- list()

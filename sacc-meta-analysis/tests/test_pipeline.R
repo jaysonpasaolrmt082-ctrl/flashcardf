@@ -13,7 +13,12 @@ suppressPackageStartupMessages(library(metafor))
 here <- normalizePath(".")
 tmp <- file.path(tempdir(), "sacc_test"); unlink(tmp, recursive = TRUE)
 dd <- file.path(tmp, "data"); od <- file.path(tmp, "out"); dir.create(dd, recursive = TRUE)
-for (f in list.files("data/analysis_ready", full.names = TRUE)) file.copy(f, dd)
+# Header-only copies of the analysis-ready files, so the test never touches real data
+empty <- file.path(tmp, "empty"); dir.create(empty)
+for (f in list.files("data/analysis_ready", full.names = TRUE)) {
+  hdr <- readLines(f, n = 1)
+  for (d in c(dd, empty)) writeLines(hdr, file.path(d, basename(f)))
+}
 
 ok <- function(cond, msg) { if (!cond) stop("FAIL: ", msg); cat("PASS:", msg, "\n") }
 
@@ -76,7 +81,7 @@ st2 <- suppressWarnings(system2("Rscript", c(file.path(here, "R/run_all.R"), dd,
 ok(!is.null(attr(st2, "status")) && any(grepl("Overlapping cohorts", st2)), "overlap guard blocks double-counting")
 
 # --- 5. empty templates: pipeline must run and pool nothing -----------------
-st3 <- system2("Rscript", c(file.path(here, "R/run_all.R"), "data/analysis_ready", file.path(tmp, "o3")), stdout = TRUE, stderr = TRUE)
+st3 <- system2("Rscript", c(file.path(here, "R/run_all.R"), empty, file.path(tmp, "o3")), stdout = TRUE, stderr = TRUE)
 ok(is.null(attr(st3, "status")) && !file.exists(file.path(tmp, "o3/tables/Table4_meta_analysis_summary.csv")),
    "empty verified dataset produces no pooled estimates")
 unlink(tmp, recursive = TRUE)
