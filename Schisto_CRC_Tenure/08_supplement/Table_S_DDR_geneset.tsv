@@ -1,0 +1,94 @@
+gene	module
+ATM	DNA damage sensing
+ATR	DNA damage sensing
+ATRIP	DNA damage sensing
+H2AX	DNA damage sensing
+MRE11	DNA damage sensing
+RAD50	DNA damage sensing
+NBN	DNA damage sensing
+MDC1	DNA damage sensing
+TP53BP1	DNA damage sensing
+RNF8	DNA damage sensing
+RNF168	DNA damage sensing
+CHEK1	Checkpoint signalling
+CHEK2	Checkpoint signalling
+TP53	Checkpoint signalling
+CDKN1A	Checkpoint signalling
+MDM2	Checkpoint signalling
+GADD45A	Checkpoint signalling
+BRCA1	Homologous recombination
+BRCA2	Homologous recombination
+RAD51	Homologous recombination
+RAD51C	Homologous recombination
+RAD51D	Homologous recombination
+PALB2	Homologous recombination
+BARD1	Homologous recombination
+RAD52	Homologous recombination
+RAD54L	Homologous recombination
+XRCC2	Homologous recombination
+XRCC3	Homologous recombination
+BRIP1	Homologous recombination
+EXO1	Homologous recombination
+PARP1	PARP / single-strand break repair
+PARP2	PARP / single-strand break repair
+PARP3	PARP / single-strand break repair
+XRCC1	PARP / single-strand break repair
+LIG3	PARP / single-strand break repair
+POLB	PARP / single-strand break repair
+PNKP	PARP / single-strand break repair
+APTX	PARP / single-strand break repair
+TDP1	PARP / single-strand break repair
+MLH1	Mismatch repair
+MSH2	Mismatch repair
+MSH3	Mismatch repair
+MSH6	Mismatch repair
+PMS2	Mismatch repair
+PMS1	Mismatch repair
+OGG1	Base excision repair
+MUTYH	Base excision repair
+NTHL1	Base excision repair
+NEIL1	Base excision repair
+NEIL2	Base excision repair
+UNG	Base excision repair
+APEX1	Base excision repair
+APEX2	Base excision repair
+FEN1	Base excision repair
+ERCC1	Nucleotide excision repair
+ERCC2	Nucleotide excision repair
+ERCC3	Nucleotide excision repair
+ERCC4	Nucleotide excision repair
+ERCC5	Nucleotide excision repair
+ERCC6	Nucleotide excision repair
+XPA	Nucleotide excision repair
+XPC	Nucleotide excision repair
+DDB2	Nucleotide excision repair
+XRCC5	Non-homologous end joining
+XRCC6	Non-homologous end joining
+PRKDC	Non-homologous end joining
+LIG4	Non-homologous end joining
+XRCC4	Non-homologous end joining
+NHEJ1	Non-homologous end joining
+DCLRE1C	Non-homologous end joining
+RPA1	Replication stress
+RPA2	Replication stress
+RPA3	Replication stress
+WEE1	Replication stress
+CLSPN	Replication stress
+TOPBP1	Replication stress
+TIMELESS	Replication stress
+ETAA1	Replication stress
+FANCA	Fanconi anaemia
+FANCD2	Fanconi anaemia
+FANCI	Fanconi anaemia
+FANCM	Fanconi anaemia
+SOD1	Oxidative stress defence
+SOD2	Oxidative stress defence
+CAT	Oxidative stress defence
+GPX1	Oxidative stress defence
+GPX2	Oxidative stress defence
+NFE2L2	Oxidative stress defence
+HMOX1	Oxidative stress defence
+NOS2	Oxidative stress (ROS/RNS generation)
+NOX1	Oxidative stress (ROS/RNS generation)
+DUOX2	Oxidative stress (ROS/RNS generation)
+DUOXA2	Oxidative stress (ROS/RNS generation)
